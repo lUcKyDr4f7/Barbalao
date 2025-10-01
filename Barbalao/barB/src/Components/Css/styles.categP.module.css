@@ -1,4 +1,4 @@
-:global(.titleCateg){
+.titleCateg{
    font-size: 2.75rem;
    font-weight: 700;
    color: rgb(255, 255, 75);
@@ -7,26 +7,18 @@
    margin-bottom: 40px;
 }
 
-:global(.swiper-slide){
+.swiperSlide{
    display: flex;
    flex-direction: column;
 }
-:global(.swiper-wrapper){
-   display: flex;
-}
-:global(.brands h3){
-   color: hsl(59, 100%, 62%);
-   font-size: 1.97rem;
-   font-weight: 700;
-   margin-bottom: 80px;
-}
-:global(.brandsSwiper){
+
+.brandsSwiper{
    position: relative;
    width: 100%;
    height: 200px;
    padding: 20px 0px;
 }
-:global(.brandsSwiper .swiper-slide){
+.brandsSwiper .swiperSlide{
    width: 200px;
    height: 100%;
    display: flex;
@@ -35,21 +27,20 @@
    align-items: center;
    border-radius: 10px;
    padding: 0 20px;
-
    background: linear-gradient(120deg,hsla(189, 55%, 74%, 0.15), hsla(78, 55%, 74%, 0.05));
 }
-:global(.brandsSwiper .swiper-slide.avaliable){
+.brandsSwiper .swiperSlide.avaliable{
    margin: 0 14px;
 }
-:global(.brandsSwiper .swiper-slide.avaliable.start){
+.brandsSwiper .swiperSlide.avaliable.start{
    margin: 0;
    margin-right: 15px;
 }
-:global(.brandsSwiper .swiper-slide.avaliable.end){
+.brandsSwiper .swiperSlide.avaliable.end{
    margin: 0;
    margin-left: 15px;
 }
-:global(.brandsSwiper .swiper-slide .coming-soon){
+.brandsSwiper .swiperSlide .coming-soon{
    position: absolute;
    top: 10px;
    left: 10px;
@@ -57,7 +48,7 @@
    background: rgba(0,0,0,0.2);
    border-radius: 10px;
 }
-:global(.brandsSwiper .swiper-slide .coming-soon h5){
+.brandsSwiper .swiperSlide .coming-soon h5{
    font-size: 1.1rem;
    font-weight: 600;
    color: hsl(217 85% 74%);
@@ -65,7 +56,7 @@
    text-transform: uppercase;
    letter-spacing: -1px;
 }
-:global(.brandsSwiper .swiper-slide img){
+.brandsSwiper .swiperSlide img{
    width: 100px;
    height: 100%;
    max-height: 100%;
@@ -74,13 +65,13 @@
    transition: all 0.3s ease;
    margin-bottom: -10px;
 }
-:global(.brandsSwiper .swiper-slide h2){
+.brandsSwiper .swiperSlide h2{
     transition: all 0.3s ease; } 
-:global(.brandsSwiper .swiper-slide.avaliable:hover h2){
+.brandsSwiper .swiperSlide.avaliable:hover h2{
        filter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(213%) contrast(90%); 
        cursor: pointer; 
 } 
-:global(.brandsSwiper .swiper-slide.avaliable:hover img){
+.brandsSwiper .swiperSlide.avaliable:hover img{
    filter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(103%) contrast(92%);
    cursor: pointer; 
 } 
