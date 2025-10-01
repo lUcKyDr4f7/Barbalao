@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.barb{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.75em;
+  color: #ffe600;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+  margin-left: 20px;
+  text-shadow:
+    -2px -2px 0 #0069cc,
+     2px -2px 0 #0069cc,
+    -2px  2px 0 #0069cc,
+     2px  2px 0 #0069cc;
+}
+a.barb{
+  font-weight: 500;
+  text-decoration: inherit;
+}
+a.barb:hover {
+  color: #e6cf00;
+  text-shadow:
+    -2px -2px 0 #004f99,
+     2px -2px 0 #004f99,
+    -2px  2px 0 #004f99,
+     2px  2px 0 #004f99;
+}
+.logo{
+  width: 90px;
+  margin-left: -10px;
+}
+
+.headerBtns{
+  margin-left: calc(90% - 600px);
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 25px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+.inner{
+  display: flex;
+  gap: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1.1em;
+}
+.headerMenu{
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+.earthTenisHeader{
+  padding: 20px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgb(93, 190, 255);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.menu{
+  text-decoration: none;
+  font-size: 1.15em;
+  color: #ffe600;
+  font-family: "Poppins", sans-serif;
+}
+a.menu{
+  text-decoration: inherit;
+}
+a.menu:hover {
+  color: #e6cf00;
+}

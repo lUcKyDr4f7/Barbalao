@@ -1,0 +1,47 @@
+
+.customLegend {
+  background-color: transparent !important;
+  color: #fff !important;
+  font-size: 2.30rem !important;
+  padding: 10px !important;
+  border-radius: 0!important;
+  opacity: 1 !important;
+  bottom: 33% !important; 
+  text-shadow: #000000a1 0 0 6px; 
+  user-select: none;        
+  -webkit-user-select: none; 
+  -moz-user-select: none;    
+  -ms-user-select: none;     
+}
+.customTitle {
+  background-color: transparent !important;
+  color: #fff !important;
+  font-size: 4.5rem !important;
+  padding: 10px !important;
+  border-radius: 0!important;
+  opacity: 1 !important;
+  bottom: 40% !important;
+  text-shadow: #0000007a 0 0 6px; 
+  user-select: none;        
+  -webkit-user-select: none; 
+  -moz-user-select: none;    
+  -ms-user-select: none;     
+}
+:global(.carousel .slide img) {
+  height: 70vh;   /* 60% da altura da tela */
+  object-fit: cover;
+  width: 100%;
+}
+:global(.carousel) {
+  border-radius: 15px;
+}
+:global(.carousel .control-arrow) {
+  width: 40px;
+  justify-content: center;
+}
+:global(.carousel .control-next) {
+  border-radius: 0 15px 15px 0;
+}
+:global(.carousel .control-prev) {
+  border-radius: 15px 0 0 15px;
+}

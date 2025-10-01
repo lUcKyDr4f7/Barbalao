@@ -1,0 +1,97 @@
+:global(.titleCateg){
+   font-size: 2.75rem;
+   font-weight: 700;
+   color: rgb(255, 255, 75);
+   text-align: center;
+   margin-top: 160px;
+   margin-bottom: 40px;
+}
+
+:global(.swiper-slide){
+   display: flex;
+   flex-direction: column;
+}
+:global(.swiper-wrapper){
+   display: flex;
+}
+:global(.brands h3){
+   color: hsl(59, 100%, 62%);
+   font-size: 1.97rem;
+   font-weight: 700;
+   margin-bottom: 80px;
+}
+:global(.brandsSwiper){
+   position: relative;
+   width: 100%;
+   height: 200px;
+   padding: 20px 0px;
+}
+:global(.brandsSwiper .swiper-slide){
+   width: 200px;
+   height: 100%;
+   display: flex;
+   text-align: center;
+   justify-content: center;
+   align-items: center;
+   border-radius: 10px;
+   padding: 0 20px;
+
+   background: linear-gradient(120deg,hsla(189, 55%, 74%, 0.15), hsla(78, 55%, 74%, 0.05));
+}
+:global(.brandsSwiper .swiper-slide.avaliable){
+   margin: 0 14px;
+}
+:global(.brandsSwiper .swiper-slide.avaliable.start){
+   margin: 0;
+   margin-right: 15px;
+}
+:global(.brandsSwiper .swiper-slide.avaliable.end){
+   margin: 0;
+   margin-left: 15px;
+}
+:global(.brandsSwiper .swiper-slide .coming-soon){
+   position: absolute;
+   top: 10px;
+   left: 10px;
+   padding: 10px;
+   background: rgba(0,0,0,0.2);
+   border-radius: 10px;
+}
+:global(.brandsSwiper .swiper-slide .coming-soon h5){
+   font-size: 1.1rem;
+   font-weight: 600;
+   color: hsl(217 85% 74%);
+   text-align: start;
+   text-transform: uppercase;
+   letter-spacing: -1px;
+}
+:global(.brandsSwiper .swiper-slide img){
+   width: 100px;
+   height: 100%;
+   max-height: 100%;
+   object-fit: contain;
+   filter: invert(100%);
+   transition: all 0.3s ease;
+   margin-bottom: -10px;
+}
+:global(.brandsSwiper .swiper-slide h2){
+    transition: all 0.3s ease; } 
+:global(.brandsSwiper .swiper-slide.avaliable:hover h2){
+       filter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(213%) contrast(90%); 
+       cursor: pointer; 
+} 
+:global(.brandsSwiper .swiper-slide.avaliable:hover img){
+   filter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(103%) contrast(92%);
+   cursor: pointer; 
+} 
+:global(.brandsSwiper .swiper-button-next:after, .brandsSwiper .swiper-button-prev:after, .inspirationsSwiper .swiper-button-next:after, .inspirationsSwiper .swiper-button-prev:after){
+   display: none; 
+} 
+:global(.brandsSwiper .swiper-button-next i, .brandsSwiper .swiper-button-prev i, .inspirationsSwiper .swiper-button-next i, .inspirationsSwiper .swiper-button-prev i){ 
+   color: hsl(217 85% 74%); 
+   font-size: 4.5rem; 
+   transition: .3s ease; 
+} 
+:global(.brandsSwiper .swiper-button-next i:hover, .brandsSwiper .swiper-button-prev i:hover, .inspirationsSwiper .swiper-button-next i:hover, .inspirationsSwiper .swiper-button-prev i:hover){
+   color: hsl(217 85% 67%);
+}
