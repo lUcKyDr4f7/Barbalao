@@ -11,7 +11,6 @@ export default function BannerS(){
     return(
         <>
         <div style={{ width: "100%", margin: "0 auto" }}>
-            <h2>Carrossel com Carousel.js</h2>
             <Carousel className={styles.carrousel} showArrows={true} showThumbs={false} showStatus={false} infiniteLoop={true} autoPlay={true} interval={3000} swipeable={true}>
                 <div>
                     <img src={img1} alt="Slide 1" />
@@ -35,4 +34,5 @@ export default function BannerS(){
         
         </>
     )
+
 }
