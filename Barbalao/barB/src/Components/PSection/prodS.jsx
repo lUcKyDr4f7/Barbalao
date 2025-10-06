@@ -2,7 +2,7 @@ import '../Css/styles.categP.module.css'
 import 'swiper/css';
 import 'swiper/css/navigation';
 import styles from '../Css/styles.pcard_S.module.css'
-import Hamburgao from '../../assets/popular-imgs/hamburgao.png'
+import Hamburgao from '../../assets/popular-imgs/Hamburgao.png'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 export default function prodS(){
@@ -68,4 +68,5 @@ export default function prodS(){
             </div>
         </>
     )
+
 }
