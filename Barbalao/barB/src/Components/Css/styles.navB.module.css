@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 .barb{
   display: flex;
   align-items: center;
@@ -29,32 +28,35 @@ a.barb:hover {
      2px  2px 0 #004f99;
 }
 .logo{
-  width: 90px;
+  width: 120px;
   margin-left: -10px;
 }
 
 .headerBtns{
-  margin-left: calc(90% - 600px);
   display: flex;
   align-items: center;
-  justify-items: center;
-  gap: 25px;
+  gap: 20px;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 1.1em;
 }
 
-.inner{
+.inner {
   display: flex;
-  gap: 20px;
+  justify-content: space-between; 
+  align-items: center;
+  width: 97%;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 1.1em;
 }
 .headerMenu{
   display: flex;
-  gap: 20px;
+  align-items: center;
   list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
 }
 .earthTenisHeader{
   padding: 20px 20px;
@@ -62,7 +64,7 @@ a.barb:hover {
   width: 100%;
   top: 0;
   left: 0;
-  background-color: rgb(93, 190, 255);
+  background-color: #054a8f;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   z-index: 1000;

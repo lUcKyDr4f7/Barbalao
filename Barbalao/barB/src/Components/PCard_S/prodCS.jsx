@@ -1,23 +1,30 @@
+import styles from '../Css/styles.pcard_S.module.css'
+import Hamburgao from '../../assets/popular-imgs/hamburgao.png'
 export default function ProdCS(){
     return(
         <>
-            <div class="card-with-modal air-jordan">
-                <div class="product-card">
-                    <div class="product-img"><img src="assets/imgs/products-imgs/air-jordan-4-oxidized-green-1.png" alt=""/></div>
-                    <div class="product-info">
-                        <h4 class="info">Air Jordan 4 Oxidized Green</h4>
-                        <ul class="product-stars info"></ul>
-                        <div class="product-options info">
-                            <div class="option info"><p>Branco / Verde</p></div>
-                            <div class="option info"><p><span>9</span> Tamanhos</p></div>
+            <div className={`${styles.cardWithModal} ${styles.airJordan}`}>
+                <div className={styles.productCard}>
+                    <div className={styles.productImg}>
+                        <img src={Hamburgao} alt="" />
+                    </div>
+                    <div className={styles.productInfo}>
+                        <h4 className={styles.info}>Air Jordan 4 Oxidized Green</h4>
+                        <ul className={`${styles.productStars} ${styles.info}`}></ul>
+                        <div className={`${styles.productOptions} ${styles.info}`}>
+                            <div className={`${styles.option} ${styles.info}`}>
+                                <p>Branco / Verde</p>
+                            </div>
+                            <div className={`${styles.option} ${styles.info}`}>
+                                <p><span>9</span> Tamanhos</p>
+                            </div>
                         </div>
-                        <h5 class="normal-price info"><s>R$ 1399,99</s></h5>
-                        <h4 class="price-with-descount info"></h4>
-                        <i class="ri-shopping-cart-2-fill shop-icon"></i>
+                        <h5 className={`${styles.normalPrice} ${styles.info}`}><s>R$ 1399,99</s></h5>
+                        <h4 className={`${styles.priceWithDescount} ${styles.info}`}>R$ 500,00</h4>
+                        <i className={`ri-shopping-cart-2-fill ${styles.shopIcon}`}></i>
                     </div>
                 </div>
             </div>
-        
         </>
     )
 }
