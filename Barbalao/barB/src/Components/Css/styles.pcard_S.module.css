@@ -11,7 +11,7 @@
 .productCard {
    position: relative;
    background: linear-gradient(120deg, rgba(163, 178, 207, 0.15), rgba(163, 178, 207, 0.05));
-   width: 260px;
+   width: 230px;
    border-radius: 10px;
    cursor: pointer;
    overflow: hidden;
@@ -37,7 +37,7 @@
 
 .productCard .productImg {
    width: 100%;
-   height: 230px;
+   height: 200px;
    justify-content: center;
    align-items: center;
    background: rgba(0,0,0,0.1);
@@ -117,4 +117,59 @@
 }
 .productCard:hover .productImg img {
    transform: scale(1.03);
+}
+.swiperSlide{
+   display: flex;
+   flex-direction: column;
+}
+
+.brandsSwiper{
+   position: relative;
+   width: 100%;
+   padding: 20px 0px;
+}
+.brandsSwiper .swiperSlide{
+   width: 233px !important;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   border-radius: 10px;
+}
+.brandsSwiper .cardWithModal{
+   width:50px;
+}
+.swiperSlide{
+   display: flex;
+   flex-direction: column;
+}
+.brandsSwiper .swiperSlide.avaliable{
+   margin: 0 11px;
+   user-select: none;        
+   -webkit-user-select: none; 
+   -moz-user-select: none;    
+   -ms-user-select: none;     
+}
+.brandsSwiper .swiperSlide.avaliable.start{
+   margin: 0;
+   margin-right: 14px;
+}
+.brandsSwiper .swiperSlide.avaliable.end{
+   margin: 0;
+   margin-left: 14px;
+}
+.brandsSwiper .swiperSlide .coming-soon{
+   position: absolute;
+   top: 10px;
+   left: 10px;
+   padding: 10px;
+   background: rgba(0,0,0,0.2);
+   border-radius: 10px;
+}
+.brandsSwiper .swiperSlide .coming-soon h5{
+   font-size: 1.1rem;
+   font-weight: 600;
+   color: hsl(217 85% 74%);
+   text-align: start;
+   text-transform: uppercase;
+   letter-spacing: -1px;
 }
