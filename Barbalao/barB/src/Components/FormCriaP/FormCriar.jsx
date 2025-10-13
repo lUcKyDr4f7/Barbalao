@@ -58,7 +58,7 @@ export default function FormCriar({onClic, submit}) {
             </div>
 
             <a href="#home" onClick={onClic}><button>Voltar</button></a>
-            <button onClick={localStorage.clear()}>Limpar Produtos</button>
+            <button onClick={()=> localStorage.clear()}>Limpar Produtos</button>
         </>
     )
 }
