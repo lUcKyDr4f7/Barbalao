@@ -1,8 +1,9 @@
 import styles from '../Css/styles.navB.module.css';
 import logo from '../../assets/BarB.png';
 
-export default function NavB() {
-    
+export default function NavB({onClica}) {
+
+
     return (
         <>
          {/*<!--========== Header ==========-->*/}
@@ -16,6 +17,8 @@ export default function NavB() {
                             <ul class="header-menu" className={styles.headerMenu}>
                                 <li class="menu-item"><a className={styles.menu}href="#home">Início</a></li>
                                 <li class="menu-item"><a className={styles.menu}href="#about-us">Sobre Nós</a></li>
+                                {/* Acessotemporario ao formulario de ccriação de produto */}
+                                <li class="menu-item"><a className={styles.menu}href="#Formulario" onClick={onClica}>FORM</a></li>
                             </ul>
                             <div className={styles.themeBtn}>
                                 <i class="ri-sun-fill sun-icon"></i>
