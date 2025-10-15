@@ -1,0 +1,36 @@
+.formCont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background-color:  #02073198;
+    border: 3px solid rgb(22, 25, 56);
+    padding: 30px;
+    min-width: 35vw;
+    max-width: 45vw;
+    min-height: 50vh;
+    text-align: center;
+    gap: 5px;
+    margin: 0 auto;
+    transform: translate(-50% -50%);
+}
+
+.formTitle {
+    font-size: 3.5rem;
+    font-family: 'Poppins', serif;
+}
+
+.inputs {
+    width: 45%;
+    height: 25px;
+    border-radius: 12px;
+    border: none;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.formBtn {
+    width: 45%;
+    cursor: pointer;
+}
