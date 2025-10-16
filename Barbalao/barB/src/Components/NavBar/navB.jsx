@@ -12,7 +12,7 @@ export default function NavB() {
                 <div className="stylesearth-tenis-container">
                     <div className={styles.inner}>
                         <div className={styles.barBalaoLogo}>
-                            <a className={styles.barb} href="#home"><img className={styles.logo} src={logo}/></a>
+                            <a className={styles.barb} href="/"><img className={styles.logo} src={logo}/></a>
                         </div>
                         <div className={styles.headerBtns}>
                             <ul class="header-menu" className={styles.headerMenu}>
