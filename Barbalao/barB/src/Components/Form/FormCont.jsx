@@ -5,7 +5,8 @@ import axios from "axios";
 
 export default function Container(){
     const [formValues, setFormValues] = useState(["", ""]);
-
+    const [btnLink, setBtnLink] = useState("")
+    
     function handleInputChange (index, value){
         const newValues = [...formValues];
         newValues[index] = value;
@@ -21,8 +22,10 @@ export default function Container(){
                 senha: formValues[1]
             })
 
+            setBtnLink(data.route)
             console.log("Resposta do servidor: ", response.data)
         } catch (error){
+            setBtnLink(data.route)
             console.log("Erro ao buscar dados: ", error)
         }
 
@@ -43,7 +46,8 @@ export default function Container(){
                         title="Login" 
                         btn="Logar" 
                         types={["text", "password"]} 
-                        placeholders={["Nome", "Senha"]} 
+                        placeholders={["Nome", "Senha"]}
+                        btnlink={btnLink}
                         aLink='/'
                         values={formValues}
                         onInputChange={handleInputChange}
