@@ -1,4 +1,4 @@
-import hamburgao from '../popular-imgs/Hamburgao.png'
+import hamburgao from '../popular-imgs/hamburgao.png'
 
 export const Products = [
     {
