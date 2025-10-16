@@ -29,7 +29,7 @@ export default function Form( props ){
                 
                 {inputList}
 
-                <button className={styles.formBtn} 
+                <button href={props.btnlink} className={styles.formBtn} 
                         type="button"
                         onClick={ props.click }>
                         { props.btn }
