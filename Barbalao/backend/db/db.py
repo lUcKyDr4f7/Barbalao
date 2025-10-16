@@ -1,21 +1,23 @@
-import pyodbc
+import sqlite3
 
 try:
-    conexao = pyodbc.connect(
-        'Driver={ODBC Driver 17 for SQL Server};'
-        'Server=127.0.0.1;'
-        'Database=barbalao;'
-        'Trusted_Connection=yes;'
-    )
+    conn = sqlite3.connect('barbalao.db')
 
-    cur = conexao.cursor()
+    cursor = conn.cursor()
+    cursor.execute('''
+                        CREATE TABLE IF NOT EXISTS users(
+                        iduser INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                        nome TEXT NOT NULL UNIQUE,
+                        senha TEXT NOT NULL
+                   );
+                    ''')
+    
+    cursor.execute('''
+                        INSERT INTO users(nome, senha)
+                        VALUES(?, ?);
+                  ''', ('Eduardo', 'Sete45082526'))
+    conn.commit()
+    conn.close()
 
-
-
-
-
-    conexao.commit()
-    conexao.close()
-
-except pyodbc.Error as e: 
+except sqlite3.Error as e: 
     print(f"Erro não legal: {e}")
