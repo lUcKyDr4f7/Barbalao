@@ -16,6 +16,18 @@ try:
                         INSERT INTO users(nome, senha)
                         VALUES(?, ?);
                   ''', ('Eduardo', 'Sete45082526'))
+
+    cursor.execute(
+        '''
+            CREATE TABLE IF NOT EXISTS products(
+                idprod  INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                image   TEXT,
+                name    TEXT NOT NULL,
+                price   REAL NOT NULL
+            );
+        '''
+    )
+    
     conn.commit()
     conn.close()
 
