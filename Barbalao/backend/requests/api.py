@@ -36,7 +36,7 @@ def api_server():
             cursor.execute('SELECT * FROM users WHERE nome = ?', (nome,))
             usuario = cursor.fetchone()
 
-            conn.close
+            conn.close()
         
             if usuario != None:
                 if usuario[2] == senha:
@@ -56,7 +56,7 @@ def api_server():
              print(f"Erro usuário não encontrado: {e}")        
         return jsonify({"route": "/login", "status": 500})
 
-@app.route('/api/produtcs', methods=['POST'])
+@app.route('/api/products', methods=['POST'])
 def create_product():
     try:
         data = request.get_json()
@@ -81,7 +81,6 @@ def create_product():
             ''', (name, price, image))
         
         conn.commit()
-
         new_id = cursor.lastrowid
 
         conn.close()
@@ -98,7 +97,7 @@ def list_products():
     try:
         conn = get_conn()
         cursor = conn.cursor()
-        cursor.execute('''SELECT idprod, image, name, price''')
+        cursor.execute('''SELECT idprod, image, name, price FROM products''')
         rows = cursor.fetchall()
 
         conn.close()
@@ -110,6 +109,25 @@ def list_products():
     except TypeError as e:
         print(f"Erro ao criar produto: {e}")
     return jsonify({"message": "Erro Interno"}), 500
+
+@app.route('/api/products/remove/<int:product_id>', methods=['POST'])
+def remove_product(product_id):
+    try:
+        conn = get_conn()
+        cursor = conn.cursor()
+        cursor.execute('DELETE FROM products WHERE idprod = ?', (product_id,))
+        conn.commit()
+        conn.close()
+
+        if cursor.rowcount == 0:
+            return jsonify({"message": "Produto não encontrado"}), 404
+
+        return jsonify({"message": "Produto removido com sucesso"}), 200
+
+    except Exception as e:
+        print(f"Erro ao remover produto: {e}")
+        return jsonify({"message": "Erro interno"}), 500
+
 
 if __name__ == '__main__':
     app.run(port=3001)

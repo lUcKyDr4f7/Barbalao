@@ -54,8 +54,8 @@ export default function FormCriar({onClic, submit}) {
 
     return(
         <>
-            <div className={``} onSubmit={handleSub}>
-                <form action="">
+            <div className={``} >
+                <form action="" onSubmit={handleSub}>
                     <label htmlFor="nome">Nome: </label>
                     <input type="text" name="nome" id="nome" required/>
 
@@ -70,7 +70,7 @@ export default function FormCriar({onClic, submit}) {
             </div>
 
             <a href="/" onClick={onClic}><button>Voltar</button></a>
-            <button onClick={()=> localStorage.clear()}>Limpar Produtos</button>
+            
         </>
     )
 }

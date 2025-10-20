@@ -8,12 +8,12 @@ import { useState, useEffect } from 'react'
 export default function Home() {
   const [produtos, setProdutos] = useState([])
 
-  useEffect(() =>
+  const carregarProdutos = () =>
   {
     fetch('http://localhost:3001/api/products')
       .then((res) => {
         if(!res.ok) {
-          throw new Error('Erro não legal')
+          throw new Error('Erro não legal Criar')
         }
         return res.json() 
       })
@@ -21,6 +21,15 @@ export default function Home() {
       {
         setProdutos(json)
       })
+  }
+
+  const removerProduto = (id) => {
+    setProdutos(produtos.filter(p => p.idprod != id))
+  }
+
+  
+  useEffect(() => {
+    carregarProdutos()
   }, [])
 
   return (
@@ -29,7 +38,7 @@ export default function Home() {
       <section className='main'>
       <CategP/>
       <BannerS/>
-      <PSection produtos={produtos}/>
+      <PSection produtos={produtos} onDelete={removerProduto}/>
       </section>
     
     </>

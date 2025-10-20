@@ -6,7 +6,27 @@ import Hamburgao from '../../assets/popular-imgs/hamburgao.png'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 
-export default function prodS({produtos}){
+export default function prodS({produtos, onDelete}){
+    const deletarProdutos = (id) =>
+      {
+        fetch(`http://localhost:3001/api/products/remove/${id}`, {
+          method: 'POST'
+        })
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error('Erro não legal Deletar')
+            }
+            return res.json()
+          })
+          .then((json) => {
+            alert(json.message)
+            onDelete(id)
+          })
+          .catch((err) => {
+            alert(err.message)
+          })
+      }
+    
     return(
         <>
             <div style={{ width: "100%", margin: "0 auto" }}>
@@ -19,10 +39,10 @@ export default function prodS({produtos}){
                                 <div className={`${styles.cardWithModal} ${styles.airJordan}`}>
                                     <div className={styles.productCard}>
                                         <div className={styles.productImg}>
-                                            <img src={produto.imagem} alt="" />
+                                            <img src={produto.image} alt="" />
                                         </div>
                                         <div className={styles.productInfo}>
-                                            <h4 className={styles.info}>{produto.nome}</h4>
+                                            <h4 className={styles.info}>{produto.name}</h4>
                                             <ul className={`${styles.productStars} ${styles.info}`}></ul>
                                             <div className={`${styles.productOptions} ${styles.info}`}>
                                                 <div className={`${styles.option} ${styles.info}`}>
@@ -32,9 +52,17 @@ export default function prodS({produtos}){
                                                     <p><span>9</span> Tamanhos</p>
                                                 </div>
                                             </div>
-                                            <h5 className={`${styles.normalPrice} ${styles.info}`}><s>{produto.preco}</s></h5>
+                                            <h5 className={`${styles.normalPrice} ${styles.info}`}><s>{produto.price}</s></h5>
                                             <h4 className={`${styles.priceWithDescount} ${styles.info}`}>R$ 500,00</h4>
                                             <i className={`ri-shopping-cart-2-fill ${styles.shopIcon}`}></i>
+                                            <button style={{
+                                                width: "5%",
+                                                height: "2%",
+                                                backgroundColor: "blue",
+                                                alignContent: "center"
+                                            }}
+                                            onClick={() => deletarProdutos(produto.idprod)}>X</button>
+                                            
                                         </div>
                                     </div>
                                 </div>
