@@ -1,4 +1,7 @@
-export default function FormCriar({onClic, submit}) {
+import styles from '../Css/styles.formCriar.module.css'
+
+export default function FormCriar({onClic}) {
+
 
     const handleSub = (e) => {
         e.preventDefault()
@@ -54,22 +57,30 @@ export default function FormCriar({onClic, submit}) {
 
     return(
         <>
-            <div className={``} >
-                <form action="" onSubmit={handleSub}>
-                    <label htmlFor="nome">Nome: </label>
-                    <input type="text" name="nome" id="nome" required/>
+            <div className={styles.formContainer}>
+                <h1>Criar Produto</h1>
+                <form className={styles.form} onSubmit={handleSub}>
+                    <label className={styles.label} htmlFor="nome">Nome:</label>
+                    <input className={styles.input} type="text" name="nome" id="nome" required />
 
-                    <label htmlFor="preco">Preco: </label>
-                    <input type="number" name="preco" id="preco" min={1.0}/>
+                    <label className={styles.label} htmlFor="preco">Preço:</label>
+                    <input className={styles.input} type="number" name="preco" id="preco" min={1.0} />
 
-                    <label htmlFor="imagem">Imagem: </label>
-                    <input type="file" name="imagem" id="imagem" accept="image/*" required/>
+                    <label className={styles.label} htmlFor="imagem">Imagem:</label>
+                    <input className={styles.inputFile} 
+                        type="file" 
+                        name="imagem" 
+                        id="imagem" 
+                        accept="image/*" 
+                        required/>
 
-                    <button type="submit">Criar</button>
+                    <button className={styles.submitButton} type="submit">Criar</button>
                 </form>
+                <a href="/" onClick={onClic}>
+                    <button className={styles.backButton}>Voltar</button>
+                </a>
             </div>
-
-            <a href="/" onClick={onClic}><button>Voltar</button></a>
+            
             
         </>
     )

@@ -52,16 +52,9 @@ export default function prodS({produtos, onDelete}){
                                                     <p><span>9</span> Tamanhos</p>
                                                 </div>
                                             </div>
-                                            <h5 className={`${styles.normalPrice} ${styles.info}`}><s>{produto.price}</s></h5>
-                                            <h4 className={`${styles.priceWithDescount} ${styles.info}`}>R$ 500,00</h4>
+                                            <h4 className={`${styles.priceWithDescount} ${styles.info}`}>{produto.price}</h4>
                                             <i className={`ri-shopping-cart-2-fill ${styles.shopIcon}`}></i>
-                                            <button style={{
-                                                width: "5%",
-                                                height: "2%",
-                                                backgroundColor: "blue",
-                                                alignContent: "center"
-                                            }}
-                                            onClick={() => deletarProdutos(produto.idprod)}>X</button>
+                                            <button onClick={() => deletarProdutos(produto.idprod)}>X</button>
                                             
                                         </div>
                                     </div>
