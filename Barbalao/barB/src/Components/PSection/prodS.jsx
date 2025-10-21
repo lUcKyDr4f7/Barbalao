@@ -2,16 +2,32 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import styles from '../Css/styles.pcard_S.module.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useState, useEffect } from 'react';
 import { Navigation } from 'swiper/modules';
 import { Products } from '../../assets/Data/Products.js'
-import prodC from '../PCard/prodC.jsx';
+import ProdC from '../PCard/prodC.jsx';
 export default function prodS(){
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    useEffect(() => {
+        if (selectedProduct != null) {
+            const scrollY = window.scrollY;
+            document.body.style.top = `-${scrollY}px`;
+            document.body.classList.add('lock-scroll');
+        } else {
+            const top = document.body.style.top;
+            document.body.classList.remove('lock-scroll');
+            document.body.style.top = '';
+            const y = top ? parseInt(top) * -1 : 0;
+            window.scrollTo(0, y);
+        }
+    }, [selectedProduct]);
     return(
+            <>
             <div style={{ width: "100%", margin: "0 auto" }}>
                 <h2>Carrossel com Carousel.js</h2>
                 <Swiper className={styles.brandsSwiper} slidesPerView={5} spaceBetween={22} allowTouchMove={false} navigation={Products.length > 5} modules={[Navigation]} swipeable={true} slidesOffsetBefore={15} slidesOffsetAfter={10} onSlideChange={() => {console.log('slide change')}} onSwiper={(swiper) => {console.log(swiper)}}>
                     {Products.map((product) => (    
-                    <SwiperSlide onClick={() => {}} key={product.id} className={`${styles.swiperSlide} ${styles.avaliable}`} >
+                    <SwiperSlide onClick={() => setSelectedProduct(product)} key={product.id} className={`${styles.swiperSlide} ${styles.avaliable}`} >
                         <div className={`${styles.cardWithModal} ${styles.airJordan}`} >
                             <div className={styles.productCard}>
                                 <div className={styles.productImg}>
@@ -41,5 +57,16 @@ export default function prodS(){
                     ))}
                 </Swiper>
             </div>
+            
+            {selectedProduct && (
+            <ProdC 
+                name={selectedProduct.name} 
+                price={selectedProduct.valueWithD} 
+                img={selectedProduct.image}
+                setState = {setSelectedProduct}
+                state = {selectedProduct}
+            />
+            )}
+            </>
     )
 }
