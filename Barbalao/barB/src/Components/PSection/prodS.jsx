@@ -59,13 +59,7 @@ export default function prodS(){
             </div>
             
             {selectedProduct && (
-            <ProdC 
-                name={selectedProduct.name} 
-                price={selectedProduct.valueWithD} 
-                img={selectedProduct.image}
-                setState = {setSelectedProduct}
-                state = {selectedProduct}
-            />
+            <ProdC name={selectedProduct.name} price={selectedProduct.valueWithD} img={selectedProduct.image} setState = {setSelectedProduct} state = {selectedProduct}/>
             )}
             </>
     )
