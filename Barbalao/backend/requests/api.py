@@ -5,7 +5,7 @@ import os
 
 
 app = Flask(__name__)
-CORS(app) 
+CORS(app, origins="http://localhost:5173") 
 
 # função para abrir e fechar a conexão com o banco, ao inves de ficar aberto toda hora tava dando DB is locked
 def get_conn():
