@@ -12,7 +12,7 @@ export default function Cart(props) {
          props.setIsCartOpen(false);
          setIsClosing(false);
       }, 400)
-      localStorage.setItem("theme", localStorage.getItem("theme").replace(' cartOpen', ''));
+      localStorage.setItem("theme", localStorage.getItem("theme").replaceAll(' cartOpen', ''));
    }
 
    const [cartItems, setCartItems] = useState([[1, "Hambúrguer", 0], [2, "Coca-Cola", 1], [3, "Água1", 2], [3, "Água2", 3], [3, "Água3", 4], [3, "Água4", 5], [3, "Água5", 6], [3, "Água6", 7]]);

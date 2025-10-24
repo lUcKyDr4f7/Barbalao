@@ -6,21 +6,43 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   width: 24vw;
-  height: 10vh;
+  height: 8vh;
   background: var(--categBgColor);
   border-radius: 1vh;
   margin: 1vh 0.3vw 1vh;
+  padding: 1vh;
 }
 
 .cartItem img {
-  width: 4vw;
+  width: 8vh;
 }
 
 .cartItem .itemAmount {
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 8vh;
-  width: 4vw;
+  height: 5vh;
+  width: 7vw;
+  border-radius: 2vh;
+}
+.cartItem hr {
+  height: 4vh;
+}
+.cartItem h3 {
+  height: 4vh;
+  margin: 0 .2vw 0 .2vw;
+}
+.cartItem button {
+  color: white;
+  height: 3vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5vh;
+  border-radius: 2vh;
+}
+.cartItem button:hover {
+  color: gainsboro;
 }

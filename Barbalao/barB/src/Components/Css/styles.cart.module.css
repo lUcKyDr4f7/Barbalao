@@ -44,7 +44,7 @@
 }
 
 @keyframes cartTitleClosing {
-  from {margin-left: 0;}
+  from {margin-left: -1vw;}
   to {margin-left: 13vw;}
 }
 .closingCart li {
@@ -55,6 +55,7 @@
   display: flex;
   align-items: center;
   gap: 25px;
+  margin-left: -1vw;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 1.4em;
@@ -100,10 +101,10 @@
 
 @keyframes cartButtonOpening {
   from {margin-left: 20vw;}
-  to {margin-left: 0;}
+  to {margin-left: -1vw;}
 }
 @keyframes cartButtonClosing {
-  from {margin-left: 0;}
+  from {margin-left: -1vw;}
   to {margin-left: 20vw;}
 }
 .cart .whatsappBtn {
@@ -112,13 +113,14 @@
   background-color: green;
   animation-name: cartButtonOpening;
   animation-duration: .5s;
+  margin: 1vh 0 0 -1vw;
 }
 .closingCart .whatsappBtn {
   width: 20vw;
-  color: white;
   background-color: green;
   animation-name: cartButtonClosing;
   animation-duration: .5s;
+  margin-top: 1vh;
 }
 
 @keyframes outsideCartOpening {

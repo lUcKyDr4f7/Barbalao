@@ -147,4 +147,5 @@ button {
 }
 .cartOpen {
   --scrollbarTrack: #125492;
+  overflow-y: hidden;
 }
