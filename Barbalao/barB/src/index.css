@@ -20,16 +20,6 @@
   outline: none;
 }
 
-/* a {
-  font-weight: 500;
-  color: #646cff;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-} */
-
 body {
   background-color: var(--bodyBgColor);
   margin: 0;
@@ -50,10 +40,23 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  /* background-color: #1a1a1a; */
   cursor: pointer;
   transition: border-color 0.25s;
   background-color: var(--bodyButtonColor);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbarTrack);
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 2.5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 @keyframes brighting {
@@ -137,7 +140,11 @@ button {
   /* --bodyTextColor: #213547; */
   --bodyH1Color: #ffff4b;
   --bodyButtonColor: #f9f9f9;
-  --categBgColor: linear-gradient(120deg,hsla(189, 55%, 74%, 0.15), hsla(78, 55%, 74%, 0.05));
+  --categBgColor: linear-gradient(120deg,#98d6e126, #cbe1980d);
   --categTextColor: #ffffffde;
   --categHoverFilter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(213%) contrast(90%);
+  --scrollbarTrack: #0f172e;
+}
+.cartOpen {
+  --scrollbarTrack: #125492;
 }

@@ -25,6 +25,7 @@
   animation-name: cartOpening;
   animation-duration: .5s;
   z-index: 1500;
+  --scrollbarTrack: #125492;
 }
 .closingCart{
   padding: 2vh;
@@ -47,11 +48,10 @@
   to {margin-left: 13vw;}
 }
 .closingCart li {
-  transition: width 2s;
   animation-name: cartTitleClosing;
   animation-duration: .5s;
 }
-li {
+.cart li, .closingCart li {
   display: flex;
   align-items: center;
   gap: 25px;
@@ -63,8 +63,39 @@ li {
   color: var(--navColor);
 }
 
-.cartList {
+@keyframes cartListOpening {
+  from {margin-left: 24vw;}
+  to {margin-left: -1vw;}
+}
+@keyframes cartListClosing {
+  from {margin-left: -1vw;}
+  to {margin-left: 24vw;}
+}
+.cart .cartList {
+  margin-left: -1vw;
   height: 84vh;
+  animation-name: cartListOpening;
+  animation-duration: .5s;
+}
+.cart .cartListBig {
+  margin-left: -1vw;
+  height: 84vh;
+  animation-name: cartListOpening;
+  animation-duration: .5s;
+  overflow-y: scroll;
+}
+.closingCart .cartList {
+  margin-left: -1vw;
+  height: 84vh;
+  animation-name: cartListClosing;
+  animation-duration: .5s;
+}
+.closingCart .cartListBig {
+  margin-left: -1vw;
+  height: 84vh;
+  overflow-y: scroll;
+  animation-name: cartListClosing;
+  animation-duration: .5s;
 }
 
 @keyframes cartButtonOpening {
@@ -75,14 +106,14 @@ li {
   from {margin-left: 0;}
   to {margin-left: 20vw;}
 }
-.cart button {
+.cart .whatsappBtn {
   width: 20vw;
   color: white;
   background-color: green;
   animation-name: cartButtonOpening;
   animation-duration: .5s;
 }
-.closingCart button {
+.closingCart .whatsappBtn {
   width: 20vw;
   color: white;
   background-color: green;

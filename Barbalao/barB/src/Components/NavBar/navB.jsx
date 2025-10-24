@@ -20,14 +20,13 @@ export default function NavB() {
         currentIcon = currentTheme == "dark" ? "ri-sun-fill sun-icon" : "ri-moon-fill moon-icon";
         setThemeIcon(currentIcon);
         document.body.classList = currentTheme;
-        setTimeout(() => {
-            document.body.classList = currentTheme;
-        })
     }
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [cartList, setCartList] = useState([]);
 
     function openCart() {
+        currentTheme = currentTheme + ' cartOpen';
+        localStorage.setItem("theme", currentTheme);
         setIsCartOpen(!isCartOpen);
     }
 
