@@ -13,7 +13,7 @@ def get_conn():
     return conn
 
 # Cria Prod.
-@app.route('/api/products/', methods=['POST'])
+@app.route('/api/products', methods=['POST'])
 def create_product():
     try:
         data = request.get_json()
@@ -50,7 +50,7 @@ def create_product():
     return jsonify({"message": "Erro interno"}), 500
 
 # Pega Prod.
-@app.route('/api/products/', methods=['GET'])
+@app.route('/api/products', methods=['GET'])
 def list_products():
     try:
         conn = get_conn()
@@ -69,7 +69,7 @@ def list_products():
     return jsonify({"message": "Erro Interno"}), 500
 
 # Atualizar Prod.
-@app.route('/api/produtcs/atualizar/<int:product_id>/', methods=['POST'])
+@app.route('/api/produtcs/atualizar/<int:product_id>', methods=['POST'])
 def update_products(product_id, product_name = None, product_image = None, product_price = None):
     try:
         conn = get_conn()
@@ -94,7 +94,7 @@ def update_products(product_id, product_name = None, product_image = None, produ
         return jsonify({"message": "Erro Interno"}), 500
 
 # Apaga Prod.
-@app.route('/api/products/remove/<int:product_id>/', methods=['POST'])
+@app.route('/api/products/remove/<int:product_id>', methods=['POST'])
 def remove_product(product_id):
     try:
         conn = get_conn()
@@ -112,7 +112,7 @@ def remove_product(product_id):
         print(f"Erro ao remover produto: {e}")
         return jsonify({"message": "Erro interno"}), 500
     
-@app.route('/api/products/listByName/<name>/', methods=['POST'])
+@app.route('/api/products/listByName/<name>', methods=['POST'])
 def list_by_name(name):
     try:
         conn = get_conn()

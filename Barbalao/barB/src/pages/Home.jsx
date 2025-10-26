@@ -4,9 +4,11 @@ import BannerS from '../Components/Banners/bannerS.jsx'
 import PSection from '../Components/PSection/prodS.jsx'
 import Form from '../Components/Form/FormLogin.jsx'
 import { useState, useEffect } from 'react'
+import SearchModal from '../Components/SearchModal/SearchModal.jsx'
 
 export default function Home() {
   const [produtos, setProdutos] = useState([])
+  const [searchModal, setSearchModal] = useState(false);
 
   const carregarProdutos = () =>
   {
@@ -34,13 +36,13 @@ export default function Home() {
 
   return (
     <>
-      <NavB/>
+      <NavB setSearchModal={setSearchModal}/>
       <section className='main'>
       <CategP/>
       <BannerS/>
       <PSection produtos={produtos} onDelete={removerProduto}/>
       </section>
-    
+      {searchModal && <SearchModal setSearchModal={setSearchModal} produtos={produtos}/>}
     </>
   )
 }

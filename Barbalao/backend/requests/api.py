@@ -56,5 +56,7 @@ def api_server():
              print(f"Erro usuário não encontrado: {e}")        
         return jsonify({"route": "/login", "status": 500})
 
+
+
 if __name__ == '__main__':
     app.run(port=3001)

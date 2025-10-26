@@ -46,3 +46,9 @@
 	font-family: 'Poppins', sans-serif;
 	font-size: 2rem;
 }
+
+.productsDiv {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}

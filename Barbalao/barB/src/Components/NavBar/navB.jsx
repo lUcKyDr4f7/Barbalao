@@ -1,9 +1,7 @@
-import styles from '../Css/styles.navB.module.css';
 import logo from '../../assets/BarB.png';
+import styles from '../Css/styles.navB.module.css';
 
-
-export default function NavB() {
-
+export default function NavB({setSearchModal}) {
 
     return (
         <>
@@ -16,7 +14,7 @@ export default function NavB() {
                         </div>
                         <div className={styles.searchBar}>
                             <input type="text" name="searchBar" id="searchBar" placeholder='Pesquise algum produto...'/>
-                            <button>
+                            <button onClick={() => setSearchModal(true)}>
                                 <i class="ri-search-line"></i> 
                             </button>
                         </div>
@@ -37,6 +35,7 @@ export default function NavB() {
                     </div>
                     <div class="scroll-indicator-bar"></div>
                 </div>
+                
             </header>
         </> 
     )
