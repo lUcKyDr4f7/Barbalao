@@ -14,6 +14,12 @@ export default function NavB() {
                         <div className={styles.barBalaoLogo}>
                             <a className={styles.barb} href="/"><img className={styles.logo} src={logo}/></a>
                         </div>
+                        <div className={styles.searchBar}>
+                            <input type="text" name="searchBar" id="searchBar" placeholder='Pesquise algum produto...'/>
+                            <button>
+                                <i class="ri-search-line"></i> 
+                            </button>
+                        </div>
                         <div className={styles.headerBtns}>
                             <ul class="header-menu" className={styles.headerMenu}>
                                 <li class="menu-item"><a className={styles.menu}href="/">Início</a></li>

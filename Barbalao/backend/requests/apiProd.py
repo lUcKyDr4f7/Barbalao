@@ -111,6 +111,26 @@ def remove_product(product_id):
     except Exception as e:
         print(f"Erro ao remover produto: {e}")
         return jsonify({"message": "Erro interno"}), 500
+    
+@app.route('/api/products/listByName/<name>/', methods=['POST'])
+def list_by_name(name):
+    try:
+        conn = get_conn()
+        cursor = conn.cursor()
+        sqlString = f"{name}%"
+        cursor.execute('SELECT FROM products WHERE name LIKE ?', (sqlString,))
+        rows = cursor.fetchall()
+        conn.close()
+
+        if rows == 0:
+            return jsonify({"message": "Produto não encontrado"}), 404
+        
+        products = [dict(row) for row in rows]
+
+        return jsonify(products), 200
+    except Exception as e: 
+        print(f"Erro ao buscar produtos: {e}")
+        return jsonify({"message": "Erro interno"}), 500
 
 if __name__ == '__main__':
     app.run(port=3001)
