@@ -32,7 +32,7 @@ def api_server():
             if usuario != None:
                 if usuario[2] == senha:
                         result = {
-                            "route": "/form", 
+                            "route": "/api/products/", 
                             "message": "OK"
                         }
                         print(result)
