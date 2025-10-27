@@ -23,11 +23,11 @@ header {
   font-size: 1.4em;
 }
 
-.logo{
-  width: 20vh;
+.logo, .logo img{
+  height: 16vh;
 }
 
-form {
+/* form {
   background-color: #fff;
   height: 12vh;
   width: 60vw;
@@ -50,7 +50,7 @@ form button {
   width: 10vh;
   font-size: 7vh;
   line-height: 10vh;
-}
+} */
 
 .headerBtns{
   display: flex;

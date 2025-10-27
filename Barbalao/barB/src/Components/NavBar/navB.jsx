@@ -32,8 +32,8 @@ export default function NavB() {
             <header>
                 <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} cartList={cartList} />
                 <div className={styles.inner}>
-                    <div>
-                        <a href="#home"><img className={styles.logo} src={logo}/></a>
+                    <div className={styles.logo}>
+                        <a href="#home"><img  src={logo}/></a>
                     </div>
                     {/* <form>
                         <input type="text" />
