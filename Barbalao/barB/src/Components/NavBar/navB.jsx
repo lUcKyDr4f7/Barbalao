@@ -39,10 +39,10 @@ export default function NavB() {
                     <div>
                         <a href="#home"><img className={styles.logo} src={logo}/></a>
                     </div>
-                    <form>
+                    {/* <form>
                         <input type="text" />
                         <button type="submit"><i className="ri-search-line"></i></button>
-                    </form>
+                    </form> */}
                     <div className={styles.headerBtns}>
                         <li><a href="#home">Início</a></li>
                         <li><a href="#about-us">Sobre Nós</a></li>

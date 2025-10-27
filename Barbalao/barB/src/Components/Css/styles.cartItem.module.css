@@ -27,12 +27,17 @@
   width: 7vw;
   border-radius: 2vh;
 }
-.cartItem hr {
-  height: 4vh;
+.cartItem .itemText {
+  width: 12vw;
 }
 .cartItem h3 {
   height: 4vh;
   margin: 0 .2vw 0 .2vw;
+}
+.cartItem p {
+  height: 4vh;
+  margin: 0 .2vw 0 .2vw;
+  font-size: .8rem;
 }
 .cartItem button {
   color: white;

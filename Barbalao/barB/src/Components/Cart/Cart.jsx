@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import styles from '../Css/styles.cart.module.css';
 import CartItem from '../CartItem/CartItem';
 
+localStorage.setItem("theme", localStorage.getItem("theme").replaceAll(' cartOpen', ''));
+
 export default function Cart(props) {
 
    const [isClosing, setIsClosing] = useState(false)
@@ -15,7 +17,7 @@ export default function Cart(props) {
       localStorage.setItem("theme", localStorage.getItem("theme").replaceAll(' cartOpen', ''));
    }
 
-   const [cartItems, setCartItems] = useState([[1, "Hambúrguer", 0], [2, "Coca-Cola", 1], [3, "Água1", 2], [3, "Água2", 3], [3, "Água3", 4], [3, "Água4", 5], [3, "Água5", 6], [3, "Água6", 7]]);
+   const [cartItems, setCartItems] = useState([[1, "Hambúrguer", 500.00, 0], [2, "Coca-Cola", 500.00, 1], [3, "Água1", 500.00, 2], [3, "Água2", 500.00, 3], [3, "Água3", 500.00, 4], [3, "Água4", 500.00, 5], [3, "Água5", 500.00, 6], [3, "Água6", 500.00, 7]]);
    const [linkWhatsapp, setLinkWhatsapp] = useState('');
    function createLinkWhatsApp() {
       /* Por enquanto o número é o do Oséias */
@@ -43,7 +45,7 @@ export default function Cart(props) {
                      return <CartItem cart={cartItems} setCart={setCartItems} item={cartItem}/>;
                   })
                }</div>
-               <a href={linkWhatsapp} target="_blank"><button className={styles.whatsappBtn}>Ir para Whatsapp</button></a>
+               <a href={linkWhatsapp} target="_blank"><button className={styles.whatsappBtn}>Fazer Pedido</button></a>
             </div>
          </>
       ) 
