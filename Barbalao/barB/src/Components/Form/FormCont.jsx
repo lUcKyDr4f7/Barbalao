@@ -2,10 +2,12 @@ import Form from "./FormLogin"
 import style from '../Css/styles.formContQ.module.css'
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate  } from "react-router-dom";
 
 export default function Container(){
     const [formValues, setFormValues] = useState(["", ""]);
-    const [btnLink, setBtnLink] = useState("")
+    const [btnLink, setBtnLink] = useState("/")
+    const navigate = useNavigate()
     
     function handleInputChange (index, value){
         const newValues = [...formValues];
@@ -22,8 +24,10 @@ export default function Container(){
                 senha: formValues[1]
             })
 
-            setBtnLink(data.route)
-            console.log("Resposta do servidor: ", response.data)
+            const newRoute = response.data.route 
+            setBtnLink(newRoute)
+            navigate(newRoute)
+            console.log("Resposta do servidor: ", response.data.message)
         } catch (error){
             setBtnLink(data.route)
             console.log("Erro ao buscar dados: ", error)
@@ -47,8 +51,6 @@ export default function Container(){
                         btn="Logar" 
                         types={["text", "password"]} 
                         placeholders={["Nome", "Senha"]}
-                        btnlink={btnLink}
-                        aLink='/'
                         values={formValues}
                         onInputChange={handleInputChange}
                         click={handleSubmit}
