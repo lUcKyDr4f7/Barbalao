@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* --navBgColor, --navColor, --navHoverColor */
+
+.cartItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 24vw;
+  height: 8vh;
+  background: var(--categBgColor);
+  border-radius: 1vh;
+  margin: 1vh 0.3vw 1vh;
+  padding: 1vh;
+}
+
+.cartItem img {
+  width: 8vh;
+}
+
+.cartItem .itemAmount {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 5vh;
+  width: 7vw;
+  border-radius: 2vh;
+}
+.cartItem .itemText {
+  width: 12vw;
+}
+.cartItem h3 {
+  height: 4vh;
+  margin: -.4rem .2vw 0 .2vw;
+}
+.cartItem p {
+  height: 4vh;
+  margin: 0 .2vw 0 .2vw;
+  font-size: .8rem;
+}
+.cartItem button {
+  color: white;
+  height: 3vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5vh;
+  border-radius: 2vh;
+}
+.cartItem button:hover {
+  color: gainsboro;
+}

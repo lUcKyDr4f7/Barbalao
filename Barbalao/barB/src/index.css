@@ -3,26 +3,25 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #020623;
+  /* color-scheme: light dark; */
+  color: var(--bodyTextColor);
+  /* color: rgba(255, 255, 255, 0.87); */
+  background-color: var(--bodyBgColor);
+  /* background-color: #020623; */
+
+  /* color: #213547; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+*:focus-visible {
+  outline: none;
 }
 
 body {
+  background-color: var(--bodyBgColor);
   margin: 0;
   display: flex;
   place-items: center;
@@ -41,27 +40,113 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  background-color: var(--bodyButtonColor);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbarTrack);
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 2.5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@keyframes brighting {
+  0% {
+    --bodyBgColor: #020623;
   }
-  a:hover {
-    color: #747bff;
+  13% {
+    --bodyBgColor: #20243d;
   }
-  button {
-    background-color: #f9f9f9;
+  25% {
+    --bodyBgColor: #41445a;
   }
+  38% {
+    --bodyBgColor: #636577;
+  }
+  50% {
+    --bodyBgColor: #7f8190;
+  }
+  62% {
+    --bodyBgColor: #9e9fab;
+  }
+  75% {
+    --bodyBgColor: #c0c1c8;
+  }
+  88% {
+    --bodyBgColor: #dddee2;
+  }
+  100% {
+    --bodyBgColor: #ffffff;
+  }
+}
+.light {
+  animation-name: brighting;
+  animation-duration: .5s;
+  --navBgColor: #054a8f;
+  --navColor: #ffe600;
+  --navHoverColor: #e6cf00;
+  --bodyBgColor: #ffffff;
+  --bodyTextColor: #213547;
+  --bodyH1Color: #ffff4b;
+  --bodyButtonColor: #f9f9f9;
+  --categTextColor: #ffffffde;
+}
+
+@keyframes dimming {
+  0% {
+    --bodyBgColor: #ffffff;
+  }
+  13% {
+    --bodyBgColor: #dddee2;
+  }
+  25% {
+    --bodyBgColor: #c0c1c8;
+  }
+  38% {
+    --bodyBgColor: #9e9fab;
+  }
+  50% {
+    --bodyBgColor: #7f8190;
+  }
+  62% {
+    --bodyBgColor: #636577;
+  }
+  75% {
+    --bodyBgColor: #41445a;
+  }
+  88% {
+    --bodyBgColor: #20243d;
+  }
+  100% {
+    --bodyBgColor: #020623;
+  }
+}
+.dark {
+  animation-name: dimming;
+  animation-duration: .5s;
+  --navBgColor:  #054a8f;
+  --navColor: #ffe600;
+  --navHoverColor: #e6cf00;
+  --bodyBgColor: #020623;
+  --bodyTextColor: #ffffffde;
+  /* --bodyTextColor: #213547; */
+  --bodyH1Color: #ffff4b;
+  --bodyButtonColor: #f9f9f9;
+  --categBgColor: linear-gradient(120deg,#98d6e126, #cbe1980d);
+  --categTextColor: #ffffffde;
+  --categHoverFilter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(213%) contrast(90%);
+  --scrollbarTrack: #0f172e;
+}
+.cartOpen {
+  --scrollbarTrack: #125492;
+  overflow-y: hidden;
 }
