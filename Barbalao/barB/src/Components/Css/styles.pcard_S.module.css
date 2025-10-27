@@ -72,7 +72,7 @@
    color: rgba(119, 163, 247, 1);
    font-size: 1.1rem;
 }
-.productCard .productInfo .productOptions {
+.productCard .productInfo .productOptionsD {
    max-width: 100%;
    display: flex;
    gap: 10px;
@@ -80,19 +80,64 @@
    align-items: center;
 }
 
-.productInfo .productOptions .option {
-   background: linear-gradient(360deg,rgba(163, 178, 207, 0.15),rgba(163, 178, 207, 0.10));
+.productCard .productInfo .productOptions {
+   max-width: 100%;
+   display: flex;
+   gap: 10px;
+   justify-content: left;
+   align-items: center;
+   margin-bottom: 30px;
+}
+
+.productInfo .productOptions .picante {
+   background: linear-gradient(360deg,rgba(207, 163, 163, 0.15),rgba(207, 163, 163, 0.1));
    text-align: left;
    border-radius: 3px;
 }
-.productOptions .option p,
-.productOptions .option span {
-   color: rgba(119, 163, 247, 1);
+.productOptions .picante p,
+.productOptions .picante span {
+   color: rgb(247, 119, 119);
    font-size: .98rem;
    font-weight: 500;
    margin: 2px 4px;
 }
 
+.productInfo .productOptionsD .vegetariano {
+   background: linear-gradient(360deg,rgba(207, 247, 119, 0.15),rgba(207, 247, 119, 0.1));
+   text-align: left;
+   border-radius: 3px;
+}
+.productOptionsD .vegetariano p,
+.productOptionsD .vegetariano span {
+   color: rgb(202, 247, 119);
+   font-size: .98rem;
+   font-weight: 500;
+   margin: 2px 4px;
+}
+.productInfo .productOptionsD .picante {
+   background: linear-gradient(360deg,rgba(207, 163, 163, 0.15),rgba(207, 163, 163, 0.1));
+   text-align: left;
+   border-radius: 3px;
+}
+.productOptionsD .picante p,
+.productOptionsD .picante span {
+   color: rgb(247, 119, 119);
+   font-size: .98rem;
+   font-weight: 500;
+   margin: 2px 4px;
+}
+.productInfo .productOptionsD .vegetariano {
+   background: linear-gradient(360deg,rgba(207, 247, 119, 0.15),rgba(207, 247, 119, 0.1));
+   text-align: left;
+   border-radius: 3px;
+}
+.productOptionsD .vegetariano p,
+.productOptionsD .vegetariano span {
+   color: rgb(202, 247, 119);
+   font-size: .98rem;
+   font-weight: 500;
+   margin: 2px 4px;
+}
 .productCard .productInfo .priceWithDescount {
    color: rgba(119, 163, 247, 1);
    font-weight: 500;
@@ -143,19 +188,10 @@
    flex-direction: column;
 }
 .brandsSwiper .swiperSlide.avaliable{
-   margin: 0 11px;
    user-select: none;        
    -webkit-user-select: none; 
    -moz-user-select: none;    
    -ms-user-select: none;     
-}
-.brandsSwiper .swiperSlide.avaliable.start{
-   margin: 0;
-   margin-right: 14px;
-}
-.brandsSwiper .swiperSlide.avaliable.end{
-   margin: 0;
-   margin-left: 14px;
 }
 .brandsSwiper .swiperSlide .coming-soon{
    position: absolute;
