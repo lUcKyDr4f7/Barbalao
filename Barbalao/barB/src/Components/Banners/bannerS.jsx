@@ -11,7 +11,7 @@ export default function BannerS(){
     return(
         <>
         <div style={{ width: "100%", margin: "0 auto" }}>
-            <Carousel className={styles.carrousel} showArrows={true} showThumbs={false} showStatus={false} infiniteLoop={true} autoPlay={true} interval={3000} swipeable={true}>
+            <Carousel className={styles.carrousel} showArrows={true} showThumbs={false} showStatus={false} showIndicators={false} swipeable={true} >
                 <div>
                     <img src={img1} alt="Slide 1" />
                     <h1 className={`legend ${styles.customTitle}`}>Lanches Variados</h1>
