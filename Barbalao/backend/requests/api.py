@@ -29,8 +29,7 @@ def api_server():
             cursor.execute('SELECT * FROM users WHERE nome = ?', (nome,))
             usuario = cursor.fetchone()
         
-            if usuario != None:
-                if usuario[2] == senha:
+            if usuario != None and usuario[2] == senha:
                         result = {
                             "route": "/api/products/", 
                             "message": "OK"
@@ -38,12 +37,12 @@ def api_server():
                         print(result)
                         return jsonify(result), 200
                 
-                return jsonify({
+            return jsonify({
                 "route": "/login",
                 "message": "Usuário ou senha incorretos"
             }), 400
 
-        except TypeError as e:
+        except Exception as e:
              print(f"Erro usuário não encontrado: {e}")        
         return jsonify({"route": "/login", "status": 500})
                            

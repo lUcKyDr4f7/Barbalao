@@ -1,7 +1,5 @@
 import './App.css'
-import Home from './pages/Home.jsx';
-import About from './pages/About.jsx'
-import Login from './pages/Login.jsx';
+
 
 import { Routes, Route } from "react-router-dom";
 
