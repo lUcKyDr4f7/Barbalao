@@ -8,7 +8,7 @@ export const Products = [
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
-        valueWithoutD: "75,00",
+        valueWithoutD: 75.00,
         valueWithD: "50,00"
     },
     {
@@ -18,7 +18,7 @@ export const Products = [
         numberOfOptions: 1,
         option: ["Picante"], 
         hasDiscount: false,
-        valueWithoutD: "",
+        valueWithoutD: 50,
         valueWithD: "50,00"
     },
     {
@@ -28,7 +28,7 @@ export const Products = [
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
-        valueWithoutD: "75,00",
+        valueWithoutD: 75,
         valueWithD: "50,00"
     },
     {
@@ -38,7 +38,7 @@ export const Products = [
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
-        valueWithoutD: "75,00",
+        valueWithoutD: 75,
         valueWithD: "50,00"
     },
     {
@@ -48,7 +48,7 @@ export const Products = [
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
-        valueWithoutD: "75,00",
+        valueWithoutD: 75,
         valueWithD: "50,00"
     },
     {
@@ -58,7 +58,7 @@ export const Products = [
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
-        valueWithoutD: "75,00",
+        valueWithoutD: 75,
         valueWithD: "50,00"
     },
     {
@@ -68,7 +68,7 @@ export const Products = [
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
-        valueWithoutD: "75,00",
+        valueWithoutD: 75,
         valueWithD: "50,00"
     },
     {
@@ -78,7 +78,7 @@ export const Products = [
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
-        valueWithoutD: "75,00",
+        valueWithoutD: 75,
         valueWithD: "50,00"
     },
     {
@@ -88,7 +88,7 @@ export const Products = [
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
-        valueWithoutD: "75,00",
+        valueWithoutD: 75,
         valueWithD: "50,00"
     },
     {
@@ -98,7 +98,7 @@ export const Products = [
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
-        valueWithoutD: "75,00",
+        valueWithoutD: 75,
         valueWithD: "50,00"
     },
     {
@@ -108,7 +108,7 @@ export const Products = [
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
-        valueWithoutD: "75,00",
+        valueWithoutD: 75,
         valueWithD: "50,00"
     },
     {
@@ -118,7 +118,7 @@ export const Products = [
         numberOfOptions: 1,
         option: ["Picante"], 
         hasDiscount: false,
-        valueWithoutD: "",
+        valueWithoutD: 50,
         valueWithD: "50,00"
     }
 ]

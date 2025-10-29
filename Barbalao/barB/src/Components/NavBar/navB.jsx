@@ -5,6 +5,10 @@ import Cart from '../Cart/Cart';
 
 export default function NavB() {
 
+    let currentTheme = localStorage.getItem("theme");
+    if (!currentTheme) {
+        currentTheme = window.matchMedia('(prefers-color-scheme: dark)') ? "dark" : "light";
+    }
     
     let currentIcon = currentTheme == "dark" ? "ri-sun-fill sun-icon" : "ri-moon-fill moon-icon";
     const [themeIcon, setThemeIcon] = useState(currentIcon);

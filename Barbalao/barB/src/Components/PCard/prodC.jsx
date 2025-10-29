@@ -3,7 +3,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useState} from 'react';
 import { Carousel } from "react-responsive-carousel";
 export default function ProdC({name, price, img, setState, state}) {
+
     console.log(state)
+    
     const [quantity, setQuantity] = useState(1);
     const increase = () => {
             setQuantity(quantity + 1);
@@ -11,6 +13,20 @@ export default function ProdC({name, price, img, setState, state}) {
     const decrease = () => {
             setQuantity(quantity - 1);
     }
+
+    function addCart() {
+        let cart = JSON.parse(localStorage.getItem("cart"))
+        if(!cart) {
+            cart = {};
+        }
+        if(cart[state.id]) {
+            cart[state.id] += quantity;
+        } else {
+            cart[state.id] = quantity;
+        }
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
     return (
          <>
          <section className={styles.screenBlur}>
@@ -31,7 +47,7 @@ export default function ProdC({name, price, img, setState, state}) {
                     <p className={styles.price}>R$ {price}</p>
                     <div class={styles.productBuy}>
                         <div class={styles.productQuantity}><button onClick={quantity > 1 && decrease}>-</button><span>{quantity}</span><button onClick={quantity < 10 && increase}>+</button></div>
-                        <div class={styles.addCart}><button onClick={''}>Adicionar ao carrinho <i class="ri-shopping-cart-2-fill"></i></button></div>
+                        <div class={styles.addCart}><button onClick={() => addCart()}>Adicionar ao carrinho <i class="ri-shopping-cart-2-fill"></i></button></div>
                     </div>
                 </div>
                 <a className={styles.closeBtn} onClick={() => setState(null)}><i class="ri-close-line"></i></a>

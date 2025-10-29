@@ -14,10 +14,12 @@ export default function Cart(props) {
             props.setIsCartOpen(false);
             setIsClosing(false);
         }, 400)
-        localStorage.setItem("theme", localStorage.getItem("theme").replaceAll(' cartOpen', ''));
+        let theme = localStorage.getItem("theme").replaceAll(' cartOpen', '')
+        localStorage.setItem("theme", theme);
+        document.body.classList = theme;
     }
 
-    const [cartItems, setCartItems] = useState([[1, "Hambúrguer", 500.00, 0], [2, "Coca-Cola", 500.00, 1], [3, "Água1", 500.00, 2], [3, "Água2", 500.00, 3], [3, "Água3", 500.00, 4], [3, "Água4", 500.00, 5], [3, "Água5", 500.00, 6], [3, "Água6", 500.00, 7]]);
+    const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cart")));
     const [linkWhatsapp, setLinkWhatsapp] = useState('');
     function createLinkWhatsApp() {
         /* Por enquanto o número é o do Oséias */
@@ -31,8 +33,13 @@ export default function Cart(props) {
     }
 
     useEffect(() => {
+        setCartItems(JSON.parse(localStorage.getItem("cart")));
         if(props.isCartOpen && cartItems) createLinkWhatsApp();
     }, [props.isCartOpen]);
+
+    useEffect(() => {
+        createLinkWhatsApp();
+    }, [cartItems])
 
     if(props.isCartOpen){
         return(
@@ -40,10 +47,13 @@ export default function Cart(props) {
                 <div className={isClosing?styles.outsideClosingCart:styles.outsideCart} onClick={ () => closeCart() }></div>
                 <div className={isClosing?styles.closingCart:styles.cart} /* onClick={ () => closeCart() } */>
                 <li>Carrinho</li>
-                <div className={cartItems.length<8?styles.cartList:styles.cartListBig}>{
-                    cartItems.map( cartItem => {
-                        return <CartItem cart={cartItems} setCart={setCartItems} item={cartItem}/>;
+                <div className={Object.keys(cartItems).length<8?styles.cartList:styles.cartListBig}>{
+                    Object.keys(cartItems).map( key => {
+                        return <CartItem cart={cartItems} setCart={setCartItems} item={key} amount={cartItems[key]} />;
                     })
+                    /* Object.keys(cartItems).forEach(function(key, index) {
+                        <CartItem cart={cartItems} setCart={setCartItems} item={key}/>;
+                    }) */
                 }</div>
                 <a href={linkWhatsapp} target="_blank"><button className={styles.whatsappBtn}>Fazer Pedido</button></a>
                 </div>
