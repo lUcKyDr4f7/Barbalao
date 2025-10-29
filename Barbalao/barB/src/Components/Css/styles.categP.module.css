@@ -1,7 +1,7 @@
 .titleCateg{
    font-size: 2.75rem;
    font-weight: 700;
-   color: rgb(255, 255, 75);
+   color: var(--TitleColor);
    text-align: center;
    margin-top: 160px;
    margin-bottom: 40px;

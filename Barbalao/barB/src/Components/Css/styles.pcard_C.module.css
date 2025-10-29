@@ -20,7 +20,7 @@
    display: flex;
    position: relative;
    gap: 20px;
-   background-color: rgb(50, 52, 56);
+   background-color: #044a8f;
    padding: 20px 20px 10px 20px;
    border-radius: 15px;
 
@@ -81,6 +81,9 @@
    justify-content: center;
    margin-bottom: 60px;
    margin-right: 40px;
+}
+.title {
+  color: var()
 }
 .description{
    margin-top: 10px;

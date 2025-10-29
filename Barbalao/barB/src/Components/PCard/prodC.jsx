@@ -26,7 +26,7 @@ export default function ProdC({name, price, img, setState, state}) {
                 </Carousel>
                 </div>
                 <div className={styles.productInfo}>
-                    <h1>{name}</h1>
+                    <h1 className={styles.title}>{name}</h1>
                     <p className={styles.description}>Suculento hambúrguer artesanal preparado com pão brioche macio, blend de carne bovina 180g grelhado no ponto perfeito, coberto por queijo cheddar derretido, alface crocante, tomate fresco e molho especial da casa. Finalizado com um toque de cebola caramelizada que realça o sabor e transforma cada mordida em uma experiência única</p>
                     <p className={styles.price}>R$ {price}</p>
                     <div class={styles.productBuy}>

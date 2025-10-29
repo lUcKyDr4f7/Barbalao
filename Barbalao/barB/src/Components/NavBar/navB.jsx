@@ -1,6 +1,6 @@
 import styles from '../Css/styles.navB.module.css';
 import logo from '../../assets/BarB.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Cart from '../Cart/Cart';
 
 export default function NavB() {
@@ -25,11 +25,24 @@ export default function NavB() {
         localStorage.setItem("theme", currentTheme);
         setIsCartOpen(!isCartOpen);
     }
-
+    useEffect(() => {
+    const handleScroll = () => {
+      const header = document.querySelector("header");
+      if (window.scrollY > 50) {
+        header.classList.add(styles.shrink);
+      } else {
+        header.classList.remove(styles.shrink);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+    }, []);
     return (
         <>
          {/*<!--========== Header ==========-->*/}
-            <header>
+            <header className={styles.header}>
                 <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} cartList={cartList} />
                 <div className={styles.inner}>
                     <div>
