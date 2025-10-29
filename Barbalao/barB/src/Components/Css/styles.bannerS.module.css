@@ -8,10 +8,6 @@
   opacity: 1 !important;
   bottom: 33% !important; 
   text-shadow: #000000a1 0 0 6px; 
-  user-select: none;        
-  -webkit-user-select: none; 
-  -moz-user-select: none;    
-  -ms-user-select: none;     
 }
 .customTitle {
   background-color: transparent !important;
@@ -21,11 +17,7 @@
   border-radius: 0!important;
   opacity: 1 !important;
   bottom: 40% !important;
-  text-shadow: #0000007a 0 0 6px; 
-  user-select: none;        
-  -webkit-user-select: none; 
-  -moz-user-select: none;    
-  -ms-user-select: none;     
+  text-shadow: #0000007a 0 0 6px;   
 }
 :global(.carousel .slide img) {
   height: 70vh;   /* 60% da altura da tela */
