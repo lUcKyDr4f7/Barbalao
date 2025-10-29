@@ -64,95 +64,57 @@ button {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
 @keyframes brighting {
-  0% {
-    --bodyBgColor: #020623;
-  }
-  13% {
-    --bodyBgColor: #20243d;
-  }
-  25% {
-    --bodyBgColor: #41445a;
-  }
-  38% {
-    --bodyBgColor: #636577;
-  }
-  50% {
-    --bodyBgColor: #7f8190;
-  }
-  62% {
-    --bodyBgColor: #9e9fab;
-  }
-  75% {
-    --bodyBgColor: #c0c1c8;
-  }
-  88% {
-    --bodyBgColor: #dddee2;
-  }
-  100% {
-    --bodyBgColor: #ffffff;
-  }
+  0%   { --bodyBgColor: #020623; }
+  20%  { --bodyBgColor: #2a3147; }
+  40%  { --bodyBgColor: #555d72; }
+  60%  { --bodyBgColor: #8891a6; }
+  80%  { --bodyBgColor: #bfc8d6; }
+  100% { --bodyBgColor: #edf3f9; }
 }
 .light {
   animation-name: brighting;
-  animation-duration: .5s;
+  animation-duration: .4s; 
+  animation-timing-function: ease-in-out;
   --navBgColor: #054a8f;
   --navColor: #ffe600;
   --navHoverColor: #e6cf00;
-  --bodyBgColor: #ffffff;
+  --bodyBgColor: #edf3f9;
   --bodyTextColor: #213547;
   --bodyH1Color: #ffff4b;
   --bodyButtonColor: #f9f9f9;
-  --categTextColor: #ffffffde;
+  --categTextColor: #000000;
+  --categFilterI: 0%;
+  --categFilter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(105%) contrast(94%);
+  --cardBg: #ffffff;
 }
-
 @keyframes dimming {
-  0% {
-    --bodyBgColor: #ffffff;
-  }
-  13% {
-    --bodyBgColor: #dddee2;
-  }
-  25% {
-    --bodyBgColor: #c0c1c8;
-  }
-  38% {
-    --bodyBgColor: #9e9fab;
-  }
-  50% {
-    --bodyBgColor: #7f8190;
-  }
-  62% {
-    --bodyBgColor: #636577;
-  }
-  75% {
-    --bodyBgColor: #41445a;
-  }
-  88% {
-    --bodyBgColor: #20243d;
-  }
-  100% {
-    --bodyBgColor: #020623;
-  }
+  0%   { --bodyBgColor: #edf3f9; }
+  20%  { --bodyBgColor: #bfc8d6; }
+  40%  { --bodyBgColor: #8891a6; }
+  60%  { --bodyBgColor: #555d72; }
+  80%  { --bodyBgColor: #2a3147; }
+  100% { --bodyBgColor: #020623; }
 }
 .dark {
   animation-name: dimming;
-  animation-duration: .5s;
+  animation-duration: .4s;
+  animation-timing-function: ease-in-out;
   --navBgColor:  #054a8f;
   --navColor: #ffe600;
   --navHoverColor: #e6cf00;
   --bodyBgColor: #020623;
-  --bodyTextColor: #ffffffde;
-  /* --bodyTextColor: #213547; */
+  --bodyTextColor: #ffffff;
   --TitleColor: #ffff4b;
   --bodyH1Color: #ffff4b;
   --bodyButtonColor: #f9f9f9;
   --categBgColor: linear-gradient(120deg,#98d6e126, #cbe1980d);
-  --categTextColor: #ffffffde;
-  --categHoverFilter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(213%) contrast(90%);
+  --categTextColor: #ffffff;
+  --categHoverFilter: invert(64%) sepia(28%) saturate(1041%) hue-rotate(186deg) brightness(213%) contrast(90%);
+  --categFilterI: 100%;
+  --categFilter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(193%) contrast(100%);
+  --cardBg: linear-gradient(120deg, rgba(163, 178, 207, 0.15), rgba(163, 178, 207, 0.05));
   --scrollbarTrack: #0f172e;
-  --cardBgColor: ;
 }
 .cartOpen {
   --scrollbarTrack: #125492;
