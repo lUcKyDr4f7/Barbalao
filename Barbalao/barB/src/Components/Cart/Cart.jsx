@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from '../Css/styles.cart.module.css';
 import CartItem from '../CartItem/CartItem';
+import { Products } from '../../assets/Data/Products';
 
 localStorage.setItem("theme", localStorage.getItem("theme")?localStorage.getItem("theme").replaceAll(' cartOpen', ''):localStorage.getItem("theme"));
 
@@ -20,21 +21,28 @@ export default function Cart(props) {
     }
 
     const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cart")));
+    if(!cartItems) { setCartItems({}) }
     const [linkWhatsapp, setLinkWhatsapp] = useState('');
     function createLinkWhatsApp() {
         /* Por enquanto o número é o do Oséias */
-        let link = "https://wa.me/558182090299?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%3A";
-        let replacements = [[' ', '$', '+', ',', '/', ':'], ["%20", "%24", "%2B", "%2C", "%2F", "%3A"]];
-        for (let i=0; i<cartItems.length; i++) link += "%0A" + cartItems[i][0] + 'x%20' + cartItems[i][1];
-        for(let i=0; i<30; i++) {
-            if (link.includes(replacements[0][i])) link.replace(replacements[0][i], replacements[1][i]);
-        }
+        let link
+        if(Object.keys(cartItems).length != 0) {
+            link = "https://wa.me/558182090299?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%3A";
+            let replacements = [[' ', '$', '+', ',', '/', ':'], ["%20", "%24", "%2B", "%2C", "%2F", "%3A"]];
+            Object.keys(cartItems).map( key => {
+                let item = Products[key];
+                link += "%0A" + item['name'] + '%20x' + cartItems[key];
+            })
+            for(let i=0; i<6; i++) {
+                if (link.includes(replacements[0][i])) link.replace(replacements[0][i], replacements[1][i]);
+            }
+        } else { link="" }
         setLinkWhatsapp(link);
     }
 
     useEffect(() => {
         setCartItems(JSON.parse(localStorage.getItem("cart")));
-        if(props.isCartOpen && cartItems) createLinkWhatsApp();
+        if(props.isCartOpen) createLinkWhatsApp();
     }, [props.isCartOpen]);
 
     useEffect(() => {
@@ -46,16 +54,13 @@ export default function Cart(props) {
             <>
                 <div className={isClosing?styles.outsideClosingCart:styles.outsideCart} onClick={ () => closeCart() }></div>
                 <div className={isClosing?styles.closingCart:styles.cart} /* onClick={ () => closeCart() } */>
-                <li>Carrinho</li>
-                <div className={Object.keys(cartItems).length<8?styles.cartList:styles.cartListBig}>{
-                    Object.keys(cartItems).map( key => {
-                        return <CartItem cart={cartItems} setCart={setCartItems} item={key} amount={cartItems[key]} />;
-                    })
-                    /* Object.keys(cartItems).forEach(function(key, index) {
-                        <CartItem cart={cartItems} setCart={setCartItems} item={key}/>;
-                    }) */
-                }</div>
-                <a href={linkWhatsapp} target="_blank"><button className={styles.whatsappBtn}>Fazer Pedido</button></a>
+                    <li>Carrinho</li>
+                    <div className={Object.keys(cartItems).length<8?styles.cartList:styles.cartListBig}>{
+                        Object.keys(cartItems).map( key => {
+                            return <CartItem cart={cartItems} setCart={setCartItems} item={key} amount={cartItems[key]} />;
+                        })
+                    }</div>
+                    <a href={linkWhatsapp} target="_blank"><button className={styles.whatsappBtn}>Fazer Pedido</button></a>
                 </div>
             </>
         ) 

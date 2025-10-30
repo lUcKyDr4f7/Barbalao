@@ -24,7 +24,7 @@ export const Products = [
     {
         id: 2,
         image: hamburgao,
-        name: "Hamburgão",
+        name: "Hamburgão3",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
@@ -34,7 +34,7 @@ export const Products = [
     {
         id: 3,
         image: hamburgao,
-        name: "Hamburgão",
+        name: "Hamburgão4",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
@@ -44,7 +44,7 @@ export const Products = [
     {
         id: 4,
         image: hamburgao,
-        name: "Hamburgão",
+        name: "Hamburgão5",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
@@ -54,7 +54,7 @@ export const Products = [
     {
         id: 5,
         image: hamburgao,
-        name: "Hamburgão",
+        name: "Hamburgão6",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
@@ -64,7 +64,7 @@ export const Products = [
     {
         id: 6,
         image: hamburgao,
-        name: "Hamburgão",
+        name: "Hamburgão7",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
@@ -74,7 +74,7 @@ export const Products = [
     {
         id: 7,
         image: hamburgao,
-        name: "Hamburgão",
+        name: "Hamburgão8",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
@@ -84,7 +84,7 @@ export const Products = [
     {
         id: 8,
         image: hamburgao,
-        name: "Hamburgão",
+        name: "Hamburgão9",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
@@ -94,7 +94,7 @@ export const Products = [
     {
         id: 9,
         image: hamburgao,
-        name: "Hamburgão",
+        name: "Hamburgão10",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
@@ -104,7 +104,7 @@ export const Products = [
     {
         id: 10,
         image: hamburgao,
-        name: "Hamburgão",
+        name: "Hamburgão11",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
@@ -114,7 +114,7 @@ export const Products = [
     {
         id: 11,
         image: hamburgao,
-        name: "Hamburgão 2",
+        name: "Hamburgão 12",
         numberOfOptions: 1,
         option: ["Picante"], 
         hasDiscount: false,

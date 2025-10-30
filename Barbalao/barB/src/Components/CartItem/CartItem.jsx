@@ -3,25 +3,28 @@ import styles from '../Css/styles.cartItem.module.css';
 import { Products } from '../../assets/Data/Products';
 
 export default function CartItem(props) {
-    let item = Products[1]
-    /* let tempCart= [...props.cart]
+    let item = Products[props.item]
+    let tempCart= {...props.cart}
     function addItem() {
-        tempCart[props.item[3]][0] ++;
+        tempCart[props.item] ++;
         props.setCart(tempCart)
+        localStorage.setItem("cart", JSON.stringify(tempCart));
     }
     function subtractItem() {
-        if(props.item[0]>1) {
-            tempCart[props.item[3]][0] --;
+        if(tempCart[props.item]>1) {
+            tempCart[props.item] --;
             props.setCart(tempCart);
+            localStorage.setItem("cart", JSON.stringify(tempCart));
         } else {
             removeItem();
         }
     }
     function removeItem() {
-        tempCart.splice(props.item[3], 1);
-        for(let i=props.item[3]; i<tempCart.length; i++) { tempCart[i][3]--; }
+        delete tempCart[props.item]
+        /* for(let i=props.item[3]; i<tempCart.length; i++) { tempCart[i][3]--; } */
         props.setCart(tempCart);
-    } */
+        localStorage.setItem("cart", JSON.stringify(tempCart));
+    }
 
     return(
         <>
@@ -32,10 +35,10 @@ export default function CartItem(props) {
                     <p>R${item['valueWithoutD'].toFixed(2).replace('.', ',')}</p>
                 </div>
                 <div className={styles.itemAmount}>
-                    <button /* onClick={() => subtractItem()} */><i class="ri-subtract-fill"></i></button>
+                    <button onClick={() => subtractItem()}><i class="ri-subtract-fill"></i></button>
                         <h3>{props.amount.toString().padStart(2, '0')}</h3>
-                    <button /* onClick={() => addItem()} */><i class="ri-add-line"></i></button>
-                    <button /* onClick={() => removeItem()} */>< i class="ri-delete-bin-line"></i></button>
+                    <button onClick={() => addItem()}><i class="ri-add-line"></i></button>
+                    <button onClick={() => removeItem()}>< i class="ri-delete-bin-line"></i></button>
                 </div>
             </div>
         </>
