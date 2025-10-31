@@ -2,7 +2,7 @@
 
 /* --navBgColor, --navColor, --navHoverColor */
 
-header {
+.header {
   padding: 20px 20px;
   position: fixed;
   width: 100%;
@@ -12,6 +12,10 @@ header {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   z-index: 1000;
+  transition: all 0.3s ease;
+}
+.header.shrink {
+  padding: 14px 20px; 
 }
 .inner {
   display: flex;
@@ -69,7 +73,6 @@ form button {
 
 button {
   background: none;
-  width: 2vw;
   padding: 0;
   font-size: 1.5rem;
   outline: none;

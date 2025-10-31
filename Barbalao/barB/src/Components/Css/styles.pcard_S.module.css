@@ -1,16 +1,11 @@
 /* =================== Google Fonts ====================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
-.productsContainer .cardWithModal {
-   display: block;
+.swiperTitle{
+   color: var(--TitleColor);
 }
-.productsContainer .cardWithModal.hidden {
-   display: none;
-}
-
 .productCard {
    position: relative;
-   background: linear-gradient(120deg, rgba(163, 178, 207, 0.15), rgba(163, 178, 207, 0.05));
+   background: var(--cardBg);
    width: 230px;
    border-radius: 10px;
    cursor: pointer;
@@ -186,12 +181,6 @@
 .swiperSlide{
    display: flex;
    flex-direction: column;
-}
-.brandsSwiper .swiperSlide.avaliable{
-   user-select: none;        
-   -webkit-user-select: none; 
-   -moz-user-select: none;    
-   -ms-user-select: none;     
 }
 .brandsSwiper .swiperSlide .coming-soon{
    position: absolute;
