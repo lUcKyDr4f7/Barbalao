@@ -19,23 +19,26 @@
   width: 8vh;
 }
 
+.cartItem .itemText {
+  width: 12vw;
+}
+
 .cartItem .itemAmount {
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 5vh;
+  height: 4vh;
   width: 7vw;
   border-radius: 2vh;
 }
-.cartItem .itemText {
-  width: 12vw;
-}
 .cartItem h3 {
+  display: flex;
+  align-items: center;
   height: 4vh;
-  margin: -.4rem .2vw 0 .2vw;
+  margin: 0 .2vw 0 .2vw;
 }
 .cartItem p {
-  height: 4vh;
+  height: 2.5vh;
   margin: 0 .2vw 0 .2vw;
   font-size: .8rem;
 }

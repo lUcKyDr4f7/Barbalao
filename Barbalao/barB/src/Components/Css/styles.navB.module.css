@@ -27,11 +27,11 @@
   font-size: 1.4em;
 }
 
-.logo{
-  width: 13vh;
+.logo, .logo img{
+  height: 15vh;
 }
 
-form {
+/* form {
   background-color: #fff;
   height: 12vh;
   width: 60vw;
@@ -54,7 +54,7 @@ form button {
   width: 10vh;
   font-size: 7vh;
   line-height: 10vh;
-}
+} */
 
 .headerBtns{
   display: flex;
@@ -74,7 +74,7 @@ form button {
 button {
   background: none;
   padding: 0;
-  font-size: 3.2vh;
+  font-size: 1.5rem;
   outline: none;
   transition: 0.5s;
 }

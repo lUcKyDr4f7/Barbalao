@@ -5,6 +5,10 @@ import Cart from '../Cart/Cart';
 
 export default function NavB() {
 
+    let currentTheme = localStorage.getItem("theme");
+    if (!currentTheme) {
+        currentTheme = window.matchMedia('(prefers-color-scheme: dark)') ? "dark" : "light";
+    }
     
     let currentIcon = currentTheme == "dark" ? "ri-sun-fill sun-icon" : "ri-moon-fill moon-icon";
     const [themeIcon, setThemeIcon] = useState(currentIcon);
@@ -45,8 +49,8 @@ export default function NavB() {
             <header className={styles.header}>
                 <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} cartList={cartList} />
                 <div className={styles.inner}>
-                    <div>
-                        <a href="#home"><img className={styles.logo} src={logo}/></a>
+                    <div className={styles.logo}>
+                        <a href="#home"><img  src={logo}/></a>
                     </div>
                     {/* <form>
                         <input type="text" />
