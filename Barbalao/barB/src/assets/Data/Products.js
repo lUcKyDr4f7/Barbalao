@@ -9,7 +9,7 @@ export const Products = [
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
         valueWithoutD: 75.00,
-        valueWithD: "50,00"
+        valueWithD: 50
     },
     {
         id: 1,
@@ -19,7 +19,7 @@ export const Products = [
         option: ["Picante"], 
         hasDiscount: false,
         valueWithoutD: 50,
-        valueWithD: "50,00"
+        valueWithD: 50
     },
     {
         id: 2,
@@ -29,7 +29,7 @@ export const Products = [
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
         valueWithoutD: 75,
-        valueWithD: "50,00"
+        valueWithD: 50
     },
     {
         id: 3,
@@ -39,7 +39,7 @@ export const Products = [
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
         valueWithoutD: 75,
-        valueWithD: "50,00"
+        valueWithD: 50
     },
     {
         id: 4,
@@ -49,7 +49,7 @@ export const Products = [
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
         valueWithoutD: 75,
-        valueWithD: "50,00"
+        valueWithD: 50
     },
     {
         id: 5,
@@ -59,7 +59,7 @@ export const Products = [
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
         valueWithoutD: 75,
-        valueWithD: "50,00"
+        valueWithD: 50
     },
     {
         id: 6,
@@ -69,7 +69,7 @@ export const Products = [
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
         valueWithoutD: 75,
-        valueWithD: "50,00"
+        valueWithD: 50
     },
     {
         id: 7,
@@ -79,7 +79,7 @@ export const Products = [
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
         valueWithoutD: 75,
-        valueWithD: "50,00"
+        valueWithD: 50
     },
     {
         id: 8,
@@ -89,7 +89,7 @@ export const Products = [
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
         valueWithoutD: 75,
-        valueWithD: "50,00"
+        valueWithD: 50
     },
     {
         id: 9,
@@ -99,7 +99,7 @@ export const Products = [
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
         valueWithoutD: 75,
-        valueWithD: "50,00"
+        valueWithD: 50
     },
     {
         id: 10,
@@ -109,7 +109,7 @@ export const Products = [
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
         valueWithoutD: 75,
-        valueWithD: "50,00"
+        valueWithD: 50
     },
     {
         id: 11,
@@ -119,6 +119,6 @@ export const Products = [
         option: ["Picante"], 
         hasDiscount: false,
         valueWithoutD: 50,
-        valueWithD: "50,00"
+        valueWithD: 50
     }
 ]

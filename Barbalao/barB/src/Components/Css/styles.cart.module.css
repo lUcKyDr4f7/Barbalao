@@ -74,7 +74,7 @@
 }
 .cart .cartList {
   margin-left: -1vw;
-  height: 84vh;
+  height: 80vh;
   animation-name: cartListOpening;
   animation-duration: .5s;
 }
@@ -87,7 +87,7 @@
 }
 .closingCart .cartList {
   margin-left: -1vw;
-  height: 84vh;
+  height: 80vh;
   animation-name: cartListClosing;
   animation-duration: .5s;
 }
@@ -96,6 +96,33 @@
   height: 84vh;
   overflow-y: scroll;
   animation-name: cartListClosing;
+  animation-duration: .5s;
+}
+
+@keyframes cartTotalOpening {
+  from {margin-left: 20vw;}
+  to {margin-left: 0vw;}
+}
+@keyframes cartTotalClosing {
+  from {margin-left: 0vw;}
+  to {margin-left: 20vw;}
+}
+.cart .totalValue {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  width: 26vw;
+  font-size: 2rem;
+  animation-name: cartTotalOpening;
+  animation-duration: .5s;
+}
+.closingCart .totalValue {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  width: 26vw;
+  font-size: 2rem;
+  animation-name: cartTotalClosing;
   animation-duration: .5s;
 }
 

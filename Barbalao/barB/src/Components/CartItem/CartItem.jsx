@@ -8,37 +8,39 @@ export default function CartItem(props) {
     function addItem() {
         tempCart[props.item] ++;
         props.setCart(tempCart)
-        localStorage.setItem("cart", JSON.stringify(tempCart));
+        /* localStorage.setItem("cart", JSON.stringify(tempCart));
+        localStorage.setItem("totalValue", Number(localStorage.getItem("totalValue")) + item.valueWithD); */
     }
     function subtractItem() {
         if(tempCart[props.item]>1) {
             tempCart[props.item] --;
             props.setCart(tempCart);
-            localStorage.setItem("cart", JSON.stringify(tempCart));
+            /* localStorage.setItem("cart", JSON.stringify(tempCart));
+            localStorage.setItem("totalValue", Number(localStorage.getItem("totalValue")) - item.valueWithD); */
         } else {
             removeItem();
         }
     }
     function removeItem() {
         delete tempCart[props.item]
-        /* for(let i=props.item[3]; i<tempCart.length; i++) { tempCart[i][3]--; } */
         props.setCart(tempCart);
-        localStorage.setItem("cart", JSON.stringify(tempCart));
+        /* localStorage.setItem("cart", JSON.stringify(tempCart));
+        localStorage.setItem("totalValue", Number(localStorage.getItem("totalValue")) - item.valueWithD * tempCart[props.item]); */
     }
 
     return(
         <>
-            <div className={styles.cartItem} >
+            <div key={props.item} className={styles.cartItem} >
                 <img src={item['image']} alt={item['name']} />
                 <div className={styles.itemText}>
                     <h3>{item['name']}</h3>
-                    <p>R${item['valueWithoutD'].toFixed(2).replace('.', ',')}</p>
+                    <p>R${item.valueWithD.toFixed(2).replace('.', ',')}</p>
                 </div>
                 <div className={styles.itemAmount}>
-                    <button onClick={() => subtractItem()}><i class="ri-subtract-fill"></i></button>
+                    <button onClick={() => subtractItem()}><i className="ri-subtract-fill"></i></button>
                         <h3>{props.amount.toString().padStart(2, '0')}</h3>
-                    <button onClick={() => addItem()}><i class="ri-add-line"></i></button>
-                    <button onClick={() => removeItem()}>< i class="ri-delete-bin-line"></i></button>
+                    <button onClick={() => addItem()}><i className="ri-add-line"></i></button>
+                    <button onClick={() => removeItem()}>< i className="ri-delete-bin-line"></i></button>
                 </div>
             </div>
         </>
