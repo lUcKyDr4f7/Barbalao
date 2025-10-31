@@ -16,15 +16,19 @@ export default function ProdC({name, price, img, setState, state}) {
 
     function addCart() {
         let cart = JSON.parse(localStorage.getItem("cart"))
+        let totalValue = localStorage.getItem("totalValue");
         if(!cart) {
             cart = {};
+            totalValue = 0;
         }
         if(cart[state.id]) {
             cart[state.id] += quantity;
         } else {
             cart[state.id] = quantity;
         }
+        totalValue += Number(price) * quantity;
         localStorage.setItem("cart", JSON.stringify(cart));
+        localStorage.setItem("totalValue", totalValue);
     }
 
     return (

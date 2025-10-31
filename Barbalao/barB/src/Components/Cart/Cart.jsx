@@ -21,7 +21,12 @@ export default function Cart(props) {
     }
 
     const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cart")));
-    if(!cartItems) { setCartItems({}) }
+    const [totalValue, setTotalValue] = useState(localStorage.getItem("totalValue"));
+    if(!cartItems) {
+        setCartItems({});
+        setTotalValue(0);
+    }
+
     const [linkWhatsapp, setLinkWhatsapp] = useState('');
     function createLinkWhatsApp() {
         /* Por enquanto o número é o do Oséias */
@@ -36,7 +41,7 @@ export default function Cart(props) {
             for(let i=0; i<6; i++) {
                 if (link.includes(replacements[0][i])) link.replace(replacements[0][i], replacements[1][i]);
             }
-        } else { link="" }
+        }
         setLinkWhatsapp(link);
     }
 
@@ -56,11 +61,13 @@ export default function Cart(props) {
                 <div className={isClosing?styles.closingCart:styles.cart} /* onClick={ () => closeCart() } */>
                     <li>Carrinho</li>
                     <div className={Object.keys(cartItems).length<8?styles.cartList:styles.cartListBig}>{
+                        Object.keys(cartItems).length != 0?
                         Object.keys(cartItems).map( key => {
                             return <CartItem cart={cartItems} setCart={setCartItems} item={key} amount={cartItems[key]} />;
-                        })
+                        }):<p>O carrinho está vazio</p>
                     }</div>
-                    <a href={linkWhatsapp} target="_blank"><button className={styles.whatsappBtn}>Fazer Pedido</button></a>
+                    
+                    {Object.keys(cartItems).length != 0 && <h2>Total: R${totalValue.toFixed(2).replace('.', ',')}</h2> && <a href={linkWhatsapp} target="_blank"><button className={styles.whatsappBtn}>Fazer Pedido</button></a>}
                 </div>
             </>
         ) 
