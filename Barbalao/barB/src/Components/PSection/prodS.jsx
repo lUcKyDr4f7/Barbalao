@@ -36,7 +36,7 @@ export default function prodS(){
                                 <div className={styles.productInfo}>
                                     <h4 className={styles.info}>{product.name}</h4>
                                     <ul className={`${styles.productStars} ${styles.info}`}></ul>
-                                    <div className={`${product.hasDiscount ? styles.productOptionsD: styles.productOptions} ${styles.info}`}>
+                                    {/* <div className={`${product.hasDiscount ? styles.productOptionsD: styles.productOptions} ${styles.info}`}>
                                         {product.numberOfOptions != null && product.numberOfOptions > 0 ? 
                                         Array(parseInt(product.numberOfOptions)).fill().map((_, i) => (
                                         <div className={`${styles[product.option[i].toLowerCase()]} ${styles.info}`} key={i}> 
@@ -46,8 +46,8 @@ export default function prodS(){
                                         : 
                                         <div className={`${styles.option} ${styles.info}`}></div>
                                         }   
-                                    </div>
-                                    {product.hasDiscount ? <h5 className={`${styles.normalPrice} ${styles.info}`}><s>R$ {product.valueWithoutD}</s></h5> : <h5 className={`${styles.normalPrice} ${styles.info}`}></h5>}
+                                    </div> */}
+                                    {/* product.hasDiscount ? <h5 className={`${styles.normalPrice} ${styles.info}`}><s>R$ {product.valueWithoutD}</s></h5> : <h5 className={`${styles.normalPrice} ${styles.info}`}></h5> */}
                                     <h4 className={`${styles.priceWithDescount} ${styles.info}`}>R$ {product.valueWithD}</h4>
                                     <i className={`ri-shopping-cart-2-fill ${styles.shopIcon}`}></i>
                                 </div>
@@ -63,4 +63,5 @@ export default function prodS(){
             )}
             </>
     )
+
 }
