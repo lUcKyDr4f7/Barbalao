@@ -59,7 +59,7 @@
    text-transform: uppercase;
 }
 .productCard .productInfo h4 {
-   color: rgba(248, 250, 253, 1);
+   color: var(--TitleColor);
    font-size: 1.07rem;
    font-weight: 500;
 }
