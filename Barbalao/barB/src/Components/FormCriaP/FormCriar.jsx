@@ -27,7 +27,7 @@ export default function FormCriar({onClic}) {
                     preco: data.preco
                 }
                 
-                fetch('http://https://back-end-barbalao.onrender.com/api/products', {
+                fetch('https://back-end-barbalao.onrender.com/api/products', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
