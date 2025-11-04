@@ -29,8 +29,7 @@ export default function FormCriar({onClic}) {
                 
                 fetch('https://back-end-barbalao.onrender.com/api/products/', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json',
-                                'Access-Control-Allow-Origin' : 'https://back-end-barbalao.onrender.com'},
+                    headers: { 'Content-Type': 'application/json'},
                     body: JSON.stringify(payload)
                 })
                     .then((res) =>{
