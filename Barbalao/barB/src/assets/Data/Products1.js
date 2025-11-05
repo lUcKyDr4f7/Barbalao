@@ -1,9 +1,7 @@
-import hamburgao from '../popular-imgs/hamburgao.png'
-
-export const Products = [
+export const Products1 = [
     {
         id: 0,
-        image: hamburgao,
+        image: 'hamburgao',
         name: "Hamburgão",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
@@ -13,7 +11,7 @@ export const Products = [
     },
     {
         id: 1,
-        image: hamburgao,
+        image: 'hamburgao',
         name: "Hamburgão 2",
         numberOfOptions: 1,
         option: ["Picante"], 
@@ -23,7 +21,7 @@ export const Products = [
     },
     {
         id: 2,
-        image: hamburgao,
+        image: 'hamburgao',
         name: "Hamburgão3",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
@@ -33,7 +31,7 @@ export const Products = [
     },
     {
         id: 3,
-        image: hamburgao,
+        image: 'hamburgao',
         name: "Hamburgão4",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
@@ -43,7 +41,7 @@ export const Products = [
     },
     {
         id: 4,
-        image: hamburgao,
+        image: 'hamburgao',
         name: "Hamburgão5",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
@@ -53,7 +51,7 @@ export const Products = [
     },
     {
         id: 5,
-        image: hamburgao,
+        image: 'hamburgao',
         name: "Hamburgão6",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
@@ -63,7 +61,7 @@ export const Products = [
     },
     {
         id: 6,
-        image: hamburgao,
+        image: 'hamburgao',
         name: "Hamburgão7",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
@@ -73,7 +71,7 @@ export const Products = [
     },
     {
         id: 7,
-        image: hamburgao,
+        image: 'hamburgao',
         name: "Hamburgão8",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
@@ -83,7 +81,7 @@ export const Products = [
     },
     {
         id: 8,
-        image: hamburgao,
+        image: 'hamburgao',
         name: "Hamburgão9",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
@@ -93,7 +91,7 @@ export const Products = [
     },
     {
         id: 9,
-        image: hamburgao,
+        image: 'hamburgao',
         name: "Hamburgão10",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
@@ -103,7 +101,7 @@ export const Products = [
     },
     {
         id: 10,
-        image: hamburgao,
+        image: 'hamburgao',
         name: "Hamburgão11",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
@@ -113,7 +111,7 @@ export const Products = [
     },
     {
         id: 11,
-        image: hamburgao,
+        image: 'hamburgao',
         name: "Hamburgão 12",
         numberOfOptions: 1,
         option: ["Picante"], 

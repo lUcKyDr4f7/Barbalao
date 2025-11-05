@@ -1,5 +1,5 @@
-import { Banners } from '../../assets/Data/Banners'
-
+import { Banners } from '../../assets/Data/Banners0.js'
+import { getImagePath } from '../utils/path.jsx';
 export default function Banner(){
     const listaBanners = Banners.map(
         (banner) => 

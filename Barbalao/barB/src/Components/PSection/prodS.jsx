@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { useState, useEffect } from 'react';
 import { Navigation } from 'swiper/modules';
 import { Products } from '../../assets/Data/Products.js'
+import { getImagePath } from '../utils/pathP.jsx';
 import ProdC from '../PCard/prodC.jsx';
 export default function prodS(){
     const [selectedProduct, setSelectedProduct] = useState(null);
@@ -31,7 +32,7 @@ export default function prodS(){
                         <div className={`${styles.cardWithModal} ${styles.airJordan}`} >
                             <div className={styles.productCard}>
                                 <div className={styles.productImg}>
-                                    <img src={product.image} alt={product.name} />
+                                    <img src={getImagePath(product)} alt={product.name} />
                                 </div>
                                 <div className={styles.productInfo}>
                                     <h4 className={styles.info}>{product.name}</h4>
