@@ -24,7 +24,8 @@ export default function FormCriar({onClic}) {
                 const payload = {
                     nome: data.nome,
                     imagem: data.imagem,
-                    preco: data.preco
+                    preco: data.preco,
+                    categ_id: 1
                 }
                 
                 fetch('https://back-end-barbalao.onrender.com/api/products/', {
