@@ -26,8 +26,8 @@ export default function ProdS({ produtos }) {
 
   return (
     <>
-      <div style={!selectedProduct? {width: '100%', margin: '0 auto', height: '30vh' }:{ width: '100%', margin: '0 auto' }}>
-        {!selectedProduct? 
+      <div style={produtos && produtos.length < 0? {width: '100%', margin: '0 auto', height: '30vh' }:{ width: '100%', margin: '0 auto' }}>
+        {produtos && produtos.length < 0? 
           (
             <div>
               <h2 > Carrossel de Produtos</h2>
