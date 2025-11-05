@@ -9,6 +9,7 @@ export default function FormCriar({onClic}) {
         // Tranforma os valores e names dos inputs em objeto, sendo eles valor e chave respectivamente.
         const formData = new FormData(e.target);
         const data = Object.fromEntries(formData.entries());
+        console.log("Dados do form:", data); 
         // ---
 
         // Pega o primeiro arquivo, o files do input cria sempre uma fileList, mesmo que só se tenha enviado um 
@@ -25,7 +26,7 @@ export default function FormCriar({onClic}) {
                     nome: data.nome,
                     imagem: data.imagem,
                     preco: data.preco,
-                    categ_id: 1
+                    descricao: data.descricao
                 }
                 
                 fetch('https://back-end-barbalao.onrender.com/api/products/', {
@@ -43,7 +44,7 @@ export default function FormCriar({onClic}) {
                         return res.json();
                     })
                     .then((json) => {
-                        alert(`Produto criado (id: ${json.id})`)
+                        alert(`Produto criado (id: ${json.ID})`)
                     })
                     .catch((err) => {
                         alert(`Erro: ${err.message}`);

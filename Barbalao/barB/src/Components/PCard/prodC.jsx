@@ -2,7 +2,8 @@ import styles from '../Css/styles.pcard_C.module.css';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useState} from 'react';
 import { Carousel } from "react-responsive-carousel";
-export default function ProdC({name, price, img, setState, state}) {
+export default function ProdC({name, price, img, descricao, setState, state}) {
+    console.log(descricao)
     console.log(state)
     const [quantity, setQuantity] = useState(1);
     const increase = () => {
@@ -27,7 +28,7 @@ export default function ProdC({name, price, img, setState, state}) {
                 </div>
                 <div className={styles.productInfo}>
                     <h1>{name}</h1>
-                    <p className={styles.description}>Suculento hambúrguer artesanal preparado com pão brioche macio, blend de carne bovina 180g grelhado no ponto perfeito, coberto por queijo cheddar derretido, alface crocante, tomate fresco e molho especial da casa. Finalizado com um toque de cebola caramelizada que realça o sabor e transforma cada mordida em uma experiência única</p>
+                    <p className={styles.description}>{descricao}</p>
                     <p className={styles.price}>R$ {price}</p>
                     <div class={styles.productBuy}>
                         <div class={styles.productQuantity}><button onClick={quantity > 1 && decrease}>-</button><span>{quantity}</span><button onClick={quantity < 10 && increase}>+</button></div>
