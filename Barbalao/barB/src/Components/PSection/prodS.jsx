@@ -9,7 +9,7 @@ import { Navigation } from 'swiper/modules';
 export default function prodS({produtos, onDelete}){
     const deletarProdutos = (id) =>
       {
-        fetch(`https://localhost:3001/api/products/remove/${id}`, {
+        fetch(`https://back-end-barbalao.onrender.com/api/products/remove/${id}`, {
           method: 'POST'
         })
           .then((res) => {

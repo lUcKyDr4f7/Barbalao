@@ -10,7 +10,7 @@ export default function Home() {
 
   const carregarProdutos = () =>
   {
-    fetch('http://localhost:3001/api/products')
+    fetch('https://back-end-barbalao.onrender.com/api/products/')
       .then((res) => {
         if(!res.ok) {
           throw new Error('Erro não legal Criar')
