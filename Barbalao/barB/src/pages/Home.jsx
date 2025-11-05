@@ -24,7 +24,7 @@ export default function Home() {
   }
 
   const removerProduto = (id) => {
-    setProdutos(produtos.filter(p => p.idprod != id))
+    setProdutos(produtos.filter(p => p.id_prod != id))
   }
 
   

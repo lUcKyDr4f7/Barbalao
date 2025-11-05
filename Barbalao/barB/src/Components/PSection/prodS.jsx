@@ -9,8 +9,8 @@ import { Navigation } from 'swiper/modules';
 export default function prodS({produtos, onDelete}){
     const deletarProdutos = (id) =>
       {
-        fetch(`https://back-end-barbalao.onrender.com/api/products/remove/${id}`, {
-          method: 'POST'
+        fetch(`https://back-end-barbalao.onrender.com/api/products/remove/${id}/`, {
+          method: 'DELETE'
         })
           .then((res) => {
             if (!res.ok) {
@@ -54,7 +54,7 @@ export default function prodS({produtos, onDelete}){
                                             </div>
                                             <h4 className={`${styles.priceWithDescount} ${styles.info}`}>{produto.price}</h4>
                                             <i className={`ri-shopping-cart-2-fill ${styles.shopIcon}`}></i>
-                                            <button onClick={() => deletarProdutos(produto.idprod)}>X</button>
+                                            <button onClick={() => deletarProdutos(produto.id_prod)}>X</button>
                                             
                                         </div>
                                     </div>
