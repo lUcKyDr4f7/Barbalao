@@ -8,7 +8,7 @@ import Home from './pages/Home.jsx';
 import About from './pages/About.jsx'
 import Login from './pages/Login.jsx';
 // import FormCriar from './Components/FormCriarP/FormCriar.jsx'
-import Adm from './pages/Adm.jsx'
+import AdmMenu from './pages/AdmMenu.jsx'
 
 function App() {
 

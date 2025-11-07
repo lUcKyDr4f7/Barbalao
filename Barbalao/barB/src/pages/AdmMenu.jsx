@@ -1,4 +1,4 @@
-export default function Adm() {
+export default function AdmMenu() {
 
     return(
         <div /* className={styles.AdmCont} */ >
