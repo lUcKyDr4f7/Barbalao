@@ -59,7 +59,7 @@ export default function NavB() {
                     <div className={styles.headerBtns}>
                         <li><a href="/">Início</a></li>
                         <li><a href="/about-us">Sobre Nós</a></li>
-                        <li><a href="">ADM</a></li>
+                        <li><a href="/adm">ADM</a></li>
                         <button onClick={() => changeTheme()}><i className={themeIcon}></i></button>
                         <button onClick={() => openCart()}><i className="ri-shopping-cart-2-fill"></i></button>
                     </div>
