@@ -1,46 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-.barb{
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  font-size: 1.75em;
-  color: #ffe600;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-style: italic;
-  margin-left: 20px;
-  text-shadow:
-    -2px -2px 0 #0069cc,
-     2px -2px 0 #0069cc,
-    -2px  2px 0 #0069cc,
-     2px  2px 0 #0069cc;
-}
-a.barb{
-  font-weight: 500;
-  text-decoration: inherit;
-}
-a.barb:hover {
-  color: #e6cf00;
-  text-shadow:
-    -2px -2px 0 #004f99,
-     2px -2px 0 #004f99,
-    -2px  2px 0 #004f99,
-     2px  2px 0 #004f99;
-}
-.logo{
-  width: 120px;
-  margin-left: -10px;
-}
 
-.headerBtns{
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-size: 1.1em;
-}
+/* --navBgColor, --navColor, --navHoverColor */
 
+.header {
+  padding: 20px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--navBgColor);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+.header.shrink {
+  padding: 14px 20px; 
+}
 .inner {
   display: flex;
   justify-content: space-between; 
@@ -48,37 +24,61 @@ a.barb:hover {
   width: 97%;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  font-size: 1.1em;
-}
-.headerMenu{
-  display: flex;
-  align-items: center;
-  list-style: none;
-  gap: 25px;
-  margin: 0;
-  padding: 0;
-}
-.earthTenisHeader{
-  padding: 20px 20px;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background-color: #054a8f;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
+  font-size: 1.4em;
 }
 
-.menu{
-  text-decoration: none;
-  font-size: 1.15em;
-  color: #ffe600;
+.logo, .logo img{
+  height: 15vh;
+}
+
+/* form {
+  background-color: #fff;
+  height: 12vh;
+  width: 60vw;
+  border-radius: 6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input {
+  background-color: #fff;
+  height: 11vh;
+  width: 50vw;
+  border: none;
+  border-radius: 7vh;
+  margin-right: 6vh;
+  font-size: 5vh;
+}
+form button {
+  height: 10vh;
+  width: 10vh;
+  font-size: 7vh;
+  line-height: 10vh;
+} */
+
+.headerBtns{
+  display: flex;
+  align-items: center;
+  gap: 25px;
   font-family: "Poppins", sans-serif;
+  list-style: none;
 }
-a.menu{
-  text-decoration: inherit;
+.headerBtns a, .headerBtns button{
+  text-decoration: none;
+  color: var(--navColor);
 }
-a.menu:hover {
-  color: #e6cf00;
+.headerBtns a:hover, .headerBtns button:hover{
+  color: var(--navHoverColor);
+}
+
+button {
+  background: none;
+  padding: 0;
+  font-size: 1.5rem;
+  outline: none;
+  transition: 0.5s;
+}
+.headerBtns button:hover {
+  transform: rotate(20deg);
+  transition: 0.5s;
 }

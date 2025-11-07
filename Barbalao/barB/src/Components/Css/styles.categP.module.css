@@ -1,7 +1,7 @@
 .titleCateg{
    font-size: 2.75rem;
    font-weight: 700;
-   color: rgb(255, 255, 75);
+   color: var(--TitleColor);
    text-align: center;
    margin-top: 160px;
    margin-bottom: 40px;
@@ -14,6 +14,9 @@
 .swiperSlide{
    display: flex;
    flex-direction: column;
+}
+.swiperSlide h2{
+   color: var(--categTextColor)
 }
 
 .brandsSwiper{
@@ -31,14 +34,11 @@
    align-items: center;
    border-radius: 10px;
    padding: 0 20px;
-   background: linear-gradient(120deg,hsla(189, 55%, 74%, 0.15), hsla(78, 55%, 74%, 0.05));
+   background: var(--cardBg);
 }
 .brandsSwiper .swiperSlide.avaliable{
    margin: 0 14px;
-   user-select: none;        
-   -webkit-user-select: none; 
-   -moz-user-select: none;    
-   -ms-user-select: none;     
+ 
 }
 .brandsSwiper .swiperSlide.avaliable.start{
    margin: 0;
@@ -69,15 +69,15 @@
    height: 100%;
    max-height: 100%;
    object-fit: contain;
-   filter: invert(100%);
+   filter: invert(var(--categFilterI));
    transition: all 0.3s ease;
    margin-bottom: -10px;
 }
 .brandsSwiper .swiperSlide h2{
     transition: all 0.3s ease; } 
 .brandsSwiper .swiperSlide.avaliable:hover h2{
-       filter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(213%) contrast(90%); 
-       cursor: pointer; 
+   filter: var(--categFilter); 
+   cursor: pointer; 
 } 
 .brandsSwiper .swiperSlide.avaliable:hover img{
    filter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(103%) contrast(92%);

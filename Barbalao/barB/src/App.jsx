@@ -7,7 +7,8 @@ import { Routes, Route } from "react-router-dom";
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx'
 import Login from './pages/Login.jsx';
-import FormCriar from './Components/FormCriarP/FormCriar.jsx'
+// import FormCriar from './Components/FormCriarP/FormCriar.jsx'
+import Adm from './pages/Adm.jsx'
 
 function App() {
 
@@ -23,7 +24,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about-us" element={<About />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/form" element={<FormCriar />} />
+        {/* <Route path="/form" element={<FormCriar />} /> */}
       </Routes>
     </>
   )

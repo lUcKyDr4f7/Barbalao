@@ -7,7 +7,6 @@ import { Navigation } from 'swiper/modules';
 import ProdC from '../PCard/prodC.jsx';
 
 export default function ProdS({ produtos }) {
-  {console.log(produtos.descricao)}
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
@@ -26,55 +25,67 @@ export default function ProdS({ produtos }) {
 
   return (
     <>
-      <div style={produtos && produtos.length < 0? {width: '100%', margin: '0 auto', height: '30vh' }:{ width: '100%', margin: '0 auto' }}>
-        {produtos && produtos.length < 0? 
-          (
-            <div>
-              <h2 > Carrossel de Produtos</h2>
-              <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                <p>Sem produtos</p>
-              </div>
+      <div
+        style={
+          !produtos || produtos.length === 0
+            ? { width: '100%', margin: '0 auto', height: '30vh' }
+            : { width: '100%', margin: '0 auto' }
+        }
+      >
+        {!produtos || produtos.length === 0 ? (
+          <div>
+            <h2 className={styles.swiperTitle}>Carrossel de Produtos</h2>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <p className={styles.swiperTitle}>Sem produtos</p>
             </div>
-            
-          )
-          :
-          (
-             <div>
-              <h2>Carrossel de Produtos</h2>
-              <Swiper className={styles.brandsSwiper} slidesPerView={5} spaceBetween={22} allowTouchMove={false} navigation={produtos.length > 5} modules={[Navigation]} swipeable={true} slidesOffsetBefore={15} slidesOffsetAfter={10} onSlideChange={() => console.log('slide change')} onSwiper={(swiper) => console.log(swiper)}>
-                {produtos.map((produto) => (
-                  
-                  <SwiperSlide onClick={() => setSelectedProduct(produto)} key={produto.id_prod} className={`${styles.swiperSlide} ${styles.avaliable}`}>
-                    <div className={`${styles.cardWithModal} ${styles.airJordan}`}>
-                      <div className={styles.productCard}>
-                        <div className={styles.productImg}>
-                          <img src={produto.image} alt={produto.name} />
-                        </div>
-                        <div className={styles.productInfo}>
-                          <h4 className={styles.info}>{produto.name}</h4>
-                          <ul className={`${styles.productStars} ${styles.info}`}></ul>
-                          {/* <h5 className={`${styles.normalPrice} ${styles.info}`}><s>R$ {produto.valueWithoutD || produto.price}</s></h5> */}
-                          <h4 className={`${styles.priceWithDescount} ${styles.info}`}>R$ {parseFloat(produto.price).toFixed(2).replace('.', ',')}</h4>
-                          <i className={`ri-shopping-cart-2-fill ${styles.shopIcon}`}></i>
-                        </div>
+          </div>
+        ) : (
+          <div>
+
+            <h2 className={styles.swiperTitle}>Carrossel de Produtos</h2>
+
+            <Swiper className={styles.brandsSwiper} slidesPerView={5} spaceBetween={22} allowTouchMove={false} navigation={produtos.length > 5} modules={[Navigation]} swipeable={true} slidesOffsetBefore={15} slidesOffsetAfter={10} onSlideChange={() => {console.log('slide change')}} onSwiper={(swiper) => {console.log(swiper)}}>
+              
+              {produtos.map((produto) => (
+                <SwiperSlide onClick={() => setSelectedProduct(produto)} key={produto.id_prod} className={`${styles.swiperSlide} ${styles.avaliable}`}>
+                  <div className={`${styles.cardWithModal} ${styles.airJordan}`}>
+                    <div className={styles.productCard}>
+                      <div className={styles.productImg}>
+
+                        <img
+                          src={produto.image || 'https://via.placeholder.com/150'}
+                          alt={produto.name || 'Produto sem nome'}
+                          onError={(e) => (e.target.src = 'https://via.placeholder.com/150')}
+                        />
+
+                      </div>
+                      <div className={styles.productInfo}>
+                        <h4 className={styles.info}>{produto.name}</h4>
+                        <ul className={`${styles.productStars} ${styles.info}`}></ul>
+                        <h4 className={`${styles.priceWithDescount} ${styles.info}`}>
+                          R${' '}
+                          {parseFloat(produto.price || 0)
+                            .toFixed(2)
+                            .replace('.', ',')}
+                        </h4>
+                        <i className={`ri-shopping-cart-2-fill ${styles.shopIcon}`}></i>
                       </div>
                     </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>  
-             </div>
-          )
-      
-      }
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        )}
       </div>
 
       {selectedProduct && (
         <ProdC
           name={selectedProduct.name}
-          price={parseFloat(selectedProduct.price).toFixed(2).replace('.', ',')}
+          price={parseFloat(selectedProduct.price || 0).toFixed(2).replace('.', ',')}
           img={selectedProduct.image}
-          setState={setSelectedProduct}
           descricao={selectedProduct.descricao}
+          setState={setSelectedProduct}
           state={selectedProduct}
         />
       )}

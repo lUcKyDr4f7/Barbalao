@@ -1,38 +1,73 @@
 import styles from '../Css/styles.navB.module.css';
 import logo from '../../assets/BarB.png';
 import { useState, useEffect } from 'react';
+import Cart from '../Cart/CartP'
 
 export default function NavB() {
-    const [scroll, setScroll] = useState(false)
+
+    let currentTheme = localStorage.getItem("theme");
+    if (!currentTheme) {
+        currentTheme = window.matchMedia('(prefers-color-scheme: dark)') ? "dark" : "light";
+    }
     
+    let currentIcon = currentTheme == "dark" ? "ri-sun-fill sun-icon" : "ri-moon-fill moon-icon";
+    const [themeIcon, setThemeIcon] = useState(currentIcon);
+    document.body.classList = currentTheme;
+
+    function changeTheme() {
+        currentTheme = currentTheme == "light" ? "dark" : "light";
+        localStorage.setItem("theme", currentTheme);
+        currentIcon = currentTheme == "dark" ? "ri-sun-fill sun-icon" : "ri-moon-fill moon-icon";
+        setThemeIcon(currentIcon);
+        document.body.classList = currentTheme;
+    }
+    const [isCartOpen, setIsCartOpen] = useState(false);
+    const [cartList, setCartList] = useState([]);
+
+    function openCart() {
+        currentTheme = currentTheme + ' cartOpen';
+        localStorage.setItem("theme", currentTheme);
+        setIsCartOpen(!isCartOpen);
+    }
+    useEffect(() => {
+    const handleScroll = () => {
+      const header = document.querySelector("header");
+      if (window.scrollY > 50) {
+        header.classList.add(styles.shrink);
+      } else {
+        header.classList.remove(styles.shrink);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+    }, []); 
     return (
         <>
          {/*<!--========== Header ==========-->*/}
-            <header className={styles.earthTenisHeader}>
-                <div className="stylesearth-tenis-container">
-                    <div className={styles.inner}>
-                        <div className={styles.barBalaoLogo}>
-                            <a className={styles.barb} href="#home"><img className={styles.logo} src={logo}/></a>
-                        </div>
-                        <div className={styles.headerBtns}>
-                            <ul class="header-menu" className={styles.headerMenu}>
-                                <li class="menu-item"><a className={styles.menu}href="/">Início</a></li>
-                                <li class="menu-item"><a className={styles.menu}href="about-us">Sobre Nós</a></li>
-                                <li class="menu-item"><a className={styles.menu}href="form">Novo Produto</a></li>
-                            </ul>
-                            <div className={styles.themeBtn}>
-                                <i class="ri-sun-fill sun-icon"></i>
-                                <i class="ri-moon-fill moon-icon"></i>
-                            </div>
-                            <div className={styles.shopBtn}>
-                                <i class="ri-shopping-cart-2-fill"><div class="alert"></div></i>
-                            </div>     
-                        </div>         
+            <header className={styles.header}>
+                <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} cartList={cartList} />
+                <div className={styles.inner}>
+                    <div className={styles.logo}>
+                        <a href="#home"><img  src={logo}/></a>
                     </div>
-                    <div class="scroll-indicator-bar"></div>
+                    {/* <form>
+                        <input type="text" />
+                        <button type="submit"><i className="ri-search-line"></i></button>
+                    </form> */}
+                    <div className={styles.headerBtns}>
+                        <li><a href="/">Início</a></li>
+                        <li><a href="/about-us">Sobre Nós</a></li>
+                        <li><a href="">ADM</a></li>
+                        <button onClick={() => changeTheme()}><i className={themeIcon}></i></button>
+                        <button onClick={() => openCart()}><i className="ri-shopping-cart-2-fill"></i></button>
+                    </div>
                 </div>
+                <div className="scroll-indicator-bar"></div>
             </header>
         </> 
     )
+
 
 }

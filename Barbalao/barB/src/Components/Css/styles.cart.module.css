@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* --navBgColor, --navColor, --navHoverColor */
+
+@keyframes cartOpening {
+  from {width: 0;}
+  to {width: 26vw;}
+}
+@keyframes cartClosing {
+  from {width: 26vw;}
+  to {width: 0;}
+}
+
+.cart {
+  padding: 2vh;
+  margin-top: -20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  justify-self: end;
+  background-color: var(--navBgColor);
+  height: 100vh;
+  width: 26vw;
+  animation-name: cartOpening;
+  animation-duration: .5s;
+  z-index: 1500;
+  --scrollbarTrack: #125492;
+}
+.closingCart{
+  padding: 2vh;
+  margin-top: -20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  justify-self: end;
+  background-color: var(--navBgColor);
+  height: 100vh;
+  width: 0;
+  animation-name: cartClosing;
+  animation-duration: .5s;
+  z-index: 1500;
+}
+
+@keyframes cartTitleClosing {
+  from {margin-left: -1vw;}
+  to {margin-left: 13vw;}
+}
+.closingCart li {
+  animation-name: cartTitleClosing;
+  animation-duration: .5s;
+}
+.cart li, .closingCart li {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-left: -1vw;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1.4em;
+  list-style: none;
+  text-decoration: none;
+  color: var(--navColor);
+}
+
+@keyframes cartListOpening {
+  from {margin-left: 24vw;}
+  to {margin-left: -1vw;}
+}
+@keyframes cartListClosing {
+  from {margin-left: -1vw;}
+  to {margin-left: 24vw;}
+}
+.cart .cartList {
+  margin-left: -1vw;
+  height: 80vh;
+  animation-name: cartListOpening;
+  animation-duration: .5s;
+}
+.cart .cartListBig {
+  margin-left: -1vw;
+  height: 84vh;
+  animation-name: cartListOpening;
+  animation-duration: .5s;
+  overflow-y: scroll;
+}
+.closingCart .cartList {
+  margin-left: -1vw;
+  height: 80vh;
+  animation-name: cartListClosing;
+  animation-duration: .5s;
+}
+.closingCart .cartListBig {
+  margin-left: -1vw;
+  height: 84vh;
+  overflow-y: scroll;
+  animation-name: cartListClosing;
+  animation-duration: .5s;
+}
+
+@keyframes cartTotalOpening {
+  from {margin-left: 20vw;}
+  to {margin-left: 0vw;}
+}
+@keyframes cartTotalClosing {
+  from {margin-left: 0vw;}
+  to {margin-left: 20vw;}
+}
+.cart .totalValue {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  width: 26vw;
+  font-size: 2rem;
+  animation-name: cartTotalOpening;
+  animation-duration: .5s;
+}
+.closingCart .totalValue {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  width: 26vw;
+  font-size: 2rem;
+  animation-name: cartTotalClosing;
+  animation-duration: .5s;
+}
+
+@keyframes cartButtonOpening {
+  from {margin-left: 20vw;}
+  to {margin-left: -1vw;}
+}
+@keyframes cartButtonClosing {
+  from {margin-left: -1vw;}
+  to {margin-left: 20vw;}
+}
+.cart .whatsappBtn {
+  width: 20vw;
+  color: white;
+  background-color: green;
+  animation-name: cartButtonOpening;
+  animation-duration: .5s;
+  margin: 1vh 0 0 -1vw;
+}
+.closingCart .whatsappBtn {
+  width: 20vw;
+  background-color: green;
+  animation-name: cartButtonClosing;
+  animation-duration: .5s;
+  margin-top: 1vh;
+}
+
+@keyframes outsideCartOpening {
+  from {background-color: #00000000}
+  to {background-color: #00000090}
+}
+@keyframes outsideCartClosing {
+  from {background-color: #00000090}
+  to {background-color: #00000000}
+}
+.outsideCart {
+  margin-top: -20px;
+  margin-left: -20px;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000090;
+  position: absolute;
+  animation-name: outsideCartOpening;
+  animation-duration: .5s;
+  z-index: 1500;
+}
+.outsideClosingCart {
+  margin-top: -20px;
+  margin-left: -20px;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000080;
+  position: absolute;
+  animation-name: outsideCartClosing;
+  animation-duration: .5s;
+  z-index: 1500;
+}
