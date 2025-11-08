@@ -9,12 +9,12 @@ export const Banners1 = [
         id: 1, 
         title: 'Porções Irresistíveis',
         desc: 'Batatas e petiscos no ponto certo para compartilhar',
-        imagemId: 'Pasteis'
+        imagemId: 'Porcoes'
     },
     {
         id: 2, 
         title: 'Pastéis Crocantes',
         desc: 'Recheados de sabor, crocantes a cada mordida',
-        imagemId: 'Porcoes'
+        imagemId: 'Pasteis'
     }
 ]
