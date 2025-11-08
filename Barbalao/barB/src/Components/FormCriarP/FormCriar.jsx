@@ -1,3 +1,4 @@
+import { API_URL } from '../../envVariables';
 import styles from '../Css/styles.formCriar.module.css'
 
 export default function FormCriar({produtcs}) {
@@ -28,7 +29,7 @@ export default function FormCriar({produtcs}) {
                     descricao: data.descricao
                 }
                 
-                fetch('https://back-end-barbalao.onrender.com/api/products/', {
+                fetch(`${API_URL}/api/products/`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json'},
                     body: JSON.stringify(payload)
@@ -56,38 +57,38 @@ export default function FormCriar({produtcs}) {
 
     }
 
-    // return(
-    //     <>
-    //         <div className={styles.formContainer}>
-    //             <h1>Criar Produto</h1>
-    //             <form className={styles.form} onSubmit={handleSub}>
-    //                 <label className={styles.label} htmlFor="nome">Nome:</label>
-    //                 <input className={styles.input} type="text" name="nome" id="nome" required />
+    return(
+        <>
+            <div className={styles.formContainer}>
+                <h1>Criar Produto</h1>
+                <form className={styles.form} onSubmit={handleSub}>
+                    <label className={styles.label} htmlFor="nome">Nome:</label>
+                    <input className={styles.input} type="text" name="nome" id="nome" required />
 
-    //                 <label className={styles.label} htmlFor="preco">Preço:</label>
-    //                 <input className={styles.input} type="number" name="preco" id="preco" min={1.0} />
+                    <label className={styles.label} htmlFor="preco">Preço:</label>
+                    <input className={styles.input} type="number" name="preco" id="preco" min={1.0} />
 
-    //                 <label htmlFor="descricao">Descrição: </label>
-    //                 <textarea name="descricao" id="descricao"></textarea>
+                    <label htmlFor="descricao">Descrição: </label>
+                    <textarea name="descricao" id="descricao"></textarea>
 
-    //                 <label className={styles.label} htmlFor="imagem">Imagem:</label>
-    //                 <input className={styles.inputFile} 
-    //                     type="file" 
-    //                     name="imagem" 
-    //                     id="imagem" 
-    //                     accept="image/*" 
-    //                     required/>
+                    <label className={styles.label} htmlFor="imagem">Imagem:</label>
+                    <input className={styles.inputFile} 
+                        type="file" 
+                        name="imagem" 
+                        id="imagem" 
+                        accept="image/*" 
+                        required/>
                     
-    //                 <button className={styles.submitButton} type="submit">Criar</button>
-    //             </form>
-    //             <a href="/" >
-    //                 <button className={styles.backButton}>Voltar</button>
-    //             </a>
-    //         </div>
+                    <button className={styles.submitButton} type="submit">Criar</button>
+                </form>
+                <a href="/" >
+                    <button className={styles.backButton}>Voltar</button>
+                </a>
+            </div>
             
             
-    //     </>
-    // )
+        </>
+    )
     // return(
     //     <div>
     //         <div>

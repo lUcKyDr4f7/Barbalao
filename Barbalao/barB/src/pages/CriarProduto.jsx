@@ -1,12 +1,13 @@
-import FormCriar from "../Components/FormCriaP/FormCriar"
+import FormCriar from "../Components/FormCriarP/FormCriar"
 import { useState } from "react"
+import { API_URL } from "../envVariables";
 
-export default function ProdForm() {
+export default function CriarProduto() {
     const [produtos, setProdutos] = useState([])
     
       const carregarProdutos = async () => {
     try {
-      const res = await fetch('https://back-end-barbalao.onrender.com/api/products/');
+      const res = await fetch(`${API_URL}/api/products/`);
       if (!res.ok) {
         throw new Error(`Erro ao buscar produtos: ${res.status}`);
       }
