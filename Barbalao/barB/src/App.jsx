@@ -43,7 +43,7 @@ function App() {
     } catch (err) {
       console.error('Erro no fetch de produtos:', err);
     }
-  };
+  }; 
 
   const removerProduto = (id) => {
     setProdutos(produtos.filter((p) => p.id_prod !== id));
@@ -67,7 +67,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/adm" element={<AdmMenu />}/>
         <Route path='/adm/produtos' element={<AdmPainel tipo={0} produtos={produtos}/>}/>
-        <Route path='/adm/categoias' element={<AdmPainel tipo={1} /*categorias={categorias}*//>}/>
+        <Route path='/adm/categorias' element={<AdmPainel tipo={1} /*categorias={categorias}*//>}/>
         <Route path='/adm/Banners' element={<AdmPainel tipo={-1} /*banners={banners}*//>}/>
         {/* <Route path="/form" element={<FormCriar />} /> */}
       </Routes>

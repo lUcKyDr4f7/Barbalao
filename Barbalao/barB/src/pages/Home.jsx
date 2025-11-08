@@ -7,9 +7,6 @@ import { useState, useEffect } from 'react';
 
 export default function Home({produtos}) {
   
-
-  
-
   return (
     <>
       <NavB />
