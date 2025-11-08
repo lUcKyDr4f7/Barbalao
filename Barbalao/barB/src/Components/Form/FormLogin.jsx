@@ -1,4 +1,5 @@
 import styles from '../Css/styles.formL.module.css'
+import { Link } from 'react-router-dom';
 
 export default function Form( props ){
 
@@ -29,13 +30,13 @@ export default function Form( props ){
                 
                 {inputList}
 
-                <button href={props.btnlink} className={styles.formBtn} 
+                <button className={styles.formBtn} 
                         type="button"
                         onClick={ props.click }>
                         { props.btn }
 
                 </button>
-                <a href={props.aLink}>{props.aContent}</a>
+                <Link className={styles.error} to={props.aLink}>{props.aContent}</Link>
             </form>
 
     </>

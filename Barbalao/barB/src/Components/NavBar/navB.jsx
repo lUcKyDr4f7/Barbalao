@@ -2,8 +2,19 @@ import styles from '../Css/styles.navB.module.css';
 import logo from '../../assets/BarB.png';
 import { useState, useEffect } from 'react';
 import Cart from '../Cart/CartP'
+import { useAuth } from '../../Routes/AuthContext';
 
 export default function NavB() {
+      const {authenticated, setAuthenticated} = useAuth()
+      const [link, setLink] = useState(null)
+      
+      useEffect(() => {
+        if (authenticated) {
+          setLink(<li><a href="/adm">ADM</a></li>);
+        } else {
+          setLink("");
+        }
+      }, [authenticated]);
 
     let currentTheme = localStorage.getItem("theme");
     if (!currentTheme) {
@@ -59,7 +70,7 @@ export default function NavB() {
                     <div className={styles.headerBtns}>
                         <li><a href="/">Início</a></li>
                         <li><a href="/about-us">Sobre Nós</a></li>
-                        <li><a href="/adm">ADM</a></li>
+                        {link}
                         <button onClick={() => changeTheme()}><i className={themeIcon}></i></button>
                         <button onClick={() => openCart()}><i className="ri-shopping-cart-2-fill"></i></button>
                     </div>

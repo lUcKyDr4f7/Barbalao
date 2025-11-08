@@ -1,16 +1,10 @@
 import './App.css'
-import NavB from './Components/NavBar/navB.jsx'
-import CategP from './Components/Categories/CategP.jsx'
-import BannerS from './Components/Banners/bannerS.jsx'
-import PSection from './Components/PSection/prodS.jsx'
-import { Routes, Route } from "react-router-dom";
+import { AuthProvider } from './Routes/AuthContext.jsx';
 import { useState, useEffect } from 'react'
-import Home from './pages/Home.jsx';
-import About from './pages/About.jsx'
-import Login from './pages/Login.jsx';
+import { RouterProvider } from 'react-router-dom';
 // import FormCriar from './Components/FormCriarP/FormCriar.jsx'
-import AdmMenu from './pages/AdmMenu.jsx'
-import AdmPainel from './pages/AdmPainel.jsx'
+import Router from './Routes/Router.jsx'
+
 
 function App() {
   const [produtos, setProdutos] = useState([]);
@@ -53,24 +47,15 @@ function App() {
     carregarProdutos();
   }, []);
 
+
+  
+const [authenticated, setAuthenticated] = useState(false)
+
   return (
     <>
-      {/* <NavB/>
-      <section className='main'>
-      <CategP/>
-      <BannerS/>
-      <PSection/>
-      </section> */}
-      <Routes>
-        <Route path="/" element={<Home produtos={produtos}/>} />
-        <Route path="/about-us" element={<About />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/adm" element={<AdmMenu />}/>
-        <Route path='/adm/produtos' element={<AdmPainel tipo={0} produtos={produtos}/>}/>
-        <Route path='/adm/categoias' element={<AdmPainel tipo={1} /*categorias={categorias}*//>}/>
-        <Route path='/adm/Banners' element={<AdmPainel tipo={-1} /*banners={banners}*//>}/>
-        {/* <Route path="/form" element={<FormCriar />} /> */}
-      </Routes>
+      <AuthProvider>
+          <RouterProvider router={Router} />;
+      </AuthProvider>
     </>
   )
 }

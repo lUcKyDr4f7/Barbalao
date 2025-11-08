@@ -1,14 +1,16 @@
+import { Link } from 'react-router-dom';
+
 export default function AdmMenu() {
 
     return(
         <div /* className={styles.AdmCont} */ >
             <h1 /* className={styles.AdmH1} */>Menu de Adiministração</h1>
             <div /* className={styles.AdmButtDiv} */>
-                <a href="adm/produtos" /* className={styles.AdmButt} */>Produtos</a>
-                <a href="adm/categoias" /* className={styles.AdmButt} */>Categorias</a>
-                <a href="adm/Banners" /* className={styles.AdmButt} */>Banners</a>
+                <Link to="produtos" /* className={styles.AdmButt} */>Produtos</Link>
+                <Link to="categorias" /* className={styles.AdmButt} */>Categorias</Link>
+                <Link to="banners" /* className={styles.AdmButt} */>Banners</Link>
             </div>
-            <a href="/" /* className={styles.AdmVolt} */>Voltar</a>
+            <Link to="/" /* className={styles.AdmVolt} */>Voltar</Link>
         </div>
     )
 }

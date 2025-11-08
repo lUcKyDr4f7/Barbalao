@@ -1,6 +1,7 @@
 import ProdS from "../Components/PSection/prodS"
+import { Link } from 'react-router-dom';
 
-export default function AdmPainel(props) {
+export default function AdmPainelProdutos(props) {
 
     return(
         <div /* clasName={syles.Painelcont} */>

@@ -1,11 +1,16 @@
-import Form from "./FormLogin"
-import style from '../Css/styles.formContQ.module.css'
 import { useState } from "react";
+import { useAuth } from "../../Routes/AuthContext";
+import Form from "./FormLogin"
+import FormNav from "./FormNav";
+import style from '../Css/styles.formContQ.module.css'
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Container(){
     const [formValues, setFormValues] = useState(["", ""]);
-    const [btnLink, setBtnLink] = useState("")
+    const [errorMessage, setErrorMessage] = useState("")
+    const {authenticated, setAuthenticated} = useAuth()
+    const navigate = useNavigate()
     
     function handleInputChange (index, value){
         const newValues = [...formValues];
@@ -17,15 +22,25 @@ export default function Container(){
      async function handleSubmit(){
         console.log(formValues); 
         try {
-            const response = await axios.post('https://localhost:3001/api/login', {
+            const response = await axios.post('https://back-end-barbalao-upgw.onrender.com/api/login/', {
                 nome: formValues[0],
                 senha: formValues[1]
             })
 
-            setBtnLink(data.route)
-            console.log("Resposta do servidor: ", response.data)
+            if (response.data.message == "OK") {
+                setAuthenticated(true)
+                navigate("/adm")
+                setErrorMessage("")
+            } else {
+                navigate("/login")
+
+            }
+
+            console.log("Resposta do servidor: ", response.data.message)
+
         } catch (error){
-            setBtnLink(data.route)
+            navigate("/login")
+            setErrorMessage("Erro ao enviar dados, tente novamente")
             console.log("Erro ao buscar dados: ", error)
         }
 
@@ -33,22 +48,15 @@ export default function Container(){
     }
     
     return<>
-        <nav className={style.formNav}>
-          <a className={style.formLink} href="/">início</a>
-          <a className={style.formLink} href="/about-us">Sobre nós</a>
-        </nav>
+            <FormNav />
             <div className={style.cont}>
-                <div className={style.textCont}>
-                    <h1 className={style.contTitle}>Bem Vindo!</h1>
-                    <h4 className={style.contSubtitle}>Quais mudanças serão feitas hoje?</h4>
-                </div>
-                 <Form inputsRange="2" 
+                 <Form 
+                        inputsRange="2" 
                         title="Login" 
                         btn="Logar" 
                         types={["text", "password"]} 
                         placeholders={["Nome", "Senha"]}
-                        btnlink={btnLink}
-                        aLink='/'
+                        aLink={errorMessage}
                         values={formValues}
                         onInputChange={handleInputChange}
                         click={handleSubmit}

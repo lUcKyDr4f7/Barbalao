@@ -3,16 +3,13 @@ import CategP from '../Components/Categories/CategP.jsx';
 import BannerS from '../Components/Banners/bannerS.jsx';
 import PSection from '../Components/PSection/prodS.jsx';
 import Form from '../Components/Form/FormLogin.jsx';
-import { useState, useEffect } from 'react';
+
 
 export default function Home({produtos}) {
-  
-
-  
 
   return (
     <>
-      <NavB />
+      <NavB/>
       <section className="main">
         <CategP />
         <BannerS />
