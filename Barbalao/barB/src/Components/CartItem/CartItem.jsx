@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from '../Css/styles.cartItem.module.css';
 import { Products } from '../../assets/Data/Products';
-
+import { getImagePath } from '../utils/pathP.jsx';
 export default function CartItem(props) {
     let item = Products[props.item]
     let tempCart= {...props.cart}
@@ -31,7 +31,7 @@ export default function CartItem(props) {
     return(
         <>
             <div key={props.item} className={styles.cartItem} >
-                <img src={item['image']} alt={item['name']} />
+                <img src={getImagePath(item)} alt={item['name']} />
                 <div className={styles.itemText}>
                     <h3>{item['name']}</h3>
                     <p>R${item.valueWithD.toFixed(2).replace('.', ',')}</p>

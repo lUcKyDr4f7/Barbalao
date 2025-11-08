@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import styles from '../Css/styles.cart.module.css';
 import CartItem from '../CartItem/CartItem';
-import { Products } from '../../assets/Data/Products';
-
+// import { Products } from '../../assets/Data/Products';
+import { AllProducts } from '../../assets/Data/AllProducts';
 localStorage.setItem("theme", localStorage.getItem("theme")?localStorage.getItem("theme").replaceAll(' cartOpen', ''):localStorage.getItem("theme"));
 
 export default function Cart(props) {
@@ -30,7 +30,7 @@ export default function Cart(props) {
     function calcTotal() {
         let total = 0;
         Object.keys(cartItems).map( key => {
-            total += Products[key].valueWithD * cartItems[key];
+            total += AllProducts[key].valueWithD * cartItems[key];
         })
         setTotalValue(total);
     }
@@ -43,7 +43,7 @@ export default function Cart(props) {
             link = "https://wa.me/558182090299?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%3A";
             let replacements = [[' ', '$', '+', ',', '/', ':'], ["%20", "%24", "%2B", "%2C", "%2F", "%3A"]];
             Object.keys(cartItems).map( key => {
-                let item = Products[key];
+                let item = AllProducts[key];
                 link += "%0A" + item['name'] + '%20x' + cartItems[key];
             })
             for(let i=0; i<6; i++) {

@@ -1,6 +1,7 @@
 import styles from '../Css/styles.pcard_C.module.css';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useState} from 'react';
+import { getImagePath } from '../utils/pathP.jsx';
 import { Carousel } from "react-responsive-carousel";
 export default function ProdC({name, price, img, setState, state}) {
 
@@ -34,10 +35,10 @@ export default function ProdC({name, price, img, setState, state}) {
                 <div >
                 <Carousel className={styles.carousel} showArrows={false} showThumbs={true} showStatus={false} swipeable={true} showIndicators={false}>
                     <div className={styles.imagemC}>
-                        <img src={img}/>
+                        <img src={getImagePath(img)}/>
                     </div>
                     <div className={styles.imagemC}>
-                        <img src={img}/>
+                        <img src={getImagePath(img)}/>
                     </div>
                 </Carousel>
                 </div>

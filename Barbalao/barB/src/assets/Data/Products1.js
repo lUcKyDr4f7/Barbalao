@@ -1,7 +1,7 @@
 export const Products1 = [
-    {
+     {
         id: 0,
-        image: 'hamburgao',
+        image: 'hamburguer0',
         name: "Hamburgão",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
@@ -11,8 +11,8 @@ export const Products1 = [
     },
     {
         id: 1,
-        image: 'hamburgao',
-        name: "Hamburgão 2",
+        image: 'hamburguer-frango',
+        name: "Hamburgão de Frango",
         numberOfOptions: 1,
         option: ["Picante"], 
         hasDiscount: false,
@@ -21,7 +21,7 @@ export const Products1 = [
     },
     {
         id: 2,
-        image: 'hamburgao',
+        image: 'hamburguer0',
         name: "Hamburgão3",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
@@ -31,7 +31,7 @@ export const Products1 = [
     },
     {
         id: 3,
-        image: 'hamburgao',
+        image: 'hamburguer0',
         name: "Hamburgão4",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
@@ -41,8 +41,8 @@ export const Products1 = [
     },
     {
         id: 4,
-        image: 'hamburgao',
-        name: "Hamburgão5",
+        image: 'hamburguer-frango',
+        name: "Hamburgão de Frango5",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
@@ -51,7 +51,7 @@ export const Products1 = [
     },
     {
         id: 5,
-        image: 'hamburgao',
+        image: 'hamburguer0',
         name: "Hamburgão6",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
@@ -61,7 +61,7 @@ export const Products1 = [
     },
     {
         id: 6,
-        image: 'hamburgao',
+        image: 'hamburguer0',
         name: "Hamburgão7",
         numberOfOptions: 2,
         option: ["Vegetariano", "Picante"], 
@@ -77,46 +77,6 @@ export const Products1 = [
         option: ["Vegetariano", "Picante"], 
         hasDiscount: true,
         valueWithoutD: 75,
-        valueWithD: 50
-    },
-    {
-        id: 8,
-        image: 'hamburgao',
-        name: "Hamburgão9",
-        numberOfOptions: 2,
-        option: ["Vegetariano", "Picante"], 
-        hasDiscount: true,
-        valueWithoutD: 75,
-        valueWithD: 50
-    },
-    {
-        id: 9,
-        image: 'hamburgao',
-        name: "Hamburgão10",
-        numberOfOptions: 2,
-        option: ["Vegetariano", "Picante"], 
-        hasDiscount: true,
-        valueWithoutD: 75,
-        valueWithD: 50
-    },
-    {
-        id: 10,
-        image: 'hamburgao',
-        name: "Hamburgão11",
-        numberOfOptions: 2,
-        option: ["Vegetariano", "Picante"], 
-        hasDiscount: true,
-        valueWithoutD: 75,
-        valueWithD: 50
-    },
-    {
-        id: 11,
-        image: 'hamburgao',
-        name: "Hamburgão 12",
-        numberOfOptions: 1,
-        option: ["Picante"], 
-        hasDiscount: false,
-        valueWithoutD: 50,
         valueWithD: 50
     }
 ]

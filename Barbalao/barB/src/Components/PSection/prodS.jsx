@@ -4,11 +4,11 @@ import styles from '../Css/styles.pcard_S.module.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useState, useEffect } from 'react';
 import { Navigation } from 'swiper/modules';
-import { Products } from '../../assets/Data/Products.js'
 import { getImagePath } from '../utils/pathP.jsx';
 import ProdC from '../PCard/prodC.jsx';
-export default function prodS(){
+export default function prodS(Products){
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const productsC = Products.Products;
     useEffect(() => {
         if (selectedProduct != null) {
             const scrollY = window.scrollY;
@@ -26,8 +26,8 @@ export default function prodS(){
             <>
             <div style={{ width: "100%", margin: "0 auto" }}>
                 <h2 className={styles.swiperTitle}>Carrossel com Carousel.js</h2>
-                <Swiper className={styles.brandsSwiper} slidesPerView={5} spaceBetween={22} allowTouchMove={false} navigation={Products.length > 5} modules={[Navigation]} swipeable={true} slidesOffsetBefore={15} slidesOffsetAfter={10} onSlideChange={() => {console.log('slide change')}} onSwiper={(swiper) => {console.log(swiper)}}>
-                    {Products.map((product) => (    
+                <Swiper className={styles.brandsSwiper} slidesPerView={5} spaceBetween={22} allowTouchMove={false} navigation={true} modules={[Navigation]} swipeable={true} slidesOffsetBefore={15} slidesOffsetAfter={10} onSlideChange={() => {console.log('slide change')}} onSwiper={(swiper) => {console.log(swiper)}}>
+                    {productsC.map((product) => (    
                     <SwiperSlide onClick={() => setSelectedProduct(product)} key={product.id} className={`${styles.swiperSlide} ${styles.avaliable}`} >
                         <div className={`${styles.cardWithModal} ${styles.airJordan}`} >
                             <div className={styles.productCard}>
@@ -60,7 +60,7 @@ export default function prodS(){
             </div>
             
             {selectedProduct && (
-            <ProdC name={selectedProduct.name} price={selectedProduct.valueWithD} img={selectedProduct.image} setState = {setSelectedProduct} state = {selectedProduct}/>
+            <ProdC name={selectedProduct.name} price={selectedProduct.valueWithD} img={selectedProduct} setState = {setSelectedProduct} state = {selectedProduct} list={Products}/>
             )}
             </>
     )

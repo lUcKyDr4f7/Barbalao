@@ -47,7 +47,7 @@ export default function NavB() {
         <>
          {/*<!--========== Header ==========-->*/}
             <header className={styles.header}>
-                <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} cartList={cartList} />
+                <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
                 <div className={styles.inner}>
                     <div className={styles.logo}>
                         <a href="#home"><img  src={logo}/></a>
