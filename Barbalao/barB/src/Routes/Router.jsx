@@ -10,6 +10,7 @@ import AdmPainelCategorias from '../pages/AdmPainelCategorias.jsx';
 import AdmPainelBanners from '../pages/AdmPainelBanners.jsx';
 import ErrorPage from "../pages/ErrorPage.jsx";
 import { ProtectedRoute } from "./ProtecaoManeira.jsx";
+import FormCriar from "../Components/FormCriarP/FormCriar.jsx";
 
 
 const Router = createBrowserRouter (
@@ -60,6 +61,14 @@ const Router = createBrowserRouter (
             element:
                 <ProtectedRoute>
                     <AdmPainelBanners/>
+                </ProtectedRoute>,                
+            errorElement: <ErrorPage /> 
+        },
+        {
+          path: "/form",
+            element:
+                <ProtectedRoute>
+                    <FormCriar/>
                 </ProtectedRoute>,                
             errorElement: <ErrorPage />
         },

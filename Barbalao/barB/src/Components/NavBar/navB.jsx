@@ -5,7 +5,7 @@ import Cart from '../Cart/CartP'
 import { useAuth } from '../../Routes/AuthContext';
 
 export default function NavB() {
-      const {authenticated, setAuthenticated} = useAuth()
+      const {authenticated} = useAuth()
       const [link, setLink] = useState(null)
       
       useEffect(() => {
