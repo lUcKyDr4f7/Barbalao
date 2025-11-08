@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.productsDiv {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 2rem;
+}
+
+.background h1 {
+    color: var(--TitleColor);
+}
+
+.createDiv {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.createDiv button {
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid var(--TitleColor);
+    padding: 10px;
+    background: var(--cardBg);
+    color: var(--TitleColor);
+}
+
+.createDiv button:hover {
+    background: var(--bodyBgColor);
+}
+
+.createDiv i {
+    font-size: 18px;
+}
+
+.searchDiv {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--TitleColor);
+    border-radius: 8px;
+}
+
+.searchDiv i{
+    position: absolute;
+    right: 1rem;
+    color: var(--TitleColor);
+    cursor: pointer;
+}
+
+.searchDiv input {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    padding: 10px 45px 10px 15px;
+    background: var(--cardBg);
+    border: none;
+    color: var(--TitleColor);
+}

@@ -11,9 +11,11 @@ import Login from './pages/Login.jsx';
 // import FormCriar from './Components/FormCriarP/FormCriar.jsx'
 import AdmMenu from './pages/AdmMenu.jsx'
 import AdmPainel from './pages/AdmPainel.jsx'
+import AdmBanners from './pages/AdmBanners.jsx'
 import AdmProdutos from './pages/AdmProdutos.jsx'
 import CriarProduto from './pages/CriarProduto.jsx'
 import { API_URL } from './envVariables.js'
+import AdmCategorias from './pages/AdmCategorias.jsx'
 
 function App() {
   const [produtos, setProdutos] = useState([]);
@@ -70,8 +72,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/adm" element={<AdmMenu />}/>
         <Route path='/adm/produtos' element={<AdmProdutos produtos={produtos}/>}/>
-        <Route path='/adm/categoias' element={<AdmPainel tipo={1} /*categorias={categorias}*//>}/>
-        <Route path='/adm/Banners' element={<AdmPainel tipo={-1} /*banners={banners}*//>}/>
+        <Route path='/adm/categoias' element={<AdmCategorias /*categorias={categorias}/>*//>}/>
+        <Route path='/adm/Banners' element={<AdmBanners /*banners={banners}*//>}/>
         <Route path="/form" element={<CriarProduto />} />
       </Routes>
     </>
