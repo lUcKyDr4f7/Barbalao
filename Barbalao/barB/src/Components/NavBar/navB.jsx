@@ -1,6 +1,7 @@
 import styles from '../Css/styles.navB.module.css';
 import logo from '../../assets/BarB.png';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Cart from '../Cart/CartP'
 import { useAuth } from '../../Routes/AuthContext';
 
@@ -61,16 +62,16 @@ export default function NavB() {
                 <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} cartList={cartList} />
                 <div className={styles.inner}>
                     <div className={styles.logo}>
-                        <a href="#home"><img  src={logo}/></a>
+                        <Link to="/"><img  src={logo}/></Link>
                     </div>
                     {/* <form>
                         <input type="text" />
                         <button type="submit"><i className="ri-search-line"></i></button>
                     </form> */}
                     <div className={styles.headerBtns}>
-                        <li><a href="/">Início</a></li>
-                        <li><a href="/about-us">Sobre Nós</a></li>
-                        {link}
+                        <li><Link to="/">Início</Link></li>
+                        <li><Link to="/about-us">Sobre Nós</Link></li>
+                        <li><Link to="/adm">ADM</Link></li>
                         <button onClick={() => changeTheme()}><i className={themeIcon}></i></button>
                         <button onClick={() => openCart()}><i className="ri-shopping-cart-2-fill"></i></button>
                     </div>

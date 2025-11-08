@@ -6,7 +6,6 @@ import Form from '../Components/Form/FormLogin.jsx';
 
 
 export default function Home({produtos}) {
-
   return (
     <>
       <NavB/>

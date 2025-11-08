@@ -37,7 +37,7 @@ function App() {
     } catch (err) {
       console.error('Erro no fetch de produtos:', err);
     }
-  };
+  }; 
 
   const removerProduto = (id) => {
     setProdutos(produtos.filter((p) => p.id_prod !== id));
