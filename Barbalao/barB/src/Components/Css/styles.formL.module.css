@@ -1,17 +1,20 @@
+
 .formCont {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px;
-    width: 100%;
+    padding: 40px 60px 40px 60px;
+    width: auto;
     min-height: 50vh;
     text-align: center;
     gap: 5px;
     margin: 0 auto;
+    border-radius: 18px;
+    box-shadow: 0 0 55px black;
+    background-image: linear-gradient(45deg, #101949 2%, #020623 60%);
     transform: translate(-50% -50%);
-    transition: .5s;
-
+    transition: .4s;
 }
 
 .formTitle {
@@ -21,16 +24,19 @@
 }
 
 .inputs {
-    width: 25%;
+    width: auto;
+    padding: 8px 60px 8px 8px;
     height: 28px;
     border-radius: 12px;
     font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
     border: none;
-    padding: 8px;
     margin-bottom: 10px;
     background-color: rgb(243, 208, 163);
     color: black;
     transition: .8s;
+    outline: 0;
 }
 
 .inputs:focus{
@@ -42,21 +48,34 @@
 }
 
 .formBtn {
-    width: 22%;
+    width: auto;
+    padding: 8px 80px 8px 80px;
     cursor: pointer;
     background-color: black;
     color: white;
-    padding: 8px;
     transition: ease-in-out .3s;
 }
 
 .formBtn:hover {
-    border: 0.01px solid #00f7ff;
+    border: 2px solid #012022;
 }
 
 .error {
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 700;
     color: red;
     font-family: 'Poppins', sans-serif;
+}
+
+.passwordCont {
+    position: relative;
+}
+
+.bi {
+    position: absolute;
+    right: 5%;
+    bottom: 40%;
+    width: 22px;
+    cursor: pointer;
+
 }

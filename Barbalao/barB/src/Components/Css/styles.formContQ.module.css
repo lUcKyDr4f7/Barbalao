@@ -8,6 +8,6 @@
     background-color: #020623;
     font-family: 'Poppins', sans-serif;
     display: flex;
-    justify-content: space-between;
-
+    justify-content: center;
+    align-items: center;
 }

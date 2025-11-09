@@ -9,15 +9,14 @@ import { useNavigate } from "react-router-dom";
 axios.defaults.withCredentials = true
 
 export default function Container(){
-    const [formValues, setFormValues] = useState(["", ""]);
+    const [formValues, setFormValues] = useState({ nome: "", senha: "" });
     const [errorMessage, setErrorMessage] = useState("")
     const {authenticated, setAuthenticated} = useAuth()
     const navigate = useNavigate()
-    
-    function handleInputChange (index, value){
-        const newValues = [...formValues];
-        newValues[index] = value;
-        setFormValues(newValues);
+
+    function handleInputChange (e){
+        const {name, value } = e.target
+        setFormValues((prev) => ({...prev, [name]: value }))
     };
 
 
@@ -25,8 +24,8 @@ export default function Container(){
         console.log(formValues); 
         try {
             const response = await axios.post('https://back-end-barbalao-upgw.onrender.com/api/login/', {
-                nome: formValues[0],
-                senha: formValues[1]
+                nome: formValues.nome,
+                senha: formValues.senha
             },
             { withCredentials: true })
 
@@ -54,11 +53,8 @@ export default function Container(){
             <FormNav />
             <div className={style.cont}>
                  <Form 
-                        inputsRange="2" 
                         title="Login" 
                         btn="Logar" 
-                        types={["text", "password"]} 
-                        placeholders={["Nome", "Senha"]}
                         aContent={errorMessage}
                         values={formValues}
                         onInputChange={handleInputChange}

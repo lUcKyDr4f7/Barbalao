@@ -13,6 +13,7 @@ export function AuthProvider({ children }) {
         withCredentials: true,
       })
       .then((res) => {
+        console.log("Resposta check_session:", res.data);
         setAuthenticated(res.data.authenticated);
       })
       .catch(() => setAuthenticated(false));
