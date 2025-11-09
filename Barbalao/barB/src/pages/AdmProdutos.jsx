@@ -12,7 +12,6 @@ export default function AdmProdutos({produtos}){
 
     console.log(produtos);
 
-
     const [viewProduct, setViewProduct] = useState(false);
     const [produto, setProduto] = useState(null);
 
@@ -30,7 +29,7 @@ export default function AdmProdutos({produtos}){
                 {produtos.map((produto) => <AdmProdutoCard setViewProduct={setViewProduct} setProduto={setProduto} key={produto.id_prod} produto={produto}/>)}
             </div>
             {
-              viewProduct && <AdmProdutoModal produto={produto}/>
+              viewProduct && <AdmProdutoModal produto={produto} setViewProduct={setViewProduct}/>
             }
         </div>
         

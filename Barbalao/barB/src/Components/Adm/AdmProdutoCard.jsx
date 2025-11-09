@@ -22,7 +22,7 @@ export default function AdmProdutoCard({produto, setViewProduct, setProduto}) {
                 .toFixed(2)
                 .replace('.', ',')}
             </h4>
-            <i className={`ri-shopping-cart-2-fill ${styles.shopIcon}`}></i>
+            <i className={`ri-pencil-fill ${styles.shopIcon}`}></i>
           </div>
         </div>
     )

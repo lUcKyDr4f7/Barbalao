@@ -83,6 +83,7 @@ button {
   --bodyTextColor: #213547;
   --bodyH1Color: #ffff4b;
   --bodyButtonColor: #f9f9f9;
+  --TitleColor: #1b2b38;
   --categTextColor: #000000;
   --categFilterI: 0%;
   --categFilter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(105%) contrast(94%);
