@@ -1,11 +1,20 @@
 import styles from '../Components/Css/styles.AdmProduto.module.css'
 import AdmProdutoCard from "../Components/Adm/AdmProdutoCard";
+import { useEffect, useState } from 'react';
+import AdmProdutoModal from '../Components/Adm/AdmProdutoModal';
 
 export default function AdmProdutos({produtos}){
 
+    useEffect(() => {
+      let currentTheme = localStorage.getItem("theme");
+      document.body.classList = currentTheme;
+    }, [])
+
     console.log(produtos);
-    let currentTheme = localStorage.getItem("theme");
-    document.body.classList = currentTheme;
+
+
+    const [viewProduct, setViewProduct] = useState(false);
+    const [produto, setProduto] = useState(null);
 
     return(
         <div className={styles.background}>
@@ -18,9 +27,13 @@ export default function AdmProdutos({produtos}){
                 </div>
             </div>
             <div className={styles.productsDiv}>
-                {produtos.map((produto) => <AdmProdutoCard key={produto.id_prod} produto={produto}/>)}
+                {produtos.map((produto) => <AdmProdutoCard setViewProduct={setViewProduct} setProduto={setProduto} key={produto.id_prod} produto={produto}/>)}
             </div>
+            {
+              viewProduct && <AdmProdutoModal produto={produto}/>
+            }
         </div>
+        
 
     )
 }
