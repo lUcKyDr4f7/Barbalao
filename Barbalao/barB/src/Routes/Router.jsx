@@ -69,7 +69,7 @@ const Router = createBrowserRouter (
             element:
                 <ProtectedRoute>
                     <FormCriar/>
-                </ProtectedRoute>,                
+                </ProtectedRoute>,   
             errorElement: <ErrorPage />
         },
         {

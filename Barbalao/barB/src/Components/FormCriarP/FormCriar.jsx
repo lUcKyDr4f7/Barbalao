@@ -1,5 +1,5 @@
 import styles from '../Css/styles.formCriar.module.css'
-
+import FormNav from '../Form/FormNav';
 export default function FormCriar({produtcs}) {
 
     const handleSub = (e) => {
@@ -56,38 +56,42 @@ export default function FormCriar({produtcs}) {
 
     }
 
-    // return(
-    //     <>
-    //         <div className={styles.formContainer}>
-    //             <h1>Criar Produto</h1>
-    //             <form className={styles.form} onSubmit={handleSub}>
-    //                 <label className={styles.label} htmlFor="nome">Nome:</label>
-    //                 <input className={styles.input} type="text" name="nome" id="nome" required />
+    return(
+        <>
+          <div className={styles.background}>
+                <FormNav className={styles.nav} />
+            <div className={styles.formContainer}>
+                <h1>Criar Produto</h1>
+                <form className={styles.form} onSubmit={handleSub}>
+                    <label className={styles.label} htmlFor="nome">Nome:</label>
+                    <input className={styles.input} type="text" name="nome" id="nome" required />
 
-    //                 <label className={styles.label} htmlFor="preco">Preço:</label>
-    //                 <input className={styles.input} type="number" name="preco" id="preco" min={1.0} />
+                    <label className={styles.label} htmlFor="preco">Preço:</label>
+                    <input className={styles.input} type="number" name="preco" id="preco" min={1.0} />
 
-    //                 <label htmlFor="descricao">Descrição: </label>
-    //                 <textarea name="descricao" id="descricao"></textarea>
+                    <label htmlFor="descricao">Descrição: </label>
+                    <textarea name="descricao" id="descricao"></textarea>
 
-    //                 <label className={styles.label} htmlFor="imagem">Imagem:</label>
-    //                 <input className={styles.inputFile} 
-    //                     type="file" 
-    //                     name="imagem" 
-    //                     id="imagem" 
-    //                     accept="image/*" 
-    //                     required/>
+                    <label className={styles.label} htmlFor="imagem">Imagem:</label>
+                    <input className={styles.inputFile} 
+                        type="file" 
+                        name="imagem" 
+                        id="imagem" 
+                        accept="image/*" 
+                        required/>
                     
-    //                 <button className={styles.submitButton} type="submit">Criar</button>
-    //             </form>
-    //             <a href="/" >
-    //                 <button className={styles.backButton}>Voltar</button>
-    //             </a>
-    //         </div>
+                    <button className={styles.submitButton} type="submit">Criar</button>
+                </form>
+                <a href="/" >
+                    <button className={styles.backButton}>Voltar</button>
+                </a>
+            </div>
             
             
-    //     </>
-    // )
+         </div>
+            
+        </>
+    )
     // return(
     //     <div>
     //         <div>
@@ -96,6 +100,6 @@ export default function FormCriar({produtcs}) {
 
             
 
-    //     </div>
-    // )
-}
+    // {     </div>
+
+} 
