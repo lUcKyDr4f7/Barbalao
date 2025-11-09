@@ -1,7 +1,8 @@
-import styles from './AboutUs.module.css'; 
+import styles from './AboutUs.module.css';
 import Footer from '../../Components/Footer/Footer';
 // ADICIONADO: ícones do Phosphor
 import { Phone, EnvelopeSimple, MapPin, CreditCard, QrCode, Bank } from 'phosphor-react';
+import NavB from '../../Components/NavBar/navB';
 
 const AboutUs = () => {
   // Define a cor principal dos ícones
@@ -10,6 +11,8 @@ const AboutUs = () => {
 
   return (
     <main className={styles.main}>
+      <NavB />
+
       <div className={styles.container}>
         <section className="@container">
           <div className={styles.banner}>
