@@ -4,7 +4,25 @@ import { useState, useEffect } from 'react'
 import { RouterProvider } from 'react-router-dom';
 // import FormCriar from './Components/FormCriarP/FormCriar.jsx'
 import Router from './Routes/Router.jsx'
+import axios from "axios";
 
+
+function useSession() {
+  const [authenticated, setAuthenticated] = useState(false);
+
+  useEffect(() => {
+    axios
+      .get("https://back-end-barbalao-upgw.onrender.com/api/check-session/", {
+        withCredentials: true,
+      })
+      .then((res) => {
+        setAuthenticated(res.data.authenticated);
+      })
+      .catch(() => setAuthenticated(false));
+  }, []);
+
+  return authenticated;
+}
 
 function App() {
   const [produtos, setProdutos] = useState([]);
@@ -47,9 +65,6 @@ function App() {
     carregarProdutos();
   }, []);
 
-
-  
-const [authenticated, setAuthenticated] = useState(false)
 
   return (
     <>

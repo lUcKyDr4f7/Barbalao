@@ -6,6 +6,8 @@ import style from '../Css/styles.formContQ.module.css'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+axios.defaults.withCredentials = true
+
 export default function Container(){
     const [formValues, setFormValues] = useState(["", ""]);
     const [errorMessage, setErrorMessage] = useState("")
@@ -25,15 +27,16 @@ export default function Container(){
             const response = await axios.post('https://back-end-barbalao-upgw.onrender.com/api/login/', {
                 nome: formValues[0],
                 senha: formValues[1]
-            })
+            },
+            { withCredentials: true })
 
             if (response.data.message == "OK") {
-                setAuthenticated(true) 
                 navigate("/adm")
+                setAuthenticated(true)
                 setErrorMessage("")
             } else {
+                setErrorMessage(response.data.message)
                 navigate("/login")
-
             }
 
             console.log("Resposta do servidor: ", response.data.message)
@@ -56,7 +59,7 @@ export default function Container(){
                         btn="Logar" 
                         types={["text", "password"]} 
                         placeholders={["Nome", "Senha"]}
-                        aLink={errorMessage}
+                        aContent={errorMessage}
                         values={formValues}
                         onInputChange={handleInputChange}
                         click={handleSubmit}

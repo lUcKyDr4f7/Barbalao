@@ -1,9 +1,25 @@
-import { createContext, useState, useContext } from "react";
+import axios from "axios";
+import { useState, useEffect, createContext, useContext } from "react";
+import Loading from "../Components/loadingPage/Loading";
 
-export const AuthContext = createContext();
+const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [authenticated, setAuthenticated] = useState(false);
+  const [authenticated, setAuthenticated] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get("https://back-end-barbalao-upgw.onrender.com/api/check_session/", {
+        withCredentials: true,
+      })
+      .then((res) => {
+        setAuthenticated(res.data.authenticated);
+      })
+      .catch(() => setAuthenticated(false));
+  }, []);
+  
+  
+  if (authenticated === null) return <Loading/>;
 
   return (
     <AuthContext.Provider value={{ authenticated, setAuthenticated }}>

@@ -13,9 +13,9 @@ export default function NavB() {
         if (authenticated) {
           setLink(<li><a href="/adm">ADM</a></li>);
         } else {
-          setLink("");
+          setLink(null);
         }
-      }, [authenticated]);
+      }, []);
 
     let currentTheme = localStorage.getItem("theme");
     if (!currentTheme) {
@@ -71,8 +71,7 @@ export default function NavB() {
                     <div className={styles.headerBtns}>
                         <li><Link to="/">Início</Link></li>
                         <li><Link to="/about-us">Sobre Nós</Link></li>
-                        <li><Link to="/adm">ADM</Link></li>
-                        <button onClick={() => changeTheme()}><i className={themeIcon}></i></button>
+                        {link}                        
                         <button onClick={() => openCart()}><i className="ri-shopping-cart-2-fill"></i></button>
                     </div>
                 </div>
