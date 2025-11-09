@@ -21,7 +21,7 @@
 }
 
 .inputs {
-    width: 35%;
+    width: 25%;
     height: 28px;
     border-radius: 12px;
     font-size: 18px;
@@ -42,7 +42,7 @@
 }
 
 .formBtn {
-    width: 30%;
+    width: 22%;
     cursor: pointer;
     background-color: black;
     color: white;
