@@ -1,3 +1,3 @@
 export function getImagePath(banner){
-        return (`/Banners/${banner.imagemId}.jpg`); 
+        return (`/Banners/${banner.image}.jpg`); 
 }

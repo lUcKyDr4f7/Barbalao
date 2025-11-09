@@ -49,7 +49,7 @@ export default function prodS(Products){
                                         }   
                                     </div> */}
                                     {/* product.hasDiscount ? <h5 className={`${styles.normalPrice} ${styles.info}`}><s>R$ {product.valueWithoutD}</s></h5> : <h5 className={`${styles.normalPrice} ${styles.info}`}></h5> */}
-                                    <h4 className={`${styles.priceWithDescount} ${styles.info}`}>R$ {product.valueWithD}</h4>
+                                    <h4 className={`${styles.priceWithDescount} ${styles.info}`}>R$ {product.value}</h4>
                                     <i className={`ri-shopping-cart-2-fill ${styles.shopIcon}`}></i>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@ export default function prodS(Products){
             </div>
             
             {selectedProduct && (
-            <ProdC name={selectedProduct.name} price={selectedProduct.valueWithD} img={selectedProduct} setState = {setSelectedProduct} state = {selectedProduct} list={Products}/>
+            <ProdC name={selectedProduct.name} price={selectedProduct.value} img={selectedProduct} setState = {setSelectedProduct} state = {selectedProduct} list={Products}/>
             )}
             </>
     )

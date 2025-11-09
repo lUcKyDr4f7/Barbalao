@@ -34,7 +34,7 @@ export default function CartItem(props) {
                 <img src={getImagePath(item)} alt={item['name']} />
                 <div className={styles.itemText}>
                     <h3>{item['name']}</h3>
-                    <p>R${item.valueWithD.toFixed(2).replace('.', ',')}</p>
+                    <p>R${item.value.toFixed(2).replace('.', ',')}</p>
                 </div>
                 <div className={styles.itemAmount}>
                     <button onClick={() => subtractItem()}><i className="ri-subtract-fill"></i></button>

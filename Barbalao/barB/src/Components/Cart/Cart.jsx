@@ -30,7 +30,7 @@ export default function Cart(props) {
     function calcTotal() {
         let total = 0;
         Object.keys(cartItems).map( key => {
-            total += AllProducts[key].valueWithD * cartItems[key];
+            total += AllProducts[key].value * cartItems[key];
         })
         setTotalValue(total);
     }
