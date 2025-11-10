@@ -31,7 +31,8 @@ export default function Container(){
 
             if (response.data.message == "OK") {
                 navigate("/adm")
-                setAuthenticated(true)
+                localStorage.setItem("authenticated", true)
+                setAuthenticated(localStorage.getItem("authenticated"))
                 setErrorMessage("")
             } else {
                 setErrorMessage(response.data.message)

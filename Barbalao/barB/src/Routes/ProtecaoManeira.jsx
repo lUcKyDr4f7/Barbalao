@@ -4,8 +4,8 @@ import ErrorPage from "../pages/ErrorPage";
 import { useEffect } from "react";
 
 export function ProtectedRoute({ children }) {
-    const { authenticated } = useAuth()
-
+  const { authenticated } = useAuth()
+      
   if (!authenticated) {
     return <Navigate to="/login" replace />;
   }

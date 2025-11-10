@@ -5,7 +5,7 @@ import Loading from "../Components/loadingPage/Loading";
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [authenticated, setAuthenticated] = useState(null);
+  const [authenticated, setAuthenticated] = useState(localStorage.getItem("authenticated"))
 
   useEffect(() => {
     axios
@@ -14,14 +14,11 @@ export function AuthProvider({ children }) {
       })
       .then((res) => {
         console.log("Resposta check_session:", res.data);
-        setAuthenticated(res.data.authenticated);
+        if(res.data.authenticated) setAuthenticated(localStorage.getItem("authenticated"));
       })
       .catch(() => setAuthenticated(false));
   }, []);
   
-  
-  if (authenticated === null) return <Loading/>;
-
   return (
     <AuthContext.Provider value={{ authenticated, setAuthenticated }}>
       {children}
