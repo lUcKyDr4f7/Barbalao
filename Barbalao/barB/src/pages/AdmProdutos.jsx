@@ -25,6 +25,8 @@ export default function AdmProdutos({produtos}){
                     <i onClick={() => console.log("Deu certo")} class="ri-search-line"></i>
                 </div>
             </div>
+            <hr/>
+            <p> Mostrando {produtos.length} produtos</p>
             <div className={styles.productsDiv}>
                 {produtos.map((produto) => <AdmProdutoCard setViewProduct={setViewProduct} setProduto={setProduto} key={produto.id_prod} produto={produto}/>)}
             </div>

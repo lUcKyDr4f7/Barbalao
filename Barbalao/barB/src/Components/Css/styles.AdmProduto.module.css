@@ -6,6 +6,10 @@
    gap: 2rem;
 }
 
+p, hr {
+  color: var(--TitleColor);
+}
+
 .background h1 {
     color: var(--TitleColor);
 }
@@ -15,6 +19,8 @@
     align-items: center;
     gap: 2rem;
     margin-bottom: 2rem;
+    text-wrap: nowrap;
+
 }
 
 .createDiv button {
@@ -40,6 +46,7 @@
     align-items: center;
     border: 2px solid var(--TitleColor);
     border-radius: 8px;
+    width: 100%;
 }
 
 .searchDiv i{
@@ -56,4 +63,5 @@
     background: var(--cardBg);
     border: none;
     color: var(--TitleColor);
+    flex: 1;
 }
