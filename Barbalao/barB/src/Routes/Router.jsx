@@ -1,83 +1,78 @@
-import { useState } from "react";
-import {createBrowserRouter } from "react-router-dom";
-
+import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home.jsx";
 import About from "../pages/About.jsx";
 import Login from "../pages/Login.jsx";
-import AdmMenu from '../pages/AdmMenu.jsx';
-import AdmPainelProdutos from '../pages/AdmPainelProdutos.jsx';
-import AdmPainelCategorias from '../pages/AdmPainelCategorias.jsx';
-import AdmPainelBanners from '../pages/AdmPainelBanners.jsx';
+import AdmMenu from "../pages/AdmMenu.jsx";
+import AdmPainel from "../pages/AdmPainel.jsx";
+import AdmProd from "../pages/AdmProd.jsx";
+import AdmCateg from "../pages/AdmCateg.jsx";
+import AdmBanner from "../pages/AdmBanner.jsx";
 import ErrorPage from "../pages/ErrorPage.jsx";
-import { ProtectedRoute } from "./ProtecaoManeira.jsx";
 import FormCriar from "../Components/FormCriarP/FormCriar.jsx";
+import { ProtectedRoute } from "./ProtecaoManeira.jsx";
 
-
-const Router = createBrowserRouter (
-    [
+const Router = (produtos) =>
+  createBrowserRouter([
+    {
+      path: "/",
+      element: <Home produtos={produtos} />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: "/about-us",
+      element: <About />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: "/adm",
+      element: (
+        <ProtectedRoute>
+          <AdmMenu />
+        </ProtectedRoute>
+      ),
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: "/adm/painel",
+      element: (
+        <ProtectedRoute>
+          <AdmPainel />
+        </ProtectedRoute>
+      ),
+      errorElement: <ErrorPage />,
+      children: [
         {
-            path: "/",
-            element: <Home/>,
-            errorElement: <ErrorPage />
+          path: "produtos",
+          element: <AdmProd produtos={produtos} />,
         },
         {
-            path: "/about-us",
-            element: <About/>,
-            errorElement: <ErrorPage />
+          path: "categorias",
+          element: <AdmCateg />,
         },
         {
-            path: "/login",
-            element: <Login/>,
-            errorElement: <ErrorPage />
-
+          path: "banners",
+          element: <AdmBanner />,
         },
-        {
-            path: "/adm",
-            element: 
-                <ProtectedRoute>
-                    <AdmMenu />
-                </ProtectedRoute>,
-            errorElement: <ErrorPage />
-        },
-        {
-            path: "/adm/produtos",
-            element: 
-                <ProtectedRoute>
-                    <AdmPainelProdutos/>
-                </ProtectedRoute>,
-            errorElement: <ErrorPage />
-        },
-        {
-            path: "/adm/categorias",
-            element: 
-                <ProtectedRoute>
-                    <AdmPainelCategorias/>
-                </ProtectedRoute>,            
-          
-            errorElement: <ErrorPage />
-        },
-        {
-            path: "/adm/banners",
-            element:
-                <ProtectedRoute>
-                    <AdmPainelBanners/>
-                </ProtectedRoute>,                
-            errorElement: <ErrorPage /> 
-        },
-        {
-          path: "/form",
-            element:
-                <ProtectedRoute>
-                    <FormCriar/>
-                </ProtectedRoute>,   
-            errorElement: <ErrorPage />
-        },
-        {
-            path: "*", 
-            element: <ErrorPage />
-        },
-
-    ]
-)
+      ],
+    },
+    {
+      path: "/form",
+      element: (
+        <ProtectedRoute>
+          <FormCriar />
+        </ProtectedRoute>
+      ),
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: "*",
+      element: <ErrorPage />,
+    },
+  ]);
 
 export default Router;
