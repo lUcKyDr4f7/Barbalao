@@ -42,19 +42,19 @@ export default function AdmMenu() {
                 </div>
                 
                 <div  className={styles.AdmButtDiv}>
-                    <Link to="/adm/produtos"  className={styles.AdmLink}>
+                    <Link to="/adm/painel/produtos"  className={styles.AdmLink}>
                         <button className={localStorage.getItem("theme") == "light"? styles.AdmButtL : styles.AdmButt}>
                             <img src={cesta} className={styles.AdmImg} />
                             <i>Produtos</i> 
                         </button>
                     </Link>
-                    <Link to="/adm/categorias"  className={styles.AdmLink}>
+                    <Link to="/adm/painel/categorias"  className={styles.AdmLink}>
                         <button className={localStorage.getItem("theme") == "light"? styles.AdmButtL : styles.AdmButt}>
                             <img src={pasta} className={styles.AdmImg} />
                             <i>Categorias</i> 
                         </button>
                     </Link>
-                    <Link to="/adm/Banners" className={styles.AdmLink}>
+                    <Link to="/adm/painel/Banners" className={styles.AdmLink}>
                         <button className={localStorage.getItem("theme") == "light"? styles.AdmButtL : styles.AdmButt}>
                             <img src={imagem} className={styles.AdmImg} />
                             <i>Banners</i> 

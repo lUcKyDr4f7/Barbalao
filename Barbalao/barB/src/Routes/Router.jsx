@@ -8,7 +8,6 @@ import AdmProd from "../pages/AdmProd.jsx";
 import AdmCateg from "../pages/AdmCateg.jsx";
 import AdmBanner from "../pages/AdmBanner.jsx";
 import ErrorPage from "../pages/ErrorPage.jsx";
-import FormCriar from "../Components/FormCriarP/FormCriar.jsx";
 import { ProtectedRoute } from "./ProtecaoManeira.jsx";
 
 const Router = (produtos) =>
@@ -59,15 +58,6 @@ const Router = (produtos) =>
           element: <AdmBanner />,
         },
       ],
-    },
-    {
-      path: "/form",
-      element: (
-        <ProtectedRoute>
-          <FormCriar />
-        </ProtectedRoute>
-      ),
-      errorElement: <ErrorPage />,
     },
     {
       path: "*",

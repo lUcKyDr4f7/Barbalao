@@ -10,7 +10,7 @@ function useSession() {
 
   useEffect(() => {
     axios
-      .get("https://back-end-barbalao-upgw.onrender.com/api/check-session/", {
+      .get("https://back-end-barbalao.onrender.com/api/check-session/", {
         withCredentials: true,
       })
       .then((res) => setAuthenticated(res.data.authenticated))
@@ -43,7 +43,6 @@ function App() {
 
   useEffect(() => { carregarProdutos(); }, []);
 
-  // Tema
   let currentTheme = localStorage.getItem("theme");
   if (!currentTheme)
     currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
@@ -52,7 +51,7 @@ function App() {
 
   return (
     <AuthProvider>
-      {/* Passa produtos como contexto global */}
+      
       <RouterProvider router={Router(produtos)} />
     </AuthProvider>
   );

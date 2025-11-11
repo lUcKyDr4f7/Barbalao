@@ -1,13 +1,20 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import styles from '../Components/Css/styles.AdmPainel.module.css'
-import filtro from '../assets/filtro.png'
-import lupa from '../assets/lupa.png'
+import CriaCateg from "../Components/Criacao/Categoria";
+import CriaProd from "../Components/Criacao/Produtos";
+import CriaBanner from "../Components/Criacao/Banner";
+import styles from '../Components/Css/styles.AdmPainel.module.css';
+import filtro from '../assets/filtro.png';
+import lupa from '../assets/lupa.png';
 
 export default function AdmPainel() {
     const local = useLocation();
     const titulo = local.pathname.slice(12).toUpperCase();
+    const [novo, setNovo] = useState(false)
+    const [fechar, setFechar] = useState(true)
+
+    console.log(novo)
 
     let currentTheme = localStorage.getItem("theme");
     if (!currentTheme) {
@@ -35,13 +42,12 @@ export default function AdmPainel() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
     
-    
     return(
         <div className={styles.PainelCont}>
             
             <div className={`${styles.PainelContNav} ${scroll? styles.shrink: ""}`}>
                 <div className={styles.PainelHeader}>
-                    <Link to="/adm/Menu" className={styles.PainelLink}>
+                    <Link to="/adm" className={styles.PainelLink}>
                         <button className={styles.PainelVolt}>←</button>
                     </Link>
                     <h1 className={styles.PainelH1}>{titulo}</h1>
@@ -60,7 +66,7 @@ export default function AdmPainel() {
                             <img src={filtro} alt="" />
                         </ button>
                         <div>
-                            <button className={styles.PainelNew}></ button>
+                            <button className={styles.PainelNew} onClick={() => setNovo(!novo)}></ button>
                         </div>
                     </div>
                 </div>
@@ -69,6 +75,17 @@ export default function AdmPainel() {
             <div className={styles.PainelOutlet}>
                 <Outlet />
             </div>
+
+            {novo && (
+                titulo == "CATEGORIAS"? 
+                    <CriaCateg />
+                :
+                titulo == "PRODUTOS"?
+                    <CriaProd />
+                :
+                    <CriaBanner />
+            )}
+
         </div>
     )
 }
