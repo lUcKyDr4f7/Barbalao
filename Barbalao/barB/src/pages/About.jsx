@@ -1,10 +1,10 @@
-import styles from './AboutUs.module.css';
-import Footer from '../../Components/Footer/Footer';
+import styles from './styles.AboutUs.module.css';
+import Footer from '../Components/Footer/Footer.jsx';
 // ADICIONADO: ícones do Phosphor
 import { Phone, EnvelopeSimple, MapPin, CreditCard, QrCode, Bank } from 'phosphor-react';
-import NavB from '../../Components/NavBar/navB';
+import NavB from '../Components/NavBar/navB.jsx';
 
-const AboutUs = () => {
+export default function About() {
   // Define a cor principal dos ícones
   const iconColor = "var(--primary)";
   const iconSize = 24;
@@ -121,5 +121,3 @@ const AboutUs = () => {
     </main>
   );
 };
-
-export default AboutUs;

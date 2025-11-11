@@ -26,7 +26,7 @@ export default function prodS(Products){
             <>
             <div style={{ width: "100%", margin: "0 auto" }}>
                 <h2 className={styles.swiperTitle}>Carrossel com Carousel.js</h2>
-                <Swiper className={styles.brandsSwiper} slidesPerView={5} spaceBetween={22} allowTouchMove={false} navigation={true} modules={[Navigation]} swipeable={true} slidesOffsetBefore={15} slidesOffsetAfter={10} onSlideChange={() => {console.log('slide change')}} onSwiper={(swiper) => {console.log(swiper)}}>
+                <Swiper className={styles.brandsSwiper} slidesPerView={5} spaceBetween={22} allowTouchMove={false} navigation={true} modules={[Navigation]} slidesOffsetBefore={15} slidesOffsetAfter={10} onSlideChange={() => {console.log('slide change')}} onSwiper={(swiper) => {console.log(swiper)}}>
                     {productsC.map((product) => (    
                     <SwiperSlide onClick={() => setSelectedProduct(product)} key={product.id} className={`${styles.swiperSlide} ${styles.avaliable}`} >
                         <div className={`${styles.cardWithModal} ${styles.airJordan}`} >

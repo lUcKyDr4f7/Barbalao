@@ -14,7 +14,7 @@ export default function CategP() {
   return (
       <>
         <h2 className={styles.titleCateg}>Cardápio</h2>
-        <Swiper className={styles.brandsSwiper} slidesPerView={2.426} slidesPerGroup={2.426} centerInsufficientSlides={true} allowTouchMove={false} navigation={true} modules={[Navigation]} swipeable={true} slidesOffsetBefore={15} slidesOffsetAfter={395} onSlideChange={() => console.log('slide change')} onSwiper={(swiper) => console.log(swiper)}>
+        <Swiper className={styles.brandsSwiper} slidesPerView={2.426} slidesPerGroup={2.426} centerInsufficientSlides={true} allowTouchMove={false} navigation={true} modules={[Navigation]} slidesOffsetBefore={15} slidesOffsetAfter={395} onSlideChange={() => console.log('slide change')} onSwiper={(swiper) => console.log(swiper)}>
             <SwiperSlide className={`${styles.swiperSlide} ${styles.avaliable} ${styles.start}`}><img src={Lanche}/><h2>Lanches</h2></SwiperSlide>
             <SwiperSlide className={`${styles.swiperSlide} ${styles.avaliable}`}><img src={Pastel}/><h2>Pastéis</h2></SwiperSlide>
             <SwiperSlide className={`${styles.swiperSlide} ${styles.avaliable}`}><img src={Salgado}/><h2>Salgados</h2></SwiperSlide>

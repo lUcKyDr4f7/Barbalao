@@ -2,7 +2,6 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   /* color-scheme: light dark; */
   color: var(--bodyTextColor);
   /* color: rgba(255, 255, 255, 0.87); */
@@ -25,12 +24,17 @@
 *:focus-visible {
   outline: none;
 }
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* evita scroll lateral */
+}
 
 body {
   background-color: var(--bodyBgColor);
-  margin: 0;
   display: flex;
-  place-items: center;
+  align-content: center;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -52,17 +56,17 @@ button {
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: var(--scrollbarTrack);
 }
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #e7d000;
   border-radius: 2.5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #ffe600;
 }
 @keyframes brighting {
   0%   { --bodyBgColor: #020623; }
@@ -87,6 +91,11 @@ button {
   --categFilterI: 0%;
   --categFilter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(105%) contrast(94%);
   --cardBg: #ffffff;
+  --scrollbarTrack: #0f172e;
+  --footBgColor:#8891a6;
+  --footBdColor: #78a8ff12;
+  --footColor: #484d57;
+  --footHColor: #000000;
 }
 @keyframes dimming {
   0%   { --bodyBgColor: #edf3f9; }
@@ -115,6 +124,10 @@ button {
   --categFilter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(193%) contrast(100%);
   --cardBg: linear-gradient(120deg, rgba(163, 178, 207, 0.15), rgba(163, 178, 207, 0.05));
   --scrollbarTrack: #0f172e;
+  --footBgColor:#101624;
+  --footBdColor: #ffffff1a;
+  --footColor: #6b7280;
+  --footHColor: #ffffff;
 }
 .cartOpen {
   --scrollbarTrack: #125492;

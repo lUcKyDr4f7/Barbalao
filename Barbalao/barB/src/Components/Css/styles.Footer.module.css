@@ -1,0 +1,68 @@
+.footer {
+  width: 100vw; /* ocupa toda a viewport */
+  margin-left: calc(50% - 50vw); /* garante que o fundo vá até as bordas */
+  background-color: var(--footBgColor);
+  border-top: 1px solid var(--footBdColor);
+  padding: 1.2rem 0 3rem 0;
+}
+
+.footerContainer {
+  max-width: 1200px;   /* limita o conteúdo */
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column; /* padrão: mobile */
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--footColor);
+}
+
+.socialLinks {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap; /* permite que os links quebrem para a linha de baixo */
+  justify-content: center; /* mantém centralizado no mobile */
+}
+
+
+.socialLinks a {
+  color: var(--footColor);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.socialLinks a:hover {
+  color: var(--footHColor); /* destaque no hover */
+}
+
+/* Tablet */
+@media (min-width: 640px) {
+  .footerContainer {
+    flex-direction: row;
+    text-align: left;
+    padding: 0 2rem;
+  }
+  .socialLinks {
+    justify-content: flex-end; /* ou space-between, dependendo do design */
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .footerContainer {
+    padding: 0 4rem;
+    font-size: 1rem;
+    gap: 2rem;
+  }
+}
+
+/* Extra large */
+@media (min-width: 1280px) {
+  .footerContainer {
+    padding: 0 6rem;
+  }
+}

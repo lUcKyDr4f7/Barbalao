@@ -1,18 +1,18 @@
-import styles from './Footer.module.css';
+import styles from '../Css/styles.Footer.module.css';
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className={styles.footer}>
-      <div className={styles.footerContainer}>
-        <p>© 2024 Barbalao. Todos os direitos reservados.</p>
-        <div className={styles.socialLinks}>
-          <a href="#">Facebook</a>
-          <a href="#">Instagram</a>
-          <a href="#">Twitter</a>
+    <>
+      <footer className={styles.footer}>
+        <div className={styles.footerContainer}>
+          <p>© 2025 Barbalao. Todos os direitos reservados.</p>
+          <div className={styles.socialLinks}>
+            <a >Facebook</a>
+            <a >Instagram</a>
+            <a >Twitter</a>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 };
-
-export default Footer;
