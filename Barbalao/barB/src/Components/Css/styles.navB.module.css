@@ -3,7 +3,7 @@
 /* --navBgColor, --navColor, --navHoverColor */
 
 .header {
-  padding: 20px 20px;
+  padding: 15px 20px;
   position: fixed;
   width: 100%;
   top: 0;
@@ -15,7 +15,7 @@
   transition: all 0.3s ease;
 }
 .header.shrink {
-  padding: 14px 20px; 
+  padding: 10px 20px; 
 }
 .inner {
   display: flex;
