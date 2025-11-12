@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../../Routes/AuthContext";
-import Form from "./FormLogin"
+import Form from "./FormLogin";
 import FormNav from "./FormNav";
 import style from '../Css/styles.formContQ.module.css'
 import axios from "axios";
