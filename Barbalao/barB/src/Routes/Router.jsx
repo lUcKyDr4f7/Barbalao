@@ -47,7 +47,7 @@ const Router = (produtos, categorias, subCateg, banners) =>
       children: [
         {
           path: "produtos",
-          element: <AdmProd produtos={produtos} />,
+          element: <AdmProd produtos={produtos}/>,
         },
         {
           path: "categorias",

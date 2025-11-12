@@ -8,6 +8,7 @@ import styles from '../Components/Css/styles.AdmPainel.module.css';
 import filtro from '../assets/filtro.png';
 import lupa from '../assets/lupa.png';
 import AdmProdutoModal from "../Components/Adm/MenorComp/AdmProdutoModal";
+import AdmEditProductModal from "../Components/Adm/MenorComp/AdmEditProductModal";
 
 export default function AdmPainel() {
     const local = useLocation();
@@ -17,7 +18,18 @@ export default function AdmPainel() {
     const [fechar, setFechar] = useState(true);
     const [backdrop, setBackdrop] = useState(false);
     const [viewProduct, setViewProduct] = useState(false);
+    const [editProduct, setEditProduct] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
+
+    useEffect(() => {
+        if (viewProduct) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {document.body.style.overflow = ''};
+    }, [viewProduct]);
+
     
     console.log(novo)
 
@@ -50,8 +62,6 @@ export default function AdmPainel() {
     return(
         <div className={styles.PainelCont}>
 
-            {backdrop && <div className={styles.backdrop}></div>}
-            
             <div className={`${styles.PainelContNav} ${scroll? styles.shrink: ""}`}>
                 <div className={styles.PainelHeader}>
                     <Link to="/adm" className={styles.PainelLink}>
@@ -80,7 +90,10 @@ export default function AdmPainel() {
             </div>
 
             {
-                viewProduct && <AdmProdutoModal produto={selectedProduct} setViewProduct={setViewProduct}/>
+                viewProduct && <AdmProdutoModal produto={selectedProduct} setViewProduct={setViewProduct} setEditProduct={setEditProduct}/>
+            }
+            {
+                editProduct && <AdmEditProductModal setEditProduct={setEditProduct}/>
             }
 
             <div className={styles.PainelOutlet}>
