@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState, useEffect, createContext, useContext } from "react";
-import Loading from "../Components/loadingPage/Loading";
 
 const AuthContext = createContext();
 
@@ -18,10 +17,6 @@ export function AuthProvider({ children }) {
       })
       .catch(() => setAuthenticated(false));
   }, []);
-  
-  
-  if (authenticated === null) return <Loading/>;
-
   return (
     <AuthContext.Provider value={{ authenticated, setAuthenticated }}>
       {children}

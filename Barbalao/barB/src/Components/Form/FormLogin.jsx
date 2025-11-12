@@ -4,8 +4,9 @@ import closedEye from '../../assets/eye-slash-fill.svg'
 import { useRef } from 'react'
 
 export default function Form( props ){
-    const inputPass = useRef(null)
-    const bi = useRef(null)
+    const inputPass = useRef(null);
+    const bi = useRef(null);
+    const [showPassword, setShowPassword] = useState(false);
 
     function mostrarSenha() {
         if(inputPass.current.type === 'password') {

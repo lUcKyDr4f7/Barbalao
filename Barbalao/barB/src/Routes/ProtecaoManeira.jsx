@@ -1,15 +1,16 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
-import ErrorPage from "../pages/ErrorPage";
-import { useEffect } from "react";
+import Loading from "../Components/loadingPage/Loading";
 
 export function ProtectedRoute({ children }) {
-    const { authenticated } = useAuth()
+  const { authenticated } = useAuth();
 
-  if (!authenticated) {
-    alert('Você não tem autorização para acessar essa página!');
-    return <Navigate to="/login" replace />;
+  if (authenticated === null) {
+    return <Loading />; // mostra loading enquanto verifica
   }
 
+  if (!authenticated) {
+    return <Navigate to="/login" replace state={{ reason: "unauthorized" }}/>;
+  }
   return children;
 }
