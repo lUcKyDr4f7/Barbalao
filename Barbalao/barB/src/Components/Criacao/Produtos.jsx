@@ -1,16 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import styles from '../Css/styles.CriaProd.module.css'
-import styles2 from '../Css/styles.AdmPainel.module.css'
+import styles from '../Css/styles.CriaT.module.css'
 import FormNav from '../Form/FormNav';
 
 export default function CriaProd() {
     const [file, setFile] = useState(null)
     const [fechar, setFechar] = useState(false)
+    const [subcategoria, setSubcategoria] = useState(null)
+    const [subSelecionada, setSubSelecionada] = useState([])
+
+    useEffect(() => {
+        fetch('https://back-end-barbalao.onrender.com/api/categoria/')
+        .then(res => res.json())
+        .then(data => {
+            console.log("Resposta da API sub:", data)
+            setSubcategoria(data)
+        })
+        .catch(err => {
+            console.error(`Erro ao carregar categorias: ${err}`)
+        })
+    }, [])
 
     const handleFileChange = (e) => {
         setFile(e.target.files[0])
     }
+
 
     const handleSub = (e) => {
         e.preventDefault()
@@ -31,8 +45,8 @@ export default function CriaProd() {
                     preco: data.preco,
                     descricao: data.descricao,
                     imagem: data.imagem,
-                    categoria: data.categoria,
-                    usuario: localStorage.getItem('user')
+                    categoria: subSelecionada,
+                    usuario: localStorage.getItem('id_user')
                 }
                 
                 fetch('https://back-end-barbalao.onrender.com/api/products/', {
@@ -76,7 +90,7 @@ export default function CriaProd() {
                 <button className={styles.backButton}
                     onClick={() => setFechar(true)}
                 >+</button>
-                <h1>NOVO</h1>
+                <h1>PRODUTO</h1>
                 <form className={styles.form} onSubmit={handleSub}>
 
                     <label className={styles.label} htmlFor="nome">Nome:</label>
@@ -108,6 +122,33 @@ export default function CriaProd() {
                         onChange={handleFileChange} 
                         required
                     />
+
+                    <div>
+                        <label htmlFor="" className={styles.label}>Referente a:</label>
+                        <select 
+                            className={styles.input}
+                            name="categoria" 
+                            id="categoria"
+                            value={subSelecionada}
+                            onChange={(e) => {setSubSelecionada(e.target.value)}}
+                            disabled={(subcategoria == null) || (subcategoria.length === 0)}
+                            required
+                        >
+                            {subcategoria? 
+                                <>
+                                    <option value="">Selecione uma categoria</option>
+                                    {subcategoria.map((categoria, i) => (
+                                        <option key={i} value={categoria.id_categoria} >
+                                            {categoria.nome}
+                                        </option>
+                                    ))}
+                                </>
+                                :
+                                <option> Crie uma subcategoria</option>
+                            }
+                            
+                        </select>
+                    </div>
                     
                     <button className={styles.submitButton} type="submit">Criar</button>
                 </form>

@@ -1,16 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styles from '../Css/styles.CriaProd.module.css'
+import styles from '../Css/styles.CriaT.module.css'
+import styles2 from '../Css/styles.AdmPainel.module.css'
 import FormNav from '../Form/FormNav';
 
 export default function CriaBanner() {
-    const [file, setFile] = useState(null)
+    const [files, setFiles] = useState([])
+    const [fechar, setFechar] = useState(false)
 
-    console.log(produtcs)
-
-    const handleFileChange = (e) => {
-        setFile(e.target.files[0])
-    }
 
     const handleSub = (e) => {
         e.preventDefault()
@@ -20,22 +17,20 @@ export default function CriaBanner() {
         const data = Object.fromEntries(formData.entries());
         console.log("Dados do form:", data); 
 
-        if(file){
+        if(files){
             const leitor = new FileReader()
             leitor.onload = (ev) => {
 
                 data.imagem = ev.target.result
 
                 const payload = {
-                    nome: data.nome,
-                    preco: data.preco,
-                    descricao: data.descricao,
+                    titulo: data.titulo,
                     imagem: data.imagem,
-                    categoria: data.categoria,
-                    usuario: localStorage.getItem('user')
+                    sub_titulo: data.subtitulo,
+                    usuario: localStorage.getItem('id_user')
                 }
                 
-                fetch('https://back-end-barbalao.onrender.com/api/banner//', {
+                fetch('https://back-end-barbalao.onrender.com/api/banner/', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json'},
                     body: JSON.stringify(payload)
@@ -44,69 +39,68 @@ export default function CriaBanner() {
 
                         if (!res.ok) {
                             return res.json().then((err) => {
-                                throw new Error(err.message || 'Falha ao criar produto');
+                                throw new Error(err.message || 'Falha ao criar banner');
                             });
                         }
                         return res.json();
                     })
                     .then((json) => {
-                        alert(`Produto criado (id: ${json.ID})`)
+                        alert(`Banner criado (id: ${json.ID})`)
+                        e.target.reset()
+                        setFiles([])
                     })
                     .catch((err) => {
                         alert(`Erro: ${err.message}`);
                     })
 
             }
-            leitor.readAsDataURL(file)
+            
+            leitor.readAsDataURL(files)
         }
         
 
     }
 
+    if (fechar) {
+        return null
+    }
+
     return(
         <>
-          <div className={styles.background}>
-            
+          <div className={`${styles.background } `}>
             <div className={styles.formContainer}>
-                <h1>Criar Produto</h1>
+                <button className={styles.backButton}
+                    onClick={() => setFechar(true)}
+                >+</button>
+                <h1>Banner</h1>
                 <form className={styles.form} onSubmit={handleSub}>
 
-                    <label className={styles.label} htmlFor="nome">Nome:</label>
+                    <label className={styles.label} htmlFor="titulo">Título:</label>
                     <input className={styles.input} 
                         type="text" 
-                        name="nome" 
+                        name="titulo" 
                         id="nome" 
                         required 
                     />
 
-                    <label className={styles.label} htmlFor="preco">Preço:</label>
+                    <label className={styles.label} htmlFor="subtitulo">Subtitulo:</label>
                     <input className={styles.input} 
-                        type="number" 
-                        name="preco" 
-                        id="preco" 
-                        min={1.0} 
-                        step={0.01}
+                        type="text" 
+                        name="subtitulo" 
+                        id="subtitulo"
                     />
 
-                    <label htmlFor="descricao">Descrição: </label>
-                    <textarea name="descricao" id="descricao"></textarea>
-
-                    <label className={styles.label} htmlFor="imagem" onChange={handleFileChange()}>Imagem:</label>
+                    <label className={styles.label} htmlFor="imagem">Imagens :</label>
                     <input className={styles.inputFile} 
                         type="file" 
                         name="imagem" 
                         id="imagem" 
-                        accept="image/*"
-                        onChange={handleFileChange()}
+                        accept="image/*" 
                         required
                     />
                     
                     <button className={styles.submitButton} type="submit">Criar</button>
                 </form>
-                
-                <Link to="/" >
-                    <button className={styles.backButton}>Voltar</button>
-                </Link>
             </div>
             
             

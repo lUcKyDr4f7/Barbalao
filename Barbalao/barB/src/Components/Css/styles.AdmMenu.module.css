@@ -26,12 +26,12 @@
     border-radius: 4rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    border: 1px solid 
+    border: 1px solid ;
 }
 
 .AdmH1{
     text-align: center;
-    color: var(--bodyTextColor);
+    color: var(--navHoverColor);
     margin-left: 5rem;
     margin-right: 5rem;
 
@@ -40,8 +40,8 @@
 .themeButton {
     text-decoration: none;
     color: transparent;
-    background-color:  var(--bodyTextColor);
-    background-image: linear-gradient(90deg, var(--navColor) 0%, var(--navColor) 0%);
+    background-color: var(--navHoverColor); 
+    background-image: linear-gradient(90deg, var(--bodyTextColor) 0%, var(--bodyTextColor) 0%); 
     background-repeat: no-repeat;
     background-size: 0% 100%;
     -webkit-background-clip: text;
@@ -54,19 +54,19 @@
 }
 
 .AdmVolt {
-  font-size: 2.5rem;
-  color: transparent;
-  background-color:  var(--bodyTextColor);
-  background-image: linear-gradient(90deg, var(--navColor) 0%, var(--navColor) 0%);
-  background-repeat: no-repeat;
-  background-size: 0% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  transition: background-size 0.8s ease;
+    font-size: 2.5rem;
+    color: transparent;
+    background-color: var(--navHoverColor); 
+    background-image: linear-gradient(90deg, var(--bodyTextColor) 0%, var(--bodyTextColor) 0%);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: background-size 0.8s ease;
 }
 
 .AdmVolt:hover {
-  background-size: 100% 100%;
+    background-size: 100% 100%;
 }
 
 
