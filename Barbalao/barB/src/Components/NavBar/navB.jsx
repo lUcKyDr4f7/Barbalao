@@ -1,9 +1,20 @@
 import styles from '../Css/styles.navB.module.css';
 import logo from '../../assets/BarB.png';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Cart from '../Cart/Cart';
+import { useAuth } from '../../Routes/AuthContext';
 
 export default function NavB() {
+    const {authenticated} = useAuth();
+    const [link, setLink] = useState(null);
+    useEffect(() => {
+        if (authenticated) {
+          setLink(<li><a href="/adm">ADM</a></li>);
+        } else {
+          setLink(null);
+        }
+    }, []);
 
     let currentTheme = localStorage.getItem("theme");
     if (!currentTheme) {
@@ -57,8 +68,9 @@ export default function NavB() {
                         <button type="submit"><i className="ri-search-line"></i></button>
                     </form> */}
                     <div className={styles.headerBtns}>
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#about-us">Sobre Nós</a></li>
+                        <li><Link to="/">Início</Link></li>
+                        <li><Link to="/about-us">Sobre Nós</Link></li>
+                        {link}
                         <button onClick={() => changeTheme()}><i className={themeIcon}></i></button>
                         <button onClick={() => openCart()}><i className="ri-shopping-cart-2-fill"></i></button>
                     </div>

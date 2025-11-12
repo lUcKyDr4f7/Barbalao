@@ -8,15 +8,15 @@ export default function CartItem(props) {
     function addItem() {
         tempCart[props.item] ++;
         props.setCart(tempCart)
-        /* localStorage.setItem("cart", JSON.stringify(tempCart));
-        localStorage.setItem("totalValue", Number(localStorage.getItem("totalValue")) + item.valueWithD); */
+        localStorage.setItem("cart", JSON.stringify(tempCart));
+        localStorage.setItem("totalValue", Number(localStorage.getItem("totalValue")) + item.valueWithD); 
     }
     function subtractItem() {
         if(tempCart[props.item]>1) {
             tempCart[props.item] --;
             props.setCart(tempCart);
-            /* localStorage.setItem("cart", JSON.stringify(tempCart));
-            localStorage.setItem("totalValue", Number(localStorage.getItem("totalValue")) - item.valueWithD); */
+            localStorage.setItem("cart", JSON.stringify(tempCart));
+            localStorage.setItem("totalValue", Number(localStorage.getItem("totalValue")) - item.valueWithD); 
         } else {
             removeItem();
         }
@@ -24,8 +24,8 @@ export default function CartItem(props) {
     function removeItem() {
         delete tempCart[props.item]
         props.setCart(tempCart);
-        /* localStorage.setItem("cart", JSON.stringify(tempCart));
-        localStorage.setItem("totalValue", Number(localStorage.getItem("totalValue")) - item.valueWithD * tempCart[props.item]); */
+        localStorage.setItem("cart", JSON.stringify(tempCart));
+        localStorage.setItem("totalValue", Number(localStorage.getItem("totalValue")) - item.valueWithD * tempCart[props.item]); 
     }
 
     return(
