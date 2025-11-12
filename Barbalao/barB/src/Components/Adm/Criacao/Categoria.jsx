@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-import styles from "../Css/styles.CriaT.module.css"
+import styles from '../../Css/styles.CriaT.module.css'
 
 export default function CriaCateg() {
     const [categoriasPrincipais, setCategoriasPrincipais] = useState([])

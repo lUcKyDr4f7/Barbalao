@@ -8,15 +8,16 @@ export default function SectionCateg({produtos, categoria, subCateg}) {
     console.log(subCategsL)
 
     const subAtuais = subCategsL.filter(subCategL => subCategL.sub_categoria_de == categoria.id_categoria)
+    const categNome = (categoria.nome).slice(0,1).toUpperCase() + (categoria.nome).slice(1).toLowerCase()
 
     return(
         <div key={categoria.id_categoria}>
 
-            <h1>{(categoria.nome).slice(0,1).toUpperCase() + (categoria.nome).slice(1)}</h1>
+            <h1>{categNome}</h1>
             {subAtuais.length != 0?
                 subAtuais.map((sub) => (
                     <div>
-                        <h2 className={styles.swiperTitle}>{(sub.nome).slice(0,1).toUpperCase() + (sub.nome).slice(1)}</h2>
+                        <h2 className={styles.swiperTitle}>{categNome + " de " + (sub.nome).slice(0,1).toUpperCase() + (sub.nome).slice(1).toLowerCase()}</h2>
                         <ProdS produtos={produtosL} subCateg={sub}/>
                     </div>
                 ))

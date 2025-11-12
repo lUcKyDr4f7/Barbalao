@@ -228,9 +228,11 @@
 }
 
 .PainelOutlet { 
-    width: 95vw;
+    width: 90vw;
+    height: 100vh;
     border-radius: 2rem 2rem 0 0; 
-    background-color: var(--bodyBgColor); 
-    filter: brightness(.8);  
+    background-color: var(--bodyBgColor);
+    filter: brightness(.95);  
     margin-top: 23vh;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }

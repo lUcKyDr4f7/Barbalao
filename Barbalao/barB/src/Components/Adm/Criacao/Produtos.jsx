@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import styles from '../Css/styles.CriaT.module.css'
-import FormNav from '../Form/FormNav';
+import styles from '../../Css/styles.CriaT.module.css'
 
 export default function CriaProd() {
     const [file, setFile] = useState(null)

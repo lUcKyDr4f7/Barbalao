@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styles from '../Css/styles.CriaT.module.css'
-import styles2 from '../Css/styles.AdmPainel.module.css'
-import FormNav from '../Form/FormNav';
+import styles from '../../Css/styles.CriaT.module.css'
 
 export default function CriaBanner() {
     const [files, setFiles] = useState([])

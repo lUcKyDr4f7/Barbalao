@@ -32,7 +32,7 @@ export default function Cart(props) {
         let total = 0;
         Object.keys(cartItems).map( key => {
             if(Products[key]) {
-                total += Products[key].price * cartItems[key];
+                total += Products[key].preco * cartItems[key];
             }
         })
         setTotalValue(total);

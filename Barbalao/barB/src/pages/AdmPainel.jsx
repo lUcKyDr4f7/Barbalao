@@ -1,9 +1,9 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import CriaCateg from "../Components/Criacao/Categoria";
-import CriaProd from "../Components/Criacao/Produtos";
-import CriaBanner from "../Components/Criacao/Banner";
+import CriaCateg from "../Components/Adm/Criacao/Categoria";
+import CriaProd from "../Components/Adm/Criacao/Produtos";
+import CriaBanner from "../Components/Adm/Criacao/Banner";
 import styles from '../Components/Css/styles.AdmPainel.module.css';
 import filtro from '../assets/filtro.png';
 import lupa from '../assets/lupa.png';

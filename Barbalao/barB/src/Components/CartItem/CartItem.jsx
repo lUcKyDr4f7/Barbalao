@@ -45,11 +45,11 @@ export default function CartItem(props) {
         <>
             <div key={props.item} className={styles.cartItem} >
                 
-                <img src={item['image']} alt={item['name']} />
+                <img src={item['imagem']} alt={item['nome']} />
 
                 <div className={styles.itemText}>
-                    <h3>{item['name']}</h3>
-                    <p>R${item.price.toFixed(2).replace('.', ',')}</p>
+                    <h3>{item['nome']}</h3>
+                    <p>R${item['preco'].toFixed(2).replace('.', ',')}</p>
                 </div>
 
                 <div className={styles.itemAmount}>

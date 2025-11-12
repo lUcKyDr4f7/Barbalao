@@ -1,37 +1,33 @@
+import { useState } from 'react';
 import styles from '../Components/Css/styles.AdmProd.module.css';
+import AdmProdutoCard from '../Components/Adm/MenorComp/AdmProdutoCard';
+import AdmProdutoModal from '../Components/Adm/MenorComp/AdmProdutoModal';
 
 export default function AdmProd({ produtos }) {
-  const has_produtos = (Array.isArray(produtos)) && (produtos.length < 0)
+  const produtosL = produtos || JSON.parse(localStorage.getItem("produtcs"))
+
+  const [viewProduct, setViewProduct] = useState(false);
+  const [produto, setProduto] = useState(null);
 
   return (
     <div>
-      {/* {has_produtos? 
-        <div className={styles.produtosGrid}>
-          {produtos?.map((produto) => (
-            <div className={styles.produtoCard} key={produto.id}>
-              <div className={styles.produtoImagem}>
-                <img
-                  src={produto.image || 'https://via.placeholder.com/150'}
-                  alt={produto.name || 'Produto sem nome'}
-                  onError={(e) => (e.target.src = 'https://via.placeholder.com/150')}
-                />
-              </div>
-
-              <div className={styles.produtoInfo}>
-                <h4 className={styles.produtoNome}>{produto.name}</h4>
-                <h4 className={styles.produtoPreco}>
-                  R${parseFloat(produto.price || 0).toFixed(2).replace('.', ',')}
-                </h4>
-                <i className={`ri-shopping-cart-2-fill ${styles.produtoIconeCarrinho}`}></i>
-              </div>
-            </div>
-          ))}
+      <p> Mostrando {produtos.length} produtos</p>
+      {produtosL.length > 0 ? 
+        <div>
+          <div className={styles.produtosGrid}>
+            {produtos?.map((produto) => (
+              <AdmProdutoCard setViewProduct={setViewProduct} setProduto={setProduto} key={produto.id_prod} produto={produto}/>
+            ))}
+          </div>
+          {
+            viewProduct && <AdmProdutoModal produto={produto} setViewProduct={setViewProduct}/>
+          }
         </div>
         :
         <div className={styles.SemProdCont}>
           <h3>SEM PRODUTOS</h3>
         </div>
-      } */}
+      }
     </div>
   );
 }

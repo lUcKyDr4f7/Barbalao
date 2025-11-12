@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState, useEffect, createContext, useContext } from "react";
-import Loading from "../Components/loadingPage/Loading";
 
 const AuthContext = createContext();
 
