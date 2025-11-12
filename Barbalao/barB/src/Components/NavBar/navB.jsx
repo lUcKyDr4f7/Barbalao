@@ -70,6 +70,7 @@ export default function NavB() {
                     <div className={styles.headerBtns}>
                         <li><Link to="/">Início</Link></li>
                         <li><Link to="/about-us">Sobre Nós</Link></li>
+                        <li><Link to="/login">login</Link></li>
                         {link}
                         <button onClick={() => changeTheme()}><i className={themeIcon}></i></button>
                         <button onClick={() => openCart()}><i className="ri-shopping-cart-2-fill"></i></button>
@@ -79,5 +80,6 @@ export default function NavB() {
             </header>
         </> 
     )
+
 
 }
