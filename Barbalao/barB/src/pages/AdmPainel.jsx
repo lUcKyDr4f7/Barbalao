@@ -7,13 +7,18 @@ import CriaBanner from "../Components/Adm/Criacao/Banner";
 import styles from '../Components/Css/styles.AdmPainel.module.css';
 import filtro from '../assets/filtro.png';
 import lupa from '../assets/lupa.png';
+import AdmProdutoModal from "../Components/Adm/MenorComp/AdmProdutoModal";
 
 export default function AdmPainel() {
     const local = useLocation();
     const titulo = local.pathname.slice(12).toUpperCase();
-    const [novo, setNovo] = useState(false)
-    const [fechar, setFechar] = useState(true)
 
+    const [novo, setNovo] = useState(false);
+    const [fechar, setFechar] = useState(true);
+    const [backdrop, setBackdrop] = useState(false);
+    const [viewProduct, setViewProduct] = useState(false);
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    
     console.log(novo)
 
     let currentTheme = localStorage.getItem("theme");
@@ -44,6 +49,8 @@ export default function AdmPainel() {
     
     return(
         <div className={styles.PainelCont}>
+
+            {backdrop && <div className={styles.backdrop}></div>}
             
             <div className={`${styles.PainelContNav} ${scroll? styles.shrink: ""}`}>
                 <div className={styles.PainelHeader}>
@@ -64,7 +71,7 @@ export default function AdmPainel() {
                     <div className={styles.PainelButtstNav}>
                         <button className={styles.PainelFilt}>
                             <img src={filtro} alt="" />
-                        </ button>
+                        </button>
                         <div>
                             <button className={styles.PainelNew} onClick={() => setNovo(!novo)}></ button>
                         </div>
@@ -72,8 +79,12 @@ export default function AdmPainel() {
                 </div>
             </div>
 
+            {
+                viewProduct && <AdmProdutoModal produto={selectedProduct} setViewProduct={setViewProduct}/>
+            }
+
             <div className={styles.PainelOutlet}>
-                <Outlet />
+                <Outlet context={{setBackdrop, setViewProduct, setSelectedProduct}}/>
             </div>
 
             {novo && (

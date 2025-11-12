@@ -1,10 +1,12 @@
 import styles from '../../Css/styles.AdmProdutoCard.module.css';
 
-export default function AdmProdutoCard({produto, setViewProduct, setProduto}) {
+export default function AdmProdutoCard({produto, setViewProduct, setBackdrop, setSelectedProduct}) {
+
     return(
         <div className={styles.productCard} onClick={() => {
           setViewProduct(true);
-          setProduto(produto);
+          setBackdrop(true);
+          setSelectedProduct(produto);
         }}>
           <div className={styles.productImg}>
             <img

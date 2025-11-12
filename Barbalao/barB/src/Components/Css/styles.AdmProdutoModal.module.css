@@ -1,170 +1,120 @@
-/* =================== Google Fonts ====================== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-.swiperTitle{
-   color: var(--TitleColor);
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.15s ease;
 }
 
-.productCard {
-   position: relative;
-   background: var(--cardBg);
-   width: 230px;
-   border-radius: 10px;
-   cursor: pointer;
-   overflow: hidden;
+.editButton {
+  border: 2px solid var(--TitleColor);
+  background: var(--cardBg);
+  color: var(--TitleColor);
 }
 
-.productCard .productBrand {
-   position: absolute;
-   width: 50px;
-   height: 50px;
-   margin: 32px 24px;
+.editButton:hover {
+  background: var(--bodyBgColor);
 }
-.productCard .productBrand img {
-   width: 70% !important;
-   height: 70% !important;
+
+.deleteButton {
+  border: 2px solid red;
+  background: var(--cardBg);
+  color: red;
+}
+
+.deleteButton:hover {
+  background: var(--bodyBgColor);
+}
+
+.modalButtons {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  text-wrap: nowrap;
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.modalButtons button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.modalButtons button i{
+  font-size: 22px;
+}
+
+.modalCard {
+  display: flex;
+  gap: 2rem;
+  background: var(--bodyBgColor);
+  border: 2px solid var(--TitleColor);
+  padding: 1.5rem 3rem;
+  border-radius: 0.75rem;
+  min-width: 50rem;
+  max-width: 60rem;
+  color: var(--TitleColor);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  position: relative;
+  animation: openAnimation 0.15s ease;
+}
+
+.modalClose {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  font-size: 1.5rem;
+  background: none;
+  display: flex;
+  padding: 4px;
+  border: 2px solid var(--TitleColor);
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--TitleColor);
+  transition: all 0.25s;
+}
+
+.modalClose:hover {
+  background-color: red;
+  border: 2px solid red;
+  color: white;
+}
+
+.carousel{
+   max-width: 400px;
+   max-height: 700px;
+}
+.carousel .imagemC img {
+   max-width: 100%;
+   max-height: 300px;
    object-fit: contain;
-   filter: invert(100%);
-   transition: all 0.3s ease;
-}
-.productCard:hover .productBrand img {
-   transform: scale(1.1);
-   filter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(103%) contrast(92%);
 }
 
-.productCard .productImg {
-   width: 100%;
-   height: 200px;
-   justify-content: center;
-   align-items: center;
-   background: rgba(0,0,0,0.1);
-}
-.productCard .productImg img {
-   width: 100%;
-   height: 100%;
-   object-fit: contain;
-   transition: .3s;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.productCard .productInfo {
-   position: relative;
-   padding: 10px 15px 15px 20px;
-}
-.productCard .productInfo .info {
-   margin-top: 3px;
-   margin-bottom: 5px;   
-}
-.productCard .productInfo span {
-   color: rgba(158, 158, 158, 1);
-   font-size: .98rem;
-   font-weight: 400;
-   text-transform: uppercase;
-}
-.productCard .productInfo h4 {
-   color: var(--TitleColor);
-   font-size: 1.07rem;
-   font-weight: 500;
-}
-.productCard .productInfo .productStars {
-   color: rgba(119, 163, 247, 1);
-   font-size: 1.1rem;
-}
-.productCard .productInfo .productOptionsD {
-   max-width: 100%;
-   display: flex;
-   gap: 10px;
-   justify-content: left;
-   align-items: center;
-}
-
-.productCard .productInfo .productOptions {
-   max-width: 100%;
-   display: flex;
-   gap: 10px;
-   justify-content: left;
-   align-items: center;
-   margin-bottom: 30px;
-}
-
-.productCard .productInfo .productOptions {
-   max-width: 100%;
-   display: flex;
-   gap: 10px;
-   justify-content: left;
-   align-items: center;
-   margin-bottom: 30px;
-}
-
-.productInfo .productOptions .picante {
-   background: linear-gradient(360deg,rgba(207, 163, 163, 0.15),rgba(207, 163, 163, 0.1));
-   text-align: left;
-   border-radius: 3px;
-}
-.productOptions .picante p,
-.productOptions .picante span {
-   color: rgb(247, 119, 119);
-   font-size: .98rem;
-   font-weight: 500;
-   margin: 2px 4px;
-}
-
-.productInfo .productOptionsD .vegetariano {
-   background: linear-gradient(360deg,rgba(207, 247, 119, 0.15),rgba(207, 247, 119, 0.1));
-   text-align: left;
-   border-radius: 3px;
-}
-.productOptionsD .vegetariano p,
-.productOptionsD .vegetariano span {
-   color: rgb(202, 247, 119);
-   font-size: .98rem;
-   font-weight: 500;
-   margin: 2px 4px;
-}
-.productInfo .productOptionsD .picante {
-   background: linear-gradient(360deg,rgba(207, 163, 163, 0.15),rgba(207, 163, 163, 0.1));
-   text-align: left;
-   border-radius: 3px;
-}
-.productOptionsD .picante p,
-.productOptionsD .picante span {
-   color: rgb(247, 119, 119);
-   font-size: .98rem;
-   font-weight: 500;
-   margin: 2px 4px;
-}
-.productInfo .productOptionsD .vegetariano {
-   background: linear-gradient(360deg,rgba(207, 247, 119, 0.15),rgba(207, 247, 119, 0.1));
-   text-align: left;
-   border-radius: 3px;
-}
-.productOptionsD .vegetariano p,
-.productOptionsD .vegetariano span {
-   color: rgb(202, 247, 119);
-   font-size: .98rem;
-   font-weight: 500;
-   margin: 2px 4px;
-}
-.productCard .productInfo .priceWithDescount {
-   color: rgba(119, 163, 247, 1);
-   font-weight: 500;
-}
-.productCard .productInfo .normalPrice {
-   color: rgba(158, 158, 158, 1);
-   font-weight: 400;
-   font-size: .9rem;
-}
-.productCard .productInfo .shopIcon {
-   position: absolute;
-   right: 0;
-   bottom: 0;
-   color: rgba(119, 163, 247, 1);
-   font-size: 1.3rem;
-   margin: 17px;
-   transform: scale(0);
-   transition: .3s;
-}
-.productCard:hover .productInfo .shopIcon {
-   transform: scale(1);
-}
-.productCard:hover .productImg img {
-   transform: scale(1.03);
+@keyframes openAnimation {
+  from {
+    scale: 1.18;
+    opacity: 0.5;
+  }
+  to {
+    scale: 1.00;
+    opacity: 1;
+  }
 }

@@ -18,7 +18,7 @@ export default function AdmProdutoModal({produto, setViewProduct}) {
           <p> {produto.descricao} </p>
           <div className={styles.modalButtons}>
             <button className={styles.editButton}>
-              <i class="ri-pencil-line"></i>  Editar produto 
+              <i class="ri-pencil-line"></i> Editar produto 
             </button>
             <button className={styles.deleteButton}>
               <i class="ri-delete-bin-line"></i> Deletar produto
