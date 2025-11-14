@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+.produtoCard {
+   position: relative;
+   background: var(--cardBg);
+   width: 230px;
+   border-radius: 10px;
+   cursor: pointer;
+   overflow: hidden;
+   transition: transform 0.3s ease;
+   font-family: 'Inter', sans-serif;
+}
+
+.produtoCard:hover {
+   transform: translateY(-4px);
+}
+
+/* ========== Imagem ========== */
+.produtoImagem {
+   width: 100%;
+   height: 200px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: rgba(0,0,0,0.05);
+}
+
+.produtoImagem img {
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+   transition: transform 0.3s ease;
+}
+
+.produtoCard:hover .produtoImagem img {
+   transform: scale(1.05);
+}
+
+/* ========== Informações ========== */
+.produtoInfo {
+   position: relative;
+   padding: 10px 15px 20px 20px;
+}
+
+.produtoNome {
+   color: var(--TitleColor);
+   font-size: 1.07rem;
+   font-weight: 500;
+   margin-bottom: 5px;
+}
+
+.produtoPreco {
+   color: rgba(119, 163, 247, 1);
+   font-weight: 500;
+   font-size: 1rem;
+}
+
+.produtoIconeCarrinho {
+   position: absolute;
+   right: 0;
+   bottom: 0;
+   color: rgba(119, 163, 247, 1);
+   font-size: 1.3rem;
+   margin: 17px;
+   transform: scale(0);
+   transition: transform 0.3s ease;
+}
+
+.produtoCard:hover .produtoIconeCarrinho {
+   transform: scale(1);
+}
+
+.produtosGrid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+   gap: 2rem;
+   width: 100%;
+   padding: 2rem 0;
+}

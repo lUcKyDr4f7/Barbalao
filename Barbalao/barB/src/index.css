@@ -90,12 +90,14 @@ button {
   --categFilterI: 0%;
   --categFilter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(105%) contrast(94%);
   --cardBg: #ffffff;
-  --scrollbarTrack: #0f172e;
-  --footBgColor:#8891a6;
+  --scrollbarTrack: #e0e8ff;
+  --footBgColor:#dae6ff;
+  --footBgColor1:#00000008;
   --footBdColor: #78a8ff12;
-  --footColor: #484d57;
-  --footHColor: #000000;
-  overflow-x: hidden;
+  --footBdColor1:#0000001a;
+  --footColor: #707888;
+  --footHColor: #353535;
+  overflow-x: hidden; 
 }
 @keyframes dimming {
   0%   { --bodyBgColor: #edf3f9; }
@@ -125,7 +127,9 @@ button {
   --cardBg: linear-gradient(120deg, rgba(163, 178, 207, 0.15), rgba(163, 178, 207, 0.05));
   --scrollbarTrack: #0f172e;
   --footBgColor:#101624;
+  --footBgColor1:#ffffff0d;
   --footBdColor: #ffffff1a;
+  --footBdColor1:#ffffff1a;
   --footColor: #6b7280;
   --footHColor: #ffffff;
   overflow-x: hidden;

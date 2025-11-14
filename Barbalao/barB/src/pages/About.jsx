@@ -56,10 +56,16 @@ export default function About() {
                   </div>
                 </div>
                 <div className={styles.mapImage}>
-                  <img
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDo7YT551DKCycADKpPgXOUWMcR6JuCT7c5h_pF9DEHSTrXgO1AVQ0OUI1NmL3aGNuYp3VbRa5RZmDV8xNagjfPSFaZQCfxOMijAbmt_CiVqVwFxORTSPirFWUl9xx0g7p48XWySQNDErtFYbgnUyJgewKDW7xF7K6kldV9gIQJdKlzp1wzO5kpZKZ5PKKFVjFjXgt3ikydaQIGC6Ov0g79O4JKk7cZ4HRf0mZbjTthZE3lxuyI-fJtsrihodoe8-f23Z3Du6u_0g"
-                    alt="Mapa da localização"
-                  />
+                  <iframe
+                    title="Mapa do Bar Balão"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d548.0429202349379!2d-46.63260457876813!3d-22.474952138884916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c910534f7df6f7%3A0xe4a2e7990e117ed7!2sBar%20Bal%C3%A3o!5e0!3m2!1spt-BR!2sbr!4v1762987739029!5m2!1spt-BR!2sbr"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
                 </div>
               </div>
             </section>

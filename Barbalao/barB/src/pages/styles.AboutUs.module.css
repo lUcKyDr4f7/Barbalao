@@ -2,18 +2,17 @@
 :root {
   --primary: #3b82f6;
   --background-dark: #111827;
-  --text-gray-200: #e5e7eb;
+  --text-gray-200: #0055ff;
   --text-gray-300: #d1d5db;
   --text-gray-400: #9ca3af;
-  --white-10: rgba(255, 255, 255, 0.1);
-  --white-05: rgba(255, 255, 255, 0.05);
+  --white-10: #ffffff1a;
+  --white-05: #ffffff0d;
 }
 
 /* Garante que o fundo da página seja escuro */
 /* Você pode precisar de um seletor mais global, mas isso ajuda */
 .main {
-  background-color: var(--background-dark);
-  color: var(--text-gray-200);
+  color: var(--categTextColor);
   width: 100%;
   flex: 1; /* Faz o main crescer e empurrar o footer */
   display: flex;
@@ -80,12 +79,12 @@
 .sectionTitle {
   font-size: 1.875rem; /* text-3xl */
   font-weight: 700;
-  color: var(--text-gray-200);
+  color: var(--categTextColor);
 }
 
 .text {
   margin-top: 1rem; /* mt-4 */
-  color: var(--text-gray-400);
+  color: var(--bodyTextColor);
   line-height: 1.6;
 }
 
@@ -107,10 +106,10 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: var(--text-gray-300);
+  color: var(--bodyTextColor);
 }
 .infoItem a {
-  color: var(--text-gray-300);
+  color: var(--bodyTextColor);
   text-decoration: none;
 }
 .infoItem span { /* Ícone */
@@ -141,10 +140,10 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background-color: var(--white-05);
+  background-color: var(--footBgColor1);
   padding: 0.75rem;
   border-radius: 0.5rem;
-  color: var(--text-gray-300);
+  color: var(--bodyTextColor);
   font-size: 0.875rem;
 }
 .paymentItem span:first-child { /* Ícone */
@@ -158,23 +157,23 @@
 
 .stickySidebar {
   position: sticky;
-  top: 4rem; /* top-16 */
+  top: 13.5rem; /* top-16 */
   padding: 1.5rem; /* p-6 */
-  border: 1px solid var(--white-10);
-  background-color: var(--white-05);
+  border: 1px solid var(--footBdColor1);
+  background-color: var(--footBgColor1);
   border-radius: 0.75rem;
 }
 
 .sidebarTitle {
   font-size: 1.5rem; /* text-2xl */
   font-weight: 700;
-  color: var(--text-gray-200);
+  color: var(--categTextColor);
 }
 
 .scheduleList {
   margin-top: 1.5rem;
   list-style: none;
-  color: var(--text-gray-400);
+  color: var(--bodyTextColor);
   display: flex;
   flex-direction: column;
   gap: 0.75rem; /* space-y-3 */
@@ -183,7 +182,7 @@
 .scheduleList li {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid var(--white-10);
+  border-bottom: 1px solid var(--footBdColor1);
   padding-bottom: 0.5rem;
 }
 .scheduleList li:last-child {
@@ -192,7 +191,7 @@
 
 .time {
   font-weight: 500;
-  color: var(--text-gray-300);
+  color: var(--bodyTextColor);
 }
 
 .scheduleHighlight span:last-child {
