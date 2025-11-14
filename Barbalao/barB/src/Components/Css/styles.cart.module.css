@@ -4,10 +4,10 @@
 
 @keyframes cartOpening {
   from {width: 0;}
-  to {width: 26vw;}
+  to {width: 40vw;}
 }
 @keyframes cartClosing {
-  from {width: 26vw;}
+  from {width: 40vw;}
   to {width: 0;}
 }
 
@@ -21,7 +21,7 @@
   justify-self: end;
   background-color: var(--navBgColor);
   height: 100vh;
-  width: 26vw;
+  width: 40vw;
   animation-name: cartOpening;
   animation-duration: .5s;
   z-index: 1500;
@@ -45,7 +45,7 @@
 
 @keyframes cartTitleClosing {
   from {margin-left: -1vw;}
-  to {margin-left: 13vw;}
+  to {margin-left: 20vw;}
 }
 .closingCart li {
   animation-name: cartTitleClosing;
@@ -65,74 +65,60 @@
 }
 
 @keyframes cartListOpening {
-  from {margin-left: 24vw;}
+  from {margin-left: 39vw;}
   to {margin-left: -1vw;}
 }
 @keyframes cartListClosing {
   from {margin-left: -1vw;}
-  to {margin-left: 24vw;}
+  to {margin-left: 39vw;}
 }
 .cart .cartList {
   margin-left: -1vw;
-  height: 80vh;
+  height: 77vh;
   animation-name: cartListOpening;
   animation-duration: .5s;
-}
-.cart .cartListBig {
-  margin-left: -1vw;
-  height: 84vh;
-  animation-name: cartListOpening;
-  animation-duration: .5s;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .closingCart .cartList {
   margin-left: -1vw;
-  height: 80vh;
+  height: 77vh;
   animation-name: cartListClosing;
   animation-duration: .5s;
-}
-.closingCart .cartListBig {
-  margin-left: -1vw;
-  height: 84vh;
-  overflow-y: scroll;
-  animation-name: cartListClosing;
-  animation-duration: .5s;
+  overflow-y: auto;
 }
 
 @keyframes cartTotalOpening {
-  from {margin-left: 20vw;}
+  from {margin: 0 -20vw 0 20vw;}
   to {margin-left: 0vw;}
 }
 @keyframes cartTotalClosing {
   from {margin-left: 0vw;}
-  to {margin-left: 20vw;}
+  to {margin: 0 -20vw 0 20vw;}
 }
 .cart .totalValue {
   margin: 0;
-  display: flex;
-  justify-content: center;
-  width: 26vw;
+  width: auto;
   font-size: 2rem;
   animation-name: cartTotalOpening;
   animation-duration: .5s;
+  word-break: keep-all;
 }
 .closingCart .totalValue {
   margin: 0;
-  display: flex;
-  justify-content: center;
-  width: 26vw;
+  width: auto;
   font-size: 2rem;
   animation-name: cartTotalClosing;
   animation-duration: .5s;
+  word-break: keep-all;
 }
 
 @keyframes cartButtonOpening {
-  from {margin-left: 20vw;}
+  from {margin: 0 -20vw 0 20vw;}
   to {margin-left: -1vw;}
 }
 @keyframes cartButtonClosing {
   from {margin-left: -1vw;}
-  to {margin-left: 20vw;}
+  to {margin: 0 -20vw 0 20vw;}
 }
 .cart .whatsappBtn {
   width: 20vw;
@@ -162,7 +148,7 @@
   margin-top: -20px;
   margin-left: -20px;
   width: 100vw;
-  height: 100vh;
+  height: 105vh;
   background-color: #00000090;
   position: absolute;
   animation-name: outsideCartOpening;

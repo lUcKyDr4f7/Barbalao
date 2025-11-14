@@ -7,8 +7,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 24vw;
-  height: 8vh;
+  width: 37vw;
+  height: 12vh;
   background: var(--categBgColor);
   border-radius: 1vh;
   margin: 1vh 0.3vw 1vh;
@@ -16,26 +16,30 @@
 }
 
 .cartItem img {
-  width: 8vh;
+  width: 11vh;
 }
 
 .cartItem .itemText {
-  width: 12vw;
+  width: 24vw;
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .cartItem .itemAmount {
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 4vh;
-  width: 7vw;
-  border-radius: 2vh;
+  height: 6vh;
+  width: 10vw;
 }
 .cartItem h3 {
   display: flex;
   align-items: center;
   height: 4vh;
   margin: 0 .2vw 0 .2vw;
+  font-size: 3.5vh;
 }
 .cartItem p {
   height: 2.5vh;
@@ -48,7 +52,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.5vh;
+  font-size: 4vh;
   border-radius: 2vh;
 }
 .cartItem button:hover {

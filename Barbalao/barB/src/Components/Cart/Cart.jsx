@@ -69,7 +69,7 @@ export default function Cart(props) {
                 <div className={isClosing?styles.outsideClosingCart:styles.outsideCart} onClick={ () => closeCart() }></div>
                 <div className={isClosing?styles.closingCart:styles.cart} /* onClick={ () => closeCart() } */>
                     <li>Carrinho</li>
-                    <div className={Object.keys(cartItems).length<8?styles.cartList:styles.cartListBig}>{
+                    <div className={styles.cartList}>{
                         Object.keys(cartItems).length != 0?
                         Object.keys(cartItems).map( key => {
                             return <CartItem cart={cartItems} setCart={setCartItems} item={key} amount={cartItems[key]} />;

@@ -132,9 +132,11 @@ button {
   --footBdColor1:#ffffff1a;
   --footColor: #6b7280;
   --footHColor: #ffffff;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 .cartOpen {
-  --scrollbarTrack: #125492;
-  overflow-y: hidden;
+  overflow: hidden !important;
+}
+.cartOpen section {
+  padding-right: 40px;
 }

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import styles from '../Css/styles.cartItem.module.css';
 import { Products } from '../../assets/Data/Products';
 import { getImagePath } from '../utils/pathP.jsx';
+
 export default function CartItem(props) {
     let item = Products[props.item]
     let tempCart= {...props.cart}
@@ -9,14 +10,14 @@ export default function CartItem(props) {
         tempCart[props.item] ++;
         props.setCart(tempCart)
         localStorage.setItem("cart", JSON.stringify(tempCart));
-        localStorage.setItem("totalValue", Number(localStorage.getItem("totalValue")) + item.valueWithD); 
+        localStorage.setItem("totalValue", Number(localStorage.getItem("totalValue")) + item.valueWithD);
     }
     function subtractItem() {
         if(tempCart[props.item]>1) {
             tempCart[props.item] --;
             props.setCart(tempCart);
             localStorage.setItem("cart", JSON.stringify(tempCart));
-            localStorage.setItem("totalValue", Number(localStorage.getItem("totalValue")) - item.valueWithD); 
+            localStorage.setItem("totalValue", Number(localStorage.getItem("totalValue")) - item.valueWithD);
         } else {
             removeItem();
         }
@@ -25,7 +26,7 @@ export default function CartItem(props) {
         delete tempCart[props.item]
         props.setCart(tempCart);
         localStorage.setItem("cart", JSON.stringify(tempCart));
-        localStorage.setItem("totalValue", Number(localStorage.getItem("totalValue")) - item.valueWithD * tempCart[props.item]); 
+        localStorage.setItem("totalValue", Number(localStorage.getItem("totalValue")) - item.valueWithD * tempCart[props.item]);
     }
 
     return(
