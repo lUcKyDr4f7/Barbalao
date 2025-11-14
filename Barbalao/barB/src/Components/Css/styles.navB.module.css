@@ -56,6 +56,42 @@ form button {
   line-height: 10vh;
 } */
 
+.searchBar {
+  background-color: #020623;
+  border-radius: 25px;
+  padding: 0ch 10px;
+  border: 2px solid #ffe600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff48d;
+}
+
+.searchBar button {
+  color: #fff48d;
+  border: none;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 16px;
+  background-color: inherit;
+  font-size: 16px;
+  transition: background-color 0.15s;
+}
+
+.searchBar button:hover {
+  background-color: #1a1b20;
+}
+
+.searchBar input{
+  color: #fff48d;
+  outline: none;
+  padding: 10px 10px;
+  border: none;
+  background-color: #020623;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
 .headerBtns{
   display: flex;
   align-items: center;

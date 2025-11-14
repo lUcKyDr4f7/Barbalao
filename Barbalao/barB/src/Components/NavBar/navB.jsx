@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Cart from '../Cart/CartP'
 import { useAuth } from '../../Routes/AuthContext';
 
-export default function NavB() {
+export default function NavB({setSearchModal}) {
       const {authenticated} = useAuth()
       const [link, setLink] = useState(null)
       
@@ -63,6 +63,12 @@ export default function NavB() {
                 <div className={styles.inner}>
                     <div className={styles.logo}>
                         <Link to="/"><img  src={logo}/></Link>
+                    </div>
+                    <div className={styles.searchBar}>
+                      <input type="text" name="searchBar" id="searchBar" placeholder='Pesquise algum produto...'/>
+                      <button onClick={() => setSearchModal(true)}>
+                          <i class="ri-search-line"></i> 
+                      </button>
                     </div>
                     {/* <form>
                         <input type="text" />

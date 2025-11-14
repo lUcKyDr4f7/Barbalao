@@ -4,9 +4,13 @@ import BannerS from '../Components/Banners/bannerS.jsx';
 import PSection from '../Components/PSection/prodS.jsx';
 import SectionCateg from '../Components/section/SectionCateg.jsx';
 import Form from '../Components/Form/FormLogin.jsx';
-
+import SearchModal from '../Components/SearchModal/SearchModal.jsx';
+import { useState } from 'react';
 
 export default function Home({produtos, categorias, subCateg, banners}) {
+
+  const [searchModal, setSearchModal] = useState(false);
+
   const produtosL = produtos || JSON.parse(localStorage.getItem("products"))
   const categoriasL = categorias || JSON.parse(localStorage.getItem("categories"))
   const subCategL = subCateg || JSON.parse(localStorage.getItem("subcategories"))
@@ -14,7 +18,7 @@ export default function Home({produtos, categorias, subCateg, banners}) {
   
   return (
     <>
-      <NavB/>
+      <NavB setSearchModal={setSearchModal}/>
       <section className="main">
         <CategP categorias={categoriasL}/>
         <SectionCateg 
@@ -26,6 +30,7 @@ export default function Home({produtos, categorias, subCateg, banners}) {
         {/* <SectionCateg produtos={produtosL} categorias={categoriasL} subCateg={subCategL}/> */}
         {/* onDelete={removerProduto} */}
       </section>
+      {searchModal && <SearchModal setSearchModal={setSearchModal} produtos={produtos}/>}
     </>
   );
 }

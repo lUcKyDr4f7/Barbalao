@@ -4,6 +4,7 @@
     display: flex;
     width: 100%;
     border-radius: 20px;
+    color: var(--TitleColor);
 }
 
 .productCard img {

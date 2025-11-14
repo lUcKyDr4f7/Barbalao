@@ -4,13 +4,13 @@ export default function ProductCard({ produto }) {
   return (
     <div className={styles.productCard}>
       <div>
-        <img src={produto.image} />
+        <img src={produto.imagem} />
       </div>
       <div>
         <h2>
-          {produto.name}
+          {produto.nome}
         </h2>
-        <p> R$ {produto.price} </p>
+        <p> R$ {produto.preco} </p>
       </div>
     </div>
   )
