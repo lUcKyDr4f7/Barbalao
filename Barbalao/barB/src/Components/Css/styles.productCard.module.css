@@ -1,0 +1,17 @@
+.productCard {
+    background: linear-gradient(120deg,hsla(189, 55%, 74%, 0.15), hsla(78, 55%, 74%, 0.05));
+    flex: 1;
+    display: flex;
+    width: 100%;
+    border-radius: 20px;
+    color: var(--TitleColor);
+}
+
+.productCard img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    margin-right: 20px;
+}

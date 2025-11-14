@@ -1,6 +1,10 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom'
 import styles from '../Components/Css/styles.AdmMenu.module.css'
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import cesta from '../assets/cesta.png';
+import pasta from '../assets/pasta.png'
+import imagem from '../assets/imagem.png'
+
 
 export default function AdmMenu() {
 
@@ -22,14 +26,44 @@ export default function AdmMenu() {
     document.body.classList = currentTheme;
 
     return(
-        <div  className={styles.AdmCont}  >
-            <h1  className={styles.AdmH1} >Menu de Adiministração</h1>
-            <div  className={styles.AdmButtDiv} >
-                <Link to="produtos"  className={styles.AdmButt} >Produtos</Link>
-                <Link to="categorias"  className={styles.AdmButt} >Categorias</Link>
-                <Link to="banners"  className={styles.AdmButt} >Banners</Link>
+        <div  className={styles.AdmCont} >
+
+            <div className={styles.AdmContM}>
+                <div className={styles.AdmHeader}>
+
+                    <Link to="/" className={styles.AdmLink}>
+                        <button className={styles.AdmVolt}>←</button>
+                    </Link>
+                
+                    <h1  className={styles.AdmH1}>MENU</h1>
+
+                    <button className={styles.themeButton} onClick={() => changeTheme()}><i className={themeIcon}></i></button>
+
+                </div>
+                
+                <div  className={styles.AdmButtDiv}>
+                    <Link to="/adm/painel/produtos"  className={styles.AdmLink}>
+                        <button className={localStorage.getItem("theme") == "light"? styles.AdmButtL : styles.AdmButt}>
+                            <img src={cesta} className={styles.AdmImg} />
+                            <i>Produtos</i> 
+                        </button>
+                    </Link>
+                    <Link to="/adm/painel/categorias"  className={styles.AdmLink}>
+                        <button className={localStorage.getItem("theme") == "light"? styles.AdmButtL : styles.AdmButt}>
+                            <img src={pasta} className={styles.AdmImg} />
+                            <i>Categorias</i> 
+                        </button>
+                    </Link>
+                    <Link to="/adm/painel/Banners" className={styles.AdmLink}>
+                        <button className={localStorage.getItem("theme") == "light"? styles.AdmButtL : styles.AdmButt}>
+                            <img src={imagem} className={styles.AdmImg} />
+                            <i>Banners</i> 
+                        </button>
+                    </Link>
+                </div>
+
             </div>
-            <Link to="/" className={styles.AdmVolt} >Voltar</Link>
+
         </div>
     )
 }

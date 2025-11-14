@@ -2,19 +2,35 @@ import NavB from '../Components/NavBar/navB.jsx';
 import CategP from '../Components/Categories/CategP.jsx';
 import BannerS from '../Components/Banners/bannerS.jsx';
 import PSection from '../Components/PSection/prodS.jsx';
-import Footer from '../Components/Footer/Footer.jsx';
-import { Components } from '../assets/Data/Components.js';
+import SectionCateg from '../Components/section/SectionCateg.jsx';
+import Form from '../Components/Form/FormLogin.jsx';
+import SearchModal from '../Components/SearchModal/SearchModal.jsx';
+import { useState } from 'react';
 
+export default function Home({produtos, categorias, subCateg, banners}) {
 
-export default function Home() {
+  const [searchModal, setSearchModal] = useState(false);
+
+  const produtosL = produtos || JSON.parse(localStorage.getItem("products"))
+  const categoriasL = categorias || JSON.parse(localStorage.getItem("categories"))
+  const subCategL = subCateg || JSON.parse(localStorage.getItem("subcategories"))
+  const bannersL = banners || JSON.parse(localStorage.getItem("banners"))
+  
   return (
     <>
-      <NavB/>
-      <main className='main'>
-        <CategP/>
-        {Components.map((comp) => comp.type === 'banner' ? <BannerS key={comp.id} Banners={comp.data}/> : <PSection key={comp.id} Products={comp.data}/>)}
-      </main>
-      <Footer/>
+      <NavB setSearchModal={setSearchModal}/>
+      <section className="main">
+        <CategP categorias={categoriasL}/>
+        <SectionCateg 
+          produtos={produtosL} 
+          categorias={categoriasL} 
+          subCateg={subCategL}
+          banners={bannersL}
+        />
+        {/* <SectionCateg produtos={produtosL} categorias={categoriasL} subCateg={subCategL}/> */}
+        {/* onDelete={removerProduto} */}
+      </section>
+      {searchModal && <SearchModal setSearchModal={setSearchModal} produtos={produtos}/>}
     </>
   );
 }
