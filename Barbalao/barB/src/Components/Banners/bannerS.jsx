@@ -8,19 +8,20 @@ import img3 from '../../assets/Banners/Pasteis.jpg'
 
 export default function BannerS({ banners, ordem }){
     const bannersL = banners[ordem] || []
+    console.log("b ordem", bannersL)
     
     return(
         <>
             <div style={{ width: "100%", margin: "0 auto" }}>
                 {bannersL.length != 0?
                     <Carousel className={styles.carrousel} showArrows={true} showThumbs={false} showStatus={false} showIndicators={false} swipeable={true} >
-                        {bannersL.map(banner => {
+                        {bannersL.map(banner => (
                             <div>
                                 <img src={banner.imagem} alt="Slide 1" />
                                 <h1 className={`legend ${styles.customTitle}`}>{banner.titulo}</h1>
                                 <p className={`legend ${styles.customLegend}`}>{banner.sub_titulo}</p>
                             </div>
-                        })}
+                        ))}
                     </Carousel>
                     :
                     <Carousel className={styles.carrousel} showArrows={true} showThumbs={false} showStatus={false} showIndicators={false} swipeable={true} >
