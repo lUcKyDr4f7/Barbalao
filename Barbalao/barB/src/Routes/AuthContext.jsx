@@ -25,19 +25,15 @@ export function AuthProvider({ children }) {
       if (res.data.authenticated) {
         setAuthenticated(true);
         localStorage.setItem("authenticated", true);
-        localStorage.setItem("user", res.data.user);
-        localStorage.setItem("id_user", res.data.id)
 
       } else {
         setAuthenticated(false);
         localStorage.removeItem("authenticated");
-        localStorage.removeItem("user");
       }
     } catch (error) {
       console.error("Erro ao verificar sessão:", error);
       setAuthenticated(false);
       localStorage.removeItem("authenticated");
-      localStorage.removeItem("user");
     } 
   };
 
