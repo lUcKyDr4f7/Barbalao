@@ -1,4 +1,5 @@
 
+
 .AdmCont{
     margin: 0;
     padding: 0;
@@ -70,13 +71,19 @@
 }
 
 
+.AdmButtDiv{
+    display: flex;
+    flex-direction: row;  
+    justify-content: center; 
+    align-items: center;    
+    flex-wrap: wrap; 
+}
 
-/* .AdmButtDiv{
-    
-} */
+.AdmLink{
+    text-decoration: none;
+}
 
-.AdmButt, .AdmButtL{
-    
+.AdmButt, .AdmButtL {
     width: 20vw;
     height: 50vh;
     margin: 0.5rem;
@@ -85,7 +92,12 @@
     text-decoration: none;
     color: var(--categTextColor);
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
 }
+
 
 .AdmImg{
     width: 70%;
@@ -102,4 +114,6 @@
     filter: var(--categFilter); 
     cursor: pointer; 
 }
+
+
 
