@@ -1,4 +1,5 @@
 import styles from '../Css/styles.searchModal.module.css'
+import CloseBtn from '../ui/CloseBtn'
 import ProductCard from './ProductCard'
 
 export default function SearchModal({setSearchModal, produtos}) {
@@ -6,17 +7,15 @@ export default function SearchModal({setSearchModal, produtos}) {
   console.log("Produtos disponiveis: ", produtos)
 
   return (
-    <div className={styles.screenBlur}>
-      <div className={styles.modalCard}>
+    <div className={styles.modalBackdrop} onClick={() => setSearchModal(false)}>
+      <div className={styles.modalCard} onClick={(e) => e.stopPropagation()}>
         <div>
           <h1> Produtos encontrados </h1>
           <div className={styles.productsDiv}>
             {produtos.map((produto) => <ProductCard produto={produto}/>)}
           </div>
         </div>
-        <button onClick={() => setSearchModal(false)}>
-          <i class="ri-close-line"></i>
-        </button>
+        <CloseBtn onClick={setSearchModal}/> 
       </div>
     </div>
   )

@@ -1,31 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-.screenBlur {
+.modalBackdrop {
 	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
-	backdrop-filter: blur(5px);
-	z-index: 1110;
-	justify-items: center;
-	align-content: center;
-	opacity: 1;
-}
+	inset: 0;
+	background: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(2px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1000;
+	animation: fadeIn 0.15s ease;
+  }
 
-.modalCard {
+  .modalCard {
+	padding: 10px 20px;
+	border: 2px solid var(--TitleColor);
 	position: fixed;
 	top: 50px;
 	bottom: 50px;
 	left: 25%;
 	width: 50%;
 	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
+  
 	background-color: #020623;
 	padding: 16px 48px;
-}
+	overflow: hidden;
+  }
 
-.modalCard button {
+/* .modalCard button {
 	color: var(--TitleColor);
 	position: absolute;
 	right: 24px;
@@ -39,9 +43,12 @@
 	transition: background-color 0.15s;
 }
 
+
+
 .modalCard button:hover {
 	background-color: #1a1b20;
-}
+} */
+
 
 .modalCard h1 {
 	font-family: 'Poppins', sans-serif;
@@ -53,4 +60,28 @@
 	display: flex;
 	flex-direction: column;
 	gap: 15px;
+	overflow-y: scroll;
+	overscroll-behavior: contain;
+	flex: 1;                
+  	min-height: 0; 
 }
+
+@keyframes fadeIn {
+	from {
+	  opacity: 0;
+	}
+	to {
+	  opacity: 1;
+	}
+  }
+  
+  @keyframes openAnimation {
+	from {
+	  scale: 1.18;
+	  opacity: 0.5;
+	}
+	to {
+	  scale: 1.00;
+	  opacity: 1;
+	}
+  }

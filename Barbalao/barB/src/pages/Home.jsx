@@ -5,11 +5,20 @@ import PSection from '../Components/PSection/prodS.jsx';
 import SectionCateg from '../Components/section/SectionCateg.jsx';
 import Form from '../Components/Form/FormLogin.jsx';
 import SearchModal from '../Components/SearchModal/SearchModal.jsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Home({produtos, categorias, subCateg, banners}) {
 
   const [searchModal, setSearchModal] = useState(false);
+
+  useEffect(() => {
+      if (searchModal) {
+          document.body.style.overflow = 'hidden';
+      } else {
+          document.body.style.overflow = '';
+      }
+      return () => {document.body.style.overflow = ''};
+  }, [searchModal]);
 
   const produtosL = produtos || JSON.parse(localStorage.getItem("products"))
   const categoriasL = categorias || JSON.parse(localStorage.getItem("categories"))

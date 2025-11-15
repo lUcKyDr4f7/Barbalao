@@ -65,6 +65,7 @@ form button {
   align-items: center;
   gap: 10px;
   color: #fff48d;
+  width: 20rem;
 }
 
 .searchBar button {
@@ -83,6 +84,7 @@ form button {
 }
 
 .searchBar input{
+  flex: 1;
   color: #fff48d;
   outline: none;
   padding: 10px 10px;
@@ -90,6 +92,7 @@ form button {
   background-color: #020623;
   border-radius: 10px;
   font-family: "Poppins", sans-serif;
+
 }
 
 .headerBtns{

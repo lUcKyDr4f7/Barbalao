@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from '../../Css/styles.CriaT.module.css'
 
 export default function CriaBanner() {
-    const [files, setFiles] = useState([])
+    const [files, setFiles] = useState()
     const [fechar, setFechar] = useState(false)
 
 
