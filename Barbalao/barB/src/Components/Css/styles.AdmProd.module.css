@@ -71,7 +71,7 @@
 .produtosGrid {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-   gap: 2rem;
+   gap: 1rem;
    width: 100%;
    padding: 2rem;
 }
