@@ -4,9 +4,7 @@ import { useState, useEffect, createContext, useContext } from "react";
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [authenticated, setAuthenticated] = useState(() => {
-    return localStorage.getItem("authenticated")
-  })
+  const [authenticated, setAuthenticated] = useState(localStorage.getItem("authenticated"))
 
   useEffect(() => {
     axios.defaults.withCredentials = true;
