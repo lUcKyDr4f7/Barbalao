@@ -1,11 +1,22 @@
 import { Carousel } from 'react-responsive-carousel';
 import styles from '../../Css/styles.AdmProdutoModal.module.css';
+import axios from 'axios';
 
 export default function AdmProdutoModal({produto, setViewProduct, setEditProduct}) {
 
   function handleEditProduct() {
     setEditProduct(true);
     setViewProduct(false);
+  }
+
+  async function handleDeleteProduct() {
+    try {
+      await axios.delete(`/api/products/remove/${produto.id_prod}/`);
+      alert(`Produto com id ${produto.id_prod} foi deletado com sucesso.`);
+      setViewProduct(false);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -26,7 +37,7 @@ export default function AdmProdutoModal({produto, setViewProduct, setEditProduct
             <button className={styles.editButton} onClick={handleEditProduct}>
               <i class="ri-pencil-line"></i> Editar produto 
             </button>
-            <button className={styles.deleteButton}>
+            <button className={styles.deleteButton} onClick={() => handleDeleteProduct()}>
               <i class="ri-delete-bin-line"></i> Deletar produto
             </button>
           </div>

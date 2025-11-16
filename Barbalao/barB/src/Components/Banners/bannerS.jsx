@@ -24,23 +24,24 @@ export default function BannerS({ banners, ordem }){
                         ))}
                     </Carousel>
                     :
-                    <Carousel className={styles.carrousel} showArrows={true} showThumbs={false} showStatus={false} showIndicators={false} swipeable={true} >
-                        <div>
-                            <img src={img1} alt="Slide 1" />
-                            <h1 className={`legend ${styles.customTitle}`}>Lanches Variados</h1>
-                            <p className={`legend ${styles.customLegend}`}>Suculentos, artesanais e feitos para conquistar</p>
-                        </div>
-                        <div>
-                            <img src={img2} alt="Slide 2" />
-                            <h1 className={`legend ${styles.customTitle}`}>Porções Irresistíveis</h1>
-                            <p className={`legend ${styles.customLegend}`}>Batatas e petiscos no ponto certo para compartilhar</p>
-                        </div>
-                        <div>
-                            <img src={img3} alt="Slide 3" />
-                            <h1 className={`legend ${styles.customTitle}`}>Pastéis Crocantes</h1>
-                            <p className={`legend ${styles.customLegend}`}>Recheados de sabor, crocantes a cada mordida</p>
-                        </div>
-                    </Carousel>
+                    // <Carousel className={styles.carrousel} showArrows={true} showThumbs={false} showStatus={false} showIndicators={false} swipeable={true} >
+                    //     <div>
+                    //         <img src={img1} alt="Slide 1" />
+                    //         <h1 className={`legend ${styles.customTitle}`}>Lanches Variados</h1>
+                    //         <p className={`legend ${styles.customLegend}`}>Suculentos, artesanais e feitos para conquistar</p>
+                    //     </div>
+                    //     <div>
+                    //         <img src={img2} alt="Slide 2" />
+                    //         <h1 className={`legend ${styles.customTitle}`}>Porções Irresistíveis</h1>
+                    //         <p className={`legend ${styles.customLegend}`}>Batatas e petiscos no ponto certo para compartilhar</p>
+                    //     </div>
+                    //     <div>
+                    //         <img src={img3} alt="Slide 3" />
+                    //         <h1 className={`legend ${styles.customTitle}`}>Pastéis Crocantes</h1>
+                    //         <p className={`legend ${styles.customLegend}`}>Recheados de sabor, crocantes a cada mordida</p>
+                    //     </div>
+                    // </Carousel>
+                    null
 
                 }
             </div>

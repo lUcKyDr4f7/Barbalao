@@ -13,7 +13,7 @@ export default function SectionCateg({produtos, categoria, subCateg}) {
     return(
         <div key={categoria.id_categoria}>
 
-            <h1>{categNome}</h1>
+            <h1 className={styles.swiperTitle}>{categNome}</h1>
             {subAtuais.length != 0?
                 subAtuais.map((sub) => (
                     <div>

@@ -1,6 +1,6 @@
-import ProdS from "../PSection/prodS";
 import BannerS from "../Banners/bannerS";
 import SectionSubCateg from "../section/SectionSubCateg.jsx"
+import styles from "../Css/styles.pcard_S.module.css"
 
 export default function SectionCateg({produtos, categorias, subCateg, banners}) {
     const produtosL = produtos || JSON.parse(localStorage.getItem("products"))
@@ -27,10 +27,7 @@ export default function SectionCateg({produtos, categorias, subCateg, banners}) 
                         </div>
                     ))
                 :
-                    <>
-                        <BannerS banners={grupoBanner} ordem={1} />
-                        <h2>Sem Categorias</h2>
-                    </>
+                    null
             }
         </div>
     )
