@@ -10,14 +10,19 @@
 
 .productCard img {
     width: 200px;
-    height: 150px;
+    height: 180px;
     object-fit: cover;
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
     margin-right: 20px;
 }
 
-.productCard button {
+.productButtons {
+    display: flex;
+    gap: 1rem;
+}
+
+.productButtons button {
     display: flex;
     align-items: center;
     justify-content: center;

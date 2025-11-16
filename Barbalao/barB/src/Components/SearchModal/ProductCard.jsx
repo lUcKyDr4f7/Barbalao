@@ -11,7 +11,7 @@ export default function ProductCard({ produto }) {
           {produto.nome}
         </h2>
         <h3> R$ {String(produto.preco.toFixed(2)).replace('.', ',')} </h3>
-        <div>
+        <div className={styles.productButtons}>
           <button>
             <i class="ri-information-line"></i>  
             Ver detalhes 

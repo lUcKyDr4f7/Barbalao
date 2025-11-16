@@ -9,8 +9,8 @@ export default function SearchModal({setSearchModal, produtos}) {
   return (
     <div className={styles.modalBackdrop} onClick={() => setSearchModal(false)}>
       <div className={styles.modalCard} onClick={(e) => e.stopPropagation()}>
-        <div>
-          <h1> Produtos encontrados </h1>
+        <h1> Produtos encontrados </h1>
+        <div className={styles.insideModal}>
           <div className={styles.productsDiv}>
             {produtos.map((produto) => <ProductCard produto={produto}/>)}
           </div>
