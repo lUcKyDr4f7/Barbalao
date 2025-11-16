@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import styles from '../Css/styles.cart.module.css';
 import CartItem from '../CartItem/CartItem';
-// import { Products } from '../../assets/Data/Products';
-import { AllProducts } from '../../assets/Data/AllProducts';
+
 localStorage.setItem("theme", localStorage.getItem("theme")?localStorage.getItem("theme").replaceAll(' cartOpen', ''):localStorage.getItem("theme"));
 
 export default function Cart(props) {
 
     const [isClosing, setIsClosing] = useState(false)
+    const Products = JSON.parse(localStorage.getItem("products")) || {};
     
     function closeCart() {
         setIsClosing(true)
@@ -22,6 +22,7 @@ export default function Cart(props) {
 
     const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cart")));
     const [totalValue, setTotalValue] = useState(0);
+    
     if(!cartItems) {
         setCartItems({});
         localStorage.setItem("cart", JSON.stringify({}))
@@ -30,10 +31,17 @@ export default function Cart(props) {
     function calcTotal() {
         let total = 0;
         Object.keys(cartItems).map( key => {
-            total += AllProducts[key].value * cartItems[key];
+            if(Products[key]) {
+                total += Products[key].preco * cartItems[key];
+            }
         })
         setTotalValue(total);
     }
+
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cartItems));
+        calcTotal();
+    }, [cartItems]);
 
     const [linkWhatsapp, setLinkWhatsapp] = useState('');
     function createLinkWhatsApp() {
@@ -43,7 +51,8 @@ export default function Cart(props) {
             link = "https://wa.me/558182090299?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%3A";
             let replacements = [[' ', '$', '+', ',', '/', ':'], ["%20", "%24", "%2B", "%2C", "%2F", "%3A"]];
             Object.keys(cartItems).map( key => {
-                let item = AllProducts[key];
+                const item = Products[key];
+                if (!item) return;
                 link += "%0A" + item['name'] + '%20x' + cartItems[key];
             })
             for(let i=0; i<6; i++) {
@@ -69,10 +78,10 @@ export default function Cart(props) {
                 <div className={isClosing?styles.outsideClosingCart:styles.outsideCart} onClick={ () => closeCart() }></div>
                 <div className={isClosing?styles.closingCart:styles.cart} /* onClick={ () => closeCart() } */>
                     <li>Carrinho</li>
-                    <div className={styles.cartList}>{
+                    <div className={Object.keys(cartItems).length<8?styles.cartList:styles.cartListBig}>{
                         Object.keys(cartItems).length != 0?
                         Object.keys(cartItems).map( key => {
-                            return <CartItem cart={cartItems} setCart={setCartItems} item={key} amount={cartItems[key]} />;
+                            return <CartItem key={key} cart={cartItems} setCart={setCartItems} item={key} amount={cartItems[key]} />;
                         }):<p>O carrinho está vazio</p>
                     }</div>
                     { Object.keys(cartItems).length != 0 && <h2 className={styles.totalValue}>Total: R${totalValue.toFixed(2).replace('.', ',')}</h2> }

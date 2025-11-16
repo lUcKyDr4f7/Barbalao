@@ -6,7 +6,7 @@ export default function ProdForm() {
     
       const carregarProdutos = async () => {
     try {
-      const res = await fetch('https://back-end-barbalao-upgw.onrender.com/api/products/');
+      const res = await fetch('https://back-end-barbalao.onrender.com/api/products/');
       if (!res.ok) {
         throw new Error(`Erro ao buscar produtos: ${res.status}`);
       }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../../Routes/AuthContext";
-import Form from "./FormLogin";
+import Form from "./FormLogin"
 import FormNav from "./FormNav";
 import style from '../Css/styles.formContQ.module.css'
 import axios from "axios";
@@ -23,7 +23,7 @@ export default function Container(){
      async function handleSubmit(){
         console.log(formValues); 
         try {
-            const response = await axios.post('https://back-end-barbalao-upgw.onrender.com/api/login/', {
+            const response = await axios.post('https://back-end-barbalao.onrender.com/api/login/', {
                 nome: formValues.nome,
                 senha: formValues.senha
             },

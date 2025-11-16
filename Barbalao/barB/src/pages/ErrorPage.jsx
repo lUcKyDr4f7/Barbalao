@@ -11,7 +11,7 @@ export default function ErrorPage(){
             <FormNav />
             <div className={style.cont}>
                 <img className={style.img} src={hamburguer} alt="Hamburguer triste" />
-                <h1>Página não encontrada ಥ_ಥ</h1>
+                <h1>Página não encontrada</h1>
             </div>
         </>
     )
