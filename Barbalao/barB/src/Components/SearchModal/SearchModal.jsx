@@ -2,7 +2,7 @@ import styles from '../Css/styles.searchModal.module.css'
 import CloseBtn from '../ui/CloseBtn'
 import ProductCard from './ProductCard'
 
-export default function SearchModal({setSearchModal, produtos}) {
+export default function SearchModal({setSearchModal, produtos, setSelectedProduct}) {
 
   console.log("Produtos disponiveis: ", produtos)
 
@@ -12,7 +12,7 @@ export default function SearchModal({setSearchModal, produtos}) {
         <h1> Produtos encontrados </h1>
         <div className={styles.insideModal}>
           <div className={styles.productsDiv}>
-            {produtos.map((produto) => <ProductCard produto={produto}/>)}
+            {produtos.map((produto) => <ProductCard produto={produto} setSearchModal={setSearchModal} setSelectedProduct={setSelectedProduct}/>)}
           </div>
         </div>
         <CloseBtn onClick={setSearchModal}/> 

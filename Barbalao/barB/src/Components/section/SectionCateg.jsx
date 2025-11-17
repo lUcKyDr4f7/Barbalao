@@ -2,7 +2,7 @@ import ProdS from "../PSection/prodS";
 import BannerS from "../Banners/bannerS";
 import SectionSubCateg from "../section/SectionSubCateg.jsx"
 
-export default function SectionCateg({produtos, categorias, subCateg, banners}) {
+export default function SectionCateg({produtos, categorias, subCateg, banners, selectedProduct, setSelectedProduct}) {
     const produtosL = produtos || JSON.parse(localStorage.getItem("products"))
     const subCategsL = subCateg || JSON.parse(localStorage.getItem("Subcategories"))
     const categoriasL = categorias || JSON.parse(localStorage.getItem("categories"))
@@ -23,7 +23,7 @@ export default function SectionCateg({produtos, categorias, subCateg, banners}) 
                     categoriasL.map((categoria, index )=> (
                         <div key={index}> 
                             <BannerS banners={grupoBanner} ordem = {index} />
-                            <SectionSubCateg produtos={produtosL} categoria={categoria} subCateg={subCategsL}/>
+                            <SectionSubCateg produtos={produtosL} categoria={categoria} subCateg={subCategsL} selectedProduct={selectedProduct} setSelectedProduct={setSelectedProduct}/>
                         </div>
                     ))
                 :

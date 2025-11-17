@@ -2,7 +2,7 @@ import ProdS from "../PSection/prodS";
 import BannerS from "../Banners/bannerS";
 import styles from "../Css/styles.pcard_S.module.css"
 
-export default function SectionCateg({produtos, categoria, subCateg}) {
+export default function SectionCateg({produtos, categoria, subCateg, selectedProduct, setSelectedProduct}) {
     const produtosL = produtos || JSON.parse(localStorage.getItem("products"))
     const subCategsL = subCateg || JSON.parse(localStorage.getItem("Subcategories"))
     console.log(subCategsL)
@@ -18,7 +18,7 @@ export default function SectionCateg({produtos, categoria, subCateg}) {
                 subAtuais.map((sub) => (
                     <div>
                         <h2 className={styles.swiperTitle}>{categNome + " de " + (sub.nome).slice(0,1).toUpperCase() + (sub.nome).slice(1).toLowerCase()}</h2>
-                        <ProdS produtos={produtosL} subCateg={sub}/>
+                        <ProdS produtos={produtosL} subCateg={sub} selectedProduct={selectedProduct} setSelectedProduct={setSelectedProduct}/>
                     </div>
                 ))
                 :

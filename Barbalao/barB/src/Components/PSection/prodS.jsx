@@ -6,10 +6,8 @@ import { useState, useEffect } from 'react';
 import { Navigation } from 'swiper/modules';
 import ProdC from '../PCard/prodC.jsx';
 
-export default function ProdS({ produtos, subCateg }) {
-  const [selectedProduct, setSelectedProduct] = useState(null);
+export default function ProdS({ produtos, subCateg, selectedProduct, setSelectedProduct}) {
   const produtosL = produtos || JSON.parse(localStorage.getItem("products"))
-  
 
   useEffect(() => {
     if (selectedProduct != null) {

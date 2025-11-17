@@ -27,6 +27,7 @@ export default function ProdC({name, price, img, descricao, setState, state}) {
             cart[state.id_prod] = quantity;
         }
         localStorage.setItem("cart", JSON.stringify(cart));
+        setState(null); 
     }
 
 
