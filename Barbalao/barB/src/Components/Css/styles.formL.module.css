@@ -8,17 +8,15 @@
     width: auto;
     min-height: 50vh;
     text-align: center;
-    gap: 5px;
+    gap: 7px;
     margin: 0 auto;
     border-radius: 18px;
-    box-shadow: 0 0 55px black;
-    background-image: linear-gradient(45deg, #101949 2%, #020623 60%);
     transform: translate(-50% -50%);
     transition: .4s;
 }
 
 .formTitle {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
     font-family: 'Poppins', serif;
     color: white;
 }
@@ -26,16 +24,16 @@
 .inputs {
     width: auto;
     padding: 8px 60px 8px 8px;
-    height: 28px;
+    height: 36px;
     border-radius: 12px;
-    font-size: 18px;
+    font-size: 22px;
     font-family: 'Poppins', sans-serif;
-    font-weight: 500;
+    font-weight: 550;
     border: none;
     margin-bottom: 10px;
-    background-color: rgb(243, 208, 163);
+    background-color: rgb(236, 225, 210);
     color: black;
-    transition: .8s;
+    transition: .5s;
     outline: 0;
 }
 
@@ -49,7 +47,7 @@
 
 .formBtn {
     width: auto;
-    padding: 8px 80px 8px 80px;
+    padding: 13px 80px 13px 80px;
     cursor: pointer;
     background-color: black;
     color: white;
@@ -57,7 +55,7 @@
 }
 
 .formBtn:hover {
-    border: 2px solid #012022;
+    border: .5px solid rgb(116, 116, 116);
 }
 
 .error {
@@ -78,6 +76,7 @@
     width: 22px;
     cursor: pointer;
 }
+
 input[type="password"]::-ms-reveal {
   display: none;
 }
