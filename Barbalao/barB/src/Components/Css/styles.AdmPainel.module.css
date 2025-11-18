@@ -219,7 +219,7 @@
 
 
 .PainelButtstNav div:hover .PainelNew::after { 
-    left: 20%; 
+    left: 30%; 
     opacity: 1; 
     background-size: 100% 100%; 
 } 
