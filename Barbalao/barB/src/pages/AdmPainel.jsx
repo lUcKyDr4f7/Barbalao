@@ -93,7 +93,7 @@ export default function AdmPainel() {
                 viewProduct && <AdmProdutoModal produto={selectedProduct} setViewProduct={setViewProduct} setEditProduct={setEditProduct}/>
             }
             {
-                editProduct && <AdmEditProductModal setEditProduct={setEditProduct}/>
+                editProduct && <AdmEditProductModal setEditProduct={setEditProduct} produto={selectedProduct}/>
             }
 
             <div className={styles.PainelOutlet}>
