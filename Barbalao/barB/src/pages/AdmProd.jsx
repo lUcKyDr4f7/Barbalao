@@ -14,7 +14,7 @@ export default function AdmProd({ produtos }) {
 
   return (
     <div>
-      <p> Mostrando {produtos.length} produtos</p>
+      // <p> Mostrando {produtos.length} produtos</p>
       {produtosL.length > 0 ? 
         <div>
           <div className={styles.produtosGrid}>
