@@ -182,10 +182,12 @@
 } 
 
 .PainelNew::before {
-    position: absolute;
-    top: 7%;
-    left: 24%;
     content: "+"; 
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    left: 50%;
+    right: 50%;
     margin-left: 2px; 
     color: transparent; 
     filter: var(--categFilter); 
