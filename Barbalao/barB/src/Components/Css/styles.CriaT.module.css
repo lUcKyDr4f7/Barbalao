@@ -14,7 +14,7 @@
 .formContainer {
   width: 90%;
   max-width: 500px;
-  max-height: 1000px;
+  max-height: 600px;
   background: var(--bodyBgColor);
   filter: brightness(0.8);
   padding: 2rem;
