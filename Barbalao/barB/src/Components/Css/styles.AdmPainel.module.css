@@ -158,8 +158,8 @@
 
 .PainelNew { 
     position: relative; 
-    width: 2rem; 
-    height: 2rem; 
+    width: 4rem; 
+    height: 4rem; 
     background-color: var(--bodyBgColor); 
     filter: brightness(.9); 
     border: none; 
