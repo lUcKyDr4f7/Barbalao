@@ -175,7 +175,7 @@
 } 
 
 .PainelButtstNav div:hover .PainelNew { 
-    width: 7vw; 
+    width: 3.5rem; 
     text-align: start; 
     filter: brightness(.87); 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
