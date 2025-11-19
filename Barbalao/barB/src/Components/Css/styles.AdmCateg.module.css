@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+.container {
+    padding: 2rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.tituloPrincipal {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: var(--TitleColor);
+}
+
+.tituloSecao {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--TitleColor);
+}
+
+.secao {
+    margin-bottom: 2rem;
+}
+
+.categoriasGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.categoriaCard {
+    background: var(--cardBg);
+    border: 1px solid var(--borderColor);
+    border-radius: 10px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.categoriaCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.categoriaSelecionada {
+    border-color: rgba(119, 163, 247, 1);
+    background: rgba(119, 163, 247, 0.05);
+}
+
+.categoriaHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.categoriaImagem {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.categoriaInfo {
+    flex: 1;
+}
+
+.categoriaNome {
+    color: var(--TitleColor);
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.categoriaContador {
+    color: rgba(119, 163, 247, 1);
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+.botaoExpandir {
+    color: rgba(119, 163, 247, 1);
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.botaoExpandir:hover {
+    transform: scale(1.1);
+}
+
+.subcategoriasContainer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--borderColor);
+}
+
+.subcategoriasTitulo {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--TitleColor);
+    margin-bottom: 0.5rem;
+}
+
+.subcategoriasLista {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.subcategoriaItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 6px;
+}
+
+.subcategoriaNome {
+    font-size: 0.875rem;
+    color: var(--TitleColor);
+}
+
+.subcategoriaAcoes {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.botaoEditar {
+    background: rgba(119, 163, 247, 1);
+    color: white;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botaoEditar:hover {
+    background: rgba(99, 143, 227, 1);
+}
+
+.botaoExcluir {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botaoExcluir:hover {
+    background: #dc2626;
+}
+
+.subcategoriasCompletas {
+    background: var(--cardBg);
+    border-radius: 10px;
+    border: 1px solid var(--borderColor);
+}
+
+.subcategoriasGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.subcategoriaCard {
+    border: 1px solid var(--borderColor);
+    border-radius: 8px;
+    padding: 1rem;
+    background: white;
+    transition: transform 0.3s ease;
+}
+
+.subcategoriaCard:hover {
+    transform: translateY(-2px);
+}
+
+.subcategoriaContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.subcategoriaNomeCompleta {
+    font-weight: 500;
+    color: var(--TitleColor);
+    margin-bottom: 0.25rem;
+}
+
+.subcategoriaPai {
+    font-size: 0.75rem;
+    color: rgba(119, 163, 247, 1);
+}
+
+.subcategoriaAcoesCompleta {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.semDados {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    color: #6b7280;
+    font-size: 1.125rem;
+}
+
+/* Variáveis CSS para manter consistência */
+:root {
+    --cardBg: #ffffff;
+    --TitleColor: #1f2937;
+    --borderColor: #e5e7eb;
+}
+
+/* Modo escuro (se aplicável) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --cardBg: #374151;
+        --TitleColor: #f9fafb;
+        --borderColor: #4b5563;
+    }
+}
