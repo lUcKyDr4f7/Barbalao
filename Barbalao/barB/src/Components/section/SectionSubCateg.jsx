@@ -17,7 +17,7 @@ export default function SectionCateg({produtos, categoria, subCateg}) {
             {subAtuais.length != 0?
                 subAtuais.map((sub) => (
                     <div>
-                        <h2 className={styles.swiperTitle}>{categNome + " de " + (sub.nome).slice(0,1).toUpperCase() + (sub.nome).slice(1).toLowerCase()}</h2>
+                        <h2 className={styles.swiperTitle}>{(sub.nome).slice(0,1).toUpperCase() + (sub.nome).slice(1).toLowerCase()}</h2>
                         <ProdS produtos={produtosL} subCateg={sub}/>
                     </div>
                 ))

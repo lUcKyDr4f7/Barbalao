@@ -44,8 +44,8 @@ export default function CriaProd() {
                     preco: data.preco,
                     descricao: data.descricao,
                     imagem: data.imagem,
-                    categoria: subSelecionada,
-                    usuario: localStorage.getItem('id_user')
+                    categoria: subSelecionada
+                    // usuario: localStorage.getItem('id_user')
                 }
                 
                 fetch('https://back-end-barbalao.onrender.com/api/products/', {

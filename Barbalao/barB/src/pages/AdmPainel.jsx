@@ -79,9 +79,9 @@ export default function AdmPainel() {
                     <input type="text" className={styles.PainelPesq} placeholder="Hamburger..."/>
 
                     <div className={styles.PainelButtstNav}>
-                        <button className={styles.PainelFilt}>
+                        {/* <button className={styles.PainelFilt}>
                             <img src={filtro} alt="" />
-                        </button>
+                        </button> */}
                         <div>
                             <button className={styles.PainelNew} onClick={() => setNovo(!novo)}></ button>
                         </div>
