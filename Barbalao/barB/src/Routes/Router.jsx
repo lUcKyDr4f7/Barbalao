@@ -51,7 +51,7 @@ const Router = (produtos, categorias, subCateg, banners) =>
         },
         {
           path: "categorias",
-          element: <AdmCateg />,
+          element: <AdmCateg categorias={categorias} subCateg={subCateg}/>,
         },
         {
           path: "banners",

@@ -1,4 +1,4 @@
-export default function banner() {
+export default function AdmBanner() {
     return(
         <>
         </>
