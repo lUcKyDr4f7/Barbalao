@@ -53,7 +53,7 @@ export default function Cart(props) {
             Object.keys(cartItems).map( key => {
                 const item = Products[key];
                 if (!item) return;
-                link += "%0A" + item['name'] + '%20x' + cartItems[key];
+                link += "%0A" + item['nome'] + '%20x' + cartItems[key];
             })
             for(let i=0; i<6; i++) {
                 if (link.includes(replacements[0][i])) link.replace(replacements[0][i], replacements[1][i]);
