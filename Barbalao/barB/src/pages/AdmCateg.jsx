@@ -21,5 +21,6 @@ export default function AdmCateg(categorias, subCateg) {
         //         <p>Sem Categorias</p>
         //     }
         // </div>
+        null
     )
 }
