@@ -7,6 +7,7 @@ import axios from "axios";
 
 
 function App() {
+  
   const [produtos, setProdutos] = useState([]);
   const [categorias, setCategorias] = useState([])
   const [subCateg, setSubCateg] = useState([])
@@ -90,12 +91,6 @@ function App() {
     carregarSub();
     carregarBan();
   }, []);
-
-  let currentTheme = localStorage.getItem("theme");
-  if (!currentTheme)
-    currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
-
-  document.body.classList = currentTheme;
 
   return (
     <AuthProvider>

@@ -18,8 +18,9 @@ export default function NavB({setSearchModal}) {
       }, []);
 
     let currentTheme = localStorage.getItem("theme");
-    if (!currentTheme) {
-        currentTheme = window.matchMedia('(prefers-color-scheme: dark)') ? "dark" : "light";
+    if (currentTheme != 'dark' && currentTheme != 'light') {
+      currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
+      localStorage.setItem("theme", currentTheme);
     }
     
     let currentIcon = currentTheme == "dark" ? "ri-sun-fill sun-icon" : "ri-moon-fill moon-icon";
@@ -67,7 +68,7 @@ export default function NavB({setSearchModal}) {
                     <div className={styles.searchBar}>
                       <input type="text" name="searchBar" id="searchBar" placeholder='Pesquise algum produto...'/>
                       <button onClick={() => setSearchModal(true)}>
-                          <i class="ri-search-line"></i> 
+                          <i className="ri-search-line"></i> 
                       </button>
                     </div>
                     {/* <form>
