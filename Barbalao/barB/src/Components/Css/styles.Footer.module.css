@@ -23,7 +23,7 @@
 .socialLinks {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.3rem;
   flex-wrap: wrap; /* permite que os links quebrem para a linha de baixo */
   justify-content: center; /* mantém centralizado no mobile */
 }

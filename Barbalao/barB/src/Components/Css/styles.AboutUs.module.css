@@ -34,7 +34,7 @@
   background-size: cover;
   background-position: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%),
-    url("https://lh3.googleusercontent.com/aida-public/AB6AXuBY4aW1G5VVxQBAV-mvG_Ar7SGrU_GcM7kMqYdUSL160TvyLyDRV_rNbdFA-k8hjVvuIhY2hNDq8P7JhuShVu1-6QhJMn9PiSg-kCnDmVhXemhO-8-ebO7zLtNjK1dlTIbIF05injKsbkUqVwY5DzAiGLV3apLSTjpAKcS1Jmx-JGy9f_EYfk-9jqIoTjDMUsxa7fqN5YvuvhKYmQH57ZL0uDtFtMArs6sBO7wfRWg4HENpVCc3frGNYURDd7b9MJXtSSTw42QSXQ");
+    url("https://lh3.googleusercontent.com/p/AF1QipM_wUnBeH_Bcgd6uSCLuo6VVOxC3Rc2NaTI5aVA=s680-w680-h510-rw");
   
   display: flex;
   flex-direction: column;
@@ -112,6 +112,14 @@
   color: var(--bodyTextColor);
   text-decoration: none;
 }
+.infoItem p {
+  color: var(--bodyTextColor);
+  margin: 0;
+}
+.infoItem i {
+  font-size: 24px;
+  color: var(--primary);
+}
 .infoItem span { /* Ícone */
   color: var(--primary);
 }
@@ -187,6 +195,18 @@
 }
 .scheduleList li:last-child {
   border-bottom: none;
+}
+.scheduleList li:last-child span:first-child:after {
+  content: '*';
+  color: var(--primary);
+}
+.scheduleList li:last-child::after {
+  content: '*Pedidos apenas pelo Whatsapp';
+  color: var(--primary);
+  font-size: .8rem;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
 }
 
 .time {

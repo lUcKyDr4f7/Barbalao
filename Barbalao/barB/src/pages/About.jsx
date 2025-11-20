@@ -1,7 +1,7 @@
-import styles from './styles.AboutUs.module.css';
+import styles from '../Components/Css/styles.AboutUs.module.css';
 import Footer from '../Components/Footer/Footer.jsx';
 // ADICIONADO: ícones do Phosphor
-import { Phone, EnvelopeSimple, MapPin, CreditCard, QrCode, Bank } from 'phosphor-react';
+import { Phone, EnvelopeSimple, MapPin, CreditCard, QrCode, Bank, WhatsappLogo } from 'phosphor-react';
 import NavB from '../Components/NavBar/navB.jsx';
 
 export default function About() {
@@ -40,19 +40,27 @@ export default function About() {
               <div className={styles.contactGrid}>
                 <div className={styles.contactInfo}>
                   <div className={styles.infoItem}>
-                    {/* ÍCONE SUBSTITUÍDO */}
-                    <Phone size={iconSize} color={iconColor} />
-                    <a href="tel:+5511999998888">(11) 99999-8888</a>
+                    {/* <Phone size={iconSize} color={iconColor} /> */}
+                    <i class="ri-phone-line"></i>
+                    <a href="tel:+551938241552">+55 (19) 3824-1552</a>
                   </div>
                   <div className={styles.infoItem}>
-                    {/* ÍCONE SUBSTITUÍDO */}
+                    {/* <WhatsappLogo size={iconSize} color={iconColor} /> */}
+                    <i class="ri-whatsapp-line"></i>
+                    <a href="https://wa.me/5519996829711">+55 (19) 99682-9711</a>
+                  </div>
+                  <div className={styles.infoItem}>
+                    <i className="ri-instagram-line"></i>
+                    <a href="https://www.instagram.com/bar_balao/">@bar_balao</a>
+                  </div>
+                  {/* <div className={styles.infoItem}>
                     <EnvelopeSimple size={iconSize} color={iconColor} />
                     <a href="mailto:contato@barbalao.com.br">contato@barbalao.com.br</a>
-                  </div>
+                  </div> */}
                   <div className={styles.infoItem}>
-                    {/* ÍCONE SUBSTITUÍDO */}
-                    <MapPin size={iconSize} color={iconColor} />
-                    <p>Rua Fictícia, 123 - Vila Madalena, São Paulo - SP</p>
+                    {/* <MapPin size={iconSize} color={iconColor} /> */}
+                    <i class="ri-map-pin-line"></i>
+                    <p>Praça José Luiz Leme Maciel, 8 - Centro, Águas de Lindóia - SP</p>
                   </div>
                 </div>
                 <div className={styles.mapImage}>
@@ -98,25 +106,21 @@ export default function About() {
               <h3 className={styles.sidebarTitle}>Horários de Atendimento</h3>
               <ul className={styles.scheduleList}>
                 <li>
-                  <span>Segunda - Quinta</span>
-                  <span className={styles.time}>18:00 - 00:00</span>
-                </li>
-                <li>
-                  <span>Sexta</span>
-                  <span className={styles.time}>18:00 - 02:00</span>
-                </li>
-                <li>
-                  <span>Sábado</span>
-                  <span className={styles.time}>12:00 - 02:00</span>
+                  <span>Segunda - Sábado</span>
+                  <span className={styles.time}>08:00 - 00:00</span>
                 </li>
                 <li>
                   <span>Domingo</span>
-                  <span className={styles.time}>12:00 - 23:00</span>
+                  <span className={styles.time}>10:00 - 00:00</span>
                 </li>
-                <li className={styles.scheduleHighlight}>
+                <li>
+                  <span>Delivery</span>
+                  <span className={styles.time}>19:00 - 23:00</span>
+                </li>
+                {/* <li className={styles.scheduleHighlight}>
                   <span>Feriados</span>
                   <span className={styles.time}>Consulte-nos</span>
-                </li>
+                </li> */}
               </ul>
             </div>
           </aside>
