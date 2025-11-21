@@ -18,7 +18,7 @@ export default function NavB({setSearchModal}) {
       }, []);
 
     let currentTheme = localStorage.getItem("theme");
-    if (currentTheme != 'dark' && currentTheme != 'light') {
+    if (!currentTheme.includes('dark') && !currentTheme.includes('light')) {
       currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
       localStorage.setItem("theme", currentTheme);
     }

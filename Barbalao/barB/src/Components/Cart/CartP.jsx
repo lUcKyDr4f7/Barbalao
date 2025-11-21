@@ -22,7 +22,7 @@ export default function Cart(props) {
 
     const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cart")));
     const [totalValue, setTotalValue] = useState(0);
-    let oldCart = {};
+    const [isOldCart, setIsOldCart] = useState(false)
 
     if(!cartItems) {
         setCartItems({});
@@ -67,6 +67,7 @@ export default function Cart(props) {
     useEffect(() => {
         setCartItems(JSON.parse(localStorage.getItem("cart")));
         if(props.isCartOpen) createLinkWhatsApp();
+        setIsOldCart(false);
     }, [props.isCartOpen]);
 
     useEffect(() => {
@@ -76,8 +77,9 @@ export default function Cart(props) {
 
     function order() {
         let link = createLinkWhatsApp();
-        localStorage.setItem('oldCart', cartItems)
+        localStorage.setItem('oldCart', JSON.stringify(cartItems))
         localStorage.setItem('cart', {})
+        setCartItems({})
         window.open(link)
     }
 
@@ -87,16 +89,19 @@ export default function Cart(props) {
                 <div className={isClosing?styles.outsideClosingCart:styles.outsideCart} onClick={ () => closeCart() }></div>
                 <div className={isClosing?styles.closingCart:styles.cart} /* onClick={ () => closeCart() } */>
                     <li>Carrinho</li>
-                    <div className={styles.cartTabs}></div>
-                    <div className={styles.cartList/* Object.keys(cartItems).length<8?styles.cartList:styles.cartListBig */}>{
+                    {localStorage.getItem('oldCart') != {} && <div className={styles.cartTabs}>
+                        <p className={isOldCart?styles.activeTab:styles.inactiveTab} onClick={() => setIsOldCart(true)}>Anterior</p>
+                        <p className={isOldCart?styles.inactiveTab:styles.activeTab} onClick={() => setIsOldCart(false)}>Atual</p>
+                    </div>}
+                    <div className={styles.cartList}>{
                         Object.keys(cartItems).length != 0?
                         Object.keys(cartItems).map( key => {
                             return <CartItem key={key} cart={cartItems} setCart={setCartItems} item={key} amount={cartItems[key]} />;
                         }):<p>O carrinho está vazio</p>
                     }</div>
-                    { Object.keys(cartItems).length != 0 && <h2 className={styles.totalValue}>Total: R${totalValue.toFixed(2).replace('.', ',')}</h2> }
+                    { /* Object.keys(cartItems).length != 0 &&  */<h2 className={styles.totalValue}>Total: R${totalValue.toFixed(2).replace('.', ',')}</h2> }
                     {/* { Object.keys(cartItems).length != 0 && <a href={linkWhatsapp} target="_blank"><button className={styles.whatsappBtn}>Fazer Pedido</button></a>} */}
-                    { Object.keys(cartItems).length != 0 && <button onClick={() => order() } className={styles.whatsappBtn}>Fazer Pedido</button>}
+                    { /* Object.keys(cartItems).length != 0 &&  */<button disabled={Object.keys(cartItems).length == 0}onClick={() => order() } className={styles.whatsappBtn}>Fazer Pedido</button>}
                 </div>
             </>
         ) 
