@@ -75,10 +75,22 @@ export default function Cart(props) {
         calcTotal();
     }, [cartItems])
 
+    useEffect(() => {
+        if (isOldCart) {
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            setCartItems(JSON.parse(localStorage.getItem('oldCart')));
+        }
+        else {
+            localStorage.setItem('oldCart', JSON.stringify(cartItems));
+            setCartItems(JSON.parse(localStorage.getItem('cart')));
+        }
+        /* console.log(cartItems) */
+    }, [isOldCart])
+
     function order() {
         let link = createLinkWhatsApp();
         localStorage.setItem('oldCart', JSON.stringify(cartItems))
-        localStorage.setItem('cart', {})
+        localStorage.setItem('cart', JSON.stringify({}))
         setCartItems({})
         window.open(link)
     }
@@ -88,8 +100,9 @@ export default function Cart(props) {
             <>
                 <div className={isClosing?styles.outsideClosingCart:styles.outsideCart} onClick={ () => closeCart() }></div>
                 <div className={isClosing?styles.closingCart:styles.cart} /* onClick={ () => closeCart() } */>
+                    <button className={styles.closeCartBtn} onClick={ () => closeCart() }>< i class="ri-close-fill"></i></button>
                     <li>Carrinho</li>
-                    {localStorage.getItem('oldCart') != {} && <div className={styles.cartTabs}>
+                    {JSON.parse(localStorage.getItem('oldCart')) != {} && <div className={styles.cartTabs}>
                         <p className={isOldCart?styles.activeTab:styles.inactiveTab} onClick={() => setIsOldCart(true)}>Anterior</p>
                         <p className={isOldCart?styles.inactiveTab:styles.activeTab} onClick={() => setIsOldCart(false)}>Atual</p>
                     </div>}

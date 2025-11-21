@@ -7,11 +7,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 37vw;
+  width: 36vw;
   height: 12vh;
   background: var(--categBgColor);
   border-radius: 1vh;
-  margin: 1vh 0.3vw 1vh;
+  margin: 1vh 0vw 1vh;
   padding: 1vh;
 }
 

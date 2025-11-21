@@ -75,6 +75,7 @@ export default function NavB({setSearchModal}) {
                         <input type="text" />
                         <button type="submit"><i className="ri-search-line"></i></button>
                     </form> */}
+                    <button className={styles.menuBtn}><i class="ri-menu-line"></i></button>
                     <div className={styles.headerBtns}>
                         <li><Link to="/">Início</Link></li>
                         <li><Link to="/about-us">Sobre Nós</Link></li>

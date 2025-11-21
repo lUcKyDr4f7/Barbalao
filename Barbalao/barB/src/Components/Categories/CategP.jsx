@@ -18,13 +18,13 @@ export default function CategP({ categorias }) {
   return (
       <>
         <h2 className={styles.titleCateg}>Cardápio</h2>
-        <Swiper className={styles.brandsSwiper} slidesPerView={2.426} slidesPerGroup={2.426} centerInsufficientSlides={true} allowTouchMove={false} navigation={true} modules={[Navigation]} swipeable={true} slidesOffsetBefore={15} slidesOffsetAfter={395} onSlideChange={() => console.log('slide change')} onSwiper={(swiper) => console.log(swiper)}>
+        <Swiper className={styles.brandsSwiper} slidesPerView={2.426} slidesPerGroup={2.426} centerInsufficientSlides={'true'} allowTouchMove={false} navigation={true} modules={[Navigation]} swipeable={'true'} slidesOffsetBefore={15} slidesOffsetAfter={395} onSlideChange={() => console.log('slide change')} onSwiper={(swiper) => console.log(swiper)}>
             ({categoriasL.length !== 0? 
                 categoriasL.map((categ, i) => (
                   <SwiperSlide 
                     className={`${styles.swiperSlide} ${styles.avaliable} 
-                                ${i=1? styles.start: i=categoriasL.length? styles.end : null}`}>
-                    <img src={categ.imagem}/>
+                                ${i==0? styles.start: i==categoriasL.length-1 ? styles.end : ''}`}>
+                    {/* <img src={categ.imagem}/> */}
                     <h2>{(categ.nome).slice(0,1).toUpperCase() + (categ.nome).slice(1)}</h2>
                   </SwiperSlide>
                 ))

@@ -138,6 +138,3 @@ button {
 .cartOpen {
   overflow: hidden !important;
 }
-.cartOpen section {
-  padding-right: 40px;
-}
