@@ -9,9 +9,6 @@ import img3 from '../../assets/Banners/Pasteis.jpg'
 export default function BannerS({ banners, ordem }){
     const bannersL = banners[ordem] || []
     console.log("b ordem", bannersL)
-export default function BannerS({ banners, ordem }){
-    const bannersL = banners[ordem] || []
-    console.log("b ordem", bannersL)
     
     return(
         <>
