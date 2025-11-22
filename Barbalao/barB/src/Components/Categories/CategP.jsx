@@ -14,15 +14,20 @@ import BebidaA from '../../assets/categorias/drinkA.png'
 export default function CategP({ categorias }) {
   const categoriasL = categorias || JSON.parse(localStorage.getItem("categories"))
   console.log(categoriasL)
+  
+  const [isPortrait, setIsPortrait] = useState(screen.orientation.type.includes('portrait'))
 
+  let responsivity = {
+    'slidesPerView': []
+  }
   return (
       <>
         <h2 className={styles.titleCateg}>Cardápio</h2>
-        <Swiper className={styles.brandsSwiper} slidesPerView={2.426} slidesPerGroup={2.426} centerInsufficientSlides={'true'} allowTouchMove={false} navigation={true} modules={[Navigation]} swipeable={'true'} slidesOffsetBefore={15} slidesOffsetAfter={395} onSlideChange={() => console.log('slide change')} onSwiper={(swiper) => console.log(swiper)}>
+        {/* <Swiper className={styles.brandsSwiper} slidesPerView={2.426} slidesPerGroup={2.426} centerInsufficientSlides={'true'} allowTouchMove={false} navigation={true} modules={[Navigation]} swipeable={'true'} slidesOffsetBefore={15} slidesOffsetAfter={395} onSlideChange={() => console.log('slide change')} onSwiper={(swiper) => console.log(swiper)}>
             ({categoriasL.length !== 0? 
                 categoriasL.map((categ, i) => (
                   <SwiperSlide className={`${styles.swiperSlide} ${styles.avaliable} ${i==0? styles.start: i==categoriasL.length-1 ? styles.end : ''}`}>
-                    {/* <img src={categ.imagem}/> */}
+                    {<img src={categ.imagem}/>}
                     <h2>{(categ.nome).slice(0,1).toUpperCase() + (categ.nome).slice(1)}</h2>
                   </SwiperSlide>
                 ))
@@ -37,9 +42,15 @@ export default function CategP({ categorias }) {
 
               </>
             })
-        </Swiper>
+        </Swiper> */}
+        <div className={styles.categSwiper} >
+          <div className={`${styles.swiperSlide} ${styles.avaliable} ${styles.start}`}><img src={Lanche}/><h2>Lanches</h2></div>
+          <div className={`${styles.swiperSlide} ${styles.avaliable}`}><img src={Pastel}/><h2>Pastéis</h2></div>
+          <div className={`${styles.swiperSlide} ${styles.avaliable}`}><img src={Salgado}/><h2>Salgados</h2></div>
+          <div className={`${styles.swiperSlide} ${styles.avaliable}`}><img src={Porção}/><h2>Porções</h2></div>
+          <div className={`${styles.swiperSlide} ${styles.avaliable}`}><img src={Bebida}/><h2>Bebidas</h2></div>
+          <div className={`${styles.swiperSlide} ${styles.avaliable} ${styles.end}`}><img src={BebidaA}/><h2 className='bebidA'>Doces</h2></div>
+        </div>
       </>
   );
 }
-
-{/*  */}

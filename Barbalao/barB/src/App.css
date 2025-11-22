@@ -13,9 +13,9 @@ footer {
   margin-top: auto;      /* empurra o footer para o fim */
 }
 .main{
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem 2rem 0 2rem;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
 }
 .logo {
   height: 6em;
@@ -28,12 +28,4 @@ footer {
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
-}
-section .main{
-  padding: 10vh 10px;
-}
-@media (orientation: portrait) {
-  .main {
-    padding: 0;
-  }
 }
