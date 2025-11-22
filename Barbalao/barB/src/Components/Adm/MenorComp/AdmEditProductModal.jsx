@@ -1,11 +1,9 @@
-import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import styles from '../../Css/styles.AdmEditProductModal.module.css';
+import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import axios from 'axios';
+import styles from '../../Css/styles.AdmEditProductModal.module.css';
 
 export default function AdmEditProductModal({ setEditProduct, produto }) {
-
 
   function makeProductSchema(product) {
     return z.object({
@@ -69,15 +67,12 @@ export default function AdmEditProductModal({ setEditProduct, produto }) {
         const newValue = data[field];
         const originalValue = product[field];
 
-        // Se for string e estiver vazia, não conta
         if (typeof newValue === "string" && newValue.trim() === "") {
           return false;
         }
 
-        // Se o valor for undefined, quer dizer que não foi alterado → ignora
         if (newValue === undefined) return false;
 
-        // Se o valor mudou, conta
         return newValue !== originalValue;
       });
 
@@ -141,7 +136,9 @@ export default function AdmEditProductModal({ setEditProduct, produto }) {
     return payload;
   }
 
-  const categories = Object.values(JSON.parse(localStorage.getItem("categories")));
+  const subcategories = Object.values(JSON.parse(localStorage.getItem("subcategories")));
+  const subcategoryId = subcategories.find((sub) => sub.id_categoria === produto.categoria).sub_categoria_de;
+  const categories = subcategories.filter((sub) => sub.sub_categoria_de === subcategoryId);
 
   const productCategory = categories.find((product) => product.id_categoria === produto.categoria);
 
@@ -178,20 +175,6 @@ export default function AdmEditProductModal({ setEditProduct, produto }) {
       const payload = getPayload(data);
       postEdition(payload);
     }
-
-    // if (!result.success) {
-    //   console.log(result.error.flatten().fieldErrors);
-    //   return;
-    // }
-
-    // console.log("Validação OK:", result.data);
-
-    // try {
-    //   const res = await axios.post(`/api/products/atualizar/${produto.id_prod}/`, payload);
-    //   console.log("Edit result:", res.data);
-    // } catch (e) {
-    //   console.log(e);
-    // }
   }
 
   return (
@@ -239,7 +222,7 @@ export default function AdmEditProductModal({ setEditProduct, produto }) {
               <div>
                 <label htmlFor="editProdImg"> Categoria: </label>
                 <div className={styles.selectWrapper}>
-                  <select {...form.register("category")}>
+                  <select value={produto.categoria} {...form.register("category")}>
                     {categories.map((cat) => <option key={cat.id_categoria} value={cat.id_categoria}> {cat.nome} </option>)}
                   </select>
                 </div>
