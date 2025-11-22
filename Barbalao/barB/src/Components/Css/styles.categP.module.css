@@ -48,22 +48,6 @@
    margin: 0;
    margin-left: 15px;
 }
-.brandsSwiper .swiperSlide .coming-soon{
-   position: absolute;
-   top: 10px;
-   left: 10px;
-   padding: 10px;
-   background: rgba(0,0,0,0.2);
-   border-radius: 10px;
-}
-.brandsSwiper .swiperSlide .coming-soon h5{
-   font-size: 1.1rem;
-   font-weight: 600;
-   color: hsl(217 85% 74%);
-   text-align: start;
-   text-transform: uppercase;
-   letter-spacing: -1px;
-}
 .brandsSwiper .swiperSlide img{
    width: 100px;
    height: 100%;
@@ -93,4 +77,44 @@
 } 
 :global(.brandsSwiper .swiper-button-next i:hover, .brandsSwiper .swiper-button-prev i:hover, .inspirationsSwiper .swiper-button-next i:hover, .inspirationsSwiper .swiper-button-prev i:hover){
    color: hsl(217 85% 67%);
+}
+
+@media(orientation: portrait) {
+   .titleCateg{
+      font-size: 2.75rem;
+      font-weight: 700;
+      margin-top: calc(25vw + 10px + 1vh);
+      margin-bottom: 2vh; 
+   }
+
+   .brandsSwiper{
+      position: relative;
+      width: 100vw;
+      height: 18vh;
+      padding: 1vh 0px;
+   }
+   .brandsSwiper .swiperSlide{
+      width: 30vw !important;
+      height: 100%;
+      border-radius: 10px;
+      padding: 0 20px;
+   }
+   .brandsSwiper .swiperSlide.avaliable{
+      margin: 0 14px;
+   }
+   .brandsSwiper .swiperSlide.avaliable.start{
+      margin: 0;
+      margin-right: 15px;
+   }
+   .brandsSwiper .swiperSlide.avaliable.end{
+      margin: 0;
+      margin-left: 15px;
+   }
+   .brandsSwiper .swiperSlide img{
+      width: 8vh;
+      height: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      margin-bottom: -10px;
+   }
 }

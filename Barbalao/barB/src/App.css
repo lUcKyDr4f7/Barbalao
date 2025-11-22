@@ -32,3 +32,8 @@ footer {
 section .main{
   padding: 10vh 10px;
 }
+@media (orientation: portrait) {
+  .main {
+    padding: 0;
+  }
+}
