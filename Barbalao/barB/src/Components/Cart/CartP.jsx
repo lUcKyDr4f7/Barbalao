@@ -100,9 +100,9 @@ export default function Cart(props) {
             <>
                 <div className={isClosing?styles.outsideClosingCart:styles.outsideCart} onClick={ () => closeCart() }></div>
                 <div className={isClosing?styles.closingCart:styles.cart} /* onClick={ () => closeCart() } */>
-                    <button className={styles.closeCartBtn} onClick={ () => closeCart() }>< i class="ri-close-fill"></i></button>
-                    <li>Carrinho</li>
-                    {JSON.parse(localStorage.getItem('oldCart')) != {} && <div className={styles.cartTabs}>
+                    
+                    <li><button className={styles.closeCartBtn} onClick={ () => closeCart() }>< i class="ri-close-fill"></i></button>Carrinho</li>
+                    <div>{JSON.parse(localStorage.getItem('oldCart')) != {} && <div className={styles.cartTabs}>
                         <p className={isOldCart?styles.activeTab:styles.inactiveTab} onClick={() => setIsOldCart(true)}>Anterior</p>
                         <p className={isOldCart?styles.inactiveTab:styles.activeTab} onClick={() => setIsOldCart(false)}>Atual</p>
                     </div>}
@@ -111,8 +111,8 @@ export default function Cart(props) {
                         Object.keys(cartItems).map( key => {
                             return <CartItem key={key} cart={cartItems} setCart={setCartItems} item={key} amount={cartItems[key]} />;
                         }):<p>O carrinho está vazio</p>
-                    }</div>
-                    { /* Object.keys(cartItems).length != 0 &&  */<h2 className={styles.totalValue}>Total: R${totalValue.toFixed(2).replace('.', ',')}</h2> }
+                    }</div></div>
+                    { /* Object.keys(cartItems).length != 0 &&  */<li className={styles.totalValue}>Total: R${totalValue.toFixed(2).replace('.', ',')}</li> }
                     {/* { Object.keys(cartItems).length != 0 && <a href={linkWhatsapp} target="_blank"><button className={styles.whatsappBtn}>Fazer Pedido</button></a>} */}
                     { /* Object.keys(cartItems).length != 0 &&  */<button disabled={Object.keys(cartItems).length == 0}onClick={() => order() } className={styles.whatsappBtn}>Fazer Pedido</button>}
                 </div>

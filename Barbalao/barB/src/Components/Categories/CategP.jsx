@@ -3,7 +3,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Lanche from '../../assets/categorias/burger.png'
 import Pastel from '../../assets/categorias/pastel.png'
 import Salgado from '../../assets/categorias/coxinha.png'
@@ -16,10 +16,15 @@ export default function CategP({ categorias }) {
   console.log(categoriasL)
   
   const [isPortrait, setIsPortrait] = useState(screen.orientation.type.includes('portrait'))
+  const swiperRef = useRef(null)
 
-  let responsivity = {
-    'slidesPerView': []
+  function swipeLeft() {
+    swiperRef.current.scrollBy({top: 0, left: -(9 * window.innerWidth / 10 + 30), behavior: "smooth",});
   }
+  function swipeRight() {
+    swiperRef.current.scrollBy({top: 0, left: 9 * window.innerWidth / 10 + 30, behavior: "smooth",});
+  }
+
   return (
       <>
         <h2 className={styles.titleCateg}>Cardápio</h2>
@@ -43,13 +48,17 @@ export default function CategP({ categorias }) {
               </>
             })
         </Swiper> */}
-        <div className={styles.categSwiper} >
-          <div className={`${styles.swiperSlide} ${styles.avaliable} ${styles.start}`}><img src={Lanche}/><h2>Lanches</h2></div>
-          <div className={`${styles.swiperSlide} ${styles.avaliable}`}><img src={Pastel}/><h2>Pastéis</h2></div>
-          <div className={`${styles.swiperSlide} ${styles.avaliable}`}><img src={Salgado}/><h2>Salgados</h2></div>
-          <div className={`${styles.swiperSlide} ${styles.avaliable}`}><img src={Porção}/><h2>Porções</h2></div>
-          <div className={`${styles.swiperSlide} ${styles.avaliable}`}><img src={Bebida}/><h2>Bebidas</h2></div>
-          <div className={`${styles.swiperSlide} ${styles.avaliable} ${styles.end}`}><img src={BebidaA}/><h2 className='bebidA'>Doces</h2></div>
+        <div className={styles.categSwiper}>
+          <button className={styles.swipeBtn} onClick={() => swipeLeft()}><i className="ri-arrow-left-s-line"></i></button>
+          <div id='swiper' className={styles.swiperSlide} ref={swiperRef}>
+            <div className={`${styles.swiperElement} ${styles.avaliable} ${styles.start}`}><img src={Lanche}/><h2>Lanches</h2></div>
+            <div className={`${styles.swiperElement} ${styles.avaliable}`}><img src={Pastel}/><h2>Pastéis</h2></div>
+            <div className={`${styles.swiperElement} ${styles.avaliable}`}><img src={Salgado}/><h2>Salgados</h2></div>
+            <div className={`${styles.swiperElement} ${styles.avaliable}`}><img src={Porção}/><h2>Porções</h2></div>
+            <div className={`${styles.swiperElement} ${styles.avaliable}`}><img src={Bebida}/><h2>Bebidas</h2></div>
+            <div className={`${styles.swiperElement} ${styles.avaliable} ${styles.end}`}><img src={BebidaA}/><h2>Sobremesas/Doces</h2></div>
+          </div>
+          <button className={styles.swipeBtn} onClick={() => swipeRight()}><i className="ri-arrow-right-s-line"></i></button>
         </div>
       </>
   );

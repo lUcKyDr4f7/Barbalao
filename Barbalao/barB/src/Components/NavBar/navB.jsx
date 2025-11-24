@@ -59,8 +59,8 @@ export default function NavB({setSearchModal}) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []); 
   
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [isPortrait, setIsPortrait] = useState(screen.orientation.type.includes('portrait'))
+ /*  const [menuOpen, setMenuOpen] = useState(false)
+  const [isPortrait, setIsPortrait] = useState(screen.orientation.type.includes('portrait')) */
   
   return (
       <>
@@ -77,8 +77,8 @@ export default function NavB({setSearchModal}) {
                         <i className="ri-search-line"></i> 
                     </button>
                   </div>
-                  {isPortrait && <button className={styles.menuBtn} onClick={() => setMenuOpen(!menuOpen)}><i class={menuOpen?"ri-close-fill":"ri-menu-line"}></i></button>}
-                  {(!isPortrait || menuOpen) && <div className={styles.headerBtns}>
+                  {/* isPortrait && <button className={styles.menuBtn} onClick={() => setMenuOpen(!menuOpen)}><i class={menuOpen?"ri-close-fill":"ri-menu-line"}></i></button> */}
+                  {/* (!isPortrait || menuOpen) &&  */<div className={styles.headerBtns}>
                       <li><Link to="/">Início</Link></li>
                       <li><Link to="/about-us">Sobre Nós</Link></li>
                       {link}
