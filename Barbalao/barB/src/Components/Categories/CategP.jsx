@@ -13,7 +13,10 @@ import BebidaA from '../../assets/categorias/drinkA.png'
 
 export default function CategP({ categorias }) {
   const categoriasL = categorias || JSON.parse(localStorage.getItem("categories"))
-  console.log(categoriasL)
+
+  const scrollToSection = (alvo) => {
+    document.getElementById(alvo).scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
       <>
@@ -23,7 +26,10 @@ export default function CategP({ categorias }) {
                 categoriasL.map((categ, i) => (
                   <SwiperSlide 
                     className={`${styles.swiperSlide} ${styles.avaliable} 
-                                ${i=1? styles.start: i=categoriasL.length? styles.end : null}`}>
+                                ${i=1? styles.start: i=categoriasL.length? styles.end : null}`} 
+                    key={categ.id_categoria}
+                    onClick={()=> scrollToSection(categ.id_categoria)}>
+
                     <img src={categ.imagem}/>
                     <h2>{(categ.nome).slice(0,1).toUpperCase() + (categ.nome).slice(1)}</h2>
                   </SwiperSlide>
