@@ -162,3 +162,76 @@
 .addCart button i {
   font-size: 1.2rem;           
 }
+
+
+/* ... seu CSS atual ... */
+
+.productCard{
+   display: flex;
+   position: relative;
+   gap: 20px;
+   background-color: #044a8f;
+   padding: 20px 20px 10px 20px;
+   border-radius: 15px;
+}
+
+/* NOVAS REGRAS PARA MOBILE */
+@media (max-width: 768px) {
+  .productCard {
+    flex-direction: column; /* Muda para coluna no mobile */
+    gap: 15px;
+    padding: 15px;
+    min-height: auto;
+  }
+  
+  .carousel {
+    max-width: 100%;
+    max-height: 400px;
+  }
+  
+  .carousel .imagemC img {
+    max-height: 250px;
+  }
+  
+  .productInfo {
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  
+  .productBuy {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .productQuantity {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* Para telas muito pequenas */
+@media (max-width: 480px) {
+  .productCard {
+    padding: 12px;
+    gap: 12px;
+  }
+  
+  .carousel .imagemC img {
+    max-height: 200px;
+  }
+  
+  .title {
+    font-size: 1.3rem;
+  }
+  
+  .description {
+    font-size: 0.95rem;
+    line-height: 1.3rem;
+  }
+  
+  .price {
+    font-size: 1.4rem;
+  }
+}

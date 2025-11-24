@@ -37,8 +37,6 @@ export default function Home({produtos, categorias, subCateg, banners}) {
           subCateg={subCategL}
           banners={bannersL}
         />
-        {/* <SectionCateg produtos={produtosL} categorias={categoriasL} subCateg={subCategL}/> */}
-        {/* onDelete={removerProduto} */}
       </section>
       {searchModal && <SearchModal setSearchModal={setSearchModal} searchText={searchText} produtos={produtos}/>}
     </>

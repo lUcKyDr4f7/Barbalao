@@ -11,7 +11,7 @@ export default function SectionCateg({produtos, categoria, subCateg}) {
     const categNome = (categoria.nome).slice(0,1).toUpperCase() + (categoria.nome).slice(1).toLowerCase()
 
     return(
-        <div key={categoria.id_categoria}>
+        <div key={categoria.id_categoria} id={categoria.id_categoria}>
 
             <h1 className={styles.swiperTitle}>{categNome}</h1>
             {subAtuais.length != 0?
@@ -22,7 +22,7 @@ export default function SectionCateg({produtos, categoria, subCateg}) {
                     </div>
                 ))
                 :
-                <h2>Sem Subcategorias</h2>
+                <h2 className={styles.swiperTitle}>Sem Subcategorias</h2>
             }
         </div>
     )
