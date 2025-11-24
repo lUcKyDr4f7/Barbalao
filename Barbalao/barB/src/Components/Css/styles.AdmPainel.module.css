@@ -230,7 +230,7 @@
 
 .PainelOutlet { 
     width: 90vw;
-    height: 100vh;
+    height: fit-content;
     border-radius: 2rem 2rem 0 0; 
     background-color: var(--bodyBgColor);
     filter: brightness(.95);  
