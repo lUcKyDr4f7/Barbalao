@@ -138,3 +138,9 @@ button {
 .cartOpen {
   overflow: hidden !important;
 }
+
+@media (orientation: portrait) {
+  #root {
+    overflow-y: hidden;
+  }
+}

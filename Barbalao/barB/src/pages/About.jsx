@@ -33,12 +33,12 @@ export default function About() {
               <div className={styles.contactInfo}>
                 <div className={styles.infoItem}>
                   {/* <Phone size={iconSize} color={iconColor} /> */}
-                  <i class="ri-phone-line"></i>
+                  <i className="ri-phone-line"></i>
                   <a href="tel:+551938241552">+55 (19) 3824-1552</a>
                 </div>
                 <div className={styles.infoItem}>
                   {/* <WhatsappLogo size={iconSize} color={iconColor} /> */}
-                  <i class="ri-whatsapp-line"></i>
+                  <i className="ri-whatsapp-line"></i>
                   <a href="https://wa.me/5519996829711">+55 (19) 99682-9711</a>
                 </div>
                 <div className={styles.infoItem}>
@@ -51,8 +51,8 @@ export default function About() {
                 </div> */}
                 <div className={styles.infoItem}>
                   {/* <MapPin size={iconSize} color={iconColor} /> */}
-                  <i class="ri-map-pin-line"></i>
-                  <p>Praça José Luiz Leme Maciel, 8 - Centro, Águas de Lindóia - SP</p>
+                  <i className="ri-map-pin-line"></i>
+                  <a href='https://maps.app.goo.gl/PCSxzWYZ3xowP3ZN8'>Praça José Luiz Leme Maciel, 8 - Centro, Águas de Lindóia - SP</a>
                 </div>
               </div>
               <div className={styles.mapImage}>
@@ -101,10 +101,12 @@ export default function About() {
                 <span>Segunda - Sábado</span>
                 <span className={styles.time}>08:00 - 00:00</span>
               </li>
+              <hr />
               <li>
                 <span>Domingo</span>
                 <span className={styles.time}>10:00 - 00:00</span>
               </li>
+              <hr />
               <li>
                 <span>Delivery</span>
                 <span className={styles.time}>19:00 - 23:00</span>
@@ -117,8 +119,8 @@ export default function About() {
           </div>
         </aside>
       </div>
+      <Footer />
     </main>
-    <Footer />
     </>
   );
 };
