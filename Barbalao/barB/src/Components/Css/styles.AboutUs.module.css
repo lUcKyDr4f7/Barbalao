@@ -145,7 +145,7 @@
 
 .stickySidebar {
   position: sticky;
-  height: calc(36vh - 3vw);
+  height: calc(40vh - 3vw);
   top: calc(17vh + 40px);
   padding: 1.5vw;
   border: 1px solid var(--footBdColor1);
@@ -272,7 +272,7 @@
     height: 36vh;
     top: 0;
     padding: 3vw;
-    margin-bottom: 5vh;
+    max-height: 250px;
   }
 
   .scheduleList, .scheduleList hr {

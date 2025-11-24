@@ -59,6 +59,11 @@
   position: absolute;
   color: var(--navColor);
   animation-duration: .5s;
+  transition: 0.5s;
+}
+.closeCartBtn:hover {
+  transform: rotate(20deg);
+  transition: 0.5s;
 }
 .cart .closeCartBtn {
   animation-name: closeBtnOpening;
@@ -138,14 +143,27 @@
 .cartTabs .activeTab {
   border-bottom: 5px solid #1a5898;
   background: #1a5898;
+  transition: 0.5s
   /* animation-name: activatingTab;
   animation-duration: 1s; */
 }
 .cartTabs .inactiveTab {
   border-bottom: 5px solid var(--navColor);
   border-radius: 15px 15px 0 0;
+  transition: 0.5s;
   /* animation-name: deactivatingTab;
   animation-duration: 1s; */
+}
+.cartTabs .inactiveTab:hover {
+  border-bottom: 5px solid #1a5898;
+  background: #1a5898;
+  transition: 0.5s;
+}
+.cartTabs .inactiveTab:hover ~ .activeTab {
+  border-bottom: 5px solid var(--navColor);
+  border-radius: 15px 15px 0 0;
+  background: none;
+  transition: 0.5s;
 }
 .cart .cartTabs {
   animation-name: cartListOpening;
@@ -186,7 +204,7 @@
 .cart .totalValue {
   margin: 0;
   width: auto;
-  font-size: 2rem;
+  font-size: 1.8rem;
   animation-name: cartTotalOpening;
   animation-duration: .5s;
   word-break: keep-all;
@@ -194,7 +212,7 @@
 .closingCart .totalValue {
   margin: 0;
   width: auto;
-  font-size: 2rem;
+  font-size: 1.8rem;
   animation-name: cartTotalClosing;
   animation-duration: .5s;
   word-break: keep-all;
@@ -214,10 +232,17 @@
   background-color: green;
   animation-name: cartButtonOpening;
   animation-duration: .5s;
+  transition: 0.5s;
   /* margin: 1vh 0 0 -1vw; */
 }
 .whatsappBtn:disabled {
   cursor: not-allowed;
+}
+.whatsappBtn:hover {
+  padding: 1vh;
+  margin: -1vh;
+  width: calc(20vw + 1vh);
+  transition: 0.5s;
 }
 .closingCart .whatsappBtn {
   width: 20vw;

@@ -14,7 +14,7 @@ export default function About() {
     <NavB />
     <main className={styles.main}>
       <div className={styles.banner}>
-          <h1 className={styles.bannerTitle}>Conheça o Barbalao</h1>
+          <h1 className={styles.bannerTitle}>Conheça o Bar Balão</h1>
           <h2 className={styles.bannerSubtitle}>Onde cada encontro se torna uma celebração.</h2>
       </div>
 
