@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 export default function Home({produtos, categorias, subCateg, banners}) {
 
   const [searchModal, setSearchModal] = useState(false);
+  const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
       if (searchModal) {
@@ -27,7 +28,7 @@ export default function Home({produtos, categorias, subCateg, banners}) {
   
   return (
     <>
-      <NavB setSearchModal={setSearchModal}/>
+      <NavB setSearchModal={setSearchModal} searchText={searchText} setSearchText={setSearchText}/>
       <section className="main">
         <CategP categorias={categoriasL}/>
         <SectionCateg 
@@ -39,7 +40,7 @@ export default function Home({produtos, categorias, subCateg, banners}) {
         {/* <SectionCateg produtos={produtosL} categorias={categoriasL} subCateg={subCategL}/> */}
         {/* onDelete={removerProduto} */}
       </section>
-      {searchModal && <SearchModal setSearchModal={setSearchModal} produtos={produtos}/>}
+      {searchModal && <SearchModal setSearchModal={setSearchModal} searchText={searchText} produtos={produtos}/>}
     </>
   );
 }
