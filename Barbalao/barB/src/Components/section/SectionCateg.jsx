@@ -25,7 +25,10 @@ export default function SectionCateg({produtos, categorias, subCateg, banners}) 
                     categoriasL.map((categoria, index )=> (
                         <div style={{margin: '0 5vw'}} key={index} > 
                             <BannerS banners={grupoBanner} ordem = {index} />
-                            <SectionSubCateg produtos={produtosL} categoria={categoria} subCateg={subCategsL}/>
+                            <div id={categoria.id_categoria}>
+                                <SectionSubCateg produtos={produtosL} categoria={categoria} subCateg={subCategsL}/>
+                            </div>
+                            
                         </div>
                     ))
                 :
