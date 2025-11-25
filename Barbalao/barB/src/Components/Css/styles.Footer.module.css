@@ -1,68 +1,44 @@
 .footer {
-  width: 100vw; /* ocupa toda a viewport */
-  margin-left: calc(50% - 50vw); /* garante que o fundo vá até as bordas */
+  width: 100vw;
   background-color: var(--footBgColor);
   border-top: 1px solid var(--footBdColor);
-  padding: /* 1.2rem 0 3rem */ 0;
+  padding: 0;
+  margin-top: 5vh;
 }
 
 .footerContainer {
-  max-width: 1200px;   /* limita o conteúdo */
-  margin: 0 auto;
-  padding: 0 1rem;
+  width: calc(98vw - 8px);
+  margin: 0;
+  padding-left: 1vw;
+  padding-right: calc(1vw + 8px);
   display: flex;
-  flex-direction: column; /* padrão: mobile */
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
   text-align: center;
   font-size: 0.875rem;
   color: var(--footColor);
 }
 
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .socialLinks {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap; /* permite que os links quebrem para a linha de baixo */
-  justify-content: center; /* mantém centralizado no mobile */
+  gap: 0.5vw;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-
-
 .socialLinks a {
   color: var(--footColor);
   text-decoration: none;
   transition: color 0.2s ease;
 }
-
 .socialLinks a:hover {
-  color: var(--footHColor); /* destaque no hover */
-}
-
-/* Tablet */
-@media (min-width: 640px) {
-  .footerContainer {
-    flex-direction: row;
-    text-align: left;
-    padding: 0 2rem;
-  }
-  .socialLinks {
-    justify-content: flex-end; /* ou space-between, dependendo do design */
-  }
-}
-
-/* Desktop */
-@media (min-width: 1024px) {
-  .footerContainer {
-    padding: 0 4rem;
-    font-size: 1rem;
-    gap: 2rem;
-  }
-}
-
-/* Extra large */
-@media (min-width: 1280px) {
-  .footerContainer {
-    padding: 0 6rem;
-  }
+  color: var(--footHColor);
 }

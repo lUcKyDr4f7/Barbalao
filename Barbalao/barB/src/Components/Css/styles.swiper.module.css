@@ -1,0 +1,39 @@
+.swiper {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   gap: 0;
+}
+.swiperSlide{
+   display: flex;
+   flex-direction: row;
+   width: 90vw;
+   height: 200px;
+   margin: 20px 0;
+   overflow-x: scroll;
+   overflow-y: hidden;
+   gap: 30px;
+}
+.swiperSlide::-webkit-scrollbar, .swiperSlide::-webkit-scrollbar-track, .swiperSlide::-webkit-scrollbar-thumb {
+   height: 0px;
+}
+
+.swiper .swipeBtn, .swiper .swipeBtn i{
+   color: var(--categTextColor);
+   cursor: pointer;
+   font-size: 3vw;
+   width: 5vw;
+}
+
+@media (orientation: portrait) {
+   .swiperSlide{
+      height: 100px;
+      margin: 10px 0;
+      gap: 15px;
+   }
+
+   .swiper .swipeBtn, .swiper .swipeBtn i{
+      font-size: 5vw;
+      width: 5vw;
+   }
+}

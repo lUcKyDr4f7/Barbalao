@@ -1,9 +1,10 @@
 .titleCateg{
+   width: 100vw;
    font-size: 2.75rem;
    font-weight: 700;
    color: var(--TitleColor);
    text-align: center;
-   margin-top: 160px;
+   margin-top: calc(17vh + 40px);
    margin-bottom: 40px;
    user-select: none;        
    -webkit-user-select: none; 
@@ -11,86 +12,56 @@
    -ms-user-select: none;     
 }
 
-.swiperSlide{
+.swiperCateg{
+   min-width: calc(30vw - 20px);
+   height: 100%;
    display: flex;
    flex-direction: column;
-}
-.swiperSlide h2{
-   color: var(--categTextColor)
-}
-
-.brandsSwiper{
-   position: relative;
-   width: 100%;
-   height: 200px;
-   padding: 20px 0px;
-}
-.brandsSwiper .swiperSlide{
-   width: 200px;
-   height: 100%;
-   display: flex;
    text-align: center;
-   justify-content: center;
+   justify-content: space-evenly;
    align-items: center;
    border-radius: 10px;
-   padding: 0 20px;
    background: var(--cardBg);
+   cursor: pointer;
 }
-.brandsSwiper .swiperSlide.avaliable{
-   margin: 0 14px;
- 
-}
-.brandsSwiper .swiperSlide.avaliable.start{
-   margin: 0;
-   margin-right: 15px;
-}
-.brandsSwiper .swiperSlide.avaliable.end{
-   margin: 0;
-   margin-left: 15px;
-}
-.brandsSwiper .swiperSlide .coming-soon{
-   position: absolute;
-   top: 10px;
-   left: 10px;
-   padding: 10px;
-   background: rgba(0,0,0,0.2);
-   border-radius: 10px;
-}
-.brandsSwiper .swiperSlide .coming-soon h5{
-   font-size: 1.1rem;
-   font-weight: 600;
-   color: hsl(217 85% 74%);
-   text-align: start;
-   text-transform: uppercase;
-   letter-spacing: -1px;
-}
-.brandsSwiper .swiperSlide img{
+.swiperCateg img{
    width: 100px;
-   height: 100%;
+   height: 100px;
    max-height: 100%;
    object-fit: contain;
    filter: invert(var(--categFilterI));
    transition: all 0.3s ease;
    margin-bottom: -10px;
 }
-.brandsSwiper .swiperSlide h2{
-    transition: all 0.3s ease; } 
-.brandsSwiper .swiperSlide.avaliable:hover h2{
-   filter: var(--categFilter); 
-   cursor: pointer; 
-} 
-.brandsSwiper .swiperSlide.avaliable:hover img{
+.swiperCateg:hover img{
    filter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(103%) contrast(92%);
-   cursor: pointer; 
-} 
-:global(.brandsSwiper .swiper-button-next:after, .brandsSwiper .swiper-button-prev:after, .inspirationsSwiper .swiper-button-next:after, .inspirationsSwiper .swiper-button-prev:after){
-   display: none; 
-} 
-:global(.brandsSwiper .swiper-button-next i, .brandsSwiper .swiper-button-prev i, .inspirationsSwiper .swiper-button-next i, .inspirationsSwiper .swiper-button-prev i){ 
-   color: hsl(217 85% 74%); 
-   font-size: 4.5rem; 
-   transition: .3s ease; 
-} 
-:global(.brandsSwiper .swiper-button-next i:hover, .brandsSwiper .swiper-button-prev i:hover, .inspirationsSwiper .swiper-button-next i:hover, .inspirationsSwiper .swiper-button-prev i:hover){
-   color: hsl(217 85% 67%);
+}
+.swiperCateg h2{
+   color: var(--categTextColor);
+   transition: all 0.3s ease;
+   margin: 0;
+}
+.swiperCateg:hover h2{
+   filter: var(--categFilter); 
+}
+
+@media (orientation: portrait) {
+   .titleCateg{
+      width: 100vw;
+      font-size: 2.5rem;
+      margin-top: 35vw;
+      margin-bottom: 20px;   
+   }
+
+   .swiperCateg{
+      min-width: calc(30vw - 10px);
+      border-radius: 10px;
+   }
+   .swiperCateg img{
+      width: 50px;
+      height: 50px
+   }
+   .swiperCateg h2{
+      font-size: 1.2rem;
+   }
 }

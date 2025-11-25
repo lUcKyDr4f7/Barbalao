@@ -1,7 +1,7 @@
 import 'swiper/css';
 import 'swiper/css/navigation';
 import styles from '../Css/styles.pcard_S.module.css';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import Swiper from '../Swiper/Swiper.jsx';
 import { useState, useEffect } from 'react';
 import { Navigation } from 'swiper/modules';
 import ProdC from '../PCard/prodC.jsx';
@@ -60,15 +60,7 @@ export default function ProdS({ produtos, subCateg }) {
             slidesOffsetAfter={isMobile ? 10 : 10}
           >
             {prodAtuais.map((produto) => (
-              <SwiperSlide 
-                onClick={() => setSelectedProduct(produto)} 
-                key={produto.id_prod} 
-                className={`${styles.swiperSlide} ${styles.avaliable}`}
-                style={{
-                  // Aumenta a altura dos slides no mobile
-                  height: isMobile ? '280px' : 'auto'
-                }}
-              >
+              <div onClick={() => setSelectedProduct(produto)} key={produto.id_prod} className={`${styles.swiperSlide} ${styles.avaliable}`}>
                 <div className={`${styles.cardWithModal} ${styles.airJordan}`}>
                   <div className={styles.productCard}>
                     <div className={styles.productImg}>
@@ -91,7 +83,7 @@ export default function ProdS({ produtos, subCateg }) {
                     </div>
                   </div>
                 </div>
-              </SwiperSlide>
+              </div>
             ))}
           </Swiper>
         )}

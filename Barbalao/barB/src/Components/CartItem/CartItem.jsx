@@ -12,16 +12,16 @@ export default function CartItem(props) {
         return null; // não renderiza nada se o item não existe
     }
 
-    function updateCart(newCart) {
+    /* function updateCart(newCart) {
         props.setCart({ ...newCart });
-    }
+    } */
 
     function addItem() {
         tempCart[props.item] ++;
         props.setCart(tempCart)
         /* localStorage.setItem("cart", JSON.stringify(tempCart));
         localStorage.setItem("totalValue", Number(localStorage.getItem("totalValue")) + item.valueWithD); */
-        updateCart(temp);
+        /* updateCart(temp); */
     }
     function subtractItem() {
         if(tempCart[props.item]>1) {
@@ -29,7 +29,7 @@ export default function CartItem(props) {
             props.setCart(tempCart);
             /* localStorage.setItem("cart", JSON.stringify(tempCart));
             localStorage.setItem("totalValue", Number(localStorage.getItem("totalValue")) - item.valueWithD); */
-            updateCart(temp);
+            /* updateCart(temp); */
         } else {
             removeItem();
         }

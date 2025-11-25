@@ -10,7 +10,7 @@
 	justify-content: center;
 	z-index: 1000;
 	animation: fadeIn 0.15s ease;
-  }
+}
 
   .modalCard {
 	position: relative;
@@ -23,7 +23,7 @@
 	background-color: var(--bodyBgColor);
 	padding: 16px 34px 16px 48px;
 	overflow: hidden;
-  }
+}
 
 /* .modalCard button {
 	color: var(--TitleColor);
@@ -66,21 +66,41 @@
 }
 
 @keyframes fadeIn {
+	from { opacity: 0; }
+
+	to { opacity: 1; }
+}
+
+@keyframes openAnimation {
 	from {
-	  opacity: 0;
+		scale: 1.18;
+		opacity: 0.5;
 	}
+
 	to {
-	  opacity: 1;
+		scale: 1.00;
+		opacity: 1;
 	}
-  }
-  
-  @keyframes openAnimation {
-	from {
-	  scale: 1.18;
-	  opacity: 0.5;
+}
+
+@media (orientation: portrait) {
+
+	.modalCard {
+		border: 2px solid var(--TitleColor);
+		position: fixed;
+		top: 0px;
+		bottom: 0px;
+		left: 0%;
+		width: calc(100% - 44px);
+		border-radius: 0px;
+		padding: 8px 20px;
 	}
-	to {
-	  scale: 1.00;
-	  opacity: 1;
+
+	.modalCard h1 {
+		font-size: 1.5rem;
 	}
-  }
+
+	.productsDiv {
+		gap: 8px;
+	}
+}

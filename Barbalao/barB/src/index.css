@@ -139,6 +139,9 @@ button {
 .cartOpen {
   overflow: hidden !important;
 }
-.cartOpen section {
-  padding-right: 40px;
+
+@media (orientation: portrait) {
+  #root {
+    overflow: hidden;
+  }
 }

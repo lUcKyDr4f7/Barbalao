@@ -5,7 +5,7 @@
 .header {
   padding: 20px 20px;
   position: fixed;
-  width: 100%;
+  width: calc(100vw - 40px);
   top: 0;
   left: 0;
   background-color: var(--navBgColor);
@@ -21,7 +21,8 @@
   display: flex;
   justify-content: space-between; 
   align-items: center;
-  width: 97%;
+  width: calc(100vw - 40px);
+  background-color: var(--navBgColor);
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 1.4em;
@@ -30,31 +31,6 @@
 .logo, .logo img{
   height: 15vh;
 }
-
-/* form {
-  background-color: #fff;
-  height: 12vh;
-  width: 60vw;
-  border-radius: 6vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-input {
-  background-color: #fff;
-  height: 11vh;
-  width: 50vw;
-  border: none;
-  border-radius: 7vh;
-  margin-right: 6vh;
-  font-size: 5vh;
-}
-form button {
-  height: 10vh;
-  width: 10vh;
-  font-size: 7vh;
-  line-height: 10vh;
-} */
 
 .searchBar {
   background-color: #020623;
@@ -95,6 +71,10 @@ form button {
 
 }
 
+/* .menuBtn {
+  color: #ffe600;
+} */
+
 .headerBtns{
   display: flex;
   align-items: center;
@@ -120,4 +100,74 @@ button {
 .headerBtns button:hover {
   transform: rotate(20deg);
   transition: 0.5s;
+}
+
+@media(orientation: portrait) {
+  .header {
+    padding: 10px;
+    width: calc(100vw - 20px);
+    box-shadow: 0 2px 3px;
+  }
+  .header.shrink {
+    padding: 7px 10px;
+  }
+  .inner {
+    width: calc(100vw - 20px);
+    font-weight: 500;
+    font-size: 1em;
+  }
+
+  .logo, .logo img{
+    height: 15vw;
+  }
+
+  .searchBar {
+    border-radius: 12.5px;
+    padding: 0ch 5px;
+    gap: 5px;
+    width: calc(85vw - 66px);
+  }
+
+  .searchBar button {
+    padding: 3px 4px;
+    border-radius: 16px;
+    font-size: 13px;
+  }
+
+  .searchBar input{
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  .menuBtn {
+    color: #ffe600;
+  }
+  /* @keyframes menuOpening {
+    from { margin-top: 0 }
+    to { margin-top: calc(25vw + 10px) }
+  } */
+  .headerBtns{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 10vw;
+    width: 100vw;
+    margin-top: calc(25vw + 10px);
+    margin-left: -10px;
+    background-color: var(--navBgColor);
+    align-items: center;
+    z-index: -100;
+    /* animation: menuOpening 1s;
+    transition: 1s; */
+  }
+
+  button {
+    font-size: 1.5rem;
+    outline: none;
+  }
+  .headerBtns button:hover {
+    transform: none;
+    transition: 0s;
+  }
 }
