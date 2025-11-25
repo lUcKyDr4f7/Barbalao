@@ -21,7 +21,7 @@
    justify-content: space-evenly;
    align-items: center;
    border-radius: 10px;
-   background: var(var(--categBgColor));
+   background: var(--categBgColor);
    cursor: pointer;
 }
 .swiperCateg img{
@@ -66,3 +66,4 @@
    }
 
 }
+
