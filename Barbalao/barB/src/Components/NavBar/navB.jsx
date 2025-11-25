@@ -6,7 +6,7 @@ import Cart from '../Cart/CartP'
 import { useAuth } from '../../Routes/AuthContext';
 
 export default function NavB({setSearchModal, searchText, setSearchText}) {
-      const {authenticated} = useAuth()
+      /* const {authenticated} = useAuth()
       const [link, setLink] = useState(null)
       
       useEffect(() => {
@@ -15,7 +15,7 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
         } else {
           setLink(null);
         }
-      }, []);
+      }, []); */
 
   /* Exibibe botão painel se autenticado */
   const {authenticated} = useAuth()
@@ -111,6 +111,7 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
             </header>
         </> 
     )
+
 
 
 }
