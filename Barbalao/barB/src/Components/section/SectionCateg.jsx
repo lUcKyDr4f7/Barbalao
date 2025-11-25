@@ -7,6 +7,8 @@ export default function SectionCateg({produtos, categorias, subCateg, banners}) 
     const subCategsL = subCateg || JSON.parse(localStorage.getItem("Subcategories"))
     const categoriasL = categorias || JSON.parse(localStorage.getItem("categories"))
     const bannersL = banners || JSON.parse(localStorage.getItem("banners"))
+
+    // Agrupa os banners para criar carroseis contendo 3 banners cada
     let grupoBanner = []
     const quantGrupos = Math.ceil(bannersL.length / 3) || []
 
