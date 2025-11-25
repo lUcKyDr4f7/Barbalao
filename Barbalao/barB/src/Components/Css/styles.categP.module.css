@@ -21,7 +21,7 @@
    justify-content: space-evenly;
    align-items: center;
    border-radius: 10px;
-   background: var(--cardBg);
+   background: var(--categBgColor);
    cursor: pointer;
 }
 .swiperCateg img{
@@ -64,4 +64,6 @@
    .swiperCateg h2{
       font-size: 1.2rem;
    }
+
 }
+
