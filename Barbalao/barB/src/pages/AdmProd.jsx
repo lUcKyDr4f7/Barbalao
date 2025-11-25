@@ -1,24 +1,47 @@
-import { useState } from 'react';
-import styles from '../Components/Css/styles.AdmProd.module.css';
-import AdmProdutoCard from '../Components/Adm/MenorComp/AdmProdutoCard';
-import AdmProdutoModal from '../Components/Adm/MenorComp/AdmProdutoModal';
-import AdmEditProductModal from '../Components/Adm/MenorComp/AdmEditProductModal';
 import { useOutletContext } from 'react-router-dom';
+import AdmProdutoCard from '../Components/Adm/MenorComp/AdmProdutoCard';
+import styles from '../Components/Css/styles.AdmProd.module.css';
 
 export default function AdmProd({ produtos }) {
   const produtosL = produtos || JSON.parse(localStorage.getItem("produtcs"))
 
-  const [editProduct, setEditProduct] = useState(false);
+  const { setBackdrop, setViewProduct, setSelectedProduct, admSearchText } = useOutletContext();
 
-  const { setBackdrop, setViewProduct, setSelectedProduct } = useOutletContext();
+  console.log ("Produtos: ", produtos);
+  console.log("Search text: ", admSearchText);
+
+  function normalize(str) {
+    return str
+      .normalize("NFD")                
+      .replace(/[\u0300-\u036f]/g, "") 
+      .toLowerCase()
+      .replace(/\s/g, "")
+      .replace(/\-/g, "")
+  }
+
+  function searchProducts(products, query) {
+    const q = normalize(query);
+
+    return products.filter(p => {
+      const name = normalize(p.nome);
+      const description = normalize(p.descricao);
+
+      return (
+        name.includes(q) ||
+        description.includes(q)
+      );
+    });
+  }
+
+  const queryProducts = searchProducts(produtos, admSearchText);
 
   return (
     <div>
-      {/*<p> Mostrando {produtos.length} produtos</p>*/}
-      {produtosL.length > 0 ? 
-        <div>
+      {queryProducts.length > 0 ? 
+        <div className={styles.productPanel}>
+          <h2> {queryProducts.length} produtos encontrados. </h2>
           <div className={styles.produtosGrid}>
-            {produtos?.map((produto) => (
+            {queryProducts.map((produto) => (
               <AdmProdutoCard 
                 setViewProduct={setViewProduct} 
                 setBackdrop={setBackdrop} 
@@ -30,7 +53,8 @@ export default function AdmProd({ produtos }) {
         </div>
         :
         <div className={styles.SemProdCont}>
-          <h3>SEM PRODUTOS</h3>
+          <i class="ri-error-warning-line"></i>
+          <h3>Nenhum produto foi encontrado com a pesquisa "{admSearchText}"</h3>
         </div>
       }
     </div>
