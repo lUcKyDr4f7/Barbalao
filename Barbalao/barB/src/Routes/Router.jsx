@@ -55,7 +55,7 @@ const Router = (produtos, categorias, subCateg, banners) =>
         },
         {
           path: "banners",
-          element: <AdmBanner />,
+          element: <AdmBanner banners={banners}/>,
         },
       ],
     },

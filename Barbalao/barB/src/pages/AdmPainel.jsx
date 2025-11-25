@@ -20,6 +20,7 @@ export default function AdmPainel() {
     const [viewProduct, setViewProduct] = useState(false);
     const [editProduct, setEditProduct] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const [admSearchText, setAdmSearchText] = useState('');
 
     useEffect(() => {
         if (viewProduct) {
@@ -76,7 +77,10 @@ export default function AdmPainel() {
                     <button className={styles.Lupa}>
                         <img src={lupa} alt="" />
                     </button>
-                    <input type="text" className={styles.PainelPesq} placeholder="Hamburger..."/>
+                    <input type="text" className={styles.PainelPesq} 
+                    value={admSearchText} 
+                    onChange={(e) => setAdmSearchText(e.target.value)}
+                    placeholder="Hamburger..."/>
 
                     <div className={styles.PainelButtstNav}>
                         {/* <button className={styles.PainelFilt}>
@@ -93,11 +97,11 @@ export default function AdmPainel() {
                 viewProduct && <AdmProdutoModal produto={selectedProduct} setViewProduct={setViewProduct} setEditProduct={setEditProduct}/>
             }
             {
-                editProduct && <AdmEditProductModal setEditProduct={setEditProduct}/>
+                editProduct && <AdmEditProductModal produto={selectedProduct} setEditProduct={setEditProduct}/>
             }
 
             <div className={styles.PainelOutlet}>
-                <Outlet context={{setBackdrop, setViewProduct, setSelectedProduct}}/>
+                <Outlet context={{setBackdrop, setViewProduct, setSelectedProduct, admSearchText}}/>
             </div>
 
             {novo && (

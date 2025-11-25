@@ -3,12 +3,11 @@ import styles from '../../Css/styles.AdmProdutoCard.module.css';
 export default function AdmProdutoCard({produto, setViewProduct, setBackdrop, setSelectedProduct}) {
 
     return(
-        <div className={styles.productFlex}>
-          <div className={styles.productCard} onClick={() => {
-            setViewProduct(true);
-            setBackdrop(true);
-            setSelectedProduct(produto);
-          }}>
+        <div className={styles.productCard} onClick={() => {
+          setViewProduct(true);
+          setBackdrop(true);
+          setSelectedProduct(produto);
+        }}>
           <div className={styles.productImg}>
             <img
                 src={produto.imagem || 'https://via.placeholder.com/150'}
@@ -27,7 +26,6 @@ export default function AdmProdutoCard({produto, setViewProduct, setBackdrop, se
             </h4>
             <i className={`ri-pencil-fill ${styles.shopIcon}`}></i>
           </div>
-        </div>
         </div>
     )
 }

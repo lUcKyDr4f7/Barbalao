@@ -68,6 +68,14 @@
   animation: openAnimation 0.15s ease;
 }
 
+.modalCard h1 {
+  margin-bottom: -8px;
+}
+
+.modalCard p {
+  margin-bottom: 32px;
+}
+
 .modalClose {
   position: absolute;
   top: 0.75rem;

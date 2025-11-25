@@ -12,20 +12,16 @@
 	animation: fadeIn 0.15s ease;
 }
 
-.modalCard {
-	/* padding: 10px 20px; */
-	border: 2px solid var(--TitleColor);
-	position: fixed;
-	top: 50px;
-	bottom: 50px;
-	left: 25%;
+  .modalCard {
+	position: relative;
+	border: 3px solid var(--TitleColor);
+	max-height: 80vh;
 	width: 50%;
 	border-radius: 20px;
 	display: flex;
 	flex-direction: column;
-
-	background-color: #020623;
-	padding: 16px 48px;
+	background-color: var(--bodyBgColor);
+	padding: 16px 34px 16px 48px;
 	overflow: hidden;
 }
 
@@ -43,12 +39,9 @@
 	transition: background-color 0.15s;
 }
 
-
-
 .modalCard button:hover {
 	background-color: #1a1b20;
 } */
-
 
 .modalCard h1 {
 	font-family: 'Poppins', sans-serif;
@@ -56,14 +49,20 @@
 	color: var(--TitleColor);
 }
 
+.insideModal {
+	flex: 1;
+	gap: 15px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding-right: 56px;
+}
+
 .productsDiv {
 	display: flex;
 	flex-direction: column;
-	gap: 15px;
-	overflow-y: scroll;
-	overscroll-behavior: contain;
-	flex: 1;
-	min-height: 0;
+	gap: 1rem;
+	
+	
 }
 
 @keyframes fadeIn {

@@ -53,6 +53,11 @@
    font-size: 1rem;
 }
 
+.productPanel h2 {
+   margin-left: 2rem;
+   margin-top: 2rem;
+}
+
 .produtoIconeCarrinho {
    position: absolute;
    right: 0;
@@ -77,7 +82,13 @@
 
 .SemProdCont {
    display: flex;
+   flex-direction: column;
    align-items: center;
    justify-content: center;
    height: 75vh;
+   text-wrap: wrap;
+   text-align: center;
+}
+.SemProdCont i{
+   font-size: 3rem;
 }

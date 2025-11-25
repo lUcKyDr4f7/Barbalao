@@ -4,6 +4,14 @@ import axios from 'axios';
 
 export default function AdmProdutoModal({produto, setViewProduct, setEditProduct}) {
 
+  console.log (produto);
+
+  const subcategories = Object.values(JSON.parse(localStorage.getItem("subcategories")));
+  const categories = Object.values(JSON.parse(localStorage.getItem("categories")));
+  const subcategory = subcategories.find((sub) => sub.id_categoria === produto.categoria);
+  const categoryName = categories.find((cat) => cat.id_categoria === subcategory.sub_categoria_de).nome;
+
+
   function handleEditProduct() {
     setEditProduct(true);
     setViewProduct(false);
@@ -32,7 +40,10 @@ export default function AdmProdutoModal({produto, setViewProduct, setEditProduct
         </Carousel>
         <div>
           <h1> {produto.nome} </h1>
+          <p> <b> {categoryName} • {subcategory.nome} </b> </p>
           <p> {produto.descricao} </p>
+          <h2> R$ {produto.preco.toFixed(2).replace('.', ',')} </h2>
+
           <div className={styles.modalButtons}>
             <button className={styles.editButton} onClick={handleEditProduct}>
               <i class="ri-pencil-line"></i> Editar produto 

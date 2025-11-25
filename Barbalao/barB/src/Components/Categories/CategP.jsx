@@ -9,7 +9,10 @@ import Doces from '../../assets/categorias/chocolate.png';
 
 export default function CategP({ categorias }) {
   const categoriasL = categorias || JSON.parse(localStorage.getItem("categories"))
-  console.log(categoriasL)
+
+  const scrollToSection = (alvo) => {
+    document.getElementById(alvo).scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
       <>

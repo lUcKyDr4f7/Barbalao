@@ -19,12 +19,10 @@ export default function AdmCateg({ categorias, subCateg }) {
 
     return (
         <div className={styles.container}>
-            <h1 className={styles.tituloPrincipal}>Gerenciar Categorias</h1>
             
             {/* Lista de Categorias Principais */}
             <div className={styles.secao}>
-                <h2 className={styles.tituloSecao}>Categorias Principais</h2>
-                
+            
                 {catgeL.length !== 0 ? (
                     <div className={styles.categoriasGrid}>
                         {catgeL.map((categ) => (

@@ -82,15 +82,82 @@
   margin-bottom: 10px;
 }
 
-.form input {
+.form input, .form textarea {
   background-color: var(--bodyBgColor);
   color: var(--TitleColor);
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
+  filter: none;
   border: 2px solid var(--TitleColor);
   border-radius: 10px;
   padding: 10px 10px;
+  transition: all 0.25s ease;
 }
+
+.form input:focus {
+  outline: none;
+  filter: brightness(1.2);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.fileInputWrapper input::file-selector-button {
+  background: var(--bodyBgColor);
+  color: var(--TitleColor);
+  border: 2px solid var(--TitleColor);
+  font-family: 'Inter', sans-serif;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 1rem;
+  font-weight: bold;
+  transition: all 0.15s;
+}
+
+.fileInputWrapper input::file-selector-button:hover {
+  filter: brightness(1.25);
+}
+
+
+.selectWrapper {
+  position: relative;
+}
+
+.selectWrapper select {
+  width: 100%;
+  color: var(--TitleColor);
+  padding: 10px 12px;
+  padding-right: 40px; /* espaço para a seta */
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  border: 2px solid var(--TitleColor);
+  border-radius: 8px;
+  background-color: var(--bodyBgColor);
+  appearance: none; /* remove a seta padrão */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.selectWrapper select:focus {
+  border-color: #4b8bff;
+  box-shadow: 0 0 0 2px rgba(75, 139, 255, 0.3);
+}
+
+/* Ícone da seta customizado */
+.selectWrapper::after {
+  content: "▾"; /* seta */
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: var(--TitleColor);
+  pointer-events: none; /* não atrapalha o clique */
+}
+
 
 .modalClose {
   position: absolute;

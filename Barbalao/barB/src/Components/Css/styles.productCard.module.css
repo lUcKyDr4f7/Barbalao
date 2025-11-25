@@ -5,13 +5,40 @@
     width: 100%;
     border-radius: 20px;
     color: var(--TitleColor);
+    padding: 1rem 1rem;
 }
 
 .productCard img {
     width: 200px;
-    height: 150px;
+    height: 180px;
     object-fit: cover;
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
     margin-right: 20px;
 }
+
+.productButtons {
+    display: flex;
+    gap: 1rem;
+}
+
+.productButtons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 10px;
+    font-size: 16px;
+	color: var(--TitleColor);
+	background: linear-gradient(120deg,hsla(189, 55%, 74%, 0.15), hsla(78, 55%, 74%, 0.05));
+	border: 2px solid var(--TitleColor);
+    transition: all 0.25s;
+ }
+
+ .productCard button i {
+    font-size: 24px;
+ }
+
+ .productCard button:hover {
+    background: var(--bodyBgColor);
+ }

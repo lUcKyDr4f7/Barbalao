@@ -5,7 +5,17 @@ import { Link } from 'react-router-dom';
 import Cart from '../Cart/CartP'
 import { useAuth } from '../../Routes/AuthContext';
 
-export default function NavB({setSearchModal}) {
+export default function NavB({setSearchModal, searchText, setSearchText}) {
+      const {authenticated} = useAuth()
+      const [link, setLink] = useState(null)
+      
+      useEffect(() => {
+        if (authenticated) {
+          setLink(<li><a href="/adm">ADM</a></li>);
+        } else {
+          setLink(null);
+        }
+      }, []);
 
   /* Exibibe botão painel se autenticado */
   const {authenticated} = useAuth()
@@ -56,40 +66,51 @@ export default function NavB({setSearchModal}) {
       }
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []); 
-  
- /*  const [menuOpen, setMenuOpen] = useState(false)
-  const [isPortrait, setIsPortrait] = useState(screen.orientation.type.includes('portrait')) */
-  
-  return (
-      <>
-        {/*<!--========== Header ==========-->*/}
-          <header className={styles.header}>
-              <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} cartList={cartList} />
-              <div className={styles.inner}>
-                  <div className={styles.logo}>
-                      <Link to="/"><img  src={logo}/></Link>
-                  </div>
-                  <div className={styles.searchBar}>
-                    <input type="text" name="searchBar" id="searchBar" placeholder='Pesquise algum produto...'/>
-                    <button onClick={() => setSearchModal(true)}>
-                        <i className="ri-search-line"></i> 
-                    </button>
-                  </div>
-                  {/* isPortrait && <button className={styles.menuBtn} onClick={() => setMenuOpen(!menuOpen)}><i class={menuOpen?"ri-close-fill":"ri-menu-line"}></i></button> */}
-                  {/* (!isPortrait || menuOpen) &&  */<div className={styles.headerBtns}>
-                      <li><Link to="/">Início</Link></li>
-                      <li><Link to="/about-us">Sobre Nós</Link></li>
-                      {link}
-                      <button className={styles.themeButton} onClick={() => changeTheme()}><i className={themeIcon}></i></button>
-                      <button onClick={() => openCart()}><i className="ri-shopping-cart-2-fill"></i></button>
-                  </div>}
-              </div>
-              <div className="scroll-indicator-bar"></div>
-          </header>
-      </> 
-  )
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+    }, []); 
+    return (
+        <>
+         {/*<!--========== Header ==========-->*/}
+            <header className={styles.header}>
+                <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} cartList={cartList} />
+                <div className={styles.inner}>
+                    <div className={styles.logo}>
+                        <Link to="/"><img  src={logo}/></Link>
+                    </div>
+                    <div className={styles.searchBar}>
+                      <input type="text" value={searchText} 
+                      onChange={(e) => setSearchText(e.target.value)} 
+                      name="searchBar" 
+                      id="searchBar" 
+                      placeholder='Pesquise algum produto...'/>
+                      <button onClick={() => {
+                        if (searchText) {
+                          setSearchModal(true)
+                        } else {
+                          alert("Pesquise algo primeiro");
+                        }
+                        }}>
+                          <i class="ri-search-line"></i> 
+                      </button>
+                    </div>
+                    {/* <form>
+                        <input type="text" />
+                        <button type="submit"><i className="ri-search-line"></i></button>
+                    </form> */}
+                    <div className={styles.headerBtns}>
+                        <li><Link to="/">Início</Link></li>
+                        <li><Link to="/about-us">Sobre Nós</Link></li>
+                        {link}
+                        <button className={styles.themeButton} onClick={() => changeTheme()}><i className={themeIcon}></i></button>
+                        <button onClick={() => openCart()}><i className="ri-shopping-cart-2-fill"></i></button>
+                    </div>
+                </div>
+                <div className="scroll-indicator-bar"></div>
+            </header>
+        </> 
+    )
 
 
 }

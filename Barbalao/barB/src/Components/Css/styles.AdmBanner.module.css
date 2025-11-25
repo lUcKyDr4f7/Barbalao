@@ -1,0 +1,185 @@
+.bannerContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 400px));
+    gap: 2rem;
+    padding: 2rem;
+    justify-content: center;
+    max-width: 1400px;
+    height: 68vh;
+    margin: 0 auto;
+}
+
+.bannerCard {
+    position: relative;
+    background: var(--cardBg);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    aspect-ratio: 16/6;
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.bannerCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.bannerImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.bannerCard:hover .bannerImage {
+    transform: scale(1.05);
+}
+
+.bannerInfo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+    padding: 1.5rem 1.25rem 1.25rem;
+    color: white;
+}
+
+.bannerTitle {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0 0 0.4rem 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.3;
+}
+
+.bannerSubtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    font-weight: 400;
+    margin: 0;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.4;
+}
+
+.noBanners {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    text-wrap: wrap;
+    text-align: center;
+    color: var(--bodyTextColor);
+    font-style: italic;
+    padding: 2rem;
+}
+
+.noBanners i {
+    font-size: 3rem;
+    color: var(--bodyTextColor);
+    opacity: 0.5;
+    margin-bottom: 1rem;
+}
+
+/* Header do painel administrativo para contexto */
+.PainelCont {
+    min-height: 100vh;
+    background-color: var(--bodyBgColor);
+}
+
+.PainelOutlet {
+    padding-top: 120px; /* Compensa a navbar fixa */
+    min-height: calc(100vh - 120px);
+}
+
+/* Responsividade considerando o contexto do painel */
+@media (max-width: 1024px) {
+    .bannerContainer {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 360px));
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .PainelOutlet {
+        padding-top: 110px;
+    }
+}
+
+@media (max-width: 768px) {
+    .bannerContainer {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        padding: 1rem;
+        max-width: 100%;
+    }
+    
+    .bannerCard {
+        aspect-ratio: 16/7;
+        max-width: 100%;
+    }
+    
+    .bannerInfo {
+        padding: 1.25rem 1rem 1rem;
+    }
+    
+    .bannerTitle {
+        font-size: 1.2rem;
+    }
+    
+    .bannerSubtitle {
+        font-size: 0.9rem;
+    }
+    
+    .PainelOutlet {
+        padding-top: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bannerContainer {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0.75rem;
+    }
+    
+    .bannerCard {
+        aspect-ratio: 16/8;
+    }
+    
+    .bannerInfo {
+        padding: 1rem 0.8rem 0.8rem;
+    }
+    
+    .bannerTitle {
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .bannerSubtitle {
+        font-size: 0.85rem;
+    }
+    
+    .noBanners {
+        height: 300px;
+        padding: 1rem;
+    }
+    
+    .PainelOutlet {
+        padding-top: 90px;
+    }
+}
+
+/* Para telas muito grandes */
+@media (min-width: 1920px) {
+    .bannerContainer {
+        grid-template-columns: repeat(auto-fit, minmax(380px, 420px));
+        max-width: 1600px;
+    }
+}
