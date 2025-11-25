@@ -12,130 +12,56 @@
    -ms-user-select: none;     
 }
 
-/* .swiperSlide{
-   display: flex;
-   flex-direction: column;
-}
-.swiperSlide h2{
-   color: var(--categTextColor)
-}
-
-.brandsSwiper{
-   position: relative;
-   width: 100%;
-   height: 200px;
-   padding: 20px 0px;
-}
-.brandsSwiper .swiperSlide{
-   width: 200px;
-   height: 100%;
-   display: flex;
-   text-align: center;
-   justify-content: center;
-   align-items: center;
-   border-radius: 10px;
-   padding: 0 20px;
-   background: var(--cardBg);
-}
-.brandsSwiper .swiperSlide.avaliable{
-   margin: 0 14px;
- 
-}
-.brandsSwiper .swiperSlide.avaliable.start{
-   margin: 0;
-   margin-right: 15px;
-}
-.brandsSwiper .swiperSlide.avaliable.end{
-   margin: 0;
-   margin-left: 15px;
-}
-.brandsSwiper .swiperSlide img{
-   width: 100px;
-   height: 100%;
-   max-height: 100%;
-   object-fit: contain;
-   filter: invert(var(--categFilterI));
-   transition: all 0.3s ease;
-   margin-bottom: -10px;
-}
-.brandsSwiper .swiperSlide h2{
-    transition: all 0.3s ease; } 
-.brandsSwiper .swiperSlide.avaliable:hover h2{
-   filter: var(--categFilter); 
-   cursor: pointer; 
-} 
-.brandsSwiper .swiperSlide.avaliable:hover img{
-   filter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(103%) contrast(92%);
-   cursor: pointer; 
-} 
-:global(.brandsSwiper .swiper-button-next:after, .brandsSwiper .swiper-button-prev:after, .inspirationsSwiper .swiper-button-next:after, .inspirationsSwiper .swiper-button-prev:after){
-   display: none; 
-} 
-:global(.brandsSwiper .swiper-button-next i, .brandsSwiper .swiper-button-prev i, .inspirationsSwiper .swiper-button-next i, .inspirationsSwiper .swiper-button-prev i){ 
-   color: hsl(217 85% 74%); 
-   font-size: 4.5rem; 
-   transition: .3s ease; 
-} 
-:global(.brandsSwiper .swiper-button-next i:hover, .brandsSwiper .swiper-button-prev i:hover, .inspirationsSwiper .swiper-button-next i:hover, .inspirationsSwiper .swiper-button-prev i:hover){
-   color: hsl(217 85% 67%);
-} */
-
-.swiperElement h2{
-   color: var(--categTextColor);
-}
-.categSwiper {
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-   gap: 0;
-}
-.swiperSlide{
-   display: flex;
-   flex-direction: row;
-   width: 90vw;
-   height: 200px;
-   margin: 20px 0;
-   overflow-x: scroll;
-   overflow-y: hidden;
-   gap: 30px;
-}
-.swiperSlide::-webkit-scrollbar, .swiperSlide::-webkit-scrollbar-track, .swiperSlide::-webkit-scrollbar-thumb {
-   height: 0px;
-}
-.swiperSlide .swiperElement{
+.swiperCateg{
    min-width: calc(30vw - 20px);
    height: 100%;
    display: flex;
    flex-direction: column;
    text-align: center;
-   justify-content: center;
+   justify-content: space-evenly;
    align-items: center;
    border-radius: 10px;
    background: var(--cardBg);
+   cursor: pointer;
 }
-.swiperSlide .swiperElement img{
+.swiperCateg img{
    width: 100px;
-   height: 100%;
+   height: 100px;
    max-height: 100%;
    object-fit: contain;
    filter: invert(var(--categFilterI));
    transition: all 0.3s ease;
    margin-bottom: -10px;
 }
-.swiperSlide .swiperElement h2{
-    transition: all 0.3s ease;
-} 
-.swiperSlide .swiperElement.avaliable:hover h2{
-   filter: var(--categFilter); 
-   cursor: pointer; 
-} 
-.swiperSlide .swiperElement.avaliable:hover img{
+.swiperCateg:hover img{
    filter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(103%) contrast(92%);
-   cursor: pointer; 
 }
-.categSwiper .swipeBtn, .categSwiper .swipeBtn i{
+.swiperCateg h2{
    color: var(--categTextColor);
-   cursor: pointer;
-   font-size: 3vw;
-   width: 5vw;
+   transition: all 0.3s ease;
+   margin: 0;
+}
+.swiperCateg:hover h2{
+   filter: var(--categFilter); 
+}
+
+@media (orientation: portrait) {
+   .titleCateg{
+      width: 100vw;
+      font-size: 2.5rem;
+      margin-top: 35vw;
+      margin-bottom: 20px;   
+   }
+
+   .swiperCateg{
+      min-width: calc(30vw - 10px);
+      border-radius: 10px;
+   }
+   .swiperCateg img{
+      width: 50px;
+      height: 50px
+   }
+   .swiperCateg h2{
+      font-size: 1.2rem;
+   }
 }

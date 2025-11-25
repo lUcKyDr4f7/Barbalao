@@ -1,65 +1,41 @@
-import styles from '../Css/styles.categP.module.css'
-import 'swiper/css';
-import 'swiper/css/navigation';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import styles from '../Css/styles.categP.module.css';
 import { useRef, useState } from 'react';
+import Swiper from '../Swiper/Swiper.jsx'
 import Lanche from '../../assets/categorias/burger.png'
 import Pastel from '../../assets/categorias/pastel.png'
 import Salgado from '../../assets/categorias/coxinha.png'
 import Porção from '../../assets/categorias/porcao.png'
 import Bebida from '../../assets/categorias/drink.png'
-import BebidaA from '../../assets/categorias/drinkA.png'
+import Doces from '../../assets/categorias/chocolate.png'
 
 export default function CategP({ categorias }) {
   const categoriasL = categorias || JSON.parse(localStorage.getItem("categories"))
   console.log(categoriasL)
-  
-  const [isPortrait, setIsPortrait] = useState(screen.orientation.type.includes('portrait'))
-  const swiperRef = useRef(null)
-
-  function swipeLeft() {
-    swiperRef.current.scrollBy({top: 0, left: -(9 * window.innerWidth / 10 + 30), behavior: "smooth",});
-  }
-  function swipeRight() {
-    swiperRef.current.scrollBy({top: 0, left: 9 * window.innerWidth / 10 + 30, behavior: "smooth",});
-  }
 
   return (
       <>
         <h2 className={styles.titleCateg}>Cardápio</h2>
-        {/* <Swiper className={styles.brandsSwiper} slidesPerView={2.426} slidesPerGroup={2.426} centerInsufficientSlides={'true'} allowTouchMove={false} navigation={true} modules={[Navigation]} swipeable={'true'} slidesOffsetBefore={15} slidesOffsetAfter={395} onSlideChange={() => console.log('slide change')} onSwiper={(swiper) => console.log(swiper)}>
-            ({categoriasL.length !== 0? 
-                categoriasL.map((categ, i) => (
-                  <SwiperSlide className={`${styles.swiperSlide} ${styles.avaliable} ${i==0? styles.start: i==categoriasL.length-1 ? styles.end : ''}`}>
-                    {<img src={categ.imagem}/>}
-                    <h2>{(categ.nome).slice(0,1).toUpperCase() + (categ.nome).slice(1)}</h2>
-                  </SwiperSlide>
-                ))
-              :
+        <Swiper className={styles.brandsSwiper} slidesPerView={2.426} slidesPerGroup={2.426} centerInsufficientSlides={'true'} allowTouchMove={false} navigation={true} modules={[Navigation]} swipeable={'true'} slidesOffsetBefore={15} slidesOffsetAfter={395} onSlideChange={() => console.log('slide change')} onSwiper={(swiper) => console.log(swiper)}>
+          {categoriasL.length !== 0?
+            categoriasL.map((categ, i) => (
               <>
-                <SwiperSlide className={`${styles.swiperSlide} ${styles.avaliable} ${styles.start}`}><img src={Lanche}/><h2>Lanches</h2></SwiperSlide>
-                <SwiperSlide className={`${styles.swiperSlide} ${styles.avaliable}`}><img src={Pastel}/><h2>Pastéis</h2></SwiperSlide>
-                <SwiperSlide className={`${styles.swiperSlide} ${styles.avaliable}`}><img src={Salgado}/><h2>Salgados</h2></SwiperSlide>
-                <SwiperSlide className={`${styles.swiperSlide} ${styles.avaliable}`}><img src={Porção}/><h2>Porções</h2></SwiperSlide>
-                <SwiperSlide className={`${styles.swiperSlide} ${styles.avaliable}`}><img src={Bebida}/><h2>Bebidas</h2></SwiperSlide>
-                <SwiperSlide className={`${styles.swiperSlide} ${styles.avaliable} ${styles.end}`}><img className='bebidaA' src={BebidaA}/><h2 className='bebidA'>Bebidas Alcólicas</h2></SwiperSlide>
-
+              <div className={`${styles.swiperSlide}`}>
+                {<img src={categ.imagem}/>}
+                <h2>{(categ.nome).slice(0,1).toUpperCase() + (categ.nome).slice(1)}</h2>
+              </div>
               </>
-            })
-        </Swiper> */}
-        <div className={styles.categSwiper}>
-          <button className={styles.swipeBtn} onClick={() => swipeLeft()}><i className="ri-arrow-left-s-line"></i></button>
-          <div id='swiper' className={styles.swiperSlide} ref={swiperRef}>
-            <div className={`${styles.swiperElement} ${styles.avaliable} ${styles.start}`}><img src={Lanche}/><h2>Lanches</h2></div>
-            <div className={`${styles.swiperElement} ${styles.avaliable}`}><img src={Pastel}/><h2>Pastéis</h2></div>
-            <div className={`${styles.swiperElement} ${styles.avaliable}`}><img src={Salgado}/><h2>Salgados</h2></div>
-            <div className={`${styles.swiperElement} ${styles.avaliable}`}><img src={Porção}/><h2>Porções</h2></div>
-            <div className={`${styles.swiperElement} ${styles.avaliable}`}><img src={Bebida}/><h2>Bebidas</h2></div>
-            <div className={`${styles.swiperElement} ${styles.avaliable} ${styles.end}`}><img src={BebidaA}/><h2>Sobremesas/Doces</h2></div>
-          </div>
-          <button className={styles.swipeBtn} onClick={() => swipeRight()}><i className="ri-arrow-right-s-line"></i></button>
-        </div>
+            ))
+          :
+          <>
+            <div className={`${styles.swiperCateg}`}><img src={Lanche}/><h2>Lanches</h2></div>
+            <div className={`${styles.swiperCateg}`}><img src={Pastel}/><h2>Pastéis</h2></div>
+            <div className={`${styles.swiperCateg}`}><img src={Salgado}/><h2>Salgados</h2></div>
+            <div className={`${styles.swiperCateg}`}><img src={Porção}/><h2>Porções</h2></div>
+            <div className={`${styles.swiperCateg}`}><img src={Bebida}/><h2>Bebidas</h2></div>
+            <div className={`${styles.swiperCateg}`}><img src={Doces}/><h2>Doces</h2></div>
+          </>
+          }
+        </Swiper>
       </>
   );
 }
