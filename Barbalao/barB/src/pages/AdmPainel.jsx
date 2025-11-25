@@ -74,9 +74,7 @@ export default function AdmPainel() {
                 
 
                 <div className={styles.PainelNav}>
-                    <button className={styles.Lupa}>
-                        <img src={lupa} alt="" />
-                    </button>
+                    
                     <input type="text" className={styles.PainelPesq} 
                     value={admSearchText} 
                     onChange={(e) => setAdmSearchText(e.target.value)}

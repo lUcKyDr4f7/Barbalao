@@ -9,6 +9,7 @@
     align-items: center; 
     transition: background 0.3s ease; 
     overscroll-behavior: none; 
+    overflow: scroll;
 } 
 
 .PainelH1 { 

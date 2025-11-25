@@ -12,21 +12,24 @@
     color: var(--TitleColor);
 }
 
-.tituloSecao {
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
+.tituloPrincipal {
+    font-size: 3vw;
+    font-weight: 600;
+    margin-bottom: 2vh;
     color: var(--TitleColor);
 }
 
-.secao {
-    margin-bottom: 2rem;
+.tituloSecao {
+    font-size: 2vw;
+    font-weight: 500;
+    margin-bottom: 1vh;
+    color: var(--TitleColor);
 }
 
 .categoriasGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(25vw, 1fr));
+    gap: 2vw;
     align-items: start;
 }
 
@@ -59,6 +62,8 @@
 .categoriaImagem {
     width: 64px;
     height: 64px;
+    max-width: 64px;
+    max-height: 64px;
     object-fit: cover;
     border-radius: 8px;
     filter: invert(var(--categFilterI))
@@ -73,6 +78,8 @@
     font-size: 1.125rem;
     font-weight: 500;
     margin-bottom: 0.25rem;
+    font-size: 1.5vw;
+    font-weight: 500;
 }
 
 .categoriaContador {
@@ -174,8 +181,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1rem;
-    padding: 1.5rem;
-    background-color: 
+    padding: 1.5rem; 
 }
 
 .subcategoriaCard {
