@@ -92,6 +92,7 @@ button {
   --categFilterI: 0%;
   --categFilter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(105%) contrast(94%);
   --cardBg: #ffffff;
+  --categBgColor: white;
   --scrollbarTrack: #e0e8ff;
   --footBgColor:#dae6ff;
   --footBgColor1:#00000008;
