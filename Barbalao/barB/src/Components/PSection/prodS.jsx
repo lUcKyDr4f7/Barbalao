@@ -4,7 +4,7 @@ import styles from '../Css/styles.pcard_S.module.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useState, useEffect } from 'react';
 import { Navigation } from 'swiper/modules';
-import { getImagePath } from '../utils/pathP.jsx';
+/* import { getImagePath } from '../utils/pathP.jsx'; */
 import ProdC from '../PCard/prodC.jsx';
 /* import Swiper from '../Swiper/Swiper.jsx'; */
 
@@ -105,3 +105,4 @@ export default function ProdS({ produtos, subCateg }) {
   );
 
 }
+
