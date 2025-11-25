@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom';
 import styles from '../../Css/styles.CriaT.module.css'
 
 export default function CriaBanner() {
-    const [files, setFiles] = useState([])
+    const [file, setFile] = useState(null)
     const [fechar, setFechar] = useState(false)
 
+    const handleFileChange = (e) => {
+        setFile(e.target.files[0]); 
+    };
 
     const handleSub = (e) => {
         e.preventDefault()
@@ -15,7 +18,7 @@ export default function CriaBanner() {
         const data = Object.fromEntries(formData.entries());
         console.log("Dados do form:", data); 
 
-        if(files){
+        if(file){
             const leitor = new FileReader()
             leitor.onload = (ev) => {
 
@@ -53,7 +56,7 @@ export default function CriaBanner() {
 
             }
             
-            leitor.readAsDataURL(files)
+            leitor.readAsDataURL(file)
         }
         
 
@@ -93,7 +96,8 @@ export default function CriaBanner() {
                         type="file" 
                         name="imagem" 
                         id="imagem" 
-                        accept="image/*" 
+                        accept="image/*"
+                        onChange={handleFileChange} 
                         required
                     />
                     
