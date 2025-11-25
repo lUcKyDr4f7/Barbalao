@@ -1,12 +1,11 @@
 import styles from '../Css/styles.categP.module.css';
-import { useRef, useState } from 'react';
-import Swiper from '../Swiper/Swiper.jsx'
-import Lanche from '../../assets/categorias/burger.png'
-import Pastel from '../../assets/categorias/pastel.png'
-import Salgado from '../../assets/categorias/coxinha.png'
-import Porção from '../../assets/categorias/porcao.png'
-import Bebida from '../../assets/categorias/drink.png'
-import Doces from '../../assets/categorias/chocolate.png'
+import Swiper from '../Swiper/Swiper.jsx';
+import Lanche from '../../assets/categorias/burger.png';
+import Pastel from '../../assets/categorias/pastel.png';
+import Salgado from '../../assets/categorias/coxinha.png';
+import Porção from '../../assets/categorias/porcao.png';
+import Bebida from '../../assets/categorias/drink.png';
+import Doces from '../../assets/categorias/chocolate.png';
 
 export default function CategP({ categorias }) {
   const categoriasL = categorias || JSON.parse(localStorage.getItem("categories"))
@@ -20,7 +19,7 @@ export default function CategP({ categorias }) {
             categoriasL.map((categ, i) => (
               <>
               <div className={`${styles.swiperSlide}`}>
-                {<img src={categ.imagem}/>}
+                <img src={categ.imagem}/>
                 <h2>{(categ.nome).slice(0,1).toUpperCase() + (categ.nome).slice(1)}</h2>
               </div>
               </>

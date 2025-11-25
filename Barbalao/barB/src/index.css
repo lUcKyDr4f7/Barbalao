@@ -141,6 +141,6 @@ button {
 
 @media (orientation: portrait) {
   #root {
-    overflow-y: hidden;
+    overflow: hidden;
   }
 }

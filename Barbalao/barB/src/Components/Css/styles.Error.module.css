@@ -18,3 +18,13 @@
 .img {
     width: 35%;
 }
+
+@media (orientation: portrait) {
+    .img {
+        width: 70%
+    }
+    .cont h1{
+        text-align: center;
+        width: auto;
+    }
+}

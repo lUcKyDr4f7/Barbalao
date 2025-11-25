@@ -6,11 +6,14 @@ export default function Swiper(props) {
   const swiperRef = useRef(null)
 
   function swipeLeft() {
-    swiperRef.current.scrollBy({top: 0, left: -(9 * window.innerWidth / 10 + Number(swiperRef.current.style.columnGap)), behavior: "smooth",});
+    let gap = Number(getComputedStyle(swiperRef.current).getPropertyValue("column-gap").slice(0, -2));
+    swiperRef.current.scrollBy({top: 0, left: -(9 * window.innerWidth / 10 + gap), behavior: "smooth",});
+    console.log();
   }
 
   function swipeRight() {
-    swiperRef.current.scrollBy({top: 0, left: 9 * window.innerWidth / 10 + Number(swiperRef.current.style.columnGap), behavior: "smooth",});
+    let gap = Number(getComputedStyle(swiperRef.current).getPropertyValue("column-gap").slice(0, -2));
+    swiperRef.current.scrollBy({top: 0, left: 9 * window.innerWidth / 10 + gap, behavior: "smooth",});
   }
 
   return (

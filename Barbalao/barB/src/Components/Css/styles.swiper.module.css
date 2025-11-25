@@ -29,18 +29,11 @@
    .swiperSlide{
       height: 100px;
       margin: 10px 0;
-      overflow-x: scroll;
-      overflow-y: hidden;
       gap: 15px;
-   }
-   .swiperSlide::-webkit-scrollbar, .swiperSlide::-webkit-scrollbar-track, .swiperSlide::-webkit-scrollbar-thumb {
-      height: 0px;
    }
 
    .swiper .swipeBtn, .swiper .swipeBtn i{
-      color: var(--categTextColor);
-      cursor: pointer;
-      font-size: 3vw;
+      font-size: 5vw;
       width: 5vw;
    }
 }

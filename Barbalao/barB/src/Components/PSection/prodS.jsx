@@ -1,7 +1,7 @@
 import 'swiper/css';
 import 'swiper/css/navigation';
 import styles from '../Css/styles.pcard_S.module.css';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import Swiper from '../Swiper/Swiper.jsx';
 import { useState, useEffect } from 'react';
 import { Navigation } from 'swiper/modules';
 import ProdC from '../PCard/prodC.jsx';
@@ -40,7 +40,7 @@ export default function ProdS({ produtos, subCateg }) {
           <Swiper className={styles.brandsSwiper} slidesPerView={5} spaceBetween={22} allowTouchMove={false} navigation={produtosL.length > 5} modules={[Navigation]} swipeable={true} slidesOffsetBefore={15} slidesOffsetAfter={10} onSlideChange={() => {console.log('slide change')}} onSwiper={(swiper) => {console.log(swiper)}}>
               
             {prodAtuais.map((produto) => (
-              <SwiperSlide onClick={() => setSelectedProduct(produto)} key={produto.id_prod} className={`${styles.swiperSlide} ${styles.avaliable}`}>
+              <div onClick={() => setSelectedProduct(produto)} key={produto.id_prod} className={`${styles.swiperSlide} ${styles.avaliable}`}>
                 <div className={`${styles.cardWithModal} ${styles.airJordan}`}>
                   <div className={styles.productCard}>
                     <div className={styles.productImg}>
@@ -65,7 +65,7 @@ export default function ProdS({ produtos, subCateg }) {
                     </div>
                   </div>
                 </div>
-              </SwiperSlide>
+              </div>
             ))}
           </Swiper>
 

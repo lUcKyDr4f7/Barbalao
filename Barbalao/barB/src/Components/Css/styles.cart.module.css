@@ -307,19 +307,19 @@
 
   @keyframes closeBtnOpening {
     from {margin-left: 0;}
-    to {margin-left: calc(-90vw + 1rem);}
+    to {margin-left: calc(90vw - 1rem);}
   }
   @keyframes closeBtnClosing {
-    from {margin-left: calc(-90vw + 1rem);}
+    from {margin-left: calc(90vw - 1rem);}
     to {margin-left: 0;}
   }
   .closeCartBtn {
-    margin-left: calc(-90vw + 1rem);
+    margin-left: calc(90vw - 1rem);
   }
 
   @keyframes cartTitleClosing {
     from {margin-left: 0vw;}
-    to {margin-left: 40vw;}
+    to {margin-left: 90vw;}
   }
 
   @keyframes cartListOpening {

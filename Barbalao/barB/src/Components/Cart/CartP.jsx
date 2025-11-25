@@ -6,9 +6,9 @@ localStorage.setItem("theme", localStorage.getItem("theme")?localStorage.getItem
 
 export default function Cart(props) {
 
-    const [isClosing, setIsClosing] = useState(false)
     const Products = JSON.parse(localStorage.getItem("products")) || {};
-    
+
+    const [isClosing, setIsClosing] = useState(false)
     function closeCart() {
         setIsClosing(true)
         setTimeout(() => {
@@ -20,15 +20,14 @@ export default function Cart(props) {
         document.body.classList = theme;
     }
 
-    const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cart")));
-    const [totalValue, setTotalValue] = useState(0);
     const [isOldCart, setIsOldCart] = useState(false)
-
+    const [cartItems, setCartItems] = useState(isOldCart?JSON.parse(localStorage.getItem("oldCart")):JSON.parse(localStorage.getItem("cart")));
     if(!cartItems) {
         setCartItems({});
         localStorage.setItem("cart", JSON.stringify({}))
     }
 
+    const [totalValue, setTotalValue] = useState(0);
     function calcTotal() {
         let total = 0;
         Object.keys(cartItems).map( key => {
@@ -38,11 +37,6 @@ export default function Cart(props) {
         })
         setTotalValue(total);
     }
-
-    useEffect(() => {
-        localStorage.setItem("cart", JSON.stringify(cartItems));
-        calcTotal();
-    }, [cartItems]);
 
     const [linkWhatsapp, setLinkWhatsapp] = useState('');
     function createLinkWhatsApp() {
@@ -65,15 +59,15 @@ export default function Cart(props) {
     }
 
     useEffect(() => {
-        setCartItems(JSON.parse(localStorage.getItem("cart")));
-        if(props.isCartOpen) createLinkWhatsApp();
-        setIsOldCart(false);
-    }, [props.isCartOpen]);
-
-    useEffect(() => {
+        localStorage.setItem(isOldCart?"oldCart":"cart", JSON.stringify(cartItems));
         createLinkWhatsApp();
         calcTotal();
     }, [cartItems])
+
+    useEffect(() => {
+        setCartItems(JSON.parse(localStorage.getItem("cart")));
+        setIsOldCart(false);
+    }, [props.isCartOpen]);
 
     useEffect(() => {
         if (isOldCart) {
@@ -84,7 +78,6 @@ export default function Cart(props) {
             localStorage.setItem('oldCart', JSON.stringify(cartItems));
             setCartItems(JSON.parse(localStorage.getItem('cart')));
         }
-        /* console.log(cartItems) */
     }, [isOldCart])
 
     function order() {
@@ -112,9 +105,8 @@ export default function Cart(props) {
                             return <CartItem key={key} cart={cartItems} setCart={setCartItems} item={key} amount={cartItems[key]} />;
                         }):<p>O carrinho está vazio</p>
                     }</div></div>
-                    { /* Object.keys(cartItems).length != 0 &&  */<li className={styles.totalValue}>Total: R${totalValue.toFixed(2).replace('.', ',')}</li> }
-                    {/* { Object.keys(cartItems).length != 0 && <a href={linkWhatsapp} target="_blank"><button className={styles.whatsappBtn}>Fazer Pedido</button></a>} */}
-                    { /* Object.keys(cartItems).length != 0 &&  */<button disabled={Object.keys(cartItems).length == 0}onClick={() => order() } className={styles.whatsappBtn}>Fazer Pedido</button>}
+                    <li className={styles.totalValue}>Total: R${totalValue.toFixed(2).replace('.', ',')}</li>
+                    <button disabled={Object.keys(cartItems).length == 0}onClick={() => order() } className={styles.whatsappBtn}>Fazer Pedido</button>
                 </div>
             </>
         ) 
