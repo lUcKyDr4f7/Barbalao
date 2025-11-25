@@ -18,7 +18,7 @@ export default function Swiper(props) {
 
   return (
       <>
-        <div className={styles.swiper}>
+        <div className={`${styles.swiper} ${props.className}`}>
           <button className={styles.swipeBtn} onClick={() => swipeLeft()}><i className="ri-arrow-left-s-line"></i></button>
           <div id='swiper' className={styles.swiperSlide} ref={swiperRef}>{props.children}</div>
           <button className={styles.swipeBtn} onClick={() => swipeRight()}><i className="ri-arrow-right-s-line"></i></button>
