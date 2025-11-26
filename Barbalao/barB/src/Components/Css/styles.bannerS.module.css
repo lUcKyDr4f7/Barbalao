@@ -37,4 +37,13 @@
 }
 :global(.carousel .control-prev) {
   border-radius: 15px 0 0 15px;
+
+}
+@media (orientation: portrait) {
+  .customLegend {
+    font-size: 2rem;
+  }
+  .customTitle {
+    font-size: 3.5rem;
+  }
 }
