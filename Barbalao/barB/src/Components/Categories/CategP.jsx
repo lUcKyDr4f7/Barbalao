@@ -21,7 +21,7 @@ export default function CategP({ categorias }) {
           {categoriasL.length !== 0?
             categoriasL.map((categ, i) => (
               <>
-              <div className={`${styles.swiperCateg}`} onClick(() => scrollToSection(categ.id_categoria)>
+              <div className={`${styles.swiperCateg}`} onClick={() => scrollToSection(categ.id_categoria)}>
                 <img src={categ.imagem}/>
                 <h2>{(categ.nome).slice(0,1).toUpperCase() + (categ.nome).slice(1)}</h2>
               </div>
@@ -42,4 +42,5 @@ export default function CategP({ categorias }) {
   );
 
 }
+
 
