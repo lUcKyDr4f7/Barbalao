@@ -3,7 +3,7 @@
   line-height: 1.5;
   font-weight: 400;
   overscroll-behavior: none;
-  overflow: scroll;
+  
   /* color-scheme: light dark; */
   color: var(--bodyTextColor);
   /* color: rgba(255, 255, 255, 0.87); */
@@ -144,6 +144,6 @@ button {
 
 @media (orientation: portrait) {
   #root {
-    overflow: hidden;
+    overflow: scroll;
   }
 }
