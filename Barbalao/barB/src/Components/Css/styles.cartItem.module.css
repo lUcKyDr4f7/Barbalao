@@ -7,7 +7,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: calc(36vw - 1vh);
+  width: calc(36vw - 2vh);
   height: 12vh;
   background: var(--categBgColor);
   border-radius: 1vh;
