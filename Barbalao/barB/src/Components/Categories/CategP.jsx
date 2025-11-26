@@ -12,9 +12,9 @@ export default function CategP({ categorias }) {
 
   const scrollToSection = (id) => {
     const alvo = document.getElementById(id);
-    const y = alvo.offsetTop - 100;
-    window.scrollTo({ top: y, behavior: "smooth" });
-
+    if (alvo) {
+      alvo.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
@@ -45,6 +45,7 @@ export default function CategP({ categorias }) {
   );
 
 }
+
 
 
 
