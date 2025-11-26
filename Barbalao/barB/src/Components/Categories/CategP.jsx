@@ -10,8 +10,8 @@ import Doces from '../../assets/categorias/chocolate.png';
 export default function CategP({ categorias }) {
   const categoriasL = categorias || JSON.parse(localStorage.getItem("categories"))
 
-  const scrollToSection = (alvo) => {
-    const alvo = document.getElementById(alvo);
+  const scrollToSection = (id) => {
+    const alvo = document.getElementById(id);
     const y = alvo.offsetTop - 100;
     window.scrollTo({ top: y, behavior: "smooth" });
 
@@ -45,6 +45,7 @@ export default function CategP({ categorias }) {
   );
 
 }
+
 
 
 
