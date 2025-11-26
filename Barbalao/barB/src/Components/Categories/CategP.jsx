@@ -11,7 +11,10 @@ export default function CategP({ categorias }) {
   const categoriasL = categorias || JSON.parse(localStorage.getItem("categories"))
 
   const scrollToSection = (alvo) => {
-    document.getElementById(alvo).scrollIntoView({ behavior: "smooth", block: "start" });
+    const alvo = document.getElementById(alvo);
+    const y = alvo.offsetTop - 100;
+    window.scrollTo({ top: y, behavior: "smooth" });
+
   };
 
   return (
@@ -42,5 +45,6 @@ export default function CategP({ categorias }) {
   );
 
 }
+
 
 
