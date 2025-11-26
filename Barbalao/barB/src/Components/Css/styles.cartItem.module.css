@@ -45,6 +45,7 @@
   height: 2.5vh;
   margin: 0 .2vw 0 .2vw;
   font-size: .8rem;
+  justify-content: start;
 }
 .cartItem button {
   color: white;
