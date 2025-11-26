@@ -1,5 +1,5 @@
 /* =================== Google Fonts ====================== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 .swiperTitle{
    color: var(--TitleColor);
 }
@@ -197,4 +197,220 @@
    text-align: start;
    text-transform: uppercase;
    letter-spacing: -1px;
+} */
+
+/* =================== Google Fonts ====================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* ==================== Título ==================== */
+.swiperTitle {
+   color: var(--TitleColor);
 }
+
+/* ==================== Card base ==================== */
+.productCard {
+   position: relative;
+   background: var(--cardBg);
+   width: 100%;
+   max-width: 230px;
+   border-radius: 10px;
+   cursor: pointer;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+}
+
+/* ==================== Marca ==================== */
+.productBrand {
+   position: absolute;
+   width: 50px;
+   height: 50px;
+   margin: 32px 24px;
+}
+.productBrand img {
+   width: 70%;
+   height: 70%;
+   object-fit: contain;
+   filter: invert(100%);
+   transition: all 0.3s ease;
+}
+.productCard:hover .productBrand img {
+   transform: scale(1.1);
+   filter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(103%) contrast(92%);
+}
+
+/* ==================== Imagem ==================== */
+.productImg {
+   width: 100%;
+   height: 200px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: rgba(0, 0, 0, 0.1);
+}
+.productImg img {
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+   transition: 0.3s;
+}
+.productCard:hover .productImg img {
+   transform: scale(1.03);
+}
+
+/* ==================== Informações ==================== */
+.productInfo {
+   position: relative;
+   padding: 10px 15px 15px 20px;
+}
+.productInfo .info {
+   margin: 3px 0;
+}
+.productInfo span {
+   color: #9e9e9e;
+   font-size: 0.98rem;
+   font-weight: 400;
+   text-transform: uppercase;
+}
+.productInfo h4 {
+   color: var(--TitleColor);
+   font-size: 1.07rem;
+   font-weight: 500;
+}
+.productStars {
+   color: #77a3f7;
+   font-size: 1.1rem;
+}
+
+/* ==================== Opções ==================== */
+.productOptions,
+.productOptionsD {
+   max-width: 100%;
+   display: flex;
+   gap: 10px;
+   align-items: center;
+   margin-bottom: 30px;
+}
+
+.picante,
+.vegetariano {
+   border-radius: 3px;
+   padding: 2px 4px;
+   font-size: 0.98rem;
+   font-weight: 500;
+}
+
+.picante {
+   background: rgba(207, 163, 163, 0.15);
+   color: #f77777;
+}
+
+.vegetariano {
+   background: rgba(207, 247, 119, 0.15);
+   color: #caf777;
+}
+
+/* ==================== Preços ==================== */
+.priceWithDescount {
+   color: #77a3f7;
+   font-weight: 500;
+}
+.normalPrice {
+   color: #9e9e9e;
+   font-weight: 400;
+   font-size: 0.9rem;
+}
+
+/* ==================== Ícone do carrinho ==================== */
+.shopIcon {
+   position: absolute;
+   right: 0;
+   bottom: 0;
+   font-size: 1.3rem;
+   color: #77a3f7;
+   margin: 17px;
+   transform: scale(0);
+   transition: 0.3s;
+}
+.productCard:hover .shopIcon {
+   transform: scale(1);
+}
+
+/* ==================== Swiper ==================== */
+.swiperSlide {
+   display: flex;
+   flex-direction: column;
+}
+
+.brandsSwiper {
+   width: 100%;
+   padding: 20px 0;
+}
+
+.brandsSwiper .swiperSlide {
+   width: 100% !important;
+   max-width: 230px;
+   height: auto;
+   display: flex;
+   justify-content: center;
+   border-radius: 10px;
+}
+
+.cardWithModal {
+   width: 100%;
+}
+
+/* Coming soon */
+.coming-soon {
+   position: absolute;
+   top: 10px;
+   left: 10px;
+   padding: 10px;
+   background: rgba(0, 0, 0, 0.2);
+   border-radius: 10px;
+}
+.coming-soon h5 {
+   font-size: 1.1rem;
+   font-weight: 600;
+   color: hsl(217 85% 74%);
+   text-transform: uppercase;
+   letter-spacing: -1px;
+}
+
+/* ==================== RESPONSIVIDADE ==================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+   .productCard {
+      max-width: 200px;
+   }
+   .brandsSwiper .swiperSlide {
+      max-width: 200px !important;
+   }
+   .productImg {
+      height: 160px;
+   }
+}
+
+/* Mobile geral */
+@media (max-width: 480px) {
+   .productCard {
+      max-width: 180px;
+      border-radius: 8px;
+   }
+   .brandsSwiper .swiperSlide {
+      max-width: 180px !important;
+   }
+   .productImg {
+      height: 140px;
+   }
+   .productInfo h4,
+   .priceWithDescount {
+      font-size: 0.95rem;
+   }
+   .shopIcon {
+      font-size: 1.1rem;
+      margin: 12px;
+   }
+}
+
