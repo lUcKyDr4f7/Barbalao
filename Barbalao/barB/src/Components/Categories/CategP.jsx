@@ -13,7 +13,7 @@ export default function CategP({ categorias }) {
   const scrollToSection = (id) => {
     const alvo = document.getElementById(id);
     if (alvo) {
-      const y = alvo.getBoundingClientRect().top + window.scrollY - 150;
+      const y = alvo.getBoundingClientRect().top + window.scrollY - 500;
       alvo.scrollIntoView({ top: y, behavior: "smooth"});
     }
   };
