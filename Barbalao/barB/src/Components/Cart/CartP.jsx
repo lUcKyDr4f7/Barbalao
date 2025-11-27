@@ -85,8 +85,9 @@ export default function Cart(props) {
     function order() {
         let link = createLinkWhatsApp();
         if(!isOldCart) {
-        localStorage.setItem('oldCart', JSON.stringify(cartItems))
-        localStorage.setItem('cart', JSON.stringify({}))
+            localStorage.setItem('oldCart', JSON.stringify(cartItems))
+            localStorage.setItem('cart', JSON.stringify({}))
+        }
         closeCart()
         window.open(link)
     }
@@ -109,7 +110,7 @@ export default function Cart(props) {
                         }):<p>O carrinho está vazio</p>
                     }</div></div>
                     <li className={styles.totalValue}>Total: R${totalValue.toFixed(2).replace('.', ',')}</li>
-                    <button disabled={Object.keys(cartItems).length == 0} {/* alt={`Fazer pedido em ${linkWhatsapp}`} */} onClick={() => order() } className={styles.whatsappBtn}>Fazer Pedido</button>
+                    <button disabled={Object.keys(cartItems).length == 0} alt={`Fazer pedido em ${linkWhatsapp}`} onClick={() => order() } className={styles.whatsappBtn}>Fazer Pedido</button>
                 </div>
             </>
         ) 
