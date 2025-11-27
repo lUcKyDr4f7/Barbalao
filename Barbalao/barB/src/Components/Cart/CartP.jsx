@@ -8,14 +8,14 @@ export default function Cart(props) {
 
     const Products = JSON.parse(localStorage.getItem("products")) || {};
 
-    const [isClosing, setIsClosing] = useState(false)
+    const [isClosing, setIsClosing] = useState(false);
     function closeCart() {
-        setIsClosing(true)
+        setIsClosing(true);
         setTimeout(() => {
             props.setIsCartOpen(false);
             setIsClosing(false);
-        }, 400)
-        let theme = localStorage.getItem("theme").replaceAll(' cartOpen', '')
+        }, 400);
+        let theme = localStorage.getItem("theme").replaceAll(' cartOpen', '');
         localStorage.setItem("theme", theme);
         document.body.classList = theme;
     }
@@ -23,9 +23,9 @@ export default function Cart(props) {
     const [cartItems, setCartItems] = useState(/* isOldCart?JSON.parse(localStorage.getItem("oldCart")): */JSON.parse(localStorage.getItem("cart")));
     if(!cartItems) {
         setCartItems({});
-        localStorage.setItem("cart", JSON.stringify({}))
+        localStorage.setItem("cart", JSON.stringify({}));
     }
-    const [isOldCart, setIsOldCart] = useState('iniciando')
+    const [isOldCart, setIsOldCart] = useState(false);
 
     const [totalValue, setTotalValue] = useState(0);
     function calcTotal() {
@@ -41,7 +41,7 @@ export default function Cart(props) {
     const [linkWhatsapp, setLinkWhatsapp] = useState('');
     function createLinkWhatsApp() {
         /* Por enquanto o número é o do Oséias */
-        let link
+        let link;
         if(Object.keys(cartItems).length != 0) {
             link = "https://wa.me/558182090299?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%3A";
             let replacements = [[' ', '$', '+', ',', '/', ':'], ["%20", "%24", "%2B", "%2C", "%2F", "%3A"]];
@@ -58,30 +58,33 @@ export default function Cart(props) {
         /* return link; */
     }
 
-    useEffect(() => {
-        localStorage.setItem(isOldCart?"oldCart":"cart", JSON.stringify(cartItems));
-        createLinkWhatsApp();
-        calcTotal();
-    }, [cartItems])
-
-    useEffect(() => {
-        if(isOldCart) {
-            setIsOldCart(false);
-        } else {
-            setCartItems(JSON.parse(localStorage.getItem("cart")));
-        }
-    }, [props.isCartOpen]);
-
-    useEffect(() => {
-        if (isOldCart === true) {
-            localStorage.setItem('cart', JSON.stringify(cartItems));
-            setCartItems(JSON.parse(localStorage.getItem('oldCart')));
-        }
-        else if (isOldCart === false){
-            localStorage.setItem('oldCart', JSON.stringify(cartItems));
-            setCartItems(JSON.parse(localStorage.getItem('cart')));
-        }
-    }, [isOldCart])
+    let isInitializing = true;
+    if(!isInitializing) {
+        useEffect(() => {
+            localStorage.setItem(isOldCart?"oldCart":"cart", JSON.stringify(cartItems));
+            createLinkWhatsApp();
+            calcTotal();
+        }, [cartItems]);
+        
+        useEffect(() => {
+            if(isOldCart) {
+                setIsOldCart(false);
+            } else {
+                setCartItems(JSON.parse(localStorage.getItem("cart")));
+            }
+        }, [props.isCartOpen]);
+        
+        useEffect(() => {
+            if (isOldCart) {
+                localStorage.setItem('cart', JSON.stringify(cartItems));
+                setCartItems(JSON.parse(localStorage.getItem('oldCart')));
+            }
+            else {
+                localStorage.setItem('oldCart', JSON.stringify(cartItems));
+                setCartItems(JSON.parse(localStorage.getItem('cart')));
+            }
+        }, [isOldCart]);
+    }
 
     function order() {
         /* let link = */ createLinkWhatsApp();
@@ -90,8 +93,9 @@ export default function Cart(props) {
             localStorage.setItem('cart', JSON.stringify({}));
         }
         closeCart();
-        window.open(linkWhatsapp)
+        window.open(linkWhatsapp);
     }
+    isInitializing = false;
 
     if(props.isCartOpen){
         return(
