@@ -20,12 +20,12 @@ export default function Cart(props) {
         document.body.classList = theme;
     }
 
-    const [isOldCart, setIsOldCart] = useState(false)
-    const [cartItems, setCartItems] = useState(isOldCart?JSON.parse(localStorage.getItem("oldCart")):JSON.parse(localStorage.getItem("cart")));
+    const [cartItems, setCartItems] = useState(/* isOldCart?JSON.parse(localStorage.getItem("oldCart")): */JSON.parse(localStorage.getItem("cart")));
     if(!cartItems) {
         setCartItems({});
         localStorage.setItem("cart", JSON.stringify({}))
     }
+    const [isOldCart, setIsOldCart] = useState('iniciando')
 
     const [totalValue, setTotalValue] = useState(0);
     function calcTotal() {
@@ -73,11 +73,11 @@ export default function Cart(props) {
     }, [props.isCartOpen]);
 
     useEffect(() => {
-        if (isOldCart) {
+        if (isOldCart === true) {
             localStorage.setItem('cart', JSON.stringify(cartItems));
             setCartItems(JSON.parse(localStorage.getItem('oldCart')));
         }
-        else {
+        else if (isOldCart === false){
             localStorage.setItem('oldCart', JSON.stringify(cartItems));
             setCartItems(JSON.parse(localStorage.getItem('cart')));
         }
