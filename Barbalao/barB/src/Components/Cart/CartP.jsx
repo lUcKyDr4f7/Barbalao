@@ -65,10 +65,10 @@ export default function Cart(props) {
     }, [cartItems])
 
     useEffect(() => {
-        setCartItems(JSON.parse(localStorage.getItem("cart")));
         if(isOldCart) {
             setIsOldCart(false);
         }
+        setCartItems(JSON.parse(localStorage.getItem("cart")));
     }, [props.isCartOpen]);
 
     useEffect(() => {
@@ -84,15 +84,10 @@ export default function Cart(props) {
 
     function order() {
         /* let link = */ createLinkWhatsApp();
-        console.log(`0: ${JSON.stringify(cartItems)}`);
         if(!isOldCart) {
-            console.log(`1: ${JSON.stringify(cartItems)}`);
             localStorage.setItem('oldCart', JSON.stringify(cartItems));
-            console.log(`2: ${JSON.stringify(cartItems)}`);
             localStorage.setItem('cart', JSON.stringify({}));
-            console.log(`3: ${JSON.stringify(cartItems)}`);
         }
-        console.log(`4: ${JSON.stringify(cartItems)}`);
         closeCart();
         window.open(linkWhatsapp)
     }
