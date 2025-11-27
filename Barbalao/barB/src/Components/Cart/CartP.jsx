@@ -58,8 +58,8 @@ export default function Cart(props) {
         /* return link; */
     }
 
-    const [isInitializing, setIsInitializing] = useState(true);
-    if(!isInitializing) {
+    /* const [isInitializing, setIsInitializing] = useState(true);
+    if(!isInitializing) { */
         useEffect(() => {
             localStorage.setItem(isOldCart?"oldCart":"cart", JSON.stringify(cartItems));
             createLinkWhatsApp();
@@ -94,8 +94,8 @@ export default function Cart(props) {
         }
         closeCart();
         window.open(linkWhatsapp);
-    }
-    setIsInitializing(false);
+    /* }
+    setIsInitializing(false); */
 
     if(props.isCartOpen){
         return(
