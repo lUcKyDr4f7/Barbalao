@@ -84,13 +84,15 @@ export default function Cart(props) {
 
     function order() {
         /* let link = */ createLinkWhatsApp();
+        console.log(`0: ${JSON.stringify(cartItems)}`);
         if(!isOldCart) {
-            console.log(`1: ${cartItems}`);
+            console.log(`1: ${JSON.stringify(cartItems)}`);
             localStorage.setItem('oldCart', JSON.stringify(cartItems));
-            console.log(`2: ${cartItems}`);
+            console.log(`2: ${JSON.stringify(cartItems)}`);
             localStorage.setItem('cart', JSON.stringify({}));
-            console.log(`3: ${cartItems}`);
+            console.log(`3: ${JSON.stringify(cartItems)}`);
         }
+        console.log(`4: ${JSON.stringify(cartItems)}`);
         closeCart();
         window.open(linkWhatsapp)
     }
