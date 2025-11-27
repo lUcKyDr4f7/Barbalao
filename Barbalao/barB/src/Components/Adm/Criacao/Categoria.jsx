@@ -8,6 +8,8 @@ export default function CriaCateg() {
     const [ehSubcategoria, setEhSubcategoria] = useState(false)
     const [categoriaPai, setCategoriaPai] = useState("")
     const [fechar, setFechar] = useState(false)
+    const [criando, setCriando] = useState(false)
+
 
     
     useEffect(() => {
@@ -27,6 +29,10 @@ export default function CriaCateg() {
 
     const handleSub = (e) => {
         e.preventDefault()
+
+        if (criando) return
+
+        setCriando(true)
 
         const formData = new FormData(e.target)
         const data = Object.fromEntries(formData.entries())
@@ -77,12 +83,14 @@ export default function CriaCateg() {
                         setFile(null)
                         setEhSubcategoria(false)
                         setCategoriaPai("")
+                        location.reload()
                     })
                     .catch((err) => {
                         alert(`Erro: ${err.message}`)
                         setFile(null)
                         setEhSubcategoria(false)
                         setCategoriaPai("")
+                        location.reload()
                         return;
                     })
             }
@@ -162,7 +170,7 @@ export default function CriaCateg() {
                             </div>
                         )}
 
-                        <button className={styles.submitButton} type="submit">Criar</button>
+                        <button className={styles.submitButton} type="submit" disabled={criando}>Criar</button>
                     </form>
                 </div>
             </div>

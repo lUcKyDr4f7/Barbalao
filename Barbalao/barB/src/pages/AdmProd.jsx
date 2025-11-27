@@ -7,7 +7,7 @@ export default function AdmProd({ produtos }) {
 
   const { setBackdrop, setViewProduct, setSelectedProduct, admSearchText } = useOutletContext();
 
-  console.log ("Produtos: ", produtos);
+  console.log ("Produtos: ", produtosL);
   console.log("Search text: ", admSearchText);
 
   function normalize(str) {
@@ -33,7 +33,7 @@ export default function AdmProd({ produtos }) {
     });
   }
 
-  const queryProducts = searchProducts(produtos, admSearchText);
+  const queryProducts = searchProducts(produtosL, admSearchText);
 
   return (
     <div>
@@ -54,7 +54,11 @@ export default function AdmProd({ produtos }) {
         :
         <div className={styles.SemProdCont}>
           <i class="ri-error-warning-line"></i>
-          <h3>Nenhum produto foi encontrado com a pesquisa "{admSearchText}"</h3>
+          {admSearchText? 
+            <h3>Nenhum produto foi encontrado com a pesquisa "{admSearchText}"</h3>
+            :
+            <h3>Sem Produtos</h3>
+          }
         </div>
       }
     </div>

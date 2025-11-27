@@ -8,8 +8,7 @@
     flex-direction: column; 
     align-items: center; 
     transition: background 0.3s ease; 
-    overscroll-behavior: none; 
-    overflow: scroll;
+    overscroll-behavior: none;
 } 
 
 .PainelH1 { 
@@ -84,7 +83,9 @@
 }
  
 .PainelNav { 
-    width: 40vw; 
+    width: 40vw;
+    min-width: 300px;
+    max-width: 600px;
     height: 6vh; 
     background-color: var(--bodyBgColor); 
     filter: brightness(1.1); 
@@ -229,12 +230,26 @@
     left: 7%;
 }
 
+.scrollDiv{
+    margin-top: 23vh;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+    padding: 0;
+}
+
 .PainelOutlet { 
     width: 90vw;
     height: fit-content;
     border-radius: 2rem 2rem 0 0; 
     background-color: var(--bodyBgColor);
-    filter: brightness(.95);  
-    margin-top: 23vh;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    filter: brightness(.95);
+}
+
+@media (orientation: portrait) {
+    .PainelCont {
+        overflow: none;
+    }
 }

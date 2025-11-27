@@ -51,6 +51,16 @@ export default function AdmCateg({ categorias, subCateg }) {
                                             {subcategoriasPorCategoria[categ.id_categoria]?.length || 0} subcategorias
                                         </p>
                                     </div>
+
+                                    <div className={styles.categoriaAcoes}>
+                                        <button className={styles.botaoEditar}>
+                                            Editar
+                                        </button>
+                                        <button className={styles.botaoExcluir}>
+                                            Excluir
+                                        </button>
+                                    </div>
+
                                     <button className={styles.botaoExpandir}>
                                         {categoriaSelecionada === categ.id_categoria ? '▲' : '▼'}
                                     </button>

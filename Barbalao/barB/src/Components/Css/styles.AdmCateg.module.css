@@ -95,6 +95,7 @@
     font-size: 1rem;
     cursor: pointer;
     padding: 0.5rem;
+    margin-left: 1.5rem;
     transition: transform 0.3s ease;
 }
 
@@ -139,6 +140,11 @@
 .subcategoriaAcoes {
     display: flex;
     gap: 0.5rem;
+}
+.categoriaAcoes {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
 }
 
 .botaoEditar {
@@ -190,6 +196,7 @@
     padding: 1rem;
     transition: transform 0.3s ease;
     background: var(--categBgColor);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .subcategoriaCard:hover {
@@ -215,6 +222,7 @@
 
 .subcategoriaAcoesCompleta {
     display: flex;
+    flex-direction: column;
     gap: 0.5rem;
 }
 

@@ -142,8 +142,8 @@ button {
   overflow: hidden !important;
 }
 
-@media (orientation: portrait) {
+/* @media (orientation: portrait) {
   #root {
     overflow: scroll;
   }
-}
+} */

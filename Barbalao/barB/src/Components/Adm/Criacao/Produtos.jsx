@@ -7,6 +7,7 @@ export default function CriaProd() {
     const [fechar, setFechar] = useState(false)
     const [subcategoria, setSubcategoria] = useState(null)
     const [subSelecionada, setSubSelecionada] = useState([])
+    const [criando, setCriando] = useState(false)
 
     useEffect(() => {
         fetch('https://back-end-barbalao.onrender.com/api/categoria/')
@@ -28,9 +29,11 @@ export default function CriaProd() {
     const handleSub = (e) => {
         e.preventDefault()
 
-        
+        if (criando) return
+
         const formData = new FormData(e.target);
         const data = Object.fromEntries(formData.entries());
+        setCriando(true)
         console.log("Dados do form:", data); 
 
         if(file){
@@ -66,9 +69,13 @@ export default function CriaProd() {
                         alert(`Produto criado (id: ${json.ID})`)
                         e.target.reset()
                         setFile(null)
+                        setCriando(false)
+                        location.reload()
                     })
                     .catch((err) => {
-                        alert(`Erro: ${err.message}`);
+                        alert(`Erro: ${err.message}`)
+                        setCriando(false)
+                        location.reload()
                     })
 
             }
@@ -149,7 +156,7 @@ export default function CriaProd() {
                         </select>
                     </div>
                     
-                    <button className={styles.submitButton} type="submit">Criar</button>
+                    <button className={styles.submitButton} type="submit" disabled={criando}>Criar</button>
                 </form>
             </div>
             

@@ -32,7 +32,7 @@ export default function AdmMenu() {
                 <div className={styles.AdmHeader}>
 
                     <Link to="/" className={styles.AdmLink}>
-                        <button className={styles.AdmVolt}>←</button>
+                        <button className={styles.AdmVolt} onClick={() => Location.reload()}>←</button>
                     </Link>
                 
                     <h1  className={styles.AdmH1}>MENU</h1>

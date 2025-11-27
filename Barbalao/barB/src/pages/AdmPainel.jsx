@@ -98,8 +98,10 @@ export default function AdmPainel() {
                 editProduct && <AdmEditProductModal produto={selectedProduct} setEditProduct={setEditProduct}/>
             }
 
-            <div className={styles.PainelOutlet}>
-                <Outlet context={{setBackdrop, setViewProduct, setSelectedProduct, admSearchText}}/>
+            <div className={styles.scrollDiv}>
+                <div className={styles.PainelOutlet}>
+                    <Outlet context={{setBackdrop, setViewProduct, setSelectedProduct, admSearchText}}/>
+                </div>
             </div>
 
             {novo && (

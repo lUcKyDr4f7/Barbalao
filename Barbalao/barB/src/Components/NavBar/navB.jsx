@@ -77,7 +77,7 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
                 <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} cartList={cartList} />
                 <div className={styles.inner}>
                     <div className={styles.logo}>
-                        <Link to="/"><img  src={logo}/></Link>
+                        <Link to="/" onClick={() => Location.reload()}><img  src={logo}/></Link>
                     </div>
                     <div className={styles.searchBar}>
                       <input type="text" value={searchText} 
@@ -100,8 +100,8 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
                         <button type="submit"><i className="ri-search-line"></i></button>
                     </form> */}
                     <div className={styles.headerBtns}>
-                        <li><Link to="/">Início</Link></li>
-                        <li><Link to="/about-us">Sobre Nós</Link></li>
+                        <li><Link to="/" onClick={() => Location.reload()}>Início</Link></li>
+                        <li><Link to="/about-us" onClick={() => Location.reload()}>Sobre Nós</Link></li>
                         {link}
                         <button className={styles.themeButton} onClick={() => changeTheme()}><i className={themeIcon}></i></button>
                         <button onClick={() => openCart()}><i className="ri-shopping-cart-2-fill"></i></button>

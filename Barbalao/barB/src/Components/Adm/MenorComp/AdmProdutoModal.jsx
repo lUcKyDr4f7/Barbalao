@@ -22,6 +22,7 @@ export default function AdmProdutoModal({produto, setViewProduct, setEditProduct
       await axios.delete(`/api/products/remove/${produto.id_prod}/`);
       alert(`Produto com id ${produto.id_prod} foi deletado com sucesso.`);
       setViewProduct(false);
+      location.reload();
     } catch (error) {
       console.log(error);
     }

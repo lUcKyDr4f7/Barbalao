@@ -5,6 +5,8 @@ import styles from '../../Css/styles.CriaT.module.css'
 export default function CriaBanner() {
     const [file, setFile] = useState(null)
     const [fechar, setFechar] = useState(false)
+    const [criando, setCriando] = useState(false)
+
 
     const handleFileChange = (e) => {
         setFile(e.target.files[0]); 
@@ -13,6 +15,9 @@ export default function CriaBanner() {
     const handleSub = (e) => {
         e.preventDefault()
 
+        if (criando) return
+        
+        setCriando(true)
         
         const formData = new FormData(e.target);
         const data = Object.fromEntries(formData.entries());
@@ -23,6 +28,7 @@ export default function CriaBanner() {
             leitor.onload = (ev) => {
 
                 data.imagem = ev.target.result
+                
 
                 const payload = {
                     titulo: data.titulo,
@@ -48,10 +54,12 @@ export default function CriaBanner() {
                     .then((json) => {
                         alert(`Banner criado (id: ${json.ID})`)
                         e.target.reset()
-                        setFiles([])
+                        setFile([])
+                        location.reload()
                     })
                     .catch((err) => {
                         alert(`Erro: ${err.message}`);
+                        location.reload()
                     })
 
             }
@@ -101,7 +109,7 @@ export default function CriaBanner() {
                         required
                     />
                     
-                    <button className={styles.submitButton} type="submit">Criar</button>
+                    <button className={styles.submitButton} type="submit" disabled={criando}>Criar</button>
                 </form>
             </div>
             
