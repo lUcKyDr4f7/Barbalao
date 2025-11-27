@@ -58,7 +58,7 @@ export default function Cart(props) {
         /* return link; */
     }
 
-    let isInitializing = true;
+    const [isInitializing, setIsInitializing] = useState(true);
     if(!isInitializing) {
         useEffect(() => {
             localStorage.setItem(isOldCart?"oldCart":"cart", JSON.stringify(cartItems));
@@ -95,7 +95,7 @@ export default function Cart(props) {
         closeCart();
         window.open(linkWhatsapp);
     }
-    isInitializing = false;
+    setIsInitializing(false);
 
     if(props.isCartOpen){
         return(
