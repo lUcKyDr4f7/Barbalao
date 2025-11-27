@@ -55,7 +55,7 @@ export default function Cart(props) {
             }
         }
         setLinkWhatsapp(link);
-        return link;
+        /* return link; */
     }
 
     useEffect(() => {
@@ -83,12 +83,12 @@ export default function Cart(props) {
     }, [isOldCart])
 
     function order() {
-        let link = createLinkWhatsApp();
+        /* let link = */ createLinkWhatsApp();
         if(!isOldCart) {
-            localStorage.setItem('oldCart', JSON.stringify(cartItems))
-            localStorage.setItem('cart', JSON.stringify({}))
+            localStorage.setItem('oldCart', JSON.stringify(cartItems));
+            /* localStorage.setItem('cart', JSON.stringify({})); */
         }
-        closeCart()
+        closeCart();
         window.open(link)
     }
 
