@@ -7,16 +7,19 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: calc(36vw - 2vh);
+  width: calc(36vw - 4vh);
   height: 12vh;
-  background: var(--categBgColor);
+  background: linear-gradient(120deg, #98d6e126, #cbe1980d);
   border-radius: 1vh;
-  margin: 1vh 0vw 1vh;
+  margin: 1vh 0vw;
   padding: 1vh;
 }
 
 .cartItem img {
   width: 11vh;
+  height: 9vh;
+  object-fit: cover;
+  border-radius: 1vh;
 }
 
 .cartItem .itemText {
@@ -58,4 +61,58 @@
 }
 .cartItem button:hover {
   color: gainsboro;
+}
+
+@media (orientation: portrait) {
+  .cartItem {
+    width: calc(90vw - 4vh);
+  }
+  
+  .cartItem img {
+    width: 20vw;
+    height: 9vh;
+    object-fit: cover;
+    border-radius: 1vh;
+  }
+  
+  .cartItem .itemText {
+    width: calc(48vw - 4vh);
+    height: auto;
+    margin: 0 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  
+  .cartItem .itemAmount {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 6vh;
+    width: 30vw;
+  }
+  .cartItem h3 {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 3vh;
+  }
+  .cartItem p {
+    height: 2.5vh;
+    margin: 0;
+    font-size: .8rem;
+    justify-content: start;
+  }
+  .cartItem button {
+    color: #fff;
+    height: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4vh;
+    border-radius: 2vh;
+  }
+  .cartItem button:hover {
+    color: gainsboro;
+  }
 }
