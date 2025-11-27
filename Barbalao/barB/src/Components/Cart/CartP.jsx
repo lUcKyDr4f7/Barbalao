@@ -55,7 +55,7 @@ export default function Cart(props) {
             }
         }
         setLinkWhatsapp(link);
-        return link;
+        /* return link; */
     }
 
     useEffect(() => {
@@ -66,7 +66,9 @@ export default function Cart(props) {
 
     useEffect(() => {
         setCartItems(JSON.parse(localStorage.getItem("cart")));
-        setIsOldCart(false);
+        if(isOldCart) {
+            setIsOldCart(false);
+        }
     }, [props.isCartOpen]);
 
     useEffect(() => {
@@ -81,10 +83,12 @@ export default function Cart(props) {
     }, [isOldCart])
 
     function order() {
-        let link = createLinkWhatsApp();
-        localStorage.setItem('oldCart', JSON.stringify(cartItems))
-        localStorage.setItem('cart', JSON.stringify({}))
-        setCartItems({})
+        /* let link = */ createLinkWhatsApp();
+        if(!isOldCart) {
+            localStorage.setItem('oldCart', JSON.stringify(cartItems));
+            /* localStorage.setItem('cart', JSON.stringify({})); */
+        }
+        closeCart();
         window.open(link)
     }
 
@@ -106,7 +110,7 @@ export default function Cart(props) {
                         }):<p>O carrinho está vazio</p>
                     }</div></div>
                     <li className={styles.totalValue}>Total: R${totalValue.toFixed(2).replace('.', ',')}</li>
-                    <button disabled={Object.keys(cartItems).length == 0}onClick={() => order() } className={styles.whatsappBtn}>Fazer Pedido</button>
+                    <button disabled={Object.keys(cartItems).length == 0} alt={`Fazer pedido em ${linkWhatsapp}`} onClick={() => order() } className={styles.whatsappBtn}>Fazer Pedido</button>
                 </div>
             </>
         ) 
