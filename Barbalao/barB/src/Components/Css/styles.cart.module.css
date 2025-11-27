@@ -179,6 +179,7 @@
   animation-duration: .5s;
   display: flex;
   flex-direction: column;
+  align-items: center;
   background: #1a5898;
   border-radius: 0 0 15px 15px;
 }
