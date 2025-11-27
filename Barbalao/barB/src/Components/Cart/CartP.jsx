@@ -58,33 +58,28 @@ export default function Cart(props) {
         /* return link; */
     }
 
-    /* const [isInitializing, setIsInitializing] = useState(true);
-    if(!isInitializing) { */
-        useEffect(() => {
-            localStorage.setItem(isOldCart?"oldCart":"cart", JSON.stringify(cartItems));
-            createLinkWhatsApp();
-            calcTotal();
-        }, [cartItems]);
-        
-        useEffect(() => {
-            if(isOldCart) {
-                setIsOldCart(false);
-            } else {
-                setCartItems(JSON.parse(localStorage.getItem("cart")));
-            }
-        }, [props.isCartOpen]);
-        
-        useEffect(() => {
-            if (isOldCart) {
-                localStorage.setItem('cart', JSON.stringify(cartItems));
-                setCartItems(JSON.parse(localStorage.getItem('oldCart')));
-            }
-            else {
-                localStorage.setItem('oldCart', JSON.stringify(cartItems));
-                setCartItems(JSON.parse(localStorage.getItem('cart')));
-            }
-        }, [isOldCart]);
-    }
+    useEffect(() => {
+        localStorage.setItem(isOldCart?"oldCart":"cart", JSON.stringify(cartItems));
+        createLinkWhatsApp();
+        calcTotal();
+    }, [cartItems]);
+    
+    useEffect(() => {
+        if(isOldCart) {
+            setIsOldCart(false);
+        } else {
+            setCartItems(JSON.parse(localStorage.getItem("cart")));
+        }
+    }, [props.isCartOpen]);
+    
+    useEffect(() => {
+        if (isOldCart) {
+            setCartItems(JSON.parse(localStorage.getItem('oldCart')));
+        }
+        else {
+            setCartItems(JSON.parse(localStorage.getItem('cart')));
+        }
+    }, [isOldCart]);
 
     function order() {
         /* let link = */ createLinkWhatsApp();
@@ -94,8 +89,7 @@ export default function Cart(props) {
         }
         closeCart();
         window.open(linkWhatsapp);
-    /* }
-    setIsInitializing(false); */
+    }
 
     if(props.isCartOpen){
         return(
