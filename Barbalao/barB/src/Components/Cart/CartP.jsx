@@ -67,8 +67,9 @@ export default function Cart(props) {
     useEffect(() => {
         if(isOldCart) {
             setIsOldCart(false);
+        } else {
+            setCartItems(JSON.parse(localStorage.getItem("cart")));
         }
-        setCartItems(JSON.parse(localStorage.getItem("cart")));
     }, [props.isCartOpen]);
 
     useEffect(() => {
