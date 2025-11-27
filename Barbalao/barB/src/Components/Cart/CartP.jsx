@@ -85,11 +85,14 @@ export default function Cart(props) {
     function order() {
         /* let link = */ createLinkWhatsApp();
         if(!isOldCart) {
+            console.log(`1: ${cartItems}`);
             localStorage.setItem('oldCart', JSON.stringify(cartItems));
-            /* localStorage.setItem('cart', JSON.stringify({})); */
+            console.log(`2: ${cartItems}`);
+            localStorage.setItem('cart', JSON.stringify({}));
+            console.log(`3: ${cartItems}`);
         }
         closeCart();
-        window.open(link)
+        window.open(linkWhatsapp)
     }
 
     if(props.isCartOpen){
