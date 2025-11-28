@@ -47,10 +47,9 @@ export default function Cart(props) {
 
     const [linkWhatsapp, setLinkWhatsapp] = useState('');
     function createLinkWhatsApp() {
-        /* Por enquanto o número é o do Oséias */
         let link;
         if(Object.keys(cartItems).length != 0) {
-            link = "https://wa.me/558182090299?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%3A";
+            link = "https://wa.me/5519996829711?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%3A";
             let replacements = [[' ', '$', '+', ',', '/', ':'], ["%20", "%24", "%2B", "%2C", "%2F", "%3A"]];
             Object.keys(cartItems).map( key => {
                 const item = Products[key];
@@ -118,7 +117,7 @@ export default function Cart(props) {
                         }):<p>O carrinho está vazio</p>
                     }</div></div>
                     <li className={styles.totalValue}>Total: R${totalValue.toFixed(2).replace('.', ',')}</li>
-                    <label><input type="checkbox" name="delivery" checked={isDelivery} onChange={() => setIsDelivery(!isDelivery)}/> Delivery</label>
+                    <label className={styles.delivery}><input type="checkbox" name="delivery" checked={isDelivery} onChange={() => setIsDelivery(!isDelivery)}/> Delivery</label>
                     <button disabled={Object.keys(cartItems).length == 0} alt={`Fazer pedido em ${linkWhatsapp}`} onClick={() => order() } className={styles.whatsappBtn}>Fazer Pedido</button>
                 </div>
             </>
