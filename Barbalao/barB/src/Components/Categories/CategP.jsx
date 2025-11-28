@@ -21,7 +21,7 @@ export default function CategP({ categorias }) {
   return (
       <>
         <h2 className={styles.titleCateg}>Cardápio</h2>
-        <Swiper className={styles.brandsSwiper} slidesPerView={2.426} slidesPerGroup={2.426} centerInsufficientSlides={'true'} allowTouchMove={false} navigation={true} modules={[Navigation]} swipeable={'true'} slidesOffsetBefore={15} slidesOffsetAfter={395} onSlideChange={() => console.log('slide change')} onSwiper={(swiper) => console.log(swiper)}>
+        <Swiper>
           {categoriasL.length !== 0?
             categoriasL.map((categ, i) => (
               <>
@@ -46,6 +46,7 @@ export default function CategP({ categorias }) {
   );
 
 }
+
 
 
 

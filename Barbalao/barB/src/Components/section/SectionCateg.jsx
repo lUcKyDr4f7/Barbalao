@@ -1,6 +1,7 @@
 import BannerS from "../Banners/bannerS";
 import SectionSubCateg from "../section/SectionSubCateg.jsx"
 import styles from "../Css/styles.pcard_S.module.css"
+import Footer from '../Footer/Footer.jsx';
 
 export default function SectionCateg({produtos, categorias, subCateg, banners}) {
     const produtosL = produtos || JSON.parse(localStorage.getItem("products"))
@@ -20,8 +21,8 @@ export default function SectionCateg({produtos, categorias, subCateg, banners}) 
 
     return(
         <div >
-
             {categoriasL.length != 0? 
+                {
                     categoriasL.map((categoria, index )=> (
                         <div key={index} > 
                             <BannerS banners={grupoBanner} ordem = {index} />
@@ -31,8 +32,10 @@ export default function SectionCateg({produtos, categorias, subCateg, banners}) 
                             
                         </div>
                     ))
+                    <Footer />
+                }
                 :
-                    null
+                null
             }
         </div>
     )
