@@ -54,8 +54,8 @@ export default function ProdS({ produtos, subCateg }) {
             <div onClick={() => setSelectedProduct(produto)} key={produto.id_prod} className={`${styles.swiperSlide} ${styles.cardWithModal} ${styles.productCard}`}>
               <img className={styles.productImg} src={produto.imagem || 'https://via.placeholder.com/150'} alt={produto.nome || 'Produto sem nome'} onError={(e) => (e.target.src = 'https://via.placeholder.com/150')}/>
               <div className={styles.productInfo}>
-                <h4 className={styles.info}>{produto.nome}</h4>
-                <h4 className={`${styles.priceWithDescount} ${styles.info}`}>R$ {produto.preco?parseFloat(produto.preco || 0).toFixed(2).replace('.', ','):'?,??'}</h4>
+                <h4>{produto.nome}</h4>
+                <h4>R$ {produto.preco?parseFloat(produto.preco || 0).toFixed(2).replace('.', ','):'?,??'}</h4>
                 <i className={`ri-shopping-cart-2-fill ${styles.shopIcon}`}></i>
               </div>
             </div>
@@ -77,6 +77,7 @@ export default function ProdS({ produtos, subCateg }) {
   );
 
 }
+
 
 
 
