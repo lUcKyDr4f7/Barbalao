@@ -22,6 +22,7 @@ export default function SectionCateg({produtos, categorias, subCateg, banners}) 
     return(
         <div >
             {categoriasL.length != 0? 
+                {
                     categoriasL.map((categoria, index )=> (
                         <div key={index} > 
                             <BannerS banners={grupoBanner} ordem = {index} />
@@ -31,10 +32,11 @@ export default function SectionCateg({produtos, categorias, subCateg, banners}) 
                             
                         </div>
                     ))
+                    <Footer />
+                }
                 :
-                    null
+                null
             }
-            <Footer />
         </div>
     )
 }
