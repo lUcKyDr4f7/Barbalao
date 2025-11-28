@@ -25,6 +25,7 @@ export default function Home({produtos, categorias, subCateg, banners}) {
   const header = useRef(0);
   const section = useRef(0);
   const handleScroll = () => {
+    console.log(section.current.scrollY)
     if (section.current.scrollY > 50) {
       header.current.classList.add(styles.shrink);
     } else {
