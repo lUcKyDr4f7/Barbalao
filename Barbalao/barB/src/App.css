@@ -29,3 +29,8 @@ footer {
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+@media (orientation: portrait) {
+  .main {
+    overflow-x: hidden;
+  }
+}
