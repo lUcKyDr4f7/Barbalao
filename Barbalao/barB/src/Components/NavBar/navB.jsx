@@ -6,16 +6,6 @@ import Cart from '../Cart/CartP'
 import { useAuth } from '../../Routes/AuthContext';
 
 export default function NavB({setSearchModal, searchText, setSearchText}) {
-      /* const {authenticated} = useAuth()
-      const [link, setLink] = useState(null)
-      
-      useEffect(() => {
-        if (authenticated) {
-          setLink(<li><a href="/adm">ADM</a></li>);
-        } else {
-          setLink(null);
-        }
-      }, []); */
 
   /* Exibibe botão painel se autenticado */
   const {authenticated} = useAuth()
@@ -59,18 +49,20 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
   useEffect(() => {
     const handleScroll = () => {
       const header = document.querySelector("header");
-      if (window.scrollY > 50) {
+      const section = document.getElementsByClassName("main");
+      if (section.scrollY > 50) {
         header.classList.add(styles.shrink);
       } else {
         header.classList.remove(styles.shrink);
       }
     };
-    window.addEventListener("scroll", handleScroll);
+    section.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      section.removeEventListener("scroll", handleScroll);
     };
-    }, []); 
-    return (
+  }, []);
+      
+  return (
         <>
          {/*<!--========== Header ==========-->*/}
             <header className={styles.header}>
@@ -95,10 +87,6 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
                           <i class="ri-search-line"></i> 
                       </button>
                     </div>
-                    {/* <form>
-                        <input type="text" />
-                        <button type="submit"><i className="ri-search-line"></i></button>
-                    </form> */}
                     <div className={styles.headerBtns}>
                         <li><Link to="/" onClick={() => Location.reload()}>Início</Link></li>
                         <li><Link to="/about-us" onClick={() => Location.reload()}>Sobre Nós</Link></li>
@@ -111,7 +99,4 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
             </header>
         </> 
     )
-
-
-
 }
