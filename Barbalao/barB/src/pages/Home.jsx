@@ -5,7 +5,7 @@ import PSection from '../Components/PSection/prodS.jsx';
 import SectionCateg from '../Components/section/SectionCateg.jsx';
 import Form from '../Components/Form/FormLogin.jsx';
 import SearchModal from '../Components/SearchModal/SearchModal.jsx';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import Footer from '../Components/Footer/Footer.jsx';
 
 export default function Home({produtos, categorias, subCateg, banners}) {
@@ -22,17 +22,6 @@ export default function Home({produtos, categorias, subCateg, banners}) {
       return () => {document.body.style.overflow = ''};
   }, [searchModal]);
   
-  const header = useRef(0);
-  const section = useRef(0);
-  const handleScroll = () => {
-    console.log(section.current.scrollY)
-    if (section.current.scrollY > 50) {
-      header.current.classList.add(styles.shrink);
-    } else {
-      header.current.classList.remove(styles.shrink);
-    }
-  };
-
   const produtosL = produtos || JSON.parse(localStorage.getItem("products"))
   const categoriasL = categorias || JSON.parse(localStorage.getItem("categories"))
   const subCategL = subCateg || JSON.parse(localStorage.getItem("subcategories"))
@@ -40,12 +29,10 @@ export default function Home({produtos, categorias, subCateg, banners}) {
   
   return (
     <>
-      <NavB ref={header} setSearchModal={setSearchModal} searchText={searchText} setSearchText={setSearchText}/>
+      <NavB setSearchModal={setSearchModal} searchText={searchText} setSearchText={setSearchText}/>
       <section className="main">
         <CategP categorias={categoriasL}/>
         <SectionCateg 
-          onScroll={() => handleScroll()}
-          ref={section} 
           produtos={produtosL} 
           categorias={categoriasL} 
           subCateg={subCategL}
