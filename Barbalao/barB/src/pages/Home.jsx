@@ -6,6 +6,7 @@ import SectionCateg from '../Components/section/SectionCateg.jsx';
 import Form from '../Components/Form/FormLogin.jsx';
 import SearchModal from '../Components/SearchModal/SearchModal.jsx';
 import { useEffect, useState } from 'react';
+import Footer from '../Components/Footer/Footer.jsx';
 
 export default function Home({produtos, categorias, subCateg, banners}) {
 
@@ -39,6 +40,7 @@ export default function Home({produtos, categorias, subCateg, banners}) {
         />
       </section>
       {searchModal && <SearchModal setSearchModal={setSearchModal} searchText={searchText} produtos={produtos}/>}
+      <Footer />
     </>
   );
 }
