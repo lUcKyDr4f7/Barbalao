@@ -33,10 +33,10 @@ export default function Home({produtos, categorias, subCateg, banners}) {
         header.current.classList.remove(styles.shrink);
       }
     };
-    section.current.addEventListener("scroll", handleScroll);
+    /* section.current.addEventListener("scroll", handleScroll);
     return () => {
       section.current.removeEventListener("scroll", handleScroll);
-    };
+    }; */
   }, []);
 
   const produtosL = produtos || JSON.parse(localStorage.getItem("products"))
@@ -50,6 +50,7 @@ export default function Home({produtos, categorias, subCateg, banners}) {
       <section className="main">
         <CategP categorias={categoriasL}/>
         <SectionCateg 
+          onScroll={() => handleScroll()}
           ref={section} 
           produtos={produtosL} 
           categorias={categoriasL} 
