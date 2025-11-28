@@ -25,7 +25,10 @@ export default function AdmCateg({ categorias, subCateg }) {
         try {
             const response = await fetch(`http://localhost:5000/api/categoria/remove/${id}`, {
                 method: 'DELETE',
-                credentials: 'include'
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
             });
 
             const data = await response.json();
