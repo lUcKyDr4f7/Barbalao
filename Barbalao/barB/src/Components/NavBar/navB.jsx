@@ -47,9 +47,9 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
   }
   
   useEffect(() => {
+    const header = document.querySelector("header");
+    const section = document.getElementsByClassName("main");
     const handleScroll = () => {
-      const header = document.querySelector("header");
-      const section = document.getElementsByClassName("main");
       if (section.scrollY > 50) {
         header.classList.add(styles.shrink);
       } else {
@@ -100,3 +100,4 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
         </> 
     )
 }
+
