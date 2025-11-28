@@ -49,9 +49,9 @@ export default function ProdS({ produtos, subCateg }) {
           <p className={styles.swiperTitle}>Sem produtos</p>
         </div>
       ) : (
-        <Swiper className={styles.brandsSwiper}>
+        <Swiper className={styles.prodSwiper}>
           {prodAtuais.map((produto) => (
-            <div onClick={() => setSelectedProduct(produto)} key={produto.id_prod} className={`${styles.swiperSlide} ${styles.cardWithModal} ${styles.productCard}`}>
+            <div onClick={() => setSelectedProduct(produto)} key={produto.id_prod} className={styles.productCard}>
               <img className={styles.productImg} src={produto.imagem || 'https://via.placeholder.com/150'} alt={produto.nome || 'Produto sem nome'} onError={(e) => (e.target.src = 'https://via.placeholder.com/150')}/>
               <div className={styles.productInfo}>
                 <h4>{produto.nome}</h4>
@@ -77,6 +77,7 @@ export default function ProdS({ produtos, subCateg }) {
   );
 
 }
+
 
 
 
