@@ -7,20 +7,6 @@
    margin: 0.67em 5vw;
 }
 
-/* ==================== Card base ==================== */
-.productCard {
-   position: relative;
-   background: var(--cardBg);
-   width: 100%;
-   max-width: 230px;
-   border-radius: 10px;
-   cursor: pointer;
-   overflow: hidden;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-}
-
 /* ==================== Imagem ==================== */
 .productImg {
    width: 90%;
@@ -69,14 +55,17 @@
 }
 
 .productCard {
+   position: relative;
    display: flex;
    flex-direction: column;
-   width: calc(18vw - 120px);
-   height: auto;
-   display: flex;
    justify-content: center;
    align-items: center;
+   background: var(--cardBg);
+   width: calc(18vw - 24px);
+   height: auto;
    border-radius: 10px;
+   cursor: pointer;
+   overflow: hidden;
 }
 
 /* ==================== RESPONSIVIDADE ==================== */
