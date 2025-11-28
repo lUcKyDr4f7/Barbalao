@@ -46,9 +46,8 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
       setIsCartOpen(!isCartOpen);
   }
   
-  useEffect(() => {
+  /* useEffect(() => {
     const header = document.querySelector("header");
-    /* const section = document.getElementsByClassName("main"); */
     const section = document.querySelector("section");
     const handleScroll = () => {
       if (section.scrollY > 50) {
@@ -61,7 +60,7 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
     return () => {
       section.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, []); */
       
   return (
         <>
@@ -101,5 +100,6 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
         </> 
     )
 }
+
 
 
