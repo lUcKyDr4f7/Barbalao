@@ -46,21 +46,20 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
       setIsCartOpen(!isCartOpen);
   }
   
-  /* useEffect(() => {
+  useEffect(() => {
     const header = document.querySelector("header");
-    const section = document.querySelector("section");
     const handleScroll = () => {
-      if (section.scrollY > 50) {
+      if (window.scrollY > 50) {
         header.classList.add(styles.shrink);
       } else {
         header.classList.remove(styles.shrink);
       }
     };
-    section.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      section.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, []); */
+  }, []);
       
   return (
         <>
@@ -100,6 +99,7 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
         </> 
     )
 }
+
 
 
 
