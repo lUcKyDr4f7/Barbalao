@@ -39,7 +39,7 @@ export default function SectionCateg({produtos, categorias, subCateg, banners}) 
                 :
                 null
             }
-            {(categoriasL.length != 0) && <Footer />)
+            {(categoriasL.length != 0) && <Footer />)}
         </div>
     )
 }
