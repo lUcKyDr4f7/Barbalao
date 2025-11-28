@@ -20,7 +20,7 @@
   padding: 2vh 0;
   margin: -20px -20px 0 0;
   background-color: var(--navBgColor);
-  height: 96vh;
+  height: calc(96vh + 6px);
   z-index: 1500;
   --scrollbarTrack: #125492;
 }
@@ -217,6 +217,13 @@
   animation-name: cartTotalClosing;
   animation-duration: .5s;
   word-break: keep-all;
+}
+
+.cart .delivery {
+  font-size: 0.8rem;
+  margin-top: -8px;
+  cursor: pointer;
+  color: var(--navColor);
 }
 
 @keyframes cartButtonOpening {

@@ -29,6 +29,7 @@ export default function Cart(props) {
         localStorage.setItem('oldCart', JSON.stringify({}));
     }
     const [isOldCart, setIsOldCart] = useState(false);
+    const [isDelivery, setIsDelivery] = useState(false);
 
     const [totalValue, setTotalValue] = useState(0);
     function calcTotal() {
@@ -38,15 +39,17 @@ export default function Cart(props) {
                 total += Products[key].preco * cartItems[key];
             }
         })
+        if(isDelivery) {
+            total+=2;
+        }
         setTotalValue(total);
     }
 
     const [linkWhatsapp, setLinkWhatsapp] = useState('');
     function createLinkWhatsApp() {
-        /* Por enquanto o número é o do Oséias */
         let link;
         if(Object.keys(cartItems).length != 0) {
-            link = "https://wa.me/558182090299?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%3A";
+            link = "https://wa.me/5519996829711?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%3A";
             let replacements = [[' ', '$', '+', ',', '/', ':'], ["%20", "%24", "%2B", "%2C", "%2F", "%3A"]];
             Object.keys(cartItems).map( key => {
                 const item = Products[key];
@@ -58,7 +61,6 @@ export default function Cart(props) {
             }
         }
         setLinkWhatsapp(link);
-        /* return link; */
     }
 
     useEffect(() => {
@@ -83,6 +85,10 @@ export default function Cart(props) {
             setCartItems(JSON.parse(localStorage.getItem('cart')));
         }
     }, [isOldCart]);
+    
+    useEffect(() => {
+        calcTotal();
+    }, [isDelivery]);
 
     function order() {
         /* let link = */ createLinkWhatsApp();
@@ -98,8 +104,7 @@ export default function Cart(props) {
         return(
             <>
                 <div className={isClosing?styles.outsideClosingCart:styles.outsideCart} onClick={ () => closeCart() }></div>
-                <div className={isClosing?styles.closingCart:styles.cart} /* onClick={ () => closeCart() } */>
-                    
+                <div className={isClosing?styles.closingCart:styles.cart}>
                     <li><button className={styles.closeCartBtn} onClick={ () => closeCart() }>< i class="ri-close-fill"></i></button>Carrinho</li>
                     <div>{JSON.parse(localStorage.getItem('oldCart')) != {} && <div className={styles.cartTabs}>
                         <p className={isOldCart?styles.activeTab:styles.inactiveTab} onClick={() => setIsOldCart(true)}>Anterior</p>
@@ -112,6 +117,7 @@ export default function Cart(props) {
                         }):<p>O carrinho está vazio</p>
                     }</div></div>
                     <li className={styles.totalValue}>Total: R${totalValue.toFixed(2).replace('.', ',')}</li>
+                    <label className={styles.delivery}><input type="checkbox" name="delivery" checked={isDelivery} onChange={() => setIsDelivery(!isDelivery)}/> Delivery</label>
                     <button disabled={Object.keys(cartItems).length == 0} alt={`Fazer pedido em ${linkWhatsapp}`} onClick={() => order() } className={styles.whatsappBtn}>Fazer Pedido</button>
                 </div>
             </>
