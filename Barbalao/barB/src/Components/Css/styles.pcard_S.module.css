@@ -7,6 +7,25 @@
    margin: 0.67em 5vw;
 }
 
+/* ==================== Swiper ==================== */
+.prodSwiper {
+   width: 100%;
+}
+
+.productCard {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background: var(--cardBg);
+   width: calc(18vw - 24px);
+   height: auto;
+   border-radius: 10px;
+   cursor: pointer;
+   overflow: hidden;
+}
+
 /* ==================== Imagem ==================== */
 .productImg {
    width: 90%;
@@ -49,59 +68,37 @@
    transform: scale(1);
 }
 
-/* ==================== Swiper ==================== */
-.prodSwiper {
-   width: 100%;
-}
-
-.productCard {
-   position: relative;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   background: var(--cardBg);
-   width: calc(18vw - 24px);
-   height: auto;
-   border-radius: 10px;
-   cursor: pointer;
-   overflow: hidden;
-}
-
 /* ==================== RESPONSIVIDADE ==================== */
 
-/* Tablet */
-@media (max-width: 768px) {
+@media (orientation: portrait) {
+   .swiperTitle {
+      margin: 5vw;
+   }
+   
    .productCard {
-      max-width: 200px;
+      justify-content: normal;
+      min-width: calc(18vw - 24px);
+      max-width: calc(18vw - 24px);
+      height: auto;
    }
-   .brandsSwiper .swiperSlide {
-      max-width: 200px !important;
-   }
+   
    .productImg {
-      height: 160px;
+      width: 90%;
+      height: calc(25vw - 10px);
+      margin-top: 10px;
+   }
+   .productCard:hover .productImg {
+      transform: scale(1);
+   }
+   
+   .productInfo {
+      padding: 5px 0;
+   }
+   .productInfo h4 {
+      font-size: 0.9rem;
+      font-weight: 400;
+   }
+   .productCard:hover i {
+      transform: scale(0);
    }
 }
-
-/* Mobile geral */
-@media (max-width: 480px) {
-   .productCard {
-      max-width: 180px;
-      border-radius: 8px;
-   }
-   .brandsSwiper .swiperSlide {
-      max-width: 180px !important;
-   }
-   .productImg {
-      height: 140px;
-   }
-   .productInfo h4,
-   .priceWithDescount {
-      font-size: 0.95rem;
-   }
-   .shopIcon {
-      font-size: 1.1rem;
-      margin: 12px;
-   }
-}
-
