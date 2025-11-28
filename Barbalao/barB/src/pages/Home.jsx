@@ -22,10 +22,10 @@ export default function Home({produtos, categorias, subCateg, banners}) {
       return () => {document.body.style.overflow = ''};
   }, [searchModal]);
   
+  const header = useRef(0);
+  const section = useRef(0);
   useEffect(() => {
-    const header = useRef(0);
     /* const section = document.getElementsByClassName("main"); */
-    const section = useRef(0);
     const handleScroll = () => {
       if (section.current.scrollY > 50) {
         header.current.classList.add(styles.shrink);
