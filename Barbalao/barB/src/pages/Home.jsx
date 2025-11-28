@@ -24,20 +24,13 @@ export default function Home({produtos, categorias, subCateg, banners}) {
   
   const header = useRef(0);
   const section = useRef(0);
-  useEffect(() => {
-    /* const section = document.getElementsByClassName("main"); */
-    const handleScroll = () => {
-      if (section.current.scrollY > 50) {
-        header.current.classList.add(styles.shrink);
-      } else {
-        header.current.classList.remove(styles.shrink);
-      }
-    };
-    /* section.current.addEventListener("scroll", handleScroll);
-    return () => {
-      section.current.removeEventListener("scroll", handleScroll);
-    }; */
-  }, []);
+  const handleScroll = () => {
+    if (section.current.scrollY > 50) {
+      header.current.classList.add(styles.shrink);
+    } else {
+      header.current.classList.remove(styles.shrink);
+    }
+  };
 
   const produtosL = produtos || JSON.parse(localStorage.getItem("products"))
   const categoriasL = categorias || JSON.parse(localStorage.getItem("categories"))
