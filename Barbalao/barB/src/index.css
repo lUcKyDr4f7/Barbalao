@@ -69,6 +69,12 @@ button {
 ::-webkit-scrollbar-thumb:hover {
   background: #ffe600;
 }
+@media (orientation: portrait) {
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
 @keyframes brighting {
   0%   { --bodyBgColor: #020623; }
   20%  { --bodyBgColor: #2a3147; }
