@@ -40,10 +40,14 @@
 
 }
 @media (orientation: portrait) {
+  :global(.carousel .slide img) {
+    height: 50vh;
+  }
   .customLegend {
     font-size: 2rem;
   }
   .customTitle {
-    font-size: 3.5rem;
+    font-size: 2.5rem !important;
   }
 }
+
