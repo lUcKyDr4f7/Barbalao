@@ -21,6 +21,23 @@ export default function Home({produtos, categorias, subCateg, banners}) {
       }
       return () => {document.body.style.overflow = ''};
   }, [searchModal]);
+  
+  useEffect(() => {
+    const header = document.querySelector("header");
+    /* const section = document.getElementsByClassName("main"); */
+    const section = document.querySelector("section");
+    const handleScroll = () => {
+      if (section.scrollY > 50) {
+        header.classList.add(styles.shrink);
+      } else {
+        header.classList.remove(styles.shrink);
+      }
+    };
+    section.addEventListener("scroll", handleScroll);
+    return () => {
+      section.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const produtosL = produtos || JSON.parse(localStorage.getItem("products"))
   const categoriasL = categorias || JSON.parse(localStorage.getItem("categories"))
