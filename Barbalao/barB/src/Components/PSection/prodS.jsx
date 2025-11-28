@@ -44,56 +44,25 @@ export default function ProdS({ produtos, subCateg }) {
 
   return (
     <>
-      <div key={subCateg.id_categoria}>
-        {prodAtuais.length == 0 ? (
-          <div>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <p className={styles.swiperTitle}>Sem produtos</p>
-            </div>
-          </div>
-        ) : (
-          <Swiper 
-            className={styles.brandsSwiper} 
-            slidesPerView={isMobile ? 1.5 : 5}
-            spaceBetween={isMobile ? 15 : 22}
-            allowTouchMove={true}
-            navigation={produtosL.length > (isMobile ? 2 : 5)}
-            modules={[Navigation]} 
-            slidesOffsetBefore={isMobile ? 10 : 15}
-            slidesOffsetAfter={isMobile ? 10 : 10}
-          >
-            {prodAtuais.map((produto) => (
-              <div onClick={() => setSelectedProduct(produto)} key={produto.id_prod} className={`${styles.swiperSlide} ${styles.avaliable}`}>
-              {/* <SwiperSlide onClick={() => setSelectedProduct(produto)} key={produto.id_prod} className={`${styles.swiperSlide} ${styles.avaliable}`}> */}
-                <div className={`${styles.cardWithModal} ${styles.airJordan}`}>
-                  <div className={styles.productCard}>
-                    <div className={styles.productImg}>
-                      <img
-                        src={produto.imagem || 'https://via.placeholder.com/150'}
-                        alt={produto.nome || 'Produto sem nome'}
-                        onError={(e) => (e.target.src = 'https://via.placeholder.com/150')}
-                      />
-                    </div>
-                    <div className={styles.productInfo}>
-                      <h4 className={styles.info}>{produto.nome}</h4>
-                      <ul className={`${styles.productStars} ${styles.info}`}></ul>
-                      <h4 className={`${styles.priceWithDescount} ${styles.info}`}>
-                        R${' '}
-                        {parseFloat(produto.preco || 0)
-                          .toFixed(2)
-                          .replace('.', ',')}
-                      </h4>
-                      <i className={`ri-shopping-cart-2-fill ${styles.shopIcon}`}></i>
-                    </div>
-                  </div>
-                </div>
+      {prodAtuais.length == 0 ? (
+        <div key={subCateg.id_categoria} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <p className={styles.swiperTitle}>Sem produtos</p>
+        </div>
+      ) : (
+        <Swiper className={styles.brandsSwiper}>
+          {prodAtuais.map((produto) => (
+            <div onClick={() => setSelectedProduct(produto)} key={produto.id_prod} className={`${styles.swiperSlide} ${styles.cardWithModal} ${styles.productCard}`}>
+              <img className={styles.productImg} src={produto.imagem || 'https://via.placeholder.com/150'} alt={produto.nome || 'Produto sem nome'} onError={(e) => (e.target.src = 'https://via.placeholder.com/150')}/>
+              <div className={styles.productInfo}>
+                <h4 className={styles.info}>{produto.nome}</h4>
+                <h4 className={`${styles.priceWithDescount} ${styles.info}`}>R$ {produto.preco?parseFloat(produto.preco || 0).toFixed(2).replace('.', ','):'?,??'}</h4>
+                <i className={`ri-shopping-cart-2-fill ${styles.shopIcon}`}></i>
               </div>
-              /* </SwiperSlide> */
-            ))}
-          </Swiper>
-        )}
-      </div>
-
+            </div>
+          ))}
+        </Swiper>
+      )}
+      
       {selectedProduct && (
         <ProdC
           name={selectedProduct.nome}
@@ -108,5 +77,6 @@ export default function ProdS({ produtos, subCateg }) {
   );
 
 }
+
 
 
