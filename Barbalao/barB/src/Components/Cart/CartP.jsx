@@ -20,10 +20,13 @@ export default function Cart(props) {
         document.body.classList = theme;
     }
 
-    const [cartItems, setCartItems] = useState(/* isOldCart?JSON.parse(localStorage.getItem("oldCart")): */JSON.parse(localStorage.getItem("cart")));
+    const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cart")));
     if(!cartItems) {
         setCartItems({});
         localStorage.setItem("cart", JSON.stringify({}));
+    }
+    if(!localStorage.getItem("oldCart")) {
+        localStorage.setItem('oldCart', JSON.stringify({}));
     }
     const [isOldCart, setIsOldCart] = useState(false);
 
