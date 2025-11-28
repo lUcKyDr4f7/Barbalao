@@ -22,18 +22,21 @@ export default function SectionCateg({produtos, categorias, subCateg, banners}) 
     return(
         <div >
             {categoriasL.length != 0? 
-                {
-                    categoriasL.map((categoria, index )=> (
-                        <div key={index} > 
-                            <BannerS banners={grupoBanner} ordem = {index} />
+                <>
+                    {categoriasL.map((categoria, index) => (
+                        <div key={index}>
+                            <BannerS banners={grupoBanner} ordem={index} />
                             <div id={categoria.id_categoria}>
-                                <SectionSubCateg produtos={produtosL} categoria={categoria} subCateg={subCategsL}/>
+                                <SectionSubCateg 
+                                    produtos={produtosL} 
+                                    categoria={categoria} 
+                                    subCateg={subCategsL}
+                                />
                             </div>
-                            
                         </div>
-                    ))
+                    ))}
                     <Footer />
-                }
+                </>
                 :
                 null
             }
