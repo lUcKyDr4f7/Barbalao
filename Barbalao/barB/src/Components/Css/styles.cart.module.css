@@ -219,6 +219,13 @@
   word-break: keep-all;
 }
 
+.cart .delivery {
+  font-size: 0.8rem;
+  margin-top: -8px;
+  cursor: pointer;
+  color: var(--navColor);
+}
+
 @keyframes cartButtonOpening {
   from {margin: 0 -40vw 0 40vw;}
   to {margin-left: 0vw;}
