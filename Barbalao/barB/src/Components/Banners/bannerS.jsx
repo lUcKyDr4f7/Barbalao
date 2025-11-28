@@ -16,10 +16,12 @@ export default function BannerS({ banners, ordem }){
                 {bannersL.length != 0?
                     <Carousel className={styles.carrousel} showArrows={true} showThumbs={false} showStatus={false} showIndicators={false} swipeable={true} >
                         {bannersL.map(banner => (
-                            <div className={styles.bannerText}>
+                            <div>
                                 <img src={banner.imagem} alt="Slide 1" />
-                                <h1 className={`legend ${styles.customTitle}`}>{banner.titulo}</h1>
-                                <p className={`legend ${styles.customLegend}`}>{banner.sub_titulo}</p>
+                                <div className={styles.bannerText}>
+                                    <h1 className={`legend ${styles.customTitle}`}>{banner.titulo}</h1>
+                                    <p className={`legend ${styles.customLegend}`}>{banner.sub_titulo}</p>
+                                </div>
                             </div>
                         ))}
                     </Carousel>
@@ -69,5 +71,6 @@ export default function BannerS({ banners, ordem }){
     </Carousel>
 
 </div> */}
+
 
 
