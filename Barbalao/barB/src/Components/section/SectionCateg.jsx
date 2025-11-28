@@ -35,11 +35,11 @@ export default function SectionCateg({produtos, categorias, subCateg, banners}) 
                             </div>
                         </div>
                     ))}
-                    <Footer />
                 </>
                 :
                 null
             }
+            {(categoriasL.length != 0) && <Footer />}
         </div>
     )
 }
