@@ -12,7 +12,7 @@ export default function BannerS({ banners, ordem }){
     
     return(
         <>
-            <div style={{ width: "100%", margin: "0 auto" }}>
+            <div style={{ width: "100%", margin: "0 5vw" }}>
                 {bannersL.length != 0?
                     <Carousel className={styles.carrousel} showArrows={true} showThumbs={false} showStatus={false} showIndicators={false} swipeable={true} >
                         {bannersL.map(banner => (
@@ -67,4 +67,5 @@ export default function BannerS({ banners, ordem }){
             <p className={`legend ${styles.customLegend}`}>Recheados de sabor, crocantes a cada mordida</p>
         </div>
     </Carousel>
+
 </div> */}
