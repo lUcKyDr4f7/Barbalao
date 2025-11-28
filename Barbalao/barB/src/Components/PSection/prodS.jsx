@@ -56,7 +56,7 @@ export default function ProdS({ produtos, subCateg }) {
               <div className={styles.productInfo}>
                 <h4>{produto.nome}</h4>
                 <h4>R$ {produto.preco?parseFloat(produto.preco || 0).toFixed(2).replace('.', ','):'?,??'}</h4>
-                <i className={`ri-shopping-cart-2-fill ${styles.shopIcon}`}></i>
+                <i className="ri-shopping-cart-2-fill"></i>
               </div>
             </div>
           ))}
@@ -77,6 +77,7 @@ export default function ProdS({ produtos, subCateg }) {
   );
 
 }
+
 
 
 
