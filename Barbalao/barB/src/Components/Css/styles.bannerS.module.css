@@ -63,7 +63,7 @@
     font-size: 2.5rem !important;
   }
   .customLegend {
-    font-size: 2rem !important;
+    font-size: 1.2rem !important;
   }
   :global(.carousel .control-arrow) {
     width: 20px;
@@ -72,6 +72,7 @@
     padding: 0;
   }
 }
+
 
 
 
