@@ -32,8 +32,8 @@ export default function AdmCateg({ categorias, subCateg }) {
 
             if (response.ok) {
                 if (tipo === 'categoria') {
-                    const novasCategorias = categoriasState.filter(cat => cat.id_categoria !== id);
-                    const novasSubcategorias = subcategoriasState.filter(sub => 
+                    const novasCategorias = catgeL.filter(cat => cat.id_categoria !== id);
+                    const novasSubcategorias = catgeL.filter(sub => 
                         sub.sub_categoria_de !== id && sub.categoria_id_categoria !== id
                     );
                     
@@ -42,7 +42,7 @@ export default function AdmCateg({ categorias, subCateg }) {
                     localStorage.setItem("categories", JSON.stringify(novasCategorias));
                     localStorage.setItem("subcategories", JSON.stringify(novasSubcategorias));
                 } else {
-                    const novasSubcategorias = subcategoriasState.filter(sub => sub.id_categoria !== id);
+                    const novasSubcategorias = catgeL.filter(sub => sub.id_categoria !== id);
                     setSubL(novasSubcategorias);
                     localStorage.setItem("subcategories", JSON.stringify(novasSubcategorias));
                 }
