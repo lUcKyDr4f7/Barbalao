@@ -9,7 +9,7 @@
   align-items: center;
 }
 .customTitle {
-  position: relative;
+  position: relative !important;
   margin: 0;
   top: 0;
   left: 0;
@@ -23,7 +23,7 @@
   text-shadow: #0000007a 0 0 6px;   
 }
 .customLegend {
-  position: relative;
+  position: relative !important;
   margin: 0;
   top: 0;
   left: 0;
@@ -90,5 +90,6 @@
     padding: 0;
   }
 }
+
 
 
