@@ -1,7 +1,7 @@
 import BannerS from "../Banners/bannerS";
 import SectionSubCateg from "../section/SectionSubCateg.jsx"
 import styles from "../Css/styles.pcard_S.module.css"
-import Footer from '../Components/Footer/Footer.jsx';
+import Footer from '../Footer/Footer.jsx';
 
 export default function SectionCateg({produtos, categorias, subCateg, banners}) {
     const produtosL = produtos || JSON.parse(localStorage.getItem("products"))
