@@ -2,10 +2,64 @@ import { useState } from 'react';
 import styles from '../Components/Css/styles.AdmCateg.module.css';
 
 export default function AdmCateg({ categorias, subCateg }) {
-    const catgeL = categorias || JSON.parse(localStorage.getItem("categories")) || [];
-    const subL = subCateg || JSON.parse(localStorage.getItem("subcategories")) || [];
-    
+    const [categoriasState, setCategoriasState] = useState(categorias || JSON.parse(localStorage.getItem("categories")) || []);
+    const [subcategoriasState, setSubcategoriasState] = useState(subCateg || JSON.parse(localStorage.getItem("subcategories")) || []);
     const [categoriaSelecionada, setCategoriaSelecionada] = useState(null);
+    const [carregando, setCarregando] = useState(false)
+
+    useEffect(() => {
+        if (categorias) {
+            setCategoriasState(categorias);
+        }
+    }, [categorias]);
+
+    useEffect(() => {
+        if (subCateg) {
+            setSubcategoriasState(subCateg);
+        }
+    }, [subCateg]);
+
+    const deletarItem = async (id, tipo) => {
+
+        setCarregando(true)
+        try {
+            const response = await fetch(`http://localhost:5000/api/categoria/remove/${id}`, {
+                method: 'DELETE',
+                credentials: 'include'
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                if (tipo === 'categoria') {
+                    const novasCategorias = categoriasState.filter(cat => cat.id_categoria !== id);
+                    const novasSubcategorias = subcategoriasState.filter(sub => 
+                        sub.sub_categoria_de !== id && sub.categoria_id_categoria !== id
+                    );
+                    
+                    setCategoriasState(novasCategorias);
+                    setSubcategoriasState(novasSubcategorias);
+                    localStorage.setItem("categories", JSON.stringify(novasCategorias));
+                    localStorage.setItem("subcategories", JSON.stringify(novasSubcategorias));
+                } else {
+                    const novasSubcategorias = subcategoriasState.filter(sub => sub.id_categoria !== id);
+                    setSubcategoriasState(novasSubcategorias);
+                    localStorage.setItem("subcategories", JSON.stringify(novasSubcategorias));
+                }
+                
+                alert(`${tipo === 'categoria' ? 'Categoria' : 'Subcategoria'} excluída com sucesso!`);
+            } else {
+                alert(`Erro ao excluir: ${data.message}`);
+            }
+        } catch (error) {
+            console.error('Erro ao excluir:', error);
+            alert('Erro ao excluir. Tente novamente.');
+        } finally {
+            setCarregando(false);
+        }
+    };
+
+
 
     // Agrupar subcategorias por categoria pai
     const subcategoriasPorCategoria = subL.reduce((acc, sub) => {
@@ -56,8 +110,15 @@ export default function AdmCateg({ categorias, subCateg }) {
                                         <button className={styles.botaoEditar}>
                                             Editar
                                         </button>
-                                        <button className={styles.botaoExcluir}>
-                                            Excluir
+                                        <button 
+                                            className={styles.botaoExcluir}
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                deletarItem(categ.id_categoria, 'categoria');
+                                            }}
+                                            disabled={carregando}    
+                                        >
+                                            {carregando ? 'Excluindo...' : 'Excluir'}
                                         </button>
                                     </div>
 
@@ -84,8 +145,12 @@ export default function AdmCateg({ categorias, subCateg }) {
                                                         <button className={styles.botaoEditar}>
                                                             Editar
                                                         </button>
-                                                        <button className={styles.botaoExcluir}>
-                                                            Excluir
+                                                        <button 
+                                                            className={styles.botaoExcluir}
+                                                            onClick={() => deletarItem(sub.id_categoria, 'subcategoria')}
+                                                            disabled={carregando}
+                                                        >
+                                                            {carregando ? 'Excluindo...' : 'Excluir'}
                                                         </button>
                                                     </div>
                                                 </div>
