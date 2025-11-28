@@ -23,7 +23,7 @@ export default function AdmCateg({ categorias, subCateg }) {
 
         setCarregando(true)
         try {
-            const response = await fetch(`http://localhost:5000/api/categoria/remove/${id}`, {
+            const response = await fetch(`https://back-end-barbalao.onrender.com/api/categoria/remove/${id}`, {
                 method: 'DELETE',
                 credentials: 'include',
                 headers: {
@@ -31,12 +31,19 @@ export default function AdmCateg({ categorias, subCateg }) {
                 }
             });
 
+             if (!response.ok) {
+                // Se não for OK, tente ler a mensagem de erro
+                const errorText = await response.text();
+                console.error('Erro na resposta:', response.status, errorText);
+                throw new Error(`Erro ${response.status}: ${errorText}`);
+            }
+
             const data = await response.json();
 
             if (response.ok) {
                 if (tipo === 'categoria') {
                     const novasCategorias = catgeL.filter(cat => cat.id_categoria !== id);
-                    const novasSubcategorias = catgeL.filter(sub => 
+                    const novasSubcategorias = subL.filter(sub => 
                         sub.sub_categoria_de !== id && sub.categoria_id_categoria !== id
                     );
                     
@@ -45,7 +52,7 @@ export default function AdmCateg({ categorias, subCateg }) {
                     localStorage.setItem("categories", JSON.stringify(novasCategorias));
                     localStorage.setItem("subcategories", JSON.stringify(novasSubcategorias));
                 } else {
-                    const novasSubcategorias = catgeL.filter(sub => sub.id_categoria !== id);
+                    const novasSubcategorias = subL.filter(sub => sub.id_categoria !== id);
                     setSubL(novasSubcategorias);
                     localStorage.setItem("subcategories", JSON.stringify(novasSubcategorias));
                 }
