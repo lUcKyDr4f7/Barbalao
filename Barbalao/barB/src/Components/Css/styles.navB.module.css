@@ -4,7 +4,7 @@
 
 .header {
   padding: 20px 20px;
-  position: fixed;
+  position: stactic;
   width: calc(100vw - 40px);
   top: 0;
   left: 0;
@@ -170,4 +170,5 @@ button {
     transform: none;
     transition: 0s;
   }
+
 }
