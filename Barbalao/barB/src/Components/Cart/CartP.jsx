@@ -29,6 +29,7 @@ export default function Cart(props) {
         localStorage.setItem('oldCart', JSON.stringify({}));
     }
     const [isOldCart, setIsOldCart] = useState(false);
+    const [isDelivery, setIsDelivery] = useState(false);
 
     const [totalValue, setTotalValue] = useState(0);
     function calcTotal() {
@@ -38,6 +39,9 @@ export default function Cart(props) {
                 total += Products[key].preco * cartItems[key];
             }
         })
+        if(isDelivery) {
+            total+=2;
+        }
         setTotalValue(total);
     }
 
@@ -58,7 +62,6 @@ export default function Cart(props) {
             }
         }
         setLinkWhatsapp(link);
-        /* return link; */
     }
 
     useEffect(() => {
@@ -83,6 +86,10 @@ export default function Cart(props) {
             setCartItems(JSON.parse(localStorage.getItem('cart')));
         }
     }, [isOldCart]);
+    
+    useEffect(() => {
+        calcTotal();
+    }, [isDelivery]);
 
     function order() {
         /* let link = */ createLinkWhatsApp();
@@ -98,8 +105,7 @@ export default function Cart(props) {
         return(
             <>
                 <div className={isClosing?styles.outsideClosingCart:styles.outsideCart} onClick={ () => closeCart() }></div>
-                <div className={isClosing?styles.closingCart:styles.cart} /* onClick={ () => closeCart() } */>
-                    
+                <div className={isClosing?styles.closingCart:styles.cart}>
                     <li><button className={styles.closeCartBtn} onClick={ () => closeCart() }>< i class="ri-close-fill"></i></button>Carrinho</li>
                     <div>{JSON.parse(localStorage.getItem('oldCart')) != {} && <div className={styles.cartTabs}>
                         <p className={isOldCart?styles.activeTab:styles.inactiveTab} onClick={() => setIsOldCart(true)}>Anterior</p>
@@ -112,6 +118,7 @@ export default function Cart(props) {
                         }):<p>O carrinho está vazio</p>
                     }</div></div>
                     <li className={styles.totalValue}>Total: R${totalValue.toFixed(2).replace('.', ',')}</li>
+                    <label><input type="checkbox" name="delivery" checked={isDelivery} onChange={setIsDelivery)}/> Delivery</label>
                     <button disabled={Object.keys(cartItems).length == 0} alt={`Fazer pedido em ${linkWhatsapp}`} onClick={() => order() } className={styles.whatsappBtn}>Fazer Pedido</button>
                 </div>
             </>
