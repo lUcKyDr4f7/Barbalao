@@ -20,23 +20,12 @@ export default function AdmCateg({ categorias, subCateg }) {
     }, [subCateg]);
 
     const deletarItem = async (id, tipo) => {
-
-        setCarregando(true)
+        setCarregando(true);
         try {
-            const response = await fetch(`https://back-end-barbalao.onrender.com/api/categoria/remove/${id}`, {
+            const response = await fetch(`https://back-end-barbalao.onrender.com/api/categoria/remove/${id}/`, {
                 method: 'DELETE',
-                credentials: 'include',
-                headers: {
-                    'Content-Type': 'application/json',
-                }
+                headers: {'Content-Type': 'application/json'}
             });
-
-             if (!response.ok) {
-                // Se não for OK, tente ler a mensagem de erro
-                const errorText = await response.text();
-                console.error('Erro na resposta:', response.status, errorText);
-                throw new Error(`Erro ${response.status}: ${errorText}`);
-            }
 
             const data = await response.json();
 
@@ -59,16 +48,15 @@ export default function AdmCateg({ categorias, subCateg }) {
                 
                 alert(`${tipo === 'categoria' ? 'Categoria' : 'Subcategoria'} excluída com sucesso!`);
             } else {
-                alert(`Erro ao excluir: ${data.message}`);
+                alert(`Erro ao excluir: ${data.message || 'Erro desconhecido'}`);
             }
         } catch (error) {
             console.error('Erro ao excluir:', error);
-            alert('Erro ao excluir. Tente novamente.');
+            alert('Erro de rede ao excluir. Verifique sua conexão.');
         } finally {
             setCarregando(false);
         }
     };
-
 
 
     // Agrupar subcategorias por categoria pai
@@ -206,8 +194,12 @@ export default function AdmCateg({ categorias, subCateg }) {
                                                 <button className={styles.botaoEditar}>
                                                     Editar
                                                 </button>
-                                                <button className={styles.botaoExcluir}>
-                                                    Excluir
+                                                <button 
+                                                    className={styles.botaoExcluir}
+                                                    onClick={() => deletarItem(sub.id_categoria, 'subcategoria')}
+                                                    disabled={carregando}
+                                                >
+                                                    {carregando ? 'Excluindo...' : 'Excluir'}
                                                 </button>
                                             </div>
                                         </div>
