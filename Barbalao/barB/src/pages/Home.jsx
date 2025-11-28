@@ -46,10 +46,11 @@ export default function Home({produtos, categorias, subCateg, banners}) {
   
   return (
     <>
-      <NavB setSearchModal={setSearchModal} searchText={searchText} setSearchText={setSearchText}/>
+      <NavB ref={header} setSearchModal={setSearchModal} searchText={searchText} setSearchText={setSearchText}/>
       <section className="main">
         <CategP categorias={categoriasL}/>
         <SectionCateg 
+          ref={section} 
           produtos={produtosL} 
           categorias={categoriasL} 
           subCateg={subCategL}
