@@ -1,15 +1,18 @@
-
-.customLegend {
-  background-color: transparent !important;
-  color: #fff !important;
-  font-size: 2.30rem !important;
-  padding: 10px !important;
-  border-radius: 0!important;
-  opacity: 1 !important;
-  bottom: 33% !important; 
-  text-shadow: #000000a1 0 0 6px; 
+.bannerText {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .customTitle {
+  position: relative !important;
+  margin: 0;
+  top: 0;
+  left: 0;
   background-color: transparent !important;
   color: #fff !important;
   font-size: 4.5rem !important;
@@ -18,6 +21,19 @@
   opacity: 1 !important;
   bottom: 40% !important;
   text-shadow: #0000007a 0 0 6px;   
+}
+.customLegend {
+  position: relative !important;
+  margin: 0;
+  top: 0;
+  left: 0;
+  background-color: transparent !important;
+  color: #fff !important;
+  font-size: 2.30rem !important;
+  padding: 10px !important;
+  border-radius: 0!important;
+  opacity: 1 !important;
+  text-shadow: #000000a1 0 0 6px; 
 }
 :global(.carousel .slide img) {
   height: 70vh;   /* 60% da altura da tela */
@@ -43,11 +59,37 @@
   :global(.carousel .slide img) {
     height: 50vh;
   }
-  .customLegend {
-    font-size: 2rem;
+  .bannerText {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .customTitle {
+    position: relative;
+    margin: 0;
+    top: 0;
+    left: 0;
     font-size: 2.5rem !important;
   }
+  .customLegend {
+    position: relative;
+    margin: 0;
+    top: 0;
+    left: 0;
+    font-size: 2rem;
+  }
+  :global(.carousel .control-arrow) {
+    width: 20px;
+    font-size: 20px;
+    justify-content: center;
+    padding: 0;
+  }
 }
+
+
 
