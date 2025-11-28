@@ -77,8 +77,8 @@
    
    .productCard {
       justify-content: normal;
-      min-width: calc(18vw - 24px);
-      max-width: calc(18vw - 24px);
+      min-width: calc(30vw - 10px);
+      max-width: calc(30vw - 10px);
       height: auto;
    }
    
