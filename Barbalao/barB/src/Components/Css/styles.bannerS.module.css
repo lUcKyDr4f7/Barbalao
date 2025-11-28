@@ -60,7 +60,7 @@
     height: 50vh;
   }
   .customTitle {
-    font-size: 2.5rem !important;
+    font-size: 2.1rem !important;
   }
   .customLegend {
     font-size: 1.2rem !important;
@@ -72,6 +72,7 @@
     padding: 0;
   }
 }
+
 
 
 
