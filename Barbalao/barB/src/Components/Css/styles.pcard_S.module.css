@@ -1,208 +1,7 @@
 /* =================== Google Fonts ====================== */
-/* @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-.swiperTitle{
-   color: var(--TitleColor);
-}
-.productCard {
-   position: relative;
-   background: var(--cardBg);
-   width: 230px;
-   border-radius: 10px;
-   cursor: pointer;
-   overflow: hidden;
-}
-
-.productCard .productBrand {
-   position: absolute;
-   width: 50px;
-   height: 50px;
-   margin: 32px 24px;
-}
-.productCard .productBrand img {
-   width: 70% !important;
-   height: 70% !important;
-   object-fit: contain;
-   filter: invert(100%);
-   transition: all 0.3s ease;
-}
-.productCard:hover .productBrand img {
-   transform: scale(1.1);
-   filter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(103%) contrast(92%);
-}
-
-.productCard .productImg {
-   width: 100%;
-   height: 200px;
-   justify-content: center;
-   align-items: center;
-   background: rgba(0,0,0,0.1);
-}
-.productCard .productImg img {
-   width: 100%;
-   height: 100%;
-   object-fit: contain;
-   transition: .3s;
-}
-
-.productCard .productInfo {
-   position: relative;
-   padding: 10px 15px 15px 20px;
-}
-.productCard .productInfo .info {
-   margin-top: 3px;
-   margin-bottom: 5px;   
-}
-.productCard .productInfo span {
-   color: rgba(158, 158, 158, 1);
-   font-size: .98rem;
-   font-weight: 400;
-   text-transform: uppercase;
-}
-.productCard .productInfo h4 {
-   color: var(--TitleColor);
-   font-size: 1.07rem;
-   font-weight: 500;
-}
-.productCard .productInfo .productStars {
-   color: rgba(119, 163, 247, 1);
-   font-size: 1.1rem;
-}
-.productCard .productInfo .productOptionsD {
-   max-width: 100%;
-   display: flex;
-   gap: 10px;
-   justify-content: left;
-   align-items: center;
-}
-
-.productCard .productInfo .productOptions {
-   max-width: 100%;
-   display: flex;
-   gap: 10px;
-   justify-content: left;
-   align-items: center;
-   margin-bottom: 30px;
-}
-
-.productInfo .productOptions .picante {
-   background: linear-gradient(360deg,rgba(207, 163, 163, 0.15),rgba(207, 163, 163, 0.1));
-   text-align: left;
-   border-radius: 3px;
-}
-.productOptions .picante p,
-.productOptions .picante span {
-   color: rgb(247, 119, 119);
-   font-size: .98rem;
-   font-weight: 500;
-   margin: 2px 4px;
-}
-
-.productInfo .productOptionsD .vegetariano {
-   background: linear-gradient(360deg,rgba(207, 247, 119, 0.15),rgba(207, 247, 119, 0.1));
-   text-align: left;
-   border-radius: 3px;
-}
-.productOptionsD .vegetariano p,
-.productOptionsD .vegetariano span {
-   color: rgb(202, 247, 119);
-   font-size: .98rem;
-   font-weight: 500;
-   margin: 2px 4px;
-}
-.productInfo .productOptionsD .picante {
-   background: linear-gradient(360deg,rgba(207, 163, 163, 0.15),rgba(207, 163, 163, 0.1));
-   text-align: left;
-   border-radius: 3px;
-}
-.productOptionsD .picante p,
-.productOptionsD .picante span {
-   color: rgb(247, 119, 119);
-   font-size: .98rem;
-   font-weight: 500;
-   margin: 2px 4px;
-}
-.productInfo .productOptionsD .vegetariano {
-   background: linear-gradient(360deg,rgba(207, 247, 119, 0.15),rgba(207, 247, 119, 0.1));
-   text-align: left;
-   border-radius: 3px;
-}
-.productOptionsD .vegetariano p,
-.productOptionsD .vegetariano span {
-   color: rgb(202, 247, 119);
-   font-size: .98rem;
-   font-weight: 500;
-   margin: 2px 4px;
-}
-.productCard .productInfo .priceWithDescount {
-   color: rgba(119, 163, 247, 1);
-   font-weight: 500;
-}
-.productCard .productInfo .normalPrice {
-   color: rgba(158, 158, 158, 1);
-   font-weight: 400;
-   font-size: .9rem;
-}
-.productCard .productInfo .shopIcon {
-   position: absolute;
-   right: 0;
-   bottom: 0;
-   color: rgba(119, 163, 247, 1);
-   font-size: 1.3rem;
-   margin: 17px;
-   transform: scale(0);
-   transition: .3s;
-}
-.productCard:hover .productInfo .shopIcon {
-   transform: scale(1);
-}
-.productCard:hover .productImg img {
-   transform: scale(1.03);
-}
-.swiperSlide{
-   display: flex;
-   flex-direction: column;
-}
-
-.brandsSwiper{
-   position: relative;
-   width: 100%;
-   padding: 20px 0px;
-}
-.brandsSwiper .swiperSlide{
-   width: 233px !important;
-   height: 100%;
-   display: flex;
-   justify-content: center;
-   border-radius: 10px;
-}
-.brandsSwiper .cardWithModal{
-   width:50px;
-}
-.swiperSlide{
-   display: flex;
-   flex-direction: column;
-}
-.brandsSwiper .swiperSlide .coming-soon{
-   position: absolute;
-   top: 10px;
-   left: 10px;
-   padding: 10px;
-   background: rgba(0,0,0,0.2);
-   border-radius: 10px;
-}
-.brandsSwiper .swiperSlide .coming-soon h5{
-   font-size: 1.1rem;
-   font-weight: 600;
-   color: hsl(217 85% 74%);
-   text-align: start;
-   text-transform: uppercase;
-   letter-spacing: -1px;
-} */
-
-/* =================== Google Fonts ====================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-/* ==================== Título ==================== */
+/* ==================== Títulos ==================== */
 .swiperTitle {
    color: var(--TitleColor);
    margin: 0.67em 5vw;
@@ -219,163 +18,65 @@
    overflow: hidden;
    display: flex;
    flex-direction: column;
-}
-
-/* ==================== Marca ==================== */
-.productBrand {
-   position: absolute;
-   width: 50px;
-   height: 50px;
-   margin: 32px 24px;
-}
-.productBrand img {
-   width: 70%;
-   height: 70%;
-   object-fit: cover;
-   filter: invert(100%);
-   transition: all 0.3s ease;
-}
-.productCard:hover .productBrand img {
-   transform: scale(1.1);
-   filter: invert(64%) sepia(28%) saturate(941%) hue-rotate(186deg) brightness(103%) contrast(92%);
+   align-items: center;
 }
 
 /* ==================== Imagem ==================== */
 .productImg {
-   width: 100%;
-   height: 200px;
+   width: 90%;
+   height: 180px;
+   margin-top: 10px;
    display: flex;
+   border-radius: 5px;
    justify-content: center;
    align-items: center;
-   background: rgba(0, 0, 0, 0.1);
-}
-.productImg img {
-   width: 100%;
-   height: 100%;
+   background: #0000001a;
    object-fit: cover;
-   transition: 0.3s;
 }
-.productCard:hover .productImg img {
+.productCard:hover .productImg {
    transform: scale(1.03);
 }
 
 /* ==================== Informações ==================== */
 .productInfo {
    position: relative;
-   padding: 10px 15px 15px 20px;
-}
-.productInfo .info {
-   margin: 3px 0;
-}
-.productInfo span {
-   color: #9e9e9e;
-   font-size: 0.98rem;
-   font-weight: 400;
-   text-transform: uppercase;
+   width: 85%;
+   padding: 10px 0;
 }
 .productInfo h4 {
    color: var(--TitleColor);
+   margin: 3px 0;
    font-size: 1.07rem;
    font-weight: 500;
 }
-.productStars {
-   color: #77a3f7;
-   font-size: 1.1rem;
-}
-
-/* ==================== Opções ==================== */
-.productOptions,
-.productOptionsD {
-   max-width: 100%;
-   display: flex;
-   gap: 10px;
-   align-items: center;
-   margin-bottom: 30px;
-}
-
-.picante,
-.vegetariano {
-   border-radius: 3px;
-   padding: 2px 4px;
-   font-size: 0.98rem;
-   font-weight: 500;
-}
-
-.picante {
-   background: rgba(207, 163, 163, 0.15);
-   color: #f77777;
-}
-
-.vegetariano {
-   background: rgba(207, 247, 119, 0.15);
-   color: #caf777;
-}
-
-/* ==================== Preços ==================== */
-.priceWithDescount {
-   color: #77a3f7;
-   font-weight: 500;
-}
-.normalPrice {
-   color: #9e9e9e;
-   font-weight: 400;
-   font-size: 0.9rem;
-}
-
-/* ==================== Ícone do carrinho ==================== */
-.shopIcon {
+.productInfo i {
    position: absolute;
    right: 0;
    bottom: 0;
    font-size: 1.3rem;
    color: #77a3f7;
-   margin: 17px;
+   margin: 10px 0;
    transform: scale(0);
    transition: 0.3s;
 }
-.productCard:hover .shopIcon {
+.productCard:hover i {
    transform: scale(1);
 }
 
 /* ==================== Swiper ==================== */
-.swiperSlide {
+.prodSwiper {
+   width: 100%;
+}
+
+.productCard {
    display: flex;
    flex-direction: column;
-}
-
-.brandsSwiper {
-   width: 100%;
-   padding: 20px 0;
-}
-
-.brandsSwiper .swiperSlide {
-   width: 100% !important;
-   max-width: 230px;
+   width: calc(18vw - 120px);
    height: auto;
    display: flex;
    justify-content: center;
+   align-items: center;
    border-radius: 10px;
-}
-
-.cardWithModal {
-   width: 100%;
-}
-
-/* Coming soon */
-.coming-soon {
-   position: absolute;
-   top: 10px;
-   left: 10px;
-   padding: 10px;
-   background: rgba(0, 0, 0, 0.2);
-   border-radius: 10px;
-}
-.coming-soon h5 {
-   font-size: 1.1rem;
-   font-weight: 600;
-   color: hsl(217 85% 74%);
-   text-transform: uppercase;
-   letter-spacing: -1px;
 }
 
 /* ==================== RESPONSIVIDADE ==================== */
