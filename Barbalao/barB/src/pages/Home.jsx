@@ -40,7 +40,7 @@ export default function Home({produtos, categorias, subCateg, banners}) {
         />
       </section>
       {searchModal && <SearchModal setSearchModal={setSearchModal} searchText={searchText} produtos={produtos}/>}
-      {produtos && <Footer />}
+      {produtos.length != 0 && <Footer />}
     </>
   );
 }
