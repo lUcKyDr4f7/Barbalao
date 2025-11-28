@@ -2,20 +2,20 @@ import { useState, useEffect } from 'react';
 import styles from '../Components/Css/styles.AdmCateg.module.css';
 
 export default function AdmCateg({ categorias, subCateg }) {
-    const [categoriasState, setCategoriasState] = useState(categorias || JSON.parse(localStorage.getItem("categories")) || []);
-    const [subcategoriasState, setSubcategoriasState] = useState(subCateg || JSON.parse(localStorage.getItem("subcategories")) || []);
+    const [catgeL, setCategL] = useState(categorias || JSON.parse(localStorage.getItem("categories")) || []);
+    const [subL, setSubL] = useState(subCateg || JSON.parse(localStorage.getItem("subcategories")) || []);
     const [categoriaSelecionada, setCategoriaSelecionada] = useState(null);
     const [carregando, setCarregando] = useState(false)
 
     useEffect(() => {
         if (categorias) {
-            setCategoriasState(categorias);
+            setCategL(categorias);
         }
     }, [categorias]);
 
     useEffect(() => {
         if (subCateg) {
-            setSubcategoriasState(subCateg);
+            setSubL(subCateg);
         }
     }, [subCateg]);
 
@@ -37,13 +37,13 @@ export default function AdmCateg({ categorias, subCateg }) {
                         sub.sub_categoria_de !== id && sub.categoria_id_categoria !== id
                     );
                     
-                    setCategoriasState(novasCategorias);
-                    setSubcategoriasState(novasSubcategorias);
+                    setCategL(novasCategorias);
+                    setSubL(novasSubcategorias);
                     localStorage.setItem("categories", JSON.stringify(novasCategorias));
                     localStorage.setItem("subcategories", JSON.stringify(novasSubcategorias));
                 } else {
                     const novasSubcategorias = subcategoriasState.filter(sub => sub.id_categoria !== id);
-                    setSubcategoriasState(novasSubcategorias);
+                    setSubL(novasSubcategorias);
                     localStorage.setItem("subcategories", JSON.stringify(novasSubcategorias));
                 }
                 
