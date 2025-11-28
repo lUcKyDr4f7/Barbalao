@@ -118,7 +118,7 @@ export default function Cart(props) {
                         }):<p>O carrinho está vazio</p>
                     }</div></div>
                     <li className={styles.totalValue}>Total: R${totalValue.toFixed(2).replace('.', ',')}</li>
-                    <label><input type="checkbox" name="delivery" checked={isDelivery} onChange={setIsDelivery)}/> Delivery</label>
+                    <label><input type="checkbox" name="delivery" checked={isDelivery} onChange={() => setIsDelivery(!isDelivery)}/> Delivery</label>
                     <button disabled={Object.keys(cartItems).length == 0} alt={`Fazer pedido em ${linkWhatsapp}`} onClick={() => order() } className={styles.whatsappBtn}>Fazer Pedido</button>
                 </div>
             </>
