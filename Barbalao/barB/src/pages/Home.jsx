@@ -5,7 +5,7 @@ import PSection from '../Components/PSection/prodS.jsx';
 import SectionCateg from '../Components/section/SectionCateg.jsx';
 import Form from '../Components/Form/FormLogin.jsx';
 import SearchModal from '../Components/SearchModal/SearchModal.jsx';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Footer from '../Components/Footer/Footer.jsx';
 
 export default function Home({produtos, categorias, subCateg, banners}) {
@@ -23,19 +23,19 @@ export default function Home({produtos, categorias, subCateg, banners}) {
   }, [searchModal]);
   
   useEffect(() => {
-    const header = document.querySelector("header");
+    const header = useRef(0);
     /* const section = document.getElementsByClassName("main"); */
-    const section = document.querySelector("section");
+    const section = useRef(0);
     const handleScroll = () => {
-      if (section.scrollY > 50) {
-        header.classList.add(styles.shrink);
+      if (section.current.scrollY > 50) {
+        header.current.classList.add(styles.shrink);
       } else {
-        header.classList.remove(styles.shrink);
+        header.current.classList.remove(styles.shrink);
       }
     };
-    section.addEventListener("scroll", handleScroll);
+    section.current.addEventListener("scroll", handleScroll);
     return () => {
-      section.removeEventListener("scroll", handleScroll);
+      section.current.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
