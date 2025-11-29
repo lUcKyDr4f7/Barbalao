@@ -44,7 +44,7 @@
 }
 @media(orientation: portrait) {
 	.productCard {
-	    width: 100%;
+	    width: calc(100vw - 25px - 1rem);
 	    border-radius: 15px;
 	    padding: 0.5rem;
 	}
