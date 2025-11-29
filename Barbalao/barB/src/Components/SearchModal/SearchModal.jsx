@@ -37,9 +37,7 @@ export default function SearchModal({setSearchModal, produtos, setSelectedProduc
       <div className={styles.modalCard} onClick={(e) => e.stopPropagation()}>
         <h1> Produtos encontrados </h1>
         <div className={styles.insideModal}>
-          <div className={styles.productsDiv}>
-            {queryProducts.map((produto) => <ProductCard produto={produto} setSearchModal={setSearchModal} setSelectedProduct={setSelectedProduct}/>)}
-          </div>
+          {queryProducts.map((produto) => <ProductCard produto={produto} setSearchModal={setSearchModal} setSelectedProduct={setSelectedProduct}/>)}
         </div>
         <CloseBtn onClick={setSearchModal}/> 
       </div>
