@@ -39,7 +39,7 @@
   border: 2px solid #ffe600;
   display: flex;
   align-items: center;
-  gap: 10px;
+  /* gap: 10px; */
   color: #fff48d;
   width: 40rem;
 }
@@ -124,7 +124,7 @@ button {
   .searchBar {
     border-radius: 12.5px;
     padding: 0ch 5px;
-    gap: 5px;
+    /* gap: 5px; */
     width: calc(85vw - 66px);
   }
 
@@ -172,4 +172,5 @@ button {
   }
 
 }
+
 
