@@ -23,14 +23,10 @@ export default function ProductCard({ produto, setSearchModal, setSelectedProduc
 
   return (
     <div className={styles.productCard}>
-      <div>
-        <img src={produto.imagem} />
-      </div>
-      <div>
-        <h2>
-          {produto.nome}
-        </h2>
-        <h3> R$ {String(produto.preco.toFixed(2)).replace('.', ',')} </h3>
+      <img src={produto.imagem} alt={produto.nome}/>
+      <div className={styles.productInfo}>
+        <h2>{produto.nome}</h2>
+        <h3>R$ {String(produto.preco.toFixed(2)).replace('.', ',')}</h3>
         <div className={styles.productButtons}>
           <button onClick={handleViewDetails}>
             <i class="ri-information-line"></i>  
