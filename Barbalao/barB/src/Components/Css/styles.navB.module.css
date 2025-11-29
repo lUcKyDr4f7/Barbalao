@@ -123,22 +123,22 @@ button {
 
   .searchBar {
     border-radius: 12.5px;
-    padding: 0ch 5px;
+    padding: 5px 6px;
     /* gap: 5px; */
     width: calc(85vw - 66px);
     overflow: hidden !important;
   }
 
   .searchBar button {
-    padding: 3px 4px;
+    padding: 0;
     border-radius: 16px;
     font-size: 13px;
   }
 
   .searchBar input{
-    padding: 5px;
+    padding: 0;
     border-radius: 10px;
-    max-width: 80% !important;
+    max-width: 90% !important;
     overflow: hidden !important;
   }
 
@@ -175,6 +175,7 @@ button {
   }
 
 }
+
 
 
 
