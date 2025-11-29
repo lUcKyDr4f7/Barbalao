@@ -315,6 +315,7 @@
     margin: -20px -10px 0 0;
     width: 100vw;
     height: 100vh;
+    justify-content: start;
   }
   .closingCart{
     padding: 3vh 0;
