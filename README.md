@@ -51,11 +51,11 @@ O sistema foi desenvolvido utilizando a seguinte arquitetura:
 
 | Tela Inicial | Produtos | Sobre Nós |
 |:---:|:---:|:---:|
-| ![Topo do Site](./assets/Home.png) | ![Seção de Produtos](./assets/Produtos.png) |  ![Sobre Nós](./assets/Sobre.png) |
+| ![Topo do Site](./Barbalao/barB/public/Home.png) | ![Seção de Produtos](./Barbalao/barB/public/ProdAdm.png) |  ![Sobre Nós](./Barbalao/barB/public/Sobre.png) |
 
 | Login | Menu Administrativo | Painel de Produtos | Painel de Categorias |
 |:---:|:---:|:---:|:---:|
-| ![Login](./assets/login.png) | ![Menu Admin](./assets/Menu.png) | ![Painel Produtos](./assets/ProdAdm.png) | ![Painel Categorias](./assets/CategAdm.png) | 
+| ![Login](./Barbalao/barB/public/Login.png) | ![Menu Admin](./Barbalao//barB/public/Menu.png) | ![Painel Produtos](./Barbalao/barB/public/ProdAdm.png) | ![Painel Categorias](./Barbalao/barB/public/CategAdm.png) | 
 
 > Observação: As imagens ilustrativas do projeto estão salvas na pasta assets.
 
@@ -65,18 +65,23 @@ O sistema foi desenvolvido utilizando a seguinte arquitetura:
 
 ```plaintext
 Barbalao/
-├── public/                # Arquivos públicos (imagens, ícones, etc.)
-├── src/                   # Código-fonte principal
-│   ├── Components/        # Componentes reutilizáveis
-│   ├── pages/             # Páginas da aplicação
-│   ├── Routes/            # Configuração de rotas
-│   ├── assets/            # Recursos estáticos
-│   ├── App.jsx            # Componente principal
-│   ├── main.jsx           # Ponto de entrada
-├── package.json           # Dependências e scripts
-├── vite.config.js         # Configuração do Vite
-└── README.md              # Documentação do projeto
-```
+├── public/                 # Arquivos públicos (imagens, ícones, etc.)
+├── src/                    # Código-fonte principal
+│   ├── assets/             # Recursos estáticos
+│   ├── Components/         # Componentes reutilizáveis
+│   ├── pages/              # Páginas da aplicação
+│   ├── Routes/             # Configuração de rotas
+│   ├── App.css             # Estilos globais
+│   ├── App.jsx             # Componente principal
+│   ├── index.css           # Estilos globais adicionais
+│   ├── main.jsx            # Ponto de entrada
+├── .gitignore              # Arquivos ignorados pelo Git
+├── index.html              # Arquivo HTML principal
+├── package-lock.json       # Controle de versão das dependências
+├── package.json            # Dependências e scripts do projeto
+├── vercel.json             # Configuração de deploy no Vercel
+├── vite.config.js          # Configuração do Vite
+└── README.md               # Documentação do projeto
 
 ---
 
