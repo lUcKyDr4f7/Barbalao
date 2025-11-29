@@ -12,7 +12,7 @@
 	animation: fadeIn 0.15s ease;
 }
 
-  .modalCard {
+.modalCard {
 	position: relative;
 	border: 3px solid var(--TitleColor);
 	max-height: 80vh;
@@ -55,14 +55,9 @@
 	overflow-y: auto;
 	overflow-x: hidden;
 	padding-right: 56px;
-}
-
-.productsDiv {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
-	
-	
 }
 
 @keyframes fadeIn {
