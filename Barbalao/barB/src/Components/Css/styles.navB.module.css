@@ -126,6 +126,7 @@ button {
     padding: 0ch 5px;
     /* gap: 5px; */
     width: calc(85vw - 66px);
+    overflow: hidden !important;
   }
 
   .searchBar button {
@@ -137,6 +138,8 @@ button {
   .searchBar input{
     padding: 5px;
     border-radius: 10px;
+    max-width: 80% !important;
+    overflow: hidden !important;
   }
 
   .menuBtn {
@@ -172,5 +175,6 @@ button {
   }
 
 }
+
 
 
