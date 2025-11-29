@@ -51,7 +51,6 @@
 
 .insideModal {
 	flex: 1;
-	gap: 15px;
 	overflow-y: auto;
 	overflow-x: hidden;
 	padding-right: 56px;
@@ -79,23 +78,22 @@
 }
 
 @media (orientation: portrait) {
-
+	
 	.modalCard {
+		position: absolute;
 		border: 2px solid var(--TitleColor);
-		position: fixed;
-		top: 0px;
-		bottom: 0px;
-		left: 0%;
-		width: calc(100% - 44px);
-		border-radius: 0px;
+		max-height: calc(100vh - 20px);
+		width: calc(100vw - 25px);
+		border-radius: 0;
 		padding: 8px 10px;
 	}
-
+	
 	.modalCard h1 {
 		font-size: 1.5rem;
 	}
-
-	.productsDiv {
-		gap: 8px;
+	
+	.insideModal {
+		padding-right: 0;
+		gap: 0.5rem;
 	}
 }
