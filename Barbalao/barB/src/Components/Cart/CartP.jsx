@@ -49,7 +49,7 @@ export default function Cart(props) {
     function createLinkWhatsApp() {
         let link;
         if(Object.keys(cartItems).length != 0) {
-            link = "https://wa.me/5519996829711?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%3A";
+            link = `https://wa.me/5519996829711?text=Ol%C3%A1%2C%20gostaria%20de%20pedir${isDelivery?"para%20delivery":''}%3A`;
             let replacements = [[' ', '$', '+', ',', '/', ':'], ["%20", "%24", "%2B", "%2C", "%2F", "%3A"]];
             Object.keys(cartItems).map( key => {
                 const item = Products[key];
@@ -87,6 +87,7 @@ export default function Cart(props) {
     }, [isOldCart]);
     
     useEffect(() => {
+        createLinkWhatsApp();
         calcTotal();
     }, [isDelivery]);
 
