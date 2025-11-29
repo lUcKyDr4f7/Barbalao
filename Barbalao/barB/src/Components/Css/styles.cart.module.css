@@ -219,26 +219,34 @@
   word-break: keep-all;
 }
 
-.cart .delivery {
+.cart .delivery, .closingCart .delivery{
   font-size: 0.8rem;
   margin-top: -8px;
   cursor: pointer;
   color: var(--navColor);
+  animation-duration: .5s;
+}
+.cart .delivery {
+  animation-name: cartTotalOpening;
+}
+.closingCart .delivery {
+  animation-name: cartTotalClosing;
 }
 
-@keyframes cartButtonOpening {
+/* @keyframes cartButtonOpening {
   from {margin: 0 -40vw 0 40vw;}
   to {margin-left: 0vw;}
 }
 @keyframes cartButtonClosing {
   from {margin-left: 0vw;}
   to {margin: 0 -40vw 0 40vw;}
-}
+} */
 .cart .whatsappBtn {
   width: 20vw;
   color: white;
   background-color: green;
-  animation-name: cartButtonOpening;
+  /* animation-name: cartButtonOpening; */
+  animation-name: cartTotalOpening;
   animation-duration: .5s;
   transition: 0.5s;
   /* margin: 1vh 0 0 -1vw; */
@@ -255,7 +263,8 @@
 .closingCart .whatsappBtn {
   width: 20vw;
   background-color: green;
-  animation-name: cartButtonClosing;
+  /* animation-name: cartButtonClosing; */
+  animation-name: cartTotalClosing;
   animation-duration: .5s;
   /* margin-top: 1vh; */
 }
@@ -305,6 +314,7 @@
     padding: 3vh 0;
     margin: -20px -10px 0 0;
     width: 100vw;
+    height: 100vh;
   }
   .closingCart{
     padding: 3vh 0;
