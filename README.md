@@ -82,6 +82,7 @@ Barbalao/
 ├── vercel.json             # Configuração de deploy no Vercel
 ├── vite.config.js          # Configuração do Vite
 └── README.md               # Documentação do projeto
+```
 
 ---
 
