@@ -1,9 +1,9 @@
-import Lanche from '../../assets/categorias/burger.png';
-import Pastel from '../../assets/categorias/pastel.png';
-import Salgado from '../../assets/categorias/coxinha.png';
-import Porção from '../../assets/categorias/porcao.png';
-import Bebida from '../../assets/categorias/drink.png';
-import Doces from '../../assets/categorias/chocolate.png';
+import Lanche from '../assets/categorias/burger.png';
+import Pastel from '../assets/categorias/pastel.png';
+import Salgado from '../assets/categorias/coxinha.png';
+import Porção from '../assets/categorias/porcao.png';
+import Bebida from '../assets/categorias/drink.png';
+import Doces from '../assets/categorias/chocolate.png';
 
 class Categorie {
     constructor(id_categoria, nome, sub_categoria_de=null, imagem=null) {
