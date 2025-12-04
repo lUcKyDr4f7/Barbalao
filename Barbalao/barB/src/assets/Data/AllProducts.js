@@ -7,6 +7,16 @@
     
 //   }
 // }
+
+class Product {
+    constructor(id_prod, nome_prod, preco_prod, descricao_prod, imagem_prod, categoria) {
+        this.id_categoria = id_categoria;
+        this.nome = nome;
+        this.sub_categoria_de = sub_categoria_de;
+        this.imagem = imagem;
+    }
+}
+
 export const AllProducts = [
      {
         id: 0,
