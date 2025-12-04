@@ -83,7 +83,7 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
                           alert("Pesquise algo primeiro");
                         }
                         }}>
-                          <i class="ri-search-line"></i> 
+                          <i className="ri-search-line"></i> 
                       </button>
                     </div>
                     <div className={styles.headerBtns}>
@@ -99,6 +99,7 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
         </> 
     )
 }
+
 
 
 
