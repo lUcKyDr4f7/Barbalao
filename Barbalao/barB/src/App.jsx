@@ -3,6 +3,9 @@ import { AuthProvider, useAuth } from './Routes/AuthContext.jsx';
 import { useState, useEffect } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import Router from './Routes/Router.jsx';
+import { AllProducts } from './assets/Data/AllProducts.js';
+import { AllBanners } from './assets/Data/AllBanners.js';
+import { AllCategories } from './assets/Data/AllCategories.js';
 import axios from "axios";
 
 
@@ -27,6 +30,8 @@ function App() {
       localStorage.setItem("products", JSON.stringify(produtosMapeados));
 
     } catch (err) {
+      setProdutos(AllProducts);
+      localStorage.setItem("products", JSON.stringify(AllProducts));
       console.error('Erro no fetch de produtos:', err);
     }
   };
@@ -81,6 +86,8 @@ function App() {
       localStorage.setItem('banners', JSON.stringify(bannersMapeadoss))
 
     } catch(err) {
+      setBanners(AllBanners)
+      localStorage.setItem('banners', JSON.stringify(AllBanners))
       console.log('Erro no fetch de banners')
     }
   }
