@@ -1,12 +1,12 @@
 import Lanche from '../categorias/burger.png';
 import Pastel from '../categorias/pastel.png';
-import Salgado from '../assetscategorias/coxinha.png';
+import Salgado from '../categorias/coxinha.png';
 import Porção from '../categorias/porcao.png';
 import Bebida from '../categorias/drink.png';
 import Doces from '../categorias/chocolate.png';
 
 class Categorie {
-    constructor(id_categoria, nome, sub_categoria_de=null, imagem=null) {
+    constructor(id_categoria, nome, sub_categoria_de, imagem=null) {
         this.id_categoria = id_categoria;
         this.nome = nome;
         this.sub_categoria_de = sub_categoria_de;
@@ -15,8 +15,8 @@ class Categorie {
 }
 
 export const AllCategories = [
-    new Categorie(1, 'Lanches', imagem=Lanche), new Categorie(2, 'Pasteis', imagem=Pastel), new Categorie(2, 'Bebidas', imagem=Bebida),
-    new Categorie(4, 'Porções', imagem=Porção), new Categorie(5, 'Salgados', imagem=Salgado), new Categorie(6, 'Doces', imagem=Doces),
+    new Categorie(1, 'Lanches', null, Lanche), new Categorie(2, 'Pasteis', null, Pastel), new Categorie(3, 'Bebidas', null, Bebida),
+    new Categorie(4, 'Porções', null, Porção), new Categorie(5, 'Salgados', null, Salgado), new Categorie(6, 'Doces', null, Doces),
     new Categorie(7, 'Hambúrguer', 1),
     new Categorie(8, 'Especiais', 1),
     new Categorie(9, 'Frango', 1),

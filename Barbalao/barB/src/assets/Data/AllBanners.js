@@ -9,7 +9,9 @@ async function ABanners() {
     
   }
 }
-export const AllBanners = [
+/* export const AllBanners = [
   ...Banners0,
   ...Banners1.map((p, index) => ({ ...p, id: Banners0.length + index }))
+]; */
+export const AllBanners = [
 ];

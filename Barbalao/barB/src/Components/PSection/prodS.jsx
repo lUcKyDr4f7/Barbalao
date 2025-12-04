@@ -13,7 +13,7 @@ export default function ProdS({ produtos, subCateg }) {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const produtosL = produtos || JSON.parse(localStorage.getItem("products"))
   
-  const [isMobile, setIsMobile] = useState(false);
+  /* const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -24,7 +24,7 @@ export default function ProdS({ produtos, subCateg }) {
     window.addEventListener('resize', checkMobile);
     
     return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  }, []); */
 
   useEffect(() => {
     if (selectedProduct != null) {

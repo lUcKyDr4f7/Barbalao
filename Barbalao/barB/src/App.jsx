@@ -31,7 +31,7 @@ function App() {
 
     } catch (err) {
       setProdutos(AllProducts);
-      localStorage.setItem("products", JSON.stringify(AllProducts));
+      /* localStorage.setItem("products", JSON.stringify(AllProducts)); */
       console.error('Erro no fetch de produtos:', err);
     }
   };
@@ -47,9 +47,11 @@ function App() {
       const lista = json.categories || json;
       const categoriasMapeadas = Object.fromEntries(lista.map(c => [c.id_categoria, c]));
       setCategorias(lista);
-      localStorage.setItem("categories", JSON.stringify(categoriasMapeadas))
+      localStorage.setItem("categories", JSON.stringify(categoriasMapeadas));
 
     } catch(err) {
+      setCategorias(AllCategories.filter((categ) => categ.sub_categoria_de == null));
+      /* localStorage.setItem("categories", JSON.stringify(categorias)); */
       console.error('Erro no fetch de categorias:', err);
     }
   }
@@ -65,9 +67,11 @@ function App() {
       const lista = json;
       const subCategoriasMapeadas = Object.fromEntries(lista.map(c => [c.id_categoria, c]));
       setSubCateg(lista);
-      localStorage.setItem("subcategories", JSON.stringify(subCategoriasMapeadas))
+      localStorage.setItem("subcategories", JSON.stringify(subCategoriasMapeadas));
 
     } catch(err) {
+      setSubCateg(AllCategories.filter((categ) => categ.sub_categoria_de != null));
+      /* localStorage.setItem("subcategories", JSON.stringify(subCateg)); */
       console.error('Erro no fetch de subcategorias:', err);
     }
   }
@@ -87,7 +91,7 @@ function App() {
 
     } catch(err) {
       setBanners(AllBanners)
-      localStorage.setItem('banners', JSON.stringify(AllBanners))
+      /* localStorage.setItem('banners', JSON.stringify(AllBanners)) */
       console.log('Erro no fetch de banners')
     }
   }

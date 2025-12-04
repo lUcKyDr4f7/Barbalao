@@ -38,7 +38,7 @@ export default function Home({produtos, categorias, subCateg, banners}) {
           subCateg={subCategL}
           banners={bannersL}
         />
-        {produtos.length != 0 && <Footer />}
+        {categoriasL.length != 0 && <Footer />}
       </section>
       {searchModal && <SearchModal setSearchModal={setSearchModal} searchText={searchText} produtos={produtos}/>}
     </>

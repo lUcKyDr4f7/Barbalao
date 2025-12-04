@@ -3,18 +3,18 @@ export const Banners1 = [
         id: 0, 
         title: 'Lanches Variados',
         desc: 'Suculentos, artesanais e feitos para conquistar',
-        image: 'Lanches'
+        imagem: 'Lanches'
     },
     {
         id: 1, 
         title: 'Porções Irresistíveis',
         desc: 'Batatas e petiscos no ponto certo para compartilhar',
-        image: 'Porcoes'
+        imagem: 'Porcoes'
     },
     {
         id: 2, 
         title: 'Pastéis Crocantes',
         desc: 'Recheados de sabor, crocantes a cada mordida',
-        image: 'Pasteis'
+        imagem: 'Pasteis'
     }
 ]
