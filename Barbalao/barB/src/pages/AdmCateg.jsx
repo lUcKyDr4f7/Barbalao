@@ -22,7 +22,7 @@ export default function AdmCateg({ categorias, subCateg }) {
     const deletarItem = async (id, tipo) => {
         setCarregando(true);
         try {
-            const response = await fetch(`https://back-end-barbalao.onrender.com/api/categoria/remove/${id}/`, {
+            const response = await fetch(`https://github.com/lUcKyDr4f7/Barbalao_Back-end/blob/main/apiProd.py/api/categoria/remove/${id}/`, {
                 method: 'DELETE',
                 headers: {'Content-Type': 'application/json'}
             });
