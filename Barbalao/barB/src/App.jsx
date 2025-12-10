@@ -18,7 +18,7 @@ function App() {
 
   const carregarProdutos = async () => {
     try {
-      const res = await fetch('https://back-end-barbalao.onrender.com/api/products/');
+      const res = await fetch('https://github.com/lUcKyDr4f7/Barbalao_Back-end/blob/main/apiProd.py/api/products/');
       if (!res.ok) throw new Error(`Erro ao buscar produtos: ${res.status}`);
 
       const json = await res.json();
@@ -38,7 +38,7 @@ function App() {
 
   const carregarCateg = async () => {
     try {
-      const res = await fetch('https://back-end-barbalao.onrender.com/api/categoria/principais/');
+      const res = await fetch('https://github.com/lUcKyDr4f7/Barbalao_Back-end/blob/main/apiProd.py/api/categoria/principais/');
       if(!res.ok) throw new Error(`Erro ao buscar categorias: ${res.status}`);
 
       const json = await res.json();
@@ -58,7 +58,7 @@ function App() {
 
   const carregarSub = async () => {
     try {
-      const res = await fetch('https://back-end-barbalao.onrender.com/api/categoria/');
+      const res = await fetch('https://github.com/lUcKyDr4f7/Barbalao_Back-end/blob/main/apiProd.py/api/categoria/');
       if(!res.ok) throw new Error(`Erro ao buscar subcategorias: ${res.status}`);
 
       const json = await res.json();
@@ -78,7 +78,7 @@ function App() {
 
   const carregarBan = async () => {
     try {
-      const res = await fetch('https://back-end-barbalao.onrender.com/api/banner/');
+      const res = await fetch('https://github.com/lUcKyDr4f7/Barbalao_Back-end/blob/main/apiProd.py/api/banner/');
       if(!res.ok) throw new Error(`Erro ao buscar banners: ${res.status}`);
 
       const json = await res.json();
