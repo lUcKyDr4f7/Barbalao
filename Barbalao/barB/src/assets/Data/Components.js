@@ -1,4 +1,4 @@
-import { Banners0 } from "./Banners0"
+/* import { Banners0 } from "./Banners0"
 import { Banners1 } from "./Banners1" 
 import { Products } from "./Products"
 import { Products1 } from "./Products1"
@@ -31,3 +31,4 @@ export const Components = [
     },
 ]
 
+ */

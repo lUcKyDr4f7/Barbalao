@@ -89,7 +89,7 @@ export default function AdmEditProductModal({ setEditProduct, produto }) {
   }
 
   async function postEdition(payload) {
-    fetch(`https://back-end-barbalao.onrender.com/api/products/atualizar/${produto.id_prod}/`, {
+    /* fetch(`https://back-end-barbalao.onrender.com/api/products/atualizar/${produto.id_prod}/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -108,7 +108,7 @@ export default function AdmEditProductModal({ setEditProduct, produto }) {
       })
       .catch((err) => {
         alert(`Erro: ${err.message}`);
-      })
+      }) */
   }
 
   function getPayload(data) {
@@ -239,7 +239,7 @@ export default function AdmEditProductModal({ setEditProduct, produto }) {
           </form>
         </div>
         <button className={styles.modalClose} onClick={() => setEditProduct(false)}>
-          <i class="ri-close-line"></i>
+          <i className="ri-close-line"></i>
         </button>
       </div>
     </div>

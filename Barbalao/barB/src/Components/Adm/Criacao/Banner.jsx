@@ -15,7 +15,7 @@ export default function CriaBanner() {
     const handleSub = (e) => {
         e.preventDefault()
 
-        if (criando) return
+        /* if (criando) return
         
         setCriando(true)
         
@@ -65,9 +65,7 @@ export default function CriaBanner() {
             }
             
             leitor.readAsDataURL(file)
-        }
-        
-
+        } */
     }
 
     if (fechar) {

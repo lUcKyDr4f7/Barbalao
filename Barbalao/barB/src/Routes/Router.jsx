@@ -10,11 +10,11 @@ import AdmBanner from "../pages/AdmBanner.jsx";
 import ErrorPage from "../pages/ErrorPage.jsx";
 import { ProtectedRoute } from "./ProtecaoManeira.jsx";
 
-const Router = (produtos, categorias, subCateg, banners) =>
+const Router = () =>
   createBrowserRouter([
     {
       path: "/",
-      element: <Home produtos={produtos} categorias={categorias} subCateg={subCateg} banners={banners}/>,
+      element: <Home />,
       errorElement: <ErrorPage />,
     },
     {
@@ -47,15 +47,15 @@ const Router = (produtos, categorias, subCateg, banners) =>
       children: [
         {
           path: "produtos",
-          element: <AdmProd produtos={produtos}/>,
+          element: <AdmProd />,
         },
         {
           path: "categorias",
-          element: <AdmCateg categorias={categorias} subCateg={subCateg}/>,
+          element: <AdmCateg />,
         },
         {
           path: "banners",
-          element: <AdmBanner banners={banners}/>,
+          element: <AdmBanner />,
         },
       ],
     },

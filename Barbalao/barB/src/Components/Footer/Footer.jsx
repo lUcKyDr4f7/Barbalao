@@ -8,7 +8,7 @@ export default function Footer() {
           <p>© 2025 Barbalao. Todos os direitos reservados.</p>
           <div className={styles.socials}>
             <div className={styles.socialLinks}>
-              <i class="ri-whatsapp-fill"></i>
+              <i className="ri-whatsapp-fill"></i>
               <a href="https://wa.me/5519996829711">Whatsapp</a>
             </div>
             <div className={styles.socialLinks}>

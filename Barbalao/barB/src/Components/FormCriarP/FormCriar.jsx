@@ -3,7 +3,7 @@ import FormNav from '../Form/FormNav';
 export default function FormCriar({produtcs}) {
 
     const handleSub = (e) => {
-        e.preventDefault()
+        /* e.preventDefault()
 
         // Tranforma os valores e names dos inputs em objeto, sendo eles valor e chave respectivamente.
         const formData = new FormData(e.target);
@@ -51,9 +51,7 @@ export default function FormCriar({produtcs}) {
 
             }
             leitor.readAsDataURL(file)
-        }
-        
-
+        } */
     }
 
     return(

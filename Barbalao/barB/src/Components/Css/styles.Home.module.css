@@ -1,0 +1,13 @@
+.titleCateg{
+   width: 100vw;
+   font-size: 2.75rem;
+   font-weight: 700;
+   color: var(--TitleColor);
+   text-align: center;
+   /* margin-top: calc(17vw - 40px); */
+   margin: 40px 0;
+   user-select: none;        
+   -webkit-user-select: none; 
+   -moz-user-select: none;    
+   -ms-user-select: none;     
+}

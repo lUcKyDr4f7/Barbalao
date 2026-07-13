@@ -21,7 +21,7 @@ export default function Container(){
 
 
      async function handleSubmit(){
-        console.log(formValues); 
+        /* console.log(formValues); 
         try {
             const response = await axios.post('https://back-end-barbalao.onrender.com/api/login/', {
                 nome: formValues.nome,
@@ -45,9 +45,7 @@ export default function Container(){
             navigate("/login")
             setErrorMessage("Erro ao enviar dados, tente novamente")
             console.log("Erro ao buscar dados: ", error)
-        }
-
-        
+        } */       
     }
     
     return<>

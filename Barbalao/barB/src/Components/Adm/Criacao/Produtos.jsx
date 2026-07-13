@@ -9,7 +9,7 @@ export default function CriaProd() {
     const [subSelecionada, setSubSelecionada] = useState([])
     const [criando, setCriando] = useState(false)
 
-    useEffect(() => {
+    /* useEffect(() => {
         fetch('https://back-end-barbalao.onrender.com/api/categoria/')
         .then(res => res.json())
         .then(data => {
@@ -19,7 +19,7 @@ export default function CriaProd() {
         .catch(err => {
             console.error(`Erro ao carregar categorias: ${err}`)
         })
-    }, [])
+    }, []) */
 
     const handleFileChange = (e) => {
         setFile(e.target.files[0])
@@ -27,7 +27,7 @@ export default function CriaProd() {
 
 
     const handleSub = (e) => {
-        e.preventDefault()
+        /* e.preventDefault()
 
         if (criando) return
 
@@ -80,7 +80,7 @@ export default function CriaProd() {
 
             }
             leitor.readAsDataURL(file)
-        }
+        } */
         
 
     }

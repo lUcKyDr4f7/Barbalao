@@ -1,17 +1,3 @@
-.titleCateg{
-   width: 100vw;
-   font-size: 2.75rem;
-   font-weight: 700;
-   color: var(--TitleColor);
-   text-align: center;
-   margin-top: calc(17vw - 40px);
-   margin-bottom: 40px;
-   user-select: none;        
-   -webkit-user-select: none; 
-   -moz-user-select: none;    
-   -ms-user-select: none;     
-}
-
 .swiperCateg{
    min-width: calc(30vw - 20px);
    height: 100%;

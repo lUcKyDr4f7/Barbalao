@@ -11,7 +11,7 @@ import ProdC from '../PCard/prodC.jsx';
 
 export default function ProdS({ produtos, subCateg }) {
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const produtosL = produtos || JSON.parse(localStorage.getItem("products"))
+  //const produtosL = produtos || JSON.parse(localStorage.getItem("products"))
   
   /* const [isMobile, setIsMobile] = useState(false);
 
@@ -40,17 +40,17 @@ export default function ProdS({ produtos, subCateg }) {
     }
   }, [selectedProduct]);
 
-  const prodAtuais = produtosL.filter(produtoL => produtoL.categoria === subCateg.id_categoria)
+  //const prodAtuais = produtosL.filter(produtoL => produtoL.categoria === subCateg.id_categoria)
 
   return (
     <>
-      {prodAtuais.length == 0 ? (
+      {produtos.length == 0 ? (
         <div key={subCateg.id_categoria} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <p className={styles.swiperTitle}>Sem produtos</p>
         </div>
       ) : (
         <Swiper className={styles.prodSwiper}>
-          {prodAtuais.map((produto) => (
+          {produtos.map((produto) => (
             <div onClick={() => setSelectedProduct(produto)} key={produto.id_prod} className={styles.productCard}>
               <img className={styles.productImg} src={produto.imagem} alt={produto.nome || 'Produto sem nome'}/>
               <div className={styles.productInfo}>

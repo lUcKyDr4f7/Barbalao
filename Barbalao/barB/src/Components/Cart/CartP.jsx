@@ -106,7 +106,7 @@ export default function Cart(props) {
             <>
                 <div className={isClosing?styles.outsideClosingCart:styles.outsideCart} onClick={ () => closeCart() }></div>
                 <div className={isClosing?styles.closingCart:styles.cart}>
-                    <li><button className={styles.closeCartBtn} onClick={ () => closeCart() }>< i class="ri-close-fill"></i></button>Carrinho</li>
+                    <li><button className={styles.closeCartBtn} onClick={ () => closeCart() }>< i className="ri-close-fill"></i></button>Carrinho</li>
                     <div>{JSON.parse(localStorage.getItem('oldCart')) != {} && <div className={styles.cartTabs}>
                         <p className={isOldCart?styles.activeTab:styles.inactiveTab} onClick={() => setIsOldCart(true)}>Anterior</p>
                         <p className={isOldCart?styles.inactiveTab:styles.activeTab} onClick={() => setIsOldCart(false)}>Atual</p>

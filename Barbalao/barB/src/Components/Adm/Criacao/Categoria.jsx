@@ -12,7 +12,7 @@ export default function CriaCateg() {
 
 
     
-    useEffect(() => {
+    /* useEffect(() => {
         fetch('https://back-end-barbalao.onrender.com/api/categoria/principais/')
             .then(res => res.json())
             .then(data => {
@@ -21,14 +21,14 @@ export default function CriaCateg() {
             .catch(err => {
                 console.error('Erro ao carregar categorias:', err)
             })
-    }, [])
+    }, []) */
 
     const handleFileChange = (e) => {
         setFile(e.target.files[0])
     }
 
     const handleSub = (e) => {
-        e.preventDefault()
+        /* e.preventDefault()
 
         if (criando) return
 
@@ -98,7 +98,7 @@ export default function CriaCateg() {
             leitor.readAsDataURL(file)
         } else {
             alert("Selecione uma imagem")
-        }
+        } */
     }
 
     if(fechar) {

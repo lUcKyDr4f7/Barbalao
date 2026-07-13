@@ -2,10 +2,10 @@ import FormCriar from "../Components/FormCriaP/FormCriar"
 import { useState } from "react"
 
 export default function ProdForm() {
-    const [produtos, setProdutos] = useState([])
-    
-      const carregarProdutos = async () => {
-    try {
+  const [produtos, setProdutos] = useState([])
+  
+  const carregarProdutos = async () => {
+    /* try {
       const res = await fetch('https://back-end-barbalao.onrender.com/api/products/');
       if (!res.ok) {
         throw new Error(`Erro ao buscar produtos: ${res.status}`);
@@ -31,12 +31,12 @@ export default function ProdForm() {
       }
     } catch (err) {
       console.error('Erro no fetch de produtos:', err);
-    }
+    } */
   };
 
-    return(
-        <>
-            <FormCriar produtos={produtos}/>
-        </>
-    )
+  return(
+    <>
+      <FormCriar produtos={produtos}/>
+    </>
+  )
 }

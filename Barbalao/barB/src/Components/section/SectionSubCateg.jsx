@@ -1,28 +1,21 @@
 import ProdS from "../PSection/prodS";
 import BannerS from "../Banners/bannerS";
-import styles from "../Css/styles.pcard_S.module.css"
+import styles from "../Css/styles.pcard_S.module.css";
 
-export default function SectionCateg({produtos, categoria, subCateg}) {
-    const produtosL = produtos || JSON.parse(localStorage.getItem("products"))
-    const subCategsL = subCateg || JSON.parse(localStorage.getItem("Subcategories"))
+export default function SectionCateg({subCateg}) {
+    /* const produtosL = produtos || JSON.parse(localStorage.getItem("products"));
+    const subCategsL = subCateg || JSON.parse(localStorage.getItem("Subcategories"));
     console.log(subCategsL)
 
-    const subAtuais = subCategsL.filter(subCategL => subCategL.sub_categoria_de == categoria.id_categoria)
-    const categNome = (categoria.nome).slice(0,1).toUpperCase() + (categoria.nome).slice(1).toLowerCase()
+    const subAtuais = subCategsL.filter(subCategL => subCategL.sub_categoria_de == categoria.id_categoria);
+    const categNome = (categoria.nome).slice(0,1).toUpperCase() + (categoria.nome).slice(1).toLowerCase(); */
 
     return(
         <>
-        <h1 className={styles.swiperTitle}>{categNome}</h1>
-        {subAtuais.length != 0?
-            subAtuais.map((sub) => (
-                <div>
-                    <h2 className={styles.swiperTitle}>{(sub.nome).slice(0,1).toUpperCase() + (sub.nome).slice(1).toLowerCase()}</h2>
-                    <ProdS produtos={produtosL} subCateg={sub}/>
-                </div>
-            ))
-            :
-            <h2 className={styles.swiperTitle}>Sem Subcategorias</h2>
-        }
+        <div>
+            <h2 className={styles.swiperTitle}>{(subCateg.self.nome).slice(0,1).toUpperCase() + (subCateg.self.nome).slice(1).toLowerCase()}</h2>
+            <ProdS produtos={subCateg.prod} subCateg={subCateg}/>
+        </div>
         </>
     )
 }

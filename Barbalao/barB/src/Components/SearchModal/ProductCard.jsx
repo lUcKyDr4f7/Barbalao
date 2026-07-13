@@ -29,11 +29,11 @@ export default function ProductCard({ produto, setSearchModal, setSelectedProduc
         <h3>R$ {String(produto.preco.toFixed(2)).replace('.', ',')}</h3>
         <div className={styles.productButtons}>
           <button onClick={handleViewDetails}>
-            <i class="ri-information-line"></i>  
+            <i className="ri-information-line"></i>  
             Ver detalhes 
           </button>
           <button onClick={() => addCart(produto.id_prod)}>
-            <i class="ri-shopping-cart-2-line"></i> 
+            <i className="ri-shopping-cart-2-line"></i> 
             Adicionar ao carrinho 
           </button>
         </div>

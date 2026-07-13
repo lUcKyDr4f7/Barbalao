@@ -20,7 +20,7 @@ export default function AdmCateg({ categorias, subCateg }) {
     }, [subCateg]);
 
     const deletarItem = async (id, tipo) => {
-        setCarregando(true);
+        /* setCarregando(true);
         try {
             const response = await fetch(`https://github.com/lUcKyDr4f7/Barbalao_Back-end/blob/main/apiProd.py/api/categoria/remove/${id}/`, {
                 method: 'DELETE',
@@ -55,7 +55,7 @@ export default function AdmCateg({ categorias, subCateg }) {
             alert('Erro de rede ao excluir. Verifique sua conexão.');
         } finally {
             setCarregando(false);
-        }
+        } */
     };
 
 

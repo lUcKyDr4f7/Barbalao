@@ -47,16 +47,16 @@ export default function AdmProdutoModal({produto, setViewProduct, setEditProduct
 
           <div className={styles.modalButtons}>
             <button className={styles.editButton} onClick={handleEditProduct}>
-              <i class="ri-pencil-line"></i> Editar produto 
+              <i className="ri-pencil-line"></i> Editar produto 
             </button>
             <button className={styles.deleteButton} onClick={() => handleDeleteProduct()}>
-              <i class="ri-delete-bin-line"></i> Deletar produto
+              <i className="ri-delete-bin-line"></i> Deletar produto
             </button>
           </div>
         </div>
 
         <button className={styles.modalClose} onClick={() => setViewProduct(false)}>
-          <i class="ri-close-line"></i> 
+          <i className="ri-close-line"></i> 
         </button>
       </div>
     </div>

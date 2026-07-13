@@ -6,17 +6,17 @@ const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [authenticated, setAuthenticated] = useState(localStorage.getItem("authenticated"))
 
-  useEffect(() => {
+  /* useEffect(() => {
     axios.defaults.withCredentials = true;
     axios.defaults.baseURL = 'https://back-end-barbalao.onrender.com';
   }, []);
 
   useEffect(() => {
     checkAuth();
-  }, []);
+  }, []); */
 
   const checkAuth = async () => {
-    try {
+    /* try {
       const res = await axios.get("/api/check_session/");
       console.log("Resposta check_session:", res.data);
       
@@ -32,7 +32,7 @@ export function AuthProvider({ children }) {
       console.error("Erro ao verificar sessão:", error);
       setAuthenticated(false);
       localStorage.removeItem("authenticated");
-    } 
+    }  */
   };
 
 

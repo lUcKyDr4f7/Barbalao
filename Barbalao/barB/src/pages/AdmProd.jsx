@@ -53,7 +53,7 @@ export default function AdmProd({ produtos }) {
         </div>
         :
         <div className={styles.SemProdCont}>
-          <i class="ri-error-warning-line"></i>
+          <i className="ri-error-warning-line"></i>
           {admSearchText? 
             <h3>Nenhum produto foi encontrado com a pesquisa "{admSearchText}"</h3>
             :
