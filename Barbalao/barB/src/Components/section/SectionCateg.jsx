@@ -1,6 +1,7 @@
 import BannerS from "../Banners/bannerS";
-import SectionSubCateg from "../section/SectionSubCateg.jsx"
-import styles from "../Css/styles.pcard_S.module.css"
+import SectionSubCateg from "../section/SectionSubCateg.jsx";
+import styles from "./styles.pcard_S.module.css";
+import { ChevronRight } from 'lucide-react';
 //import Footer from '../Footer/Footer.jsx';
 
 export default function SectionCateg({categoria}) {
@@ -15,8 +16,11 @@ export default function SectionCateg({categoria}) {
     } */
 
     return(
-        <div>
-            <h1 className={styles.swiperTitle}>{categoria.self.nome}</h1>
+        <details open className={styles.categ}>
+            <summary className={styles.categTitle}>
+                {categoria.self.nome}
+                <ChevronRight className={styles.arrowIcon} />
+            </summary>
             {Object.keys(categoria).map(key => (key != 'self') && <SectionSubCateg key={key} subCateg={categoria[key]}/>)}
             {/* {categoriasL.length != 0? 
                 <>
@@ -36,6 +40,6 @@ export default function SectionCateg({categoria}) {
                 :
                 null
             } */}
-        </div>
+        </details>
     )
 }

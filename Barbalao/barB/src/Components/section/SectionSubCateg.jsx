@@ -1,6 +1,7 @@
 import ProdS from "../PSection/prodS";
 import BannerS from "../Banners/bannerS";
-import styles from "../Css/styles.pcard_S.module.css";
+import styles from "./styles.pcard_S.module.css";
+import { ChevronRight } from 'lucide-react';
 
 export default function SectionCateg({subCateg}) {
     /* const produtosL = produtos || JSON.parse(localStorage.getItem("products"));
@@ -12,10 +13,13 @@ export default function SectionCateg({subCateg}) {
 
     return(
         <>
-        <div>
-            <h2 className={styles.swiperTitle}>{(subCateg.self.nome).slice(0,1).toUpperCase() + (subCateg.self.nome).slice(1).toLowerCase()}</h2>
+        <details open className={styles.subCateg}>
+            <summary className={styles.subCategTitle}>
+                {(subCateg.self.nome).slice(0,1).toUpperCase() + (subCateg.self.nome).slice(1).toLowerCase()}
+                <ChevronRight className={styles.arrowIcon} />
+            </summary>
             <ProdS produtos={subCateg.prod} subCateg={subCateg}/>
-        </div>
+        </details>
         </>
     )
 }
