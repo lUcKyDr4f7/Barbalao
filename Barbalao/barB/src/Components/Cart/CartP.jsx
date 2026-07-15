@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import styles from '../Css/styles.cart.module.css';
+import styles from './styles.cart.module.css';
 import CartItem from '../CartItem/CartItem';
 
 localStorage.setItem("theme", localStorage.getItem("theme")?localStorage.getItem("theme").replaceAll(' cartOpen', ''):localStorage.getItem("theme"));
@@ -30,6 +30,7 @@ export default function Cart(props) {
     }
     const [isOldCart, setIsOldCart] = useState(false);
     const [isDelivery, setIsDelivery] = useState(false);
+    const [deliveryWarning, setDeliveryWarning] = useState(false);
 
     const [totalValue, setTotalValue] = useState(0);
     function calcTotal() {
@@ -104,23 +105,45 @@ export default function Cart(props) {
     if(props.isCartOpen){
         return(
             <>
-                <div className={isClosing?styles.outsideClosingCart:styles.outsideCart} onClick={ () => closeCart() }></div>
+                <div style={{zIndex: deliveryWarning?1550:1500}} className={isClosing?styles.outsideClosingCart:styles.outsideCart}
+                     onClick={ () => deliveryWarning? setDeliveryWarning(false):closeCart() }></div>
                 <div className={isClosing?styles.closingCart:styles.cart}>
-                    <li><button className={styles.closeCartBtn} onClick={ () => closeCart() }>< i className="ri-close-fill"></i></button>Carrinho</li>
-                    <div>{JSON.parse(localStorage.getItem('oldCart')) != {} && <div className={styles.cartTabs}>
-                        <p className={isOldCart?styles.activeTab:styles.inactiveTab} onClick={() => setIsOldCart(true)}>Anterior</p>
-                        <p className={isOldCart?styles.inactiveTab:styles.activeTab} onClick={() => setIsOldCart(false)}>Atual</p>
-                    </div>}
-                    <div className={styles.cartList}>{
-                        Object.keys(cartItems).length != 0?
-                        Object.keys(cartItems).map( key => {
-                            return <CartItem key={key} cart={cartItems} setCart={setCartItems} item={key} amount={cartItems[key]} />;
-                        }):<p>O carrinho está vazio</p>
-                    }</div></div>
+                    <li>
+                        <button className={styles.closeCartBtn} onClick={ () => closeCart() }>
+                            < i className="ri-close-fill"></i>
+                        </button>
+                        Carrinho
+                    </li>
+                    <div>
+                        {JSON.parse(localStorage.getItem('oldCart')) != {} && <div className={styles.cartTabs}>
+                            <p className={isOldCart?styles.activeTab:styles.inactiveTab} onClick={() => setIsOldCart(true)}>Anterior</p>
+                            <p className={isOldCart?styles.inactiveTab:styles.activeTab} onClick={() => setIsOldCart(false)}>Atual</p>
+                        </div>}
+                        <div className={styles.cartList}>{
+                            Object.keys(cartItems).length != 0?
+                            Object.keys(cartItems).map( key =>
+                            <CartItem key={key} cart={cartItems} setCart={setCartItems} item={key} amount={cartItems[key]} />
+                            ):<p>O carrinho está vazio</p>
+                        }</div>
+                    </div>
                     <li className={styles.totalValue}>Total: R${totalValue.toFixed(2).replace('.', ',')}</li>
-                    <label className={styles.delivery}><input type="checkbox" name="delivery" checked={isDelivery} onChange={() => setIsDelivery(!isDelivery)}/> Delivery</label>
-                    <button disabled={Object.keys(cartItems).length == 0} alt={`Fazer pedido em ${linkWhatsapp}`} onClick={() => order() } className={styles.whatsappBtn}>Fazer Pedido</button>
+                    <label className={styles.delivery}>
+                        <input type="checkbox" name="delivery" checked={isDelivery}
+                                onChange={() => isDelivery?setIsDelivery(false):setDeliveryWarning(true)}/> 
+                        Delivery
+                    </label>
+                    <button disabled={Object.keys(cartItems).length == 0} alt={`Fazer pedido em ${linkWhatsapp}`}
+                            onClick={() => order() } className={styles.whatsappBtn}>Fazer Pedido</button>
                 </div>
+                {deliveryWarning && <div className={styles.deliveryWarning}>
+                    <h1 className={styles.dwTitle}>Delivery</h1>
+                    <h4 className={styles.dwInfo}>Entregamos somente para a cidade de Águas de Lindóia</h4>
+                    <h4 className={styles.dwInfo}>O valor da entrega é fixo de R$2,00</h4>
+                    <div className={styles.dwBtns}>
+                        <button className={styles.dwConfirm} onClick={() => {setIsDelivery(true); setDeliveryWarning(false)}}>Confirmar</button>
+                        <button className={styles.dwCancel} onClick={() => setDeliveryWarning(false)}>Cancelar</button>
+                    </div>
+                </div>}
             </>
         ) 
     }
