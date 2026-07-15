@@ -5,7 +5,7 @@ import { AllCategories } from '../assets/Data/AllCategories.js';
 
 import NavB from '../Components/NavBar/navB.jsx';
 import CategSwiper from '../Components/Categories/CategSwiper.jsx';
-import BannerS from '../Components/Banners/bannerS.jsx';
+import BannerCarousel from '../Components/Banners/BannerCarousel.jsx';
 import PSection from '../Components/PSection/prodS.jsx';
 import SectionCateg from '../Components/section/SectionCateg.jsx';
 import Form from '../Components/Form/FormLogin.jsx';
@@ -50,11 +50,11 @@ export default function Home() {
         <h2 className={styles.titleCateg}>Cardápio</h2>
         <CategSwiper categorias={categorias}/>
         {/* <SectionCateg produtos={produtos} categorias={categorias} subCateg={subCateg} banners={banners} /> */}
-        <BannerS banners={banners} />
+        <BannerCarousel banners={banners} />
         {Object.keys(cardapio).map((key, i) => {
           return <>
             <SectionCateg key={key} categoria={cardapio[key]}/>
-            {(i%2 == 0) && <BannerS key={`sb${i/2}`} banners={banners} />}
+            {(i%2 == 0) && <BannerCarousel key={`sb${i/2}`} banners={banners} />}
           </>
         })}
         {categorias.length != 0 && <Footer />}

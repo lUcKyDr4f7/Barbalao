@@ -1,6 +1,6 @@
-import BannerS from "../Banners/bannerS";
+import BannerCarousel from "../Banners/BannerCarousel.jsx";
 import SectionSubCateg from "../section/SectionSubCateg.jsx";
-import styles from "./styles.pcard_S.module.css";
+import styles from "./styles.CategProdSection.module.css";
 import { ChevronRight } from 'lucide-react';
 //import Footer from '../Footer/Footer.jsx';
 
@@ -26,7 +26,7 @@ export default function SectionCateg({categoria}) {
                 <>
                     {categoriasL.map((categoria, index) => (
                         <div key={index}>
-                            <BannerS banners={grupoBanner} ordem={index} />
+                            <BannerCarousel banners={grupoBanner} ordem={index} />
                             <div id={categoria.id_categoria}>
                                 <SectionSubCateg 
                                     produtos={produtosL} 

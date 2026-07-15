@@ -1,6 +1,6 @@
 import ProdS from "../PSection/prodS";
-import BannerS from "../Banners/bannerS";
-import styles from "./styles.pcard_S.module.css";
+import BannerCarousel from "../Banners/BannerCarousel";
+import styles from "./styles.CategProdSection.module.css";
 import { ChevronRight } from 'lucide-react';
 
 export default function SectionCateg({subCateg}) {

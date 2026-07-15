@@ -1,6 +1,6 @@
 import 'swiper/css';
 import 'swiper/css/navigation';
-import styles from '../section/styles.pcard_S.module.css';
+import styles from '../section/styles.CategProdSection.module.css';
 import Swiper from '../Swiper/Swiper.jsx';
 /* import { Swiper, SwiperSlide } from 'swiper/react'; */
 import { useState, useEffect } from 'react';

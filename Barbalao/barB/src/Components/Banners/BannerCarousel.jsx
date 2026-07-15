@@ -1,11 +1,11 @@
-import styles from '../Css/styles.bannerS.module.css'
+import styles from './styles.BannerCarousel.module.css'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import img1 from '../../assets/Banners/Lanches.jpg'
 import img2 from '../../assets/Banners/Porcoes.png'
 import img3 from '../../assets/Banners/Pasteis.jpg'
 
-export default function BannerS({ banners, ordem }){
+export default function BannerCarousel({ banners, ordem }){
     const bannersL = banners[ordem] || []
     //console.log("b ordem", bannersL)
     
