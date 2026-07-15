@@ -19,7 +19,7 @@
    height: 0px;
 }
 
-.swiper .swipeBtn, .swiper .swipeBtn i{
+.swiper .swipeBtn{
    color: var(--categTextColor);
    cursor: pointer;
    font-size: 3vw;
