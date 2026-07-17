@@ -18,7 +18,7 @@ export default function SectionCateg({subCateg}) {
                 {(subCateg.self.nome).slice(0,1).toUpperCase() + (subCateg.self.nome).slice(1).toLowerCase()}
                 <ChevronRight className={styles.arrowIcon} />
             </summary>
-            <ProdS produtos={subCateg.prod} subCateg={subCateg}/>
+            <ProdS produtos={subCateg.prod} subCateg={subCateg.self}/>
         </details>
         </>
     )

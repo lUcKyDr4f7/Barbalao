@@ -9,7 +9,6 @@ export default function Swiper(props) {
   const [isSwiperEnd, setIsSwiperEnd] = useState(false);
 
   function checkSwiperSection(swiper, scrollDist) {
-    let numElements = props.children.length;
     if(swiper.offsetWidth >= swiper.scrollWidth) {
       setIsSwiperStart(true);
       setIsSwiperEnd(true);
@@ -33,11 +32,11 @@ export default function Swiper(props) {
   return (
       <>
         <div className={styles.swiper}>
-          <button className={styles.swipeBtn} onClick={() => !isSwiperStart && swipe(-1)}>
+          <button className={`${styles.swipeBtn} ${props.classBtn}`} onClick={() => !isSwiperStart && swipe(-1)}>
             {!isSwiperStart && <ChevronLeft />}
           </button>
-          <div key='swiper' className={styles.swiperSlide} ref={swiperRef}>{props.children}</div>
-          <button className={styles.swipeBtn} onClick={() => !isSwiperEnd && swipe(1)}>
+          <div key='swiper' className={`${styles.swiperSlide} ${props.classSwiper}`} ref={swiperRef}>{props.children}</div>
+          <button className={`${styles.swipeBtn} ${props.classBtn}`} onClick={() => !isSwiperEnd && swipe(1)}>
             {!isSwiperEnd && <ChevronRight />}
           </button>
         </div>

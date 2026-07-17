@@ -3,14 +3,13 @@ import 'swiper/css/navigation';
 import styles from '../section/styles.CategProdSection.module.css';
 import Swiper from '../Swiper/Swiper.jsx';
 /* import { Swiper, SwiperSlide } from 'swiper/react'; */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Navigation } from 'swiper/modules';
+import { MenuCtx } from '../../Contexts/MenuProvider/MenuProvider.jsx';
 /* import { getImagePath } from '../utils/pathP.jsx'; */
-import ProdC from '../PCard/prodC.jsx';
-/* import Swiper from '../Swiper/Swiper.jsx'; */
 
 export default function ProdS({ produtos, subCateg }) {
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  
   //const produtosL = produtos || JSON.parse(localStorage.getItem("products"))
   
   /* const [isMobile, setIsMobile] = useState(false);
@@ -26,19 +25,7 @@ export default function ProdS({ produtos, subCateg }) {
     return () => window.removeEventListener('resize', checkMobile);
   }, []); */
 
-  useEffect(() => {
-    if (selectedProduct != null) {
-      const scrollY = window.scrollY;
-      document.body.style.top = `-${scrollY}px`;
-      document.body.classList.add('lock-scroll');
-    } else {
-      const top = document.body.style.top;
-      document.body.classList.remove('lock-scroll');
-      document.body.style.top = '';
-      const y = top ? parseInt(top) * -1 : 0;
-      window.scrollTo(0, y);
-    }
-  }, [selectedProduct]);
+  const {setSelectedProduct} = useContext(MenuCtx)
 
   //const prodAtuais = produtosL.filter(produtoL => produtoL.categoria === subCateg.id_categoria)
 
@@ -51,8 +38,9 @@ export default function ProdS({ produtos, subCateg }) {
       ) : (
         <Swiper className={styles.prodSwiper}>
           {produtos.map((produto) => (
-            <div onClick={() => setSelectedProduct(produto)} key={produto.id_prod} className={styles.productCard}>
-              <img className={styles.productImg} src={produto.imagem} alt={produto.nome || 'Produto sem nome'}/>
+            <div onClick={() => setSelectedProduct({...produto, 'stdImg': subCateg.imagem})} key={produto.id_prod} className={styles.productCard}>
+              <img className={styles.productImg} src={produto.imagens[0] || subCateg.imagem}
+                    alt={produto.nome || 'Produto sem nome'} />
               <div className={styles.productInfo}>
                 <h4>{produto.nome}</h4>
                 <h4>R$ {produto.preco?parseFloat(produto.preco || 0).toFixed(2).replace('.', ','):'?,??'}</h4>
@@ -61,17 +49,6 @@ export default function ProdS({ produtos, subCateg }) {
             </div>
           ))}
         </Swiper>
-      )}
-      
-      {selectedProduct && (
-        <ProdC
-          name={selectedProduct.nome}
-          price={parseFloat(selectedProduct.preco || 0).toFixed(2).replace('.', ',')}
-          img={selectedProduct.imagem}
-          descricao={selectedProduct.descricao}
-          setState={setSelectedProduct}
-          state={selectedProduct}
-        />
       )}
     </>
   );

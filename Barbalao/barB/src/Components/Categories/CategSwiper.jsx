@@ -1,13 +1,16 @@
 import styles from './styles.CategSwiper.module.css';
+
+import { AllCategories } from '../../assets/Data/AllCategories.js';
+
 import Swiper from '../Swiper/Swiper.jsx';
-import Lanche from '../../assets/categorias/burger.png';
+/* import Lanche from '../../assets/categorias/burger.png';
 import Pastel from '../../assets/categorias/pastel.png';
 import Salgado from '../../assets/categorias/coxinha.png';
 import Porção from '../../assets/categorias/porcao.png';
 import Bebida from '../../assets/categorias/drink.png';
-import Doces from '../../assets/categorias/chocolate.png';
+import Doces from '../../assets/categorias/chocolate.png'; */
 
-export default function CategSwiper({ categorias }) {
+export default function CategSwiper() {
   //const categoriasL = categorias || JSON.parse(localStorage.getItem("categories"))
 
   const scrollToSection = (id) => {
@@ -21,8 +24,8 @@ export default function CategSwiper({ categorias }) {
   return (
       <>
         <Swiper>
-          {categorias.length !== 0?
-            categorias.map((categ, i) => (
+          {AllCategories.length !== 0?
+            AllCategories.map((categ, i) => (
               <>
               <div key={categ.id_categoria} className={`${styles.swiperCateg}`} onClick={() => scrollToSection(categ.id_categoria)}>
                 <img src={categ.imagem}/>

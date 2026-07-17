@@ -1,5 +1,8 @@
 import './App.css';
+
+import MenuProvider from './Contexts/MenuProvider/MenuProvider.jsx';
 import { AuthProvider, useAuth } from './Routes/AuthContext.jsx';
+
 import { useState, useEffect, create } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import Router from './Routes/Router.jsx';
@@ -10,9 +13,9 @@ function App() {
 
   return (
     <AuthProvider>
-      
-      <RouterProvider router={Router()} />
-
+      <MenuProvider>
+        <RouterProvider router={Router()} />
+      </MenuProvider>
     </AuthProvider>
   );
 }

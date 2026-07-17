@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from './styles.cart.module.css';
 import CartItem from '../CartItem/CartItem';
+import Backdrop from '../Backdrop/Backdrop';
 
 localStorage.setItem("theme", localStorage.getItem("theme")?localStorage.getItem("theme").replaceAll(' cartOpen', ''):localStorage.getItem("theme"));
 
@@ -105,9 +106,9 @@ export default function Cart(props) {
     if(props.isCartOpen){
         return(
             <>
-                <div style={{zIndex: deliveryWarning?1550:1500}} className={isClosing?styles.outsideClosingCart:styles.outsideCart}
-                     onClick={ () => deliveryWarning? setDeliveryWarning(false):closeCart() }></div>
-                <div className={isClosing?styles.closingCart:styles.cart}>
+            <Backdrop zIndex={deliveryWarning?1550:1500} show={isClosing}
+                close={ () => deliveryWarning? setDeliveryWarning(false):closeCart() }>
+                <div className={`${styles.cart} ${isClosing?styles.closingCart:''}`} onClick={e => e.stopPropagation()}>
                     <li>
                         <button className={styles.closeCartBtn} onClick={ () => closeCart() }>
                             < i className="ri-close-fill"></i>
@@ -144,6 +145,7 @@ export default function Cart(props) {
                         <button className={styles.dwCancel} onClick={() => setDeliveryWarning(false)}>Cancelar</button>
                     </div>
                 </div>}
+            </Backdrop>
             </>
         ) 
     }

@@ -57,8 +57,8 @@
    border-radius: 5px;
    justify-content: center;
    align-items: center;
-   background: #0000001a;
-   object-fit: cover;
+   /* background: #0000001a; */
+   object-fit: contain;
 }
 .productCard:hover .productImg {
    transform: scale(1.03);

@@ -1,0 +1,25 @@
+@keyframes outsideCartOpening {
+  from {background-color: #00000000}
+  to {background-color: #00000090}
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000090;
+  opacity: 1;
+  transition: opacity .5s;
+  animation-name: outsideCartOpening;
+  animation-duration: .5s;
+}
+.fadeOut {
+  opacity: 0;
+}
+
+@media (orientation: portrait) {
+  .outsideCart .outsideClosingCart {
+    visibility: hidden;
+  }
+}
