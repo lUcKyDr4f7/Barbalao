@@ -32,12 +32,14 @@ export default function Swiper(props) {
   return (
       <>
         <div className={styles.swiper}>
-          <button className={`${styles.swipeBtn} ${props.classBtn}`} onClick={() => !isSwiperStart && swipe(-1)}>
-            {!isSwiperStart && <ChevronLeft />}
+          <button className={`${styles.swipeBtn} ${props.classBtn}`}
+          disabled={isSwiperStart} onClick={() => !isSwiperStart && swipe(-1)}>
+            <ChevronLeft />
           </button>
           <div key='swiper' className={`${styles.swiperSlide} ${props.classSwiper}`} ref={swiperRef}>{props.children}</div>
-          <button className={`${styles.swipeBtn} ${props.classBtn}`} onClick={() => !isSwiperEnd && swipe(1)}>
-            {!isSwiperEnd && <ChevronRight />}
+          <button className={`${styles.swipeBtn} ${props.classBtn}`}
+          disabled={isSwiperEnd} onClick={() => !isSwiperEnd && swipe(1)}>
+            <ChevronRight />
           </button>
         </div>
       </>

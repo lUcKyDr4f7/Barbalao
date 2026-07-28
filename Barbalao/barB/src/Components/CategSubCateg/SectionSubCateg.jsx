@@ -1,6 +1,6 @@
-import ProdS from "../PSection/prodS";
+import ProdSwiper from "../ProdSwiper/ProdSwiper";
 import BannerCarousel from "../Banners/BannerCarousel";
-import styles from "./styles.CategProdSection.module.css";
+import styles from "./styles.CategSubCateg.module.css";
 import { ChevronRight } from 'lucide-react';
 
 export default function SectionCateg({subCateg}) {
@@ -18,7 +18,7 @@ export default function SectionCateg({subCateg}) {
                 {(subCateg.self.nome).slice(0,1).toUpperCase() + (subCateg.self.nome).slice(1).toLowerCase()}
                 <ChevronRight className={styles.arrowIcon} />
             </summary>
-            <ProdS produtos={subCateg.prod} subCateg={subCateg.self}/>
+            <ProdSwiper produtos={subCateg.prod} subCateg={subCateg.self}/>
         </details>
         </>
     )

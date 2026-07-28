@@ -1,14 +1,15 @@
 import 'swiper/css';
 import 'swiper/css/navigation';
-import styles from '../section/styles.CategProdSection.module.css';
+import styles from './styles.ProdSwiper.module.css';
 import Swiper from '../Swiper/Swiper.jsx';
+import { AllAdicionais } from '../../assets/Data/AllAdicionais.js';
 /* import { Swiper, SwiperSlide } from 'swiper/react'; */
 import { useState, useEffect, useContext } from 'react';
 import { Navigation } from 'swiper/modules';
 import { MenuCtx } from '../../Contexts/MenuProvider/MenuProvider.jsx';
 /* import { getImagePath } from '../utils/pathP.jsx'; */
 
-export default function ProdS({ produtos, subCateg }) {
+export default function ProdSwiper({ produtos, subCateg }) {
   
   //const produtosL = produtos || JSON.parse(localStorage.getItem("products"))
   
@@ -25,7 +26,21 @@ export default function ProdS({ produtos, subCateg }) {
     return () => window.removeEventListener('resize', checkMobile);
   }, []); */
 
-  const {setSelectedProduct} = useContext(MenuCtx)
+  const {setSelectedProduct} = useContext(MenuCtx);
+
+  function openModalProd(produto) {
+    let currentTheme = localStorage.getItem("theme") + ' modalOpen';
+    localStorage.setItem("theme", currentTheme);
+    setSelectedProduct({...produto,
+      'stdImg': subCateg.imagem,
+      'categId': subCateg.sub_categoria_de,
+      'adicionais': AllAdicionais.filter(a => {
+        
+        let aCategs = Object.keys(a.categ_preco);
+        return aCategs.includes(subCateg.id_categoria.toString()) || aCategs.includes(subCateg.sub_categoria_de.toString())
+      })
+    })
+  }
 
   //const prodAtuais = produtosL.filter(produtoL => produtoL.categoria === subCateg.id_categoria)
 
@@ -38,7 +53,7 @@ export default function ProdS({ produtos, subCateg }) {
       ) : (
         <Swiper className={styles.prodSwiper}>
           {produtos.map((produto) => (
-            <div onClick={() => setSelectedProduct({...produto, 'stdImg': subCateg.imagem})} key={produto.id_prod} className={styles.productCard}>
+            <div key={produto.id_prod} className={styles.productCard} onClick={() => openModalProd(produto)}>
               <img className={styles.productImg} src={produto.imagens[0] || subCateg.imagem}
                     alt={produto.nome || 'Produto sem nome'} />
               <div className={styles.productInfo}>

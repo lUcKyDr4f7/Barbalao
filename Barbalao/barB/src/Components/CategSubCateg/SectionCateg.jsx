@@ -1,6 +1,6 @@
 import BannerCarousel from "../Banners/BannerCarousel.jsx";
-import SectionSubCateg from "../section/SectionSubCateg.jsx";
-import styles from "./styles.CategProdSection.module.css";
+import SectionSubCateg from "./SectionSubCateg.jsx";
+import styles from "./styles.CategSubCateg.module.css";
 import { ChevronRight } from 'lucide-react';
 //import Footer from '../Footer/Footer.jsx';
 

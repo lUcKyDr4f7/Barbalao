@@ -2,7 +2,7 @@ import styles from '../Components/Css/styles.AboutUs.module.css';
 import Footer from '../Components/Footer/Footer.jsx';
 // ADICIONADO: ícones do Phosphor
 import { Phone, EnvelopeSimple, MapPin, CreditCard, QrCode, Bank, WhatsappLogo } from 'phosphor-react';
-import NavB from '../Components/NavBar/navB.jsx';
+import NavB from '../Components/NavBar/NavBar.jsx';
 
 export default function About() {
   // Define a cor principal dos ícones

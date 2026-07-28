@@ -25,7 +25,7 @@ export default function CategSwiper() {
       <>
         <Swiper>
           {AllCategories.length !== 0?
-            AllCategories.map((categ, i) => (
+            AllCategories.map((categ, i) => !categ.sub_categoria_de && (
               <>
               <div key={categ.id_categoria} className={`${styles.swiperCateg}`} onClick={() => scrollToSection(categ.id_categoria)}>
                 <img src={categ.imagem}/>

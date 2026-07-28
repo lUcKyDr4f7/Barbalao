@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import styles from '../Css/styles.cartItem.module.css';
+import styles from './styles.CartItem.module.css';
 
 export default function CartItem(props) {
     const Products = JSON.parse(localStorage.getItem("products")) || {};
@@ -42,23 +42,21 @@ export default function CartItem(props) {
     }
 
     return(
-        <>
-            <div key={props.item} className={styles.cartItem} >
-                
-                <img src={item['imagem']} alt={item['nome']} />
+        <div key={props.item} className={styles.cartItem} >
+            
+            <img src={item['imagem']} alt={item['nome']} />
 
-                <div className={styles.itemText}>
-                    <h3>{item['nome']}</h3>
-                    <p>R${item['preco'].toFixed(2).replace('.', ',')}</p>
-                </div>
-
-                <div className={styles.itemAmount}>
-                    <button onClick={() => subtractItem()}><i className="ri-subtract-fill"></i></button>
-                    <h3>{props.amount.toString().padStart(2, '0')}</h3>
-                    <button onClick={() => addItem()}><i className="ri-add-line"></i></button>
-                    <button onClick={() => removeItem()}>< i className="ri-delete-bin-line"></i></button>
-                </div>
+            <div className={styles.itemText}>
+                <h3>{item['nome']}</h3>
+                <p>R${item['preco'].toFixed(2).replace('.', ',')}</p>
             </div>
-            </>
+
+            <div className={styles.itemAmount}>
+                <button onClick={() => subtractItem()}><i className="ri-subtract-fill"></i></button>
+                <h3>{props.amount.toString().padStart(2, '0')}</h3>
+                <button onClick={() => addItem()}><i className="ri-add-line"></i></button>
+                <button onClick={() => removeItem()}>< i className="ri-delete-bin-line"></i></button>
+            </div>
+        </div>
     )
 }

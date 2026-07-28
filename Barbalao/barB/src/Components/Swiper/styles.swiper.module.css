@@ -24,6 +24,18 @@
    cursor: pointer;
    font-size: 3vw;
    width: 5vw;
+   transition: 0.5s ease;
+}
+.swiper .swipeBtn svg{
+   transition: 0.5s ease;
+}
+.swiper .swipeBtn:hover svg{
+   color: var(--categTextColor);
+   scale: 1.2;
+}
+.swiper .swipeBtn:disabled{
+   cursor: not-allowed;
+   visibility: hidden;
 }
 
 @media (orientation: portrait) {

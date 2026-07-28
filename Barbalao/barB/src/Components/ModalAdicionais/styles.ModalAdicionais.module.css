@@ -1,0 +1,112 @@
+.backdrop {
+  z-index: 1500;
+  justify-items: center;
+  align-content: center;
+}
+
+.modalAdicionais {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  align-items: center;
+  justify-content: center;
+  max-width: calc(20vw + 400px);
+  max-height: 67vh;
+  padding: 20px;
+  border-radius: 15px;
+  /* gap: 20px; */
+  background-color: #044a8f;
+  color: var(--navColor);
+}
+
+.titleAdicionais {
+  margin-top: 0;
+}
+
+.adicionais {
+  overflow-y: auto;
+}
+.adicionais::-webkit-scrollbar-track {
+  display: none;
+}
+
+.adicional {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  align-items: center;
+  width: calc(20vw + 300px);
+  margin: 10px;
+  padding: 0 20px;
+  text-align: center;
+  border: 1px solid var(--navColor);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.adicional.selected {
+  background-color: #f6dd00;
+  color: black;
+}
+
+/* .checkbox {
+  min-width: 13px;
+  border: 1px solid var(--navColor);
+  border-right: 1px solid white;
+  background-color: white;
+  height: 100%;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+} */
+
+.infoAdicional {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.closeBtn{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  max-height: 24px;
+  color: var(--navColor);
+  cursor: pointer;
+}
+.closeBtn:hover {
+  color: white;
+}
+
+.btnDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 97%;
+  margin-top: 10px;
+  gap: calc(20vw + 30px);
+}
+
+.addCart {
+  /* background-color: #727272; */
+  font-size: 1.03rem;
+  font-weight: 600;
+  color: var(--navColor);
+  border: 1px solid var(--navColor);
+  padding: 12px 20px;
+  border-radius: 10px;        
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+  width: max-content;                 
+}
+.addCart:hover {
+  color: white;
+  border: 1px solid white; 
+}
+.addCart i {
+  font-size: 1.2rem;           
+}

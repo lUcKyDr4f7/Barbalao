@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import styles from './styles.cart.module.css';
 import CartItem from '../CartItem/CartItem';
 import Backdrop from '../Backdrop/Backdrop';
+import { CircleX } from 'lucide-react';
 
-localStorage.setItem("theme", localStorage.getItem("theme")?localStorage.getItem("theme").replaceAll(' cartOpen', ''):localStorage.getItem("theme"));
+localStorage.setItem("theme", localStorage.getItem("theme")?localStorage.getItem("theme").replaceAll(' modalOpen', ''):localStorage.getItem("theme"));
 
 export default function Cart(props) {
 
@@ -16,7 +17,7 @@ export default function Cart(props) {
             props.setIsCartOpen(false);
             setIsClosing(false);
         }, 400);
-        let theme = localStorage.getItem("theme").replaceAll(' cartOpen', '');
+        let theme = localStorage.getItem("theme").replaceAll(' modalOpen', '');
         localStorage.setItem("theme", theme);
         document.body.classList = theme;
     }
@@ -106,20 +107,20 @@ export default function Cart(props) {
     if(props.isCartOpen){
         return(
             <>
-            <Backdrop zIndex={deliveryWarning?1550:1500} show={isClosing}
+            <Backdrop customClass={deliveryWarning?styles.backdrop1550:styles.backdrop1500} show={isClosing}
                 close={ () => deliveryWarning? setDeliveryWarning(false):closeCart() }>
                 <div className={`${styles.cart} ${isClosing?styles.closingCart:''}`} onClick={e => e.stopPropagation()}>
-                    <li>
-                        <button className={styles.closeCartBtn} onClick={ () => closeCart() }>
-                            < i className="ri-close-fill"></i>
-                        </button>
+                    <h1 className={styles.cartTitle}>
+                        {/* <button> */}
+                            <CircleX className={styles.closeCartBtn} onClick={ () => closeCart() }/>
+                        {/* </button> */}
                         Carrinho
-                    </li>
-                    <div>
-                        {JSON.parse(localStorage.getItem('oldCart')) != {} && <div className={styles.cartTabs}>
+                    </h1>
+                    <div>{Object.keys(JSON.parse(localStorage.getItem('oldCart'))).length?
+                        <div className={styles.cartTabs}>
                             <p className={isOldCart?styles.activeTab:styles.inactiveTab} onClick={() => setIsOldCart(true)}>Anterior</p>
                             <p className={isOldCart?styles.inactiveTab:styles.activeTab} onClick={() => setIsOldCart(false)}>Atual</p>
-                        </div>}
+                        </div>:''}
                         <div className={styles.cartList}>{
                             Object.keys(cartItems).length != 0?
                             Object.keys(cartItems).map( key =>
@@ -138,8 +139,8 @@ export default function Cart(props) {
                 </div>
                 {deliveryWarning && <div className={styles.deliveryWarning}>
                     <h1 className={styles.dwTitle}>Delivery</h1>
-                    <h4 className={styles.dwInfo}>Entregamos somente para a cidade de Águas de Lindóia</h4>
-                    <h4 className={styles.dwInfo}>O valor da entrega é fixo de R$2,00</h4>
+                    <p className={styles.dwInfo}>Entregamos somente para a cidade de Águas de Lindóia</p>
+                    <p className={styles.dwInfo}>O valor da entrega é fixo de R$2,00</p>
                     <div className={styles.dwBtns}>
                         <button className={styles.dwConfirm} onClick={() => {setIsDelivery(true); setDeliveryWarning(false)}}>Confirmar</button>
                         <button className={styles.dwCancel} onClick={() => setDeliveryWarning(false)}>Cancelar</button>

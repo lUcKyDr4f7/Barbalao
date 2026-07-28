@@ -144,7 +144,7 @@ button {
   --footHColor: #ffffff;
   overflow-x: hidden;
 }
-.cartOpen {
+.modalOpen {
   overflow: hidden !important;
 }
 

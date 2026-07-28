@@ -17,9 +17,8 @@ export default function Cart(props) {
 
     return(
         <>
-            <div style={{zIndex: props.zIndex}}
-                    className={`${styles.backdrop} ${props.show?styles.fadeOut:''}`}
-                    onClick={ () => props.close() }>
+            <div className={`${styles.backdrop} ${props.customClass} ${props.show?styles.fadeOut:''}`}
+                onClick={ () => props.close() }>
                 {props.children}
             </div>
         </>

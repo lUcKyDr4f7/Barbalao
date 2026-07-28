@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* --navBgColor, --navColor, --navHoverColor */
+.backdrop1550 {
+  z-index: 1550;
+  justify-content: end;
+}
+.backdrop1500 {
+  z-index: 1500;
+  justify-content: end;
+}
 
 @keyframes cartOpening {
   from {margin-right: -41vw;}
@@ -14,10 +22,10 @@
   justify-content: space-evenly;
   position: absolute;
   justify-self: end;
-  padding: 2vh 0;
-  /* margin: -20px -20px 0 0; */
+  /* padding: 2vh 0;
+  margin: -20px -20px 0 0; */
   background-color: var(--navBgColor);
-  height: calc(96vh + 6px);
+  height: 100vh;
   z-index: 1500;
   transition: margin-right .5s;
   --scrollbarTrack: #125492;
@@ -42,6 +50,18 @@
   transition: 0.5s;
 }
 
+.cartTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  /* font-size: 1.4em; */
+  list-style: none;
+  text-decoration: none;
+  color: var(--navColor);
+  margin: 0;
+}
 .cart li {
   display: flex;
   align-items: center;
@@ -97,6 +117,9 @@
   flex-direction: column;
   align-items: center;
   background: #1a5898;
+  border-radius: 15px;
+}
+.cartTabs + .cartList {
   border-radius: 0 0 15px 15px;
 }
 .cartList p {
@@ -119,24 +142,24 @@
 }
 
 .cart .whatsappBtn {
-  width: 20vw;
-  color: white;
-  background-color: green;
+  /* width: 20vw; */
+  padding: 5px 20px;
+  border-color: #0f7f0f;
+  color: #0f7f0f;
   transition: 0.5s;
-}
-.whatsappBtn:disabled {
-  cursor: not-allowed;
-}
-.whatsappBtn:hover {
-  padding: 1vh;
-  margin: -1vh;
-  width: calc(20vw + 1vh);
-  transition: 0.5s;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    transform: scale(1.05);
+  }
 }
 
 .deliveryWarning {
   position: absolute;
-  top: 30vh;
+  top: 25vh;
   left: 30vw;
   background: #1a5898;
   width: 40vw;
@@ -162,16 +185,19 @@
   justify-content: space-around;
 }
 .dwConfirm, .dwCancel {
+  border: 1px solid;
   border-radius: 5px;
   padding: 3px 5px 5px 5px;
   color: var(--navColor);
   width: 8rem;
 }
 .dwConfirm {
-  background: #0f7f0f;
+  border-color: #0f7f0f;
+  color: #0f7f0f;
 }
 .dwCancel {
-  background: #d12323;
+  border-color: #d12323;
+  color: #d12323;
 }
 
 @media (orientation: portrait) {

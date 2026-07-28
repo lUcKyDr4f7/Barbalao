@@ -20,7 +20,7 @@ class Product {
 }
 
 export const AllProducts = [
-    new Product(1, 'X-Bacon', 32, 'Hambúrguer, queijo, bacon, alface e tomate', ['../../../public/Banners/Pasteis.jpg', '../../../public/Banners/Lanches.jpg'], 7),
+    new Product(1, 'X-Bacon', 32, 'Hambúrguer, queijo, bacon, alface e tomate', ['/Banners/Pasteis.jpg', '/Banners/Lanches.jpg'], 7),
     new Product(2, 'X-Burguer', 26, 'Hambúrguer e queijo', [], 7),
     new Product(3, 'X-Burguer 3 Queijos', 31, 'Hambúrguer, catupiry, provolone e muçarela', [], 7),
     new Product(4, 'X-Burguer Calabresa', 33, 'Hambúrguer, calabresa, queijo, cebola frita, alface e tomate', [], 7),
@@ -33,6 +33,7 @@ export const AllProducts = [
     new Product(11, 'X-Salada da Casa', 33, 'Hambúrguer, queijo, milho, batata palha, catupiry, alface e tomate', [], 7),
     new Product(12, 'X-Salada Especial', 33, 'Hambúrguer, queijo, bacon, catupiry, batata palha, alface e tomate', [], 7),
     new Product(13, 'X-Tudo', 39.50, 'Hambúrguer, presunto, queijo, milho, batata palha, ovo, bacon, catupiry, alface e tomate', [], 7),
+
     new Product(14, 'X-Calabresa', 35, 'Calabresa, queijo, alface e tomate', [], 8),
     new Product(15, 'X-Calabresa Especial', 37, 'Calabresa, queijo, cebola frita, catupiry, alface e tomate', [], 8),
     new Product(16, 'X-Catupiry da Casa', 35, 'Presunto, queijo, bacon, catupiry, batata palha, alface e tomate', [], 8),
@@ -40,21 +41,26 @@ export const AllProducts = [
     new Product(18, 'Bauru', 30.50, 'Presunto, queijo e tomate', [], 8),
     new Product(19, 'Misto Quente', 29.50, 'Presunto e queijo', [], 8),
     new Product(20, 'Misto Quente Especial', 31, 'Presunto, queijo e catupiry', [], 8),
+
     new Product(21, 'X-Frango', 37, 'Filet de frango, queijo, alface e tomate', [], 9),
     new Product(22, 'X-Frango Especial', 41, 'Filet de frango, queijo, milho, catupiry, batata palha, palmito, alface e tomate', [], 9),
     new Product(23, 'X-Frango da Casa', 41, 'Filet de frango, presunto, queijo, bacon, ovo, alface e tomate', [], 9),
     new Product(24, 'X-Frango Balão', 41, 'Filet de frango, calabresa, catupiry, orégano, provolone, alface e tomate', [], 9),
     new Product(25, 'X-Frango 3 Queijos', 40, 'Filet de frango, provolone, catupiry e muçarela', [], 9),
     new Product(26, 'X-Galinhão', 40, 'Frango cozido e desfiado, queijo, milho, catupiry, alface e tomate', [], 9),
+
     new Product(27, 'Burguer Original', 35, 'Hambúrguer artesanal 160g, queijo e molho da casa', [], 10),
     new Product(28, 'Burguer Clássico', 40, 'Hambúrguer artesanal 160g, queijo, tiras de bacon, catupiry, molho da casa, tomate, rúcula e cebola roxa', [], 10),
     new Product(29, 'Burguer Premium', 44, 'Hambúrguer artesanal 160g, queijo, tiras de bacon, catupiry empanado, molho da casa, tomate e rúcula', [], 10),
+
     new Product(30, 'Pernil Original', 35, 'Pernil e vinagrete', [], 11),
     new Product(31, 'Pernil Clássico', 40, 'Pernil, vinagrete e queijo', [], 11),
     new Product(32, 'Pernil Premium', 44, 'Pernil, vinagrete, queijo, rúcula e molho da casa', [], 11),
+
     new Product(33, 'Choripán Original', 35, 'Hambúrguer de linguiça calabresa 160g, queijo e molho da casa', [], 12),
     new Product(34, 'Choripán Clássico', 40, 'Hambúrguer de linguiça calabresa 160g, queijo, vinagrete e rúcula', [], 12),
     new Product(35, 'Choripán Premium', 44, 'Hambúrguer de linguiça calabresa 160g, queijo, tiras de bacon, catupiry, molho da casa, tomate, rúcula e cebola roxa', [], 12),
+
     new Product(36, 'X-Churrasco', 41.50, 'Contrafilé, queijo, alface e tomate', [], 13),
     new Product(37, 'X-Churrasco Especial', 44.50, 'Contrafilé, queijo, cebola frita, catupiry, alface e tomate', [], 13),
     new Product(38, 'X-Churrasco do Balão', 47, 'Contrafilé, queijo, ovo, catupiry, batata palha, bacon, alface e tomate', [], 13),
@@ -63,8 +69,10 @@ export const AllProducts = [
     new Product(41, 'X-Churrasco Quente', 47, 'Contrafilé, cebola, bacon, lâminas de pimenta, queijo, alface e tomate', [], 13),
     new Product(42, 'X-Churrasco Vinagrete', 46, 'Contrafilé, queijo, vinagrete, alface e tomate', [], 13),
     new Product(43, 'X-Churrasco Legal', 48, 'Contrafilé, palmito, bacon, batata palha, catupiry, queijo, alface e tomate', [], 13),
+
     new Product(44, 'Costela Original', 39, 'Costela desfiada, queijo e molho da casa', [], 14),
     new Product(45, 'Costela Clássico', 44, 'Costela desfiada, queijo, tiras de bacon, catupiry, molho da casa, tomate, cebola roxa e rúcula', [], 14),
+
     new Product(46, 'Carne', 23.50, 'Pastel de carne', [], 15),
     new Product(47, 'Carne com Queijo', 25.50, 'Pastel de carne com queijo', [], 15),
     new Product(48, 'Carne com Queijo e Bacon', 26.50, 'Pastel de carne com queijo e bacon', [], 15),
@@ -100,6 +108,7 @@ export const AllProducts = [
     new Product(78, 'Hambúrguer com Queijo e Bacon', 24.50, 'Pastel de hambúrguer com queijo e bacon', [], 15),
     new Product(79, 'Hambúrguer com Catupiry, Presunto e Bacon', 26, 'Pastel de hambúrguer com catupiry, presunto e bacon', [], 15),
     new Product(80, 'Hambúrguer com Catupiry, Bacon e Milho', 26, 'Pastel de hambúrguer com catupiry, presunto e bacon', [], 15),
+
     new Product(81, 'Pernil', 23.50, 'Pastel de pernil', [], 16),
     new Product(82, 'Pernil com Queijo', 24.50, 'Pastel de pernil com queijo', [], 16),
     new Product(83, 'Pernil com Queijo e Vinagrete', 25.50, 'Pastel de pernil com queijo', [], 16),
@@ -110,9 +119,11 @@ export const AllProducts = [
     new Product(88, 'Carne Seca', 26, 'Pastel de carne seca', [], 16),
     new Product(89, 'Carne Seca com Queijo', 27.50, 'Pastel de carne seca com queijo', [], 16),
     new Product(90, 'Carne Seca com Catupiry', 27.50, 'Pastel de carne seca com catupiry', [], 16),
+
     new Product(91, 'Chocolate', 25, 'Pastel de chocolate', [], 17),
     new Product(92, 'Brigadeiro', 25, 'Pastel de brigadeiro', [], 17),
     new Product(93, 'Prestígio', 25, 'Pastel de prestígio', [], 17),
+    
     new Product(94, 'Batata Frita', 30.10, 'Meia porção de batata frita', [], 32),
     new Product(95, 'Batata Frita do Balão', 52.50, 'Meia porção de batata frita com bacon, catupiry e alho frito', [], 32),
     new Product(96, 'Batata Frita do Casa', 52.50, 'Meia porção de batata frita com calabresa, catupiry e alho frito', [], 32),

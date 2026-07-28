@@ -3,11 +3,10 @@ import { useEffect, useState, useContext } from 'react';
 import { MenuCtx } from '../Contexts/MenuProvider/MenuProvider.jsx';
 import { AllBanners } from '../assets/Data/AllBanners.js';
 
-import NavB from '../Components/NavBar/navB.jsx';
+import NavB from '../Components/NavBar/NavBar.jsx';
 import CategSwiper from '../Components/Categories/CategSwiper.jsx';
 import BannerCarousel from '../Components/Banners/BannerCarousel.jsx';
-import PSection from '../Components/PSection/prodS.jsx';
-import SectionCateg from '../Components/section/SectionCateg.jsx';
+import SectionCateg from '../Components/CategSubCateg/SectionCateg.jsx';
 import Form from '../Components/Form/FormLogin.jsx';
 import SearchModal from '../Components/SearchModal/SearchModal.jsx';
 import ModalProd from '../Components/ModalProd/ModalProd.jsx';
@@ -27,20 +26,6 @@ export default function Home() {
     document.body.style.overflow = searchModal?'hidden':'';
     /* return () => {document.body.style.overflow = ''}; */
   }, [searchModal]);
-
-  useEffect(() => {
-    if (selectedProduct != null) {
-      const scrollY = window.scrollY;
-      document.body.style.top = `-${scrollY}px`;
-      document.body.classList.add('lock-scroll');
-    } else {
-      const top = document.body.style.top;
-      document.body.classList.remove('lock-scroll');
-      document.body.style.top = '';
-      const y = top ? parseInt(top) * -1 : 0;
-      window.scrollTo(0, y);
-    }
-  }, [selectedProduct]);
   
   return (
     <>

@@ -1,4 +1,4 @@
-import styles from '../Css/styles.navB.module.css';
+import styles from './styles.NavBar.module.css';
 import logo from '../../assets/BarB.png';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { useAuth } from '../../Routes/AuthContext';
 
 export default function NavB({setSearchModal, searchText, setSearchText}) {
 
-  /* Exibibe botão painel se autenticado */
+  /* Exibe botão painel se autenticado */
   const {authenticated} = useAuth()
   const [link, setLink] = useState(null)
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartList, setCartList] = useState([]);
   function openCart() {
-      currentTheme = currentTheme + ' cartOpen';
+      currentTheme = currentTheme + ' modalOpen';
       localStorage.setItem("theme", currentTheme);
       setIsCartOpen(!isCartOpen);
   }
@@ -94,7 +94,7 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
                         <button onClick={() => openCart()}><i className="ri-shopping-cart-2-fill"></i></button>
                     </div>
                 </div>
-                <div className="scroll-indicator-bar"></div>
+                {/* <div className="scroll-indicator-bar"></div> */}
             </header>
         </> 
     )
