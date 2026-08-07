@@ -256,9 +256,9 @@
   display: flex;
   flex-direction: column;
   /* flex-wrap: wrap; */
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  max-width: calc(20vw + 400px);
+  width: calc(20vw + 362px);
   max-height: 67vh;
   padding: 20px;
   border-radius: 15px;
@@ -270,6 +270,8 @@
 .titleAdicionais {
   margin-top: 0;
   margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
 }
 
 .adicionais {
@@ -291,6 +293,7 @@
   border: 1px solid var(--navColor);
   border-radius: 10px;
   cursor: pointer;
+  transition: .5s ease;
 }
 
 .adicional.selected {
@@ -331,8 +334,7 @@
 .btnDiv {
   display: flex;
   flex-direction: row;
-  /* justify-content: space-between; */
-  width: 97%;
-  margin-top: 10px;
-  gap: calc(20vw - 3px);
+  justify-content: space-between;
+  width: calc(20vw + 342px);
+  margin: 10px 10px 0;
 }

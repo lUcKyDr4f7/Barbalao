@@ -2,7 +2,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import styles from './styles.ProdSwiper.module.css';
 import Swiper from '../Swiper/Swiper.jsx';
-import { AllAdicionais } from '../../assets/Data/AllAdicionais.js';
+/* import { AllAdicionais } from '../../assets/Data/AllAdicionais.js'; */
 /* import { Swiper, SwiperSlide } from 'swiper/react'; */
 import { useState, useEffect, useContext } from 'react';
 import { Navigation } from 'swiper/modules';
@@ -33,12 +33,11 @@ export default function ProdSwiper({ produtos, subCateg }) {
     localStorage.setItem("theme", currentTheme);
     setSelectedProduct({...produto,
       'stdImg': subCateg.imagem,
-      'categId': subCateg.sub_categoria_de,
-      'adicionais': AllAdicionais.filter(a => {
+      /* 'adicionais': AllAdicionais.filter(a => {
         
         let aCategs = Object.keys(a.categ_preco);
         return aCategs.includes(subCateg.id_categoria.toString()) || aCategs.includes(subCateg.sub_categoria_de.toString())
-      })
+      }) */
     })
   }
 

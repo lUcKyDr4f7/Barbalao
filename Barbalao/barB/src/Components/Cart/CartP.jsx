@@ -1,14 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import styles from './styles.cart.module.css';
 import CartItem from '../CartItem/CartItem';
 import Backdrop from '../Backdrop/Backdrop';
 import { CircleX } from 'lucide-react';
+import { AllProducts } from '../../assets/Data/AllProducts.js';
+import { CartCtx } from '../../Contexts/CartProvider/CartProvider.jsx';
 
 localStorage.setItem("theme", localStorage.getItem("theme")?localStorage.getItem("theme").replaceAll(' modalOpen', ''):localStorage.getItem("theme"));
 
 export default function Cart(props) {
 
-    const Products = JSON.parse(localStorage.getItem("products")) || {};
+    //const Products = JSON.parse(localStorage.getItem("products")) || {};
 
     const [isClosing, setIsClosing] = useState(false);
     function closeCart() {
@@ -22,25 +24,45 @@ export default function Cart(props) {
         document.body.classList = theme;
     }
 
-    const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cart")));
+    /* const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cart")));
     if(!cartItems) {
         setCartItems({});
         localStorage.setItem("cart", JSON.stringify({}));
     }
     if(!localStorage.getItem("oldCart")) {
         localStorage.setItem('oldCart', JSON.stringify({}));
+    } */
+    const [cartItems, setCartItems, isOldCart, setIsOldCart] = useContext(CartCtx);
+
+    function changeQtdItem(item, change, e) {
+        e.stopPropagation();
+        let tempCart= {...cartItems};
+        if(change) {
+            tempCart[item].qtd += change;
+            if(!tempCart[item].qtd) {
+                delete tempCart[item];
+            }
+        } else {
+            delete tempCart[item];
+        }
+        setCartItems(tempCart);
     }
-    const [isOldCart, setIsOldCart] = useState(false);
+
+    //const [isOldCart, setIsOldCart] = useState(false);
     const [isDelivery, setIsDelivery] = useState(false);
     const [deliveryWarning, setDeliveryWarning] = useState(false);
 
     const [totalValue, setTotalValue] = useState(0);
     function calcTotal() {
         let total = 0;
-        Object.keys(cartItems).map( key => {
-            if(Products[key]) {
-                total += Products[key].preco * cartItems[key];
+        Object.values(cartItems).map( item => {
+            total += item.preco * item.qtd;
+            if(item.adicionais) {
+                
             }
+            /* if(Products[key]) {
+                total += Products[key].preco * cartItems[key];
+            } */
         })
         if(isDelivery) {
             total+=2;
@@ -55,9 +77,9 @@ export default function Cart(props) {
             link = `https://wa.me/5519996829711?text=Ol%C3%A1%2C%20gostaria%20de%20pedir${isDelivery?"para%20delivery":''}%3A`;
             let replacements = [[' ', '$', '+', ',', '/', ':'], ["%20", "%24", "%2B", "%2C", "%2F", "%3A"]];
             Object.keys(cartItems).map( key => {
-                const item = Products[key];
+                /* const item = Products[key];
                 if (!item) return;
-                link += "%0A" + item['nome'] + '%20x' + cartItems[key];
+                link += "%0A" + item['nome'] + '%20x' + cartItems[key]; */
             })
             for(let i=0; i<6; i++) {
                 if (link.includes(replacements[0][i])) link.replace(replacements[0][i], replacements[1][i]);
@@ -67,27 +89,18 @@ export default function Cart(props) {
     }
 
     useEffect(() => {
-        localStorage.setItem(isOldCart?"oldCart":"cart", JSON.stringify(cartItems));
+        //localStorage.setItem(isOldCart?"oldCart":"cart", JSON.stringify(cartItems));
         createLinkWhatsApp();
         calcTotal();
     }, [cartItems]);
     
     useEffect(() => {
-        if(isOldCart) {
+        /* if(isOldCart) { */
             setIsOldCart(false);
-        } else {
+        /* } else {
             setCartItems(JSON.parse(localStorage.getItem("cart")));
-        }
+        } */
     }, [props.isCartOpen]);
-    
-    useEffect(() => {
-        if (isOldCart) {
-            setCartItems(JSON.parse(localStorage.getItem('oldCart')));
-        }
-        else {
-            setCartItems(JSON.parse(localStorage.getItem('cart')));
-        }
-    }, [isOldCart]);
     
     useEffect(() => {
         createLinkWhatsApp();
@@ -116,15 +129,19 @@ export default function Cart(props) {
                         {/* </button> */}
                         Carrinho
                     </h1>
-                    <div>{Object.keys(JSON.parse(localStorage.getItem('oldCart'))).length?
-                        <div className={styles.cartTabs}>
-                            <p className={isOldCart?styles.activeTab:styles.inactiveTab} onClick={() => setIsOldCart(true)}>Anterior</p>
-                            <p className={isOldCart?styles.inactiveTab:styles.activeTab} onClick={() => setIsOldCart(false)}>Atual</p>
-                        </div>:''}
+                    <div className={styles.cartContainer}>
+                        {localStorage.getItem('oldCart')?.length>2?
+                            <div className={styles.cartTabs}>
+                                <p className={isOldCart?styles.activeTab:styles.inactiveTab}
+                                    onClick={() => setIsOldCart(true)}>Anterior</p>
+                                <p className={isOldCart?styles.inactiveTab:styles.activeTab}
+                                    onClick={() => setIsOldCart(false)}>Atual</p>
+                            </div>
+                        :''}
                         <div className={styles.cartList}>{
-                            Object.keys(cartItems).length != 0?
-                            Object.keys(cartItems).map( key =>
-                            <CartItem key={key} cart={cartItems} setCart={setCartItems} item={key} amount={cartItems[key]} />
+                            Object.keys(cartItems).length?
+                            Object.keys(cartItems).map( i => 
+                                <CartItem key={i} id={i} item={cartItems[i]} qtdBtn={changeQtdItem} />
                             ):<p>O carrinho está vazio</p>
                         }</div>
                     </div>
@@ -134,7 +151,7 @@ export default function Cart(props) {
                                 onChange={() => isDelivery?setIsDelivery(false):setDeliveryWarning(true)}/> 
                         Delivery
                     </label>
-                    <button disabled={Object.keys(cartItems).length == 0} alt={`Fazer pedido em ${linkWhatsapp}`}
+                    <button disabled={Object.keys(cartItems).length == 0}
                             onClick={() => order() } className={styles.whatsappBtn}>Fazer Pedido</button>
                 </div>
                 {deliveryWarning && <div className={styles.deliveryWarning}>

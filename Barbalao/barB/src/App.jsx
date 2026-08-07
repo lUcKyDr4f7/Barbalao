@@ -1,6 +1,7 @@
 import './App.css';
 
 import MenuProvider from './Contexts/MenuProvider/MenuProvider.jsx';
+import CartProvider from './Contexts/CartProvider/CartProvider.jsx';
 import { AuthProvider, useAuth } from './Routes/AuthContext.jsx';
 
 import { useState, useEffect, create } from 'react';
@@ -14,7 +15,9 @@ function App() {
   return (
     <AuthProvider>
       <MenuProvider>
-        <RouterProvider router={Router()} />
+        <CartProvider>
+          <RouterProvider router={Router()} />
+        </CartProvider>
       </MenuProvider>
     </AuthProvider>
   );

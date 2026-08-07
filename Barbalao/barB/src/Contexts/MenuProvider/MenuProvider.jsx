@@ -16,10 +16,10 @@ export default function MenuProvider({children}) {
             a[c.nome] = {};
             a[c.nome].self = c;
             subCateg.filter(s => s.sub_categoria_de == c.id_categoria).map(s => {
-            a[c.nome][s.nome] = {};
-            a[c.nome][s.nome].self = s;
-            a[c.nome][s.nome].self.imagem = c.imagem;
-            a[c.nome][s.nome].prod = produtos.filter(p => p.categoria == s.id_categoria);
+                a[c.nome][s.nome] = {};
+                a[c.nome][s.nome].self = s;
+                a[c.nome][s.nome].self.imagem = c.imagem;
+                a[c.nome][s.nome].prod = produtos.filter(p => p.categoria == s.id_categoria);
             });
         });
         return a;

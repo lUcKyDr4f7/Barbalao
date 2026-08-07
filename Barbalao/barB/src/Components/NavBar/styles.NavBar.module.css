@@ -87,7 +87,7 @@
   color: var(--navColor);
 }
 .headerBtns a:hover, .headerBtns button:hover{
-  color: var(--navHoverColor);
+  color: white;
 }
 
 button {
@@ -97,9 +97,22 @@ button {
   outline: none;
   transition: 0.5s;
 }
-.headerBtns button:hover {
+.headerBtns .themeButton:hover {
   transform: rotate(20deg);
   transition: 0.5s;
+}
+
+.hasItem {
+  width: 5px;
+  height: 5px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  right: 20px;
+  transition: 0.5s;
+}
+button:hover .hasItem {
+  background-color: white;
 }
 
 @media(orientation: portrait) {

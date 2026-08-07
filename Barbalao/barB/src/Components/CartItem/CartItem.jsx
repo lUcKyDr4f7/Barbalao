@@ -1,61 +1,33 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { CirclePlus, CircleMinus, CircleX } from 'lucide-react';
+import { MenuCtx } from '../../Contexts/MenuProvider/MenuProvider';
 import styles from './styles.CartItem.module.css';
 
-export default function CartItem(props) {
-    const Products = JSON.parse(localStorage.getItem("products")) || {};
+export default function CartItem({id, item, qtdBtn}) {
 
-    let item = Products[props.item]
-    let tempCart= {...props.cart}
-
-    if (!item) {
-        console.warn(`Produto com ID ${props.item} não encontrado em Products`);
-        return null; // não renderiza nada se o item não existe
-    }
-
-    /* function updateCart(newCart) {
-        props.setCart({ ...newCart });
-    } */
-
-    function addItem() {
-        tempCart[props.item] ++;
-        props.setCart(tempCart)
-        /* localStorage.setItem("cart", JSON.stringify(tempCart));
-        localStorage.setItem("totalValue", Number(localStorage.getItem("totalValue")) + item.valueWithD); */
-        /* updateCart(temp); */
-    }
-    function subtractItem() {
-        if(tempCart[props.item]>1) {
-            tempCart[props.item] --;
-            props.setCart(tempCart);
-            /* localStorage.setItem("cart", JSON.stringify(tempCart));
-            localStorage.setItem("totalValue", Number(localStorage.getItem("totalValue")) - item.valueWithD); */
-            /* updateCart(temp); */
-        } else {
-            removeItem();
-        }
-    }
-    function removeItem() {
-        delete tempCart[props.item]
-        props.setCart(tempCart);
-        /* localStorage.setItem("cart", JSON.stringify(tempCart));
-        localStorage.setItem("totalValue", Number(localStorage.getItem("totalValue")) - item.valueWithD * tempCart[props.item]); */
-    }
+    const { setSelectedProduct } = useContext(MenuCtx);
 
     return(
-        <div key={props.item} className={styles.cartItem} >
+        <div className={styles.cartItem} onClick={() => setSelectedProduct(item)}>
             
-            <img src={item['imagem']} alt={item['nome']} />
+            {/* <img src={item.imagens[0]} alt={item.nome} /> */}
 
             <div className={styles.itemText}>
-                <h3>{item['nome']}</h3>
-                <p>R${item['preco'].toFixed(2).replace('.', ',')}</p>
+                <h2 className={styles.itemName}>{item.nome}</h2>
+                {item.adicionais?.length>0 && <p className={styles.itemAdicionais}>Adicionais: {item.adicionais.map(a => a.nome)}</p>}
+                <p className={styles.itemPrice}>R${parseFloat(item.preco).toFixed(2).replace('.', ',')}</p>
             </div>
-
-            <div className={styles.itemAmount}>
-                <button onClick={() => subtractItem()}><i className="ri-subtract-fill"></i></button>
-                <h3>{props.amount.toString().padStart(2, '0')}</h3>
-                <button onClick={() => addItem()}><i className="ri-add-line"></i></button>
-                <button onClick={() => removeItem()}>< i className="ri-delete-bin-line"></i></button>
+            <div className={styles.itemQuantity}>
+                <button className={styles.itemBtn} onClick={e => qtdBtn(id, -1, e)}>
+                    <CircleMinus />
+                </button>
+                <span className={styles.itemQtd}>{item.qtd}</span>
+                <button className={styles.itemBtn} onClick={e => qtdBtn(id, 1, e)}>
+                    <CirclePlus />
+                </button>
+                <button className={styles.itemBtn} onClick={e => qtdBtn(id, 0, e)}>
+                    <CircleX />
+                </button>
             </div>
         </div>
     )

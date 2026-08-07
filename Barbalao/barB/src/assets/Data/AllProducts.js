@@ -19,6 +19,14 @@ class Product {
     }
 }
 
+export function getProdFromId(id_prod) {
+    return AllProducts.filter(p => p.id_prod == id_prod)[0];
+}
+
+export function getProdFromCateg(id_categ) {
+    return AllProducts.filter(p => p.categoria == id_categ);
+}
+
 export const AllProducts = [
     new Product(1, 'X-Bacon', 32, 'Hambúrguer, queijo, bacon, alface e tomate', ['/Banners/Pasteis.jpg', '/Banners/Lanches.jpg'], 7),
     new Product(2, 'X-Burguer', 26, 'Hambúrguer e queijo', [], 7),

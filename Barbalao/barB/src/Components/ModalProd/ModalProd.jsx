@@ -1,7 +1,10 @@
 import styles from './styles.ModalProd.module.css';
 //import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { CirclePlus, CircleMinus, CircleX, ArrowLeft } from 'lucide-react';
+import { AllAdicionais, getAdicionais } from '../../assets/Data/AllAdicionais.js';
+import { RelCategAdicional } from '../../assets/Data/RelCategAdicional.js';
+import { CartCtx } from '../../Contexts/CartProvider/CartProvider.jsx';
 import Backdrop from '../Backdrop/Backdrop.jsx';
 import Swiper from '../Swiper/Swiper.jsx';
 //import ModalAdicionais from '../ModalAdicionais/ModalAdicionais.jsx';
@@ -10,11 +13,10 @@ localStorage.setItem("theme", localStorage.getItem("theme")?localStorage.getItem
 
 export default function ModalProd({setProd, prod}) {
 
-    /* console.log(descricao)
-    console.log(prod.adicionais) */
     const [isClosing, setIsClosing] = useState(false);
     function closeModal() {
         setIsClosing(true);
+        setSelectedAdicionais({});
         setTimeout(() => {
             setProd(null);
             setIsClosing(false);
@@ -24,8 +26,13 @@ export default function ModalProd({setProd, prod}) {
         document.body.classList = theme;
     }
 
+    const [adicionais, SetAdicionais] = useState(getAdicionais(prod.categoria));
+
     const [selectionAdicionais, setSelectionAdicionais] = useState(false);
-    const [selectedAdicionais, setSelectedAdicionais] = useState({})
+    const [selectedAdicionais, setSelectedAdicionais] = useState(prod.adicionais?.reduce((acc, adicional) => {
+        acc[adicional.nome] = adicional;
+        return acc;
+    }, {}) || {});
 
     let price = typeof prod.preco == 'number' ? parseFloat(prod.preco).toFixed(2).replace('.', ',') : '?,??';
     
@@ -33,39 +40,55 @@ export default function ModalProd({setProd, prod}) {
 
     const [selectedImg, setSelectedImg] = useState(prod.imagens[0]);
 
+    const [cart, setCart] = useContext(CartCtx);
     function addCart() {
-        let cart = JSON.parse(localStorage.getItem("cart"));
-        if(!cart) cart = {};
-        let id = `${prod.id_prod}`;
-        Object.keys(selectedAdicionais).map(key => {
-            id += '+' + selectedAdicionais[key].id_add;
-        })
-        if(cart[id]) {
+        /* let cart = JSON.parse(localStorage.getItem("cart"));
+        if(!cart) cart = {}; */
+        /* if(cart[id]) {
             cart[id] += quantity;
         } else {
             cart[id] = quantity;
         }
-        localStorage.setItem("cart", JSON.stringify(cart));
-        setProd(null);
+        localStorage.setItem("cart", JSON.stringify(cart)); */
+
+        let id = `${prod.id_prod}`;
+        Object.keys(selectedAdicionais).toSorted((a, b) => a - b).map(key => {
+            id += '+' + selectedAdicionais[key].id_add;
+        });
+
+        
+        let c = {...cart};
+
+        if(c[id]) {
+            c[id].qtd += quantity;
+        } else {
+            let product = {...prod};
+            product.qtd = quantity;
+            product.adicionais = Object.values(selectedAdicionais);
+            c[id] = product;
+        }
+
+        setCart(c);
+        closeModal();
+        /* setProd(null);
+        setSelectedAdicionais({}); */
     }
-    //console.log(stdImg)
 
     function checkAdicional(adicional) {
         let s = {...selectedAdicionais};
         if (s[adicional.nome]) {
-            delete s[adicional.nome]
+            delete s[adicional.nome];
         } else {
             s[adicional.nome] = adicional;
         }
         setSelectedAdicionais(s);
-        /* console.log(selected); */
     }
 
-    function getPrice(adicional) {
+    /* function getPrice(adicional) {
         let price = adicional.categ_preco;
         price = price[prod.categId]||price[prod.categoria];
-        return price?parseFloat(price).toFixed(2).replace('.', ','):'?,??'
-    }
+        return price?parseFloat(price).toFixed(2).replace('.', ','):'?,??';
+    } */
 
     return (
         <>
@@ -88,8 +111,6 @@ export default function ModalProd({setProd, prod}) {
                     <h1 className={styles.title}>{prod.nome}</h1>
                     <p className={styles.description}>
                         {prod.descricao}
-                        {/* <br/>
-                        Adicionais: {Object.keys(selectedAdicionais).map(a => a)} */}
                     </p>
                     {/* <div className={styles.midDiv}> */}
                         <p className={styles.price}>R$ {price}</p>
@@ -111,12 +132,12 @@ export default function ModalProd({setProd, prod}) {
             </>:<>
                 <h1 className={styles.titleAdicionais}>Adicionais</h1>
                     <div className={styles.adicionais}>
-                    {prod.adicionais.map(a => (
+                    {adicionais.map(a => (
                         <div className={`${styles.adicional} ${selectedAdicionais[a.nome]?styles.selected:''}`} onClick={() => checkAdicional(a)}>
                             {/* <div className={`${styles.checkbox} ${selectedAdicionais[a.nome]?styles.checked:''}`}></div> */}
                             <div className={styles.infoAdicional}>
                                 <p>{a.nome}</p>
-                                <p>+R${getPrice(a)}</p>
+                                <p>+R${a.preco?parseFloat(a.preco).toFixed(2).replace('.', ','):'?,??'}</p>
                             </div>
                         </div>
                     ))}

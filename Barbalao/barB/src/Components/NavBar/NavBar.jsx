@@ -1,9 +1,10 @@
 import styles from './styles.NavBar.module.css';
 import logo from '../../assets/BarB.png';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Cart from '../Cart/CartP'
 import { useAuth } from '../../Routes/AuthContext';
+import { CartCtx } from '../../Contexts/CartProvider/CartProvider';
 
 export default function NavB({setSearchModal, searchText, setSearchText}) {
 
@@ -60,6 +61,8 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  
+  let [ cartItems ] = useContext(CartCtx);
       
   return (
         <>
@@ -91,7 +94,10 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
                         <li><Link to="/about-us" onClick={() => Location.reload()}>Sobre Nós</Link></li>
                         {link}
                         <button className={styles.themeButton} onClick={() => changeTheme()}><i className={themeIcon}></i></button>
-                        <button onClick={() => openCart()}><i className="ri-shopping-cart-2-fill"></i></button>
+                        <button className={styles.cartBtn} onClick={() => openCart()}>
+                          {(Object.keys(cartItems || {}).length > 0)&&<div className={styles.hasItem}></div>}
+                          <i className="ri-shopping-cart-2-fill"></i>
+                        </button>
                     </div>
                 </div>
                 {/* <div className="scroll-indicator-bar"></div> */}

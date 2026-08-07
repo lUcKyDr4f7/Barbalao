@@ -20,12 +20,13 @@ export default function Home() {
   const [searchText, setSearchText] = useState('');
   const [banners, setBanners] = useState(AllBanners);
 
-  const {cardapio, setCardapio, selectedProduct, setSelectedProduct} = useContext(MenuCtx)
+  const {cardapio, setCardapio, selectedProduct, setSelectedProduct} = useContext(MenuCtx);
 
   useEffect(() => {
     document.body.style.overflow = searchModal?'hidden':'';
     /* return () => {document.body.style.overflow = ''}; */
   }, [searchModal]);
+  
   
   return (
     <>

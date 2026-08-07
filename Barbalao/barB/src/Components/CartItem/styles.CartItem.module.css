@@ -7,50 +7,93 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: calc(36vw - 4vh);
-  height: 12vh;
+  width: calc(100% - 4vh);
+  /* height: 12vh; */
   background: linear-gradient(120deg, #98d6e126, #cbe1980d);
   border-radius: 1vh;
   margin: 1vh 0vw;
-  padding: 1vh;
+  padding: 1vh 1vh 2vh;
+  cursor: pointer
 }
 
-.cartItem img {
-  width: 11vh;
+/* .cartItem img {
+  width: 9vh;
   height: 9vh;
   object-fit: cover;
   border-radius: 1vh;
-}
+} */
 
 .cartItem .itemText {
-  width: 24vw;
-  height: 10vh;
+  width: 75%;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 
-.cartItem .itemAmount {
+.itemText .itemName {
+  display: flex;
+  align-items: center;
+  height: 2.25rem;
+  margin: 0 .2vw 0 .2vw;
+  /* font-size: 3.5vh; */
+  color: var(--navColor);
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    height: 2px;
+  }
+}
+
+.itemAdicionais, .itemPrice {
+  height: 2.5vh;
+  margin: 0 .2vw 0 .2vw;
+  font-size: .8rem;
+  justify-content: start;
+  color: white;
+}
+
+.itemQuantity{
+   display: flex;
+   gap: 3px;
+   align-items: center;
+}
+.itemQuantity .itemBtn {
+  color: var(--navColor);                
+  font-size: 1.2rem;
+  font-weight: 700;
+  width: 30px;                 
+  height: 30px;                
+  border: none;
+  border-radius: 15px;          
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:last-child {
+    color: red;
+  }
+  &:hover {
+    color: white;        
+  }
+}
+.itemQuantity .itemQtd{
+  font-size: 1.2rem;
+  line-height: 1;
+  color: white;
+  font-weight: 400;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* .cartItem .itemQuantity {
   display: flex;
   flex-direction: row;
   align-items: center;
   height: 6vh;
   width: 10vw;
-}
-.cartItem h3 {
-  display: flex;
-  align-items: center;
-  height: 4vh;
-  margin: 0 .2vw 0 .2vw;
-  font-size: 3.5vh;
-}
-.cartItem p {
-  height: 2.5vh;
-  margin: 0 .2vw 0 .2vw;
-  font-size: .8rem;
-  justify-content: start;
-}
-.cartItem button {
+} */
+/* .cartItem button {
   color: white;
   height: 3vh;
   display: flex;
@@ -61,7 +104,7 @@
 }
 .cartItem button:hover {
   color: gainsboro;
-}
+} */
 
 @media (orientation: portrait) {
   .cartItem {
@@ -84,7 +127,7 @@
     justify-content: space-evenly;
   }
   
-  .cartItem .itemAmount {
+  .cartItem .itemQuantity {
     display: flex;
     flex-direction: row;
     align-items: center;
