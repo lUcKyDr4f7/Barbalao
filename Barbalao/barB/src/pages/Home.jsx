@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
 
 import { MenuCtx } from '../Contexts/MenuProvider/MenuProvider.jsx';
+import { CategRefCtx } from '../Contexts/CategRefProvider/CategRefProvider.jsx'
 import { AllBanners } from '../assets/Data/AllBanners.js';
 
 import NavB from '../Components/NavBar/NavBar.jsx';
@@ -21,6 +22,7 @@ export default function Home() {
   const [banners, setBanners] = useState(AllBanners);
 
   const {cardapio, setCardapio, selectedProduct, setSelectedProduct} = useContext(MenuCtx);
+  const categRefs = useContext(CategRefCtx);
 
   useEffect(() => {
     document.body.style.overflow = searchModal?'hidden':'';
@@ -40,7 +42,7 @@ export default function Home() {
         <BannerCarousel banners={banners} />
         {Object.keys(cardapio).map((key, i) => {
           return <>
-            <SectionCateg key={key} categoria={cardapio[key]}/>
+            <SectionCateg key={key} categoria={categRefs[i]}/>
             {(i%2 == 0) && <BannerCarousel key={`sb${i/2}`} banners={banners} />}
           </>
         })}

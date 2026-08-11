@@ -1,6 +1,10 @@
 /* =================== Google Fonts ====================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
+.categ {
+   scroll-margin-top: calc(15vh + 40px);
+}
+
 /* ==================== Títulos ==================== */
 .categTitle, .subCategTitle {
    margin: 0.67em 5vw;

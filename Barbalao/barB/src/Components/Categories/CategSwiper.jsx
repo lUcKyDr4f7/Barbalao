@@ -1,6 +1,8 @@
 import styles from './styles.CategSwiper.module.css';
 
+import { useContext } from 'react'
 import { AllCategories } from '../../assets/Data/AllCategories.js';
+import { CategRefCtx } from '../../Contexts/CategRefProvider/CategRefProvider.jsx';
 
 import Swiper from '../Swiper/Swiper.jsx';
 /* import Lanche from '../../assets/categorias/burger.png';
@@ -13,21 +15,27 @@ import Doces from '../../assets/categorias/chocolate.png'; */
 export default function CategSwiper() {
   //const categoriasL = categorias || JSON.parse(localStorage.getItem("categories"))
 
-  const scrollToSection = (id) => {
-    const alvo = document.getElementById(id);
+  const categRefs = useContext(CategRefCtx);
+
+  function scrollToSection(ref) {
+    /* const alvo = document.getElementById(id);
     if (alvo) {
       const y = alvo.getBoundingClientRect().top + window.scrollY - 5000;
       alvo.scrollIntoView({ top: y, behavior: "smooth"});
-    }
+    } */
+    ref.current.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
   };
 
   return (
       <>
         <Swiper>
           {AllCategories.length !== 0?
-            AllCategories.map((categ, i) => !categ.sub_categoria_de && (
+            categRefs.map((categ, i) => !categ.sub_categoria_de && (
               <>
-              <div key={categ.id_categoria} className={`${styles.swiperCateg}`} onClick={() => scrollToSection(categ.id_categoria)}>
+              <div key={categ.id_categoria} className={`${styles.swiperCateg}`} onClick={() => scrollToSection(categ.ref)}>
                 <img src={categ.imagem}/>
                 <h2>{(categ.nome).slice(0,1).toUpperCase() + (categ.nome).slice(1)}</h2>
               </div>

@@ -16,12 +16,13 @@ export default function SectionCateg({categoria}) {
     } */
 
     return(
-        <details open className={styles.categ}>
+        <details ref={categoria.ref} open className={styles.categ}>
             <summary className={styles.categTitle}>
-                {categoria.self.nome}
+                {/* categoria.self.nome */}
+                {categoria.nome}
                 <ChevronRight className={styles.arrowIcon} />
             </summary>
-            {Object.keys(categoria).map(key => (key != 'self') && <SectionSubCateg key={key} subCateg={categoria[key]}/>)}
+            {/* Object.keys(categoria).map(key => (key != 'self') && <SectionSubCateg key={key} subCateg={categoria[key]}/>) */}
             {/* {categoriasL.length != 0? 
                 <>
                     {categoriasL.map((categoria, index) => (

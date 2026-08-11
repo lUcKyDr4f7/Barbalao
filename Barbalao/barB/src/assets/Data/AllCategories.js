@@ -13,6 +13,15 @@ class Categoria {
         this.imagem = imagem;
     }
 }
+export function getCateg() {
+    return AllCategories.filter((categ) => categ.sub_categoria_de == null);
+}
+export function getSubCateg(id=0) {
+    if(id) {
+        return AllCategories.filter((categ) => categ.sub_categoria_de == id);
+    }
+    return AllCategories.filter((categ) => categ.sub_categoria_de != null);
+}
 
 export const AllCategories = [
     new Categoria(1, 'Lanches', null, Lanche), new Categoria(2, 'Pastéis', null, Pastel), new Categoria(3, 'Bebidas', null, Bebida),
