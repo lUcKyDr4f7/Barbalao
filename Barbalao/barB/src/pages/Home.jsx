@@ -1,10 +1,12 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext, useRef } from 'react';
 
 import { MenuCtx } from '../Contexts/MenuProvider/MenuProvider.jsx';
-import { CategRefCtx } from '../Contexts/CategRefProvider/CategRefProvider.jsx'
-import { AllBanners } from '../assets/Data/AllBanners.js';
+import { getCateg } from '../assets/Data/AllCategories.js';
+/* import { CategRefCtx } from '../Contexts/CategRefProvider/CategRefProvider.jsx'
+import { AllBanners } from '../assets/Data/AllBanners.js'; */
 
 import NavB from '../Components/NavBar/NavBar.jsx';
+import Swiper from '../Components/Swiper/Swiper.jsx'
 import CategSwiper from '../Components/Categories/CategSwiper.jsx';
 import BannerCarousel from '../Components/Banners/BannerCarousel.jsx';
 import SectionCateg from '../Components/CategSubCateg/SectionCateg.jsx';
@@ -19,16 +21,30 @@ export default function Home() {
 
   const [searchModal, setSearchModal] = useState(false);
   const [searchText, setSearchText] = useState('');
-  const [banners, setBanners] = useState(AllBanners);
+  /* const [banners, setBanners] = useState(AllBanners); */
 
-  const {cardapio, setCardapio, selectedProduct, setSelectedProduct} = useContext(MenuCtx);
-  const categRefs = useContext(CategRefCtx);
+  /* const {cardapio, setCardapio, selectedProduct, setSelectedProduct} = useContext(MenuCtx); */
+  const {selectedProduct, setSelectedProduct} = useContext(MenuCtx);
+  /* const categRefs = useContext(CategRefCtx); */
 
   useEffect(() => {
     document.body.style.overflow = searchModal?'hidden':'';
     /* return () => {document.body.style.overflow = ''}; */
   }, [searchModal]);
-  
+
+  const categorias = getCateg().map(c => { return {...c, 'ref': useRef(null)}});
+
+  function scrollToSection(ref) {
+    /* const alvo = document.getElementById(id);
+    if (alvo) {
+      const y = alvo.getBoundingClientRect().top + window.scrollY - 5000;
+      alvo.scrollIntoView({ top: y, behavior: "smooth"});
+    } */
+    ref.current.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  };
   
   return (
     <>
@@ -37,16 +53,23 @@ export default function Home() {
 
       <section className="main">
         <h2 className={styles.titleCateg}>Cardápio</h2>
-        <CategSwiper/>
+        {/* <CategSwiper/> */}
+        <Swiper>
+          {categorias.length !== 0 && categorias.map((categ) => 
+            <CategSwiper key={`cs${categ.nome}`} categ={categ} scrollFn={scrollToSection}/>)}
+        </Swiper>
         {/* <SectionCateg produtos={produtos} categorias={categorias} subCateg={subCateg} banners={banners} /> */}
-        <BannerCarousel banners={banners} />
-        {Object.keys(cardapio).map((key, i) => {
+        {/* <BannerCarousel banners={banners} /> */}
+        <BannerCarousel banners={[]} />
+        {/* Object.keys(cardapio).map((key, i) => { */
+        categorias.map((categ, i) => {
           return <>
-            <SectionCateg key={key} categoria={categRefs[i]}/>
-            {(i%2 == 0) && <BannerCarousel key={`sb${i/2}`} banners={banners} />}
+            <SectionCateg key={`categ${categ.nome}`} categoria={categ}/>
+            {(i%2 == 0) && <BannerCarousel key={`sb${i/2}`} banners={[]} />}
           </>
         })}
-        {Object.keys(cardapio).length != 0 && <Footer />}
+        {/* Object.keys(cardapio).length != 0 && <Footer /> */}
+        {categorias.length != 0 && <Footer />}
       </section>
 
       {searchModal &&

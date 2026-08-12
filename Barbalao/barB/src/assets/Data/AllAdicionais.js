@@ -14,11 +14,7 @@ export function getAdicionais(idCateg, list=null) {
     }, {});
     return AllAdicionais.map(a => {
         if(rac[a.id_add]) {
-            if(list && !list.includes('' + a.id_add)) {
-                return undefined
-            } else {
-                return {...a, 'preco': rac[a.id_add]};
-            }
+            return {...a, 'preco': rac[a.id_add]};
         }
     }).filter(a => a != undefined);
 }

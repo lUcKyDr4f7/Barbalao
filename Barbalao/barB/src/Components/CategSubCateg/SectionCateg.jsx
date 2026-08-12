@@ -1,7 +1,8 @@
+import styles from "./styles.CategSubCateg.module.css";
 import BannerCarousel from "../Banners/BannerCarousel.jsx";
 import SectionSubCateg from "./SectionSubCateg.jsx";
-import styles from "./styles.CategSubCateg.module.css";
 import { ChevronRight } from 'lucide-react';
+import { getSubCateg } from "../../assets/Data/AllCategories.js"
 //import Footer from '../Footer/Footer.jsx';
 
 export default function SectionCateg({categoria}) {
@@ -14,6 +15,8 @@ export default function SectionCateg({categoria}) {
         const temp = bannersL.slice(i, i+3) || []
         grupoBanner = [...grupoBanner, temp]
     } */
+    
+    const subCategorias = getSubCateg(categoria.id_categoria);
 
     return(
         <details ref={categoria.ref} open className={styles.categ}>
@@ -23,6 +26,7 @@ export default function SectionCateg({categoria}) {
                 <ChevronRight className={styles.arrowIcon} />
             </summary>
             {/* Object.keys(categoria).map(key => (key != 'self') && <SectionSubCateg key={key} subCateg={categoria[key]}/>) */}
+            {subCategorias.map(subCateg => <SectionSubCateg key={`sc${subCateg.nome}`} subCateg={subCateg}/>)}
             {/* {categoriasL.length != 0? 
                 <>
                     {categoriasL.map((categoria, index) => (

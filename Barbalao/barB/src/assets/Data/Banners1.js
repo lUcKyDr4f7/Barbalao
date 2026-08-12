@@ -1,3 +1,4 @@
+/* remover arquivo */
 export const Banners1 = [
     {
         id: 0, 

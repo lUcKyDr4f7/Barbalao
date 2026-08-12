@@ -1,3 +1,4 @@
+/* remover arquivo */
 /* import { Banners0 } from "./Banners0"
 import { Banners1 } from "./Banners1" 
 import { Products } from "./Products"

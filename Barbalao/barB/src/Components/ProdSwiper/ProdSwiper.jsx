@@ -9,7 +9,7 @@ import { Navigation } from 'swiper/modules';
 import { MenuCtx } from '../../Contexts/MenuProvider/MenuProvider.jsx';
 /* import { getImagePath } from '../utils/pathP.jsx'; */
 
-export default function ProdSwiper({ produtos, subCateg }) {
+export default function ProdSwiper({ produto, subCateg }) {
   
   //const produtosL = produtos || JSON.parse(localStorage.getItem("products"))
   
@@ -45,13 +45,13 @@ export default function ProdSwiper({ produtos, subCateg }) {
 
   return (
     <>
-      {produtos.length == 0 ? (
+      {/* produtos.length == 0 ? (
         <div key={subCateg.id_categoria} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <p className={styles.swiperTitle}>Sem produtos</p>
         </div>
       ) : (
         <Swiper className={styles.prodSwiper}>
-          {produtos.map((produto) => (
+          {produtos.map((produto) => ( */
             <div key={produto.id_prod} className={styles.productCard} onClick={() => openModalProd(produto)}>
               <img className={styles.productImg} src={produto.imagens[0] || subCateg.imagem}
                     alt={produto.nome || 'Produto sem nome'} />
@@ -61,9 +61,9 @@ export default function ProdSwiper({ produtos, subCateg }) {
                 <i className="ri-shopping-cart-2-fill"></i>
               </div>
             </div>
-          ))}
+          /* ))}
         </Swiper>
-      )}
+      ) */}
     </>
   );
 

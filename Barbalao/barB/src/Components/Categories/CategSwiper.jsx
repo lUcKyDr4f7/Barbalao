@@ -1,10 +1,10 @@
 import styles from './styles.CategSwiper.module.css';
 
-import { useContext } from 'react'
+/* import { useContext } from 'react'
 import { AllCategories } from '../../assets/Data/AllCategories.js';
-import { CategRefCtx } from '../../Contexts/CategRefProvider/CategRefProvider.jsx';
+import { CategRefCtx } from '../../Contexts/CategRefProvider/CategRefProvider.jsx'; */
 
-import Swiper from '../Swiper/Swiper.jsx';
+//import Swiper from '../Swiper/Swiper.jsx';
 /* import Lanche from '../../assets/categorias/burger.png';
 import Pastel from '../../assets/categorias/pastel.png';
 import Salgado from '../../assets/categorias/coxinha.png';
@@ -12,24 +12,33 @@ import Porção from '../../assets/categorias/porcao.png';
 import Bebida from '../../assets/categorias/drink.png';
 import Doces from '../../assets/categorias/chocolate.png'; */
 
-export default function CategSwiper() {
+export default function CategSwiper({categ, scrollFn}) {
   //const categoriasL = categorias || JSON.parse(localStorage.getItem("categories"))
 
-  const categRefs = useContext(CategRefCtx);
+  /* const categRefs = useContext(CategRefCtx);
 
-  function scrollToSection(ref) {
+  function scrollToSection(ref) { */
     /* const alvo = document.getElementById(id);
     if (alvo) {
       const y = alvo.getBoundingClientRect().top + window.scrollY - 5000;
       alvo.scrollIntoView({ top: y, behavior: "smooth"});
     } */
-    ref.current.scrollIntoView({
+    /* ref.current.scrollIntoView({
       behavior: "smooth",
       block: "start"
     });
-  };
-
+  }; */
   return (
+    <>
+      <div key={categ.id_categoria} className={`${styles.swiperCateg}`}
+        onClick={() => scrollFn(categ.ref)}>
+        <img src={categ.imagem}/>
+        <h2>{(categ.nome).slice(0,1).toUpperCase() + (categ.nome).slice(1)}</h2>
+      </div>
+    </>
+  )
+
+  /* return (
       <>
         <Swiper>
           {AllCategories.length !== 0?
@@ -41,7 +50,7 @@ export default function CategSwiper() {
               </div>
               </>
             ))
-          :
+          : */
           {/* <>
             <div className={`${styles.swiperCateg}`}><img src={Lanche}/><h2>Lanches</h2></div>
             <div className={`${styles.swiperCateg}`}><img src={Pastel}/><h2>Pastéis</h2></div>
@@ -50,10 +59,10 @@ export default function CategSwiper() {
             <div className={`${styles.swiperCateg}`}><img src={Salgado}/><h2>Salgados</h2></div>
             <div className={`${styles.swiperCateg}`}><img src={Doces}/><h2>Doces</h2></div>
           </> */}
-          }
+          /* }
         </Swiper>
       </>
-  );
+  ); */
 
 }
 

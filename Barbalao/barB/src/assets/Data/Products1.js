@@ -1,3 +1,4 @@
+/* remover arquivo */
 import { AllProducts } from './AllProducts'
 function getProductsBySection(sectionId) {
   return AllProducts.filter(product => {
