@@ -32,3 +32,13 @@
 .subCategTitle {
    font-size: 1.5em;
 }
+
+.prodSwiper {
+   width: 100%;
+}
+
+@media (orientation: portrait) {
+   .swiperTitle {
+      margin: 5vw;
+   }
+}

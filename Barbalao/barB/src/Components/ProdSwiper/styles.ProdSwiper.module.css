@@ -1,7 +1,4 @@
 /* ==================== Swiper ==================== */
-.prodSwiper {
-   width: 100%;
-}
 
 .productCard {
    position: relative;
@@ -62,9 +59,6 @@
 /* ==================== RESPONSIVIDADE ==================== */
 
 @media (orientation: portrait) {
-   .swiperTitle {
-      margin: 5vw;
-   }
    
    .productCard {
       justify-content: normal;

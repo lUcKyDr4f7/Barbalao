@@ -3,15 +3,11 @@ import 'swiper/css/navigation';
 import styles from './styles.ProdSwiper.module.css';
 import Swiper from '../Swiper/Swiper.jsx';
 /* import { AllAdicionais } from '../../assets/Data/AllAdicionais.js'; */
-/* import { Swiper, SwiperSlide } from 'swiper/react'; */
 import { useState, useEffect, useContext } from 'react';
 import { Navigation } from 'swiper/modules';
 import { MenuCtx } from '../../Contexts/MenuProvider/MenuProvider.jsx';
-/* import { getImagePath } from '../utils/pathP.jsx'; */
 
 export default function ProdSwiper({ produto, subCateg }) {
-  
-  //const produtosL = produtos || JSON.parse(localStorage.getItem("products"))
   
   /* const [isMobile, setIsMobile] = useState(false);
 
@@ -41,29 +37,17 @@ export default function ProdSwiper({ produto, subCateg }) {
     })
   }
 
-  //const prodAtuais = produtosL.filter(produtoL => produtoL.categoria === subCateg.id_categoria)
-
   return (
     <>
-      {/* produtos.length == 0 ? (
-        <div key={subCateg.id_categoria} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <p className={styles.swiperTitle}>Sem produtos</p>
+      <div key={produto.id_prod} className={styles.productCard} onClick={() => openModalProd(produto)}>
+        <img className={styles.productImg} src={produto.imagens[0] || subCateg.imagem}
+              alt={produto.nome || 'Produto sem nome'} />
+        <div className={styles.productInfo}>
+          <h4>{produto.nome}</h4>
+          <h4>R$ {produto.preco?parseFloat(produto.preco || 0).toFixed(2).replace('.', ','):'?,??'}</h4>
+          <i className="ri-shopping-cart-2-fill"></i>
         </div>
-      ) : (
-        <Swiper className={styles.prodSwiper}>
-          {produtos.map((produto) => ( */
-            <div key={produto.id_prod} className={styles.productCard} onClick={() => openModalProd(produto)}>
-              <img className={styles.productImg} src={produto.imagens[0] || subCateg.imagem}
-                    alt={produto.nome || 'Produto sem nome'} />
-              <div className={styles.productInfo}>
-                <h4>{produto.nome}</h4>
-                <h4>R$ {produto.preco?parseFloat(produto.preco || 0).toFixed(2).replace('.', ','):'?,??'}</h4>
-                <i className="ri-shopping-cart-2-fill"></i>
-              </div>
-            </div>
-          /* ))}
-        </Swiper>
-      ) */}
+      </div>
     </>
   );
 

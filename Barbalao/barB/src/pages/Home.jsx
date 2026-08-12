@@ -35,11 +35,6 @@ export default function Home() {
   const categorias = getCateg().map(c => { return {...c, 'ref': useRef(null)}});
 
   function scrollToSection(ref) {
-    /* const alvo = document.getElementById(id);
-    if (alvo) {
-      const y = alvo.getBoundingClientRect().top + window.scrollY - 5000;
-      alvo.scrollIntoView({ top: y, behavior: "smooth"});
-    } */
     ref.current.scrollIntoView({
       behavior: "smooth",
       block: "start"
@@ -53,37 +48,25 @@ export default function Home() {
 
       <section className="main">
         <h2 className={styles.titleCateg}>Cardápio</h2>
-        {/* <CategSwiper/> */}
         <Swiper>
           {categorias.length !== 0 && categorias.map((categ) => 
             <CategSwiper key={`cs${categ.nome}`} categ={categ} scrollFn={scrollToSection}/>)}
         </Swiper>
-        {/* <SectionCateg produtos={produtos} categorias={categorias} subCateg={subCateg} banners={banners} /> */}
-        {/* <BannerCarousel banners={banners} /> */}
         <BannerCarousel banners={[]} />
-        {/* Object.keys(cardapio).map((key, i) => { */
-        categorias.map((categ, i) => {
+        {categorias.map((categ, i) => {
           return <>
             <SectionCateg key={`categ${categ.nome}`} categoria={categ}/>
             {(i%2 == 0) && <BannerCarousel key={`sb${i/2}`} banners={[]} />}
           </>
         })}
-        {/* Object.keys(cardapio).length != 0 && <Footer /> */}
         {categorias.length != 0 && <Footer />}
       </section>
 
       {searchModal &&
-      <SearchModal setSearchModal={setSearchModal} searchText={searchText} produtos={produtos}/>}
+        <SearchModal setSearchModal={setSearchModal} searchText={searchText} produtos={produtos}/>}
       
       {selectedProduct && 
-      <ModalProd
-        /* name={selectedProduct.nome}
-        price={parseFloat(selectedProduct.preco || 0).toFixed(2).replace('.', ',')}
-        img={selectedProduct.imagem}
-        descricao={selectedProduct.descricao} */
-        setProd={setSelectedProduct}
-        prod={selectedProduct}
-      />}
+        <ModalProd setProd={setSelectedProduct} prod={selectedProduct} />}
     </>
   );
 }
