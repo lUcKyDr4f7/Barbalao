@@ -2,8 +2,7 @@ import { useEffect, useState, useContext, useRef } from 'react';
 
 import { MenuCtx } from '../Contexts/MenuProvider/MenuProvider.jsx';
 import { getCateg } from '../assets/Data/AllCategories.js';
-/* import { CategRefCtx } from '../Contexts/CategRefProvider/CategRefProvider.jsx'
-import { AllBanners } from '../assets/Data/AllBanners.js'; */
+/* import { AllBanners } from '../assets/Data/AllBanners.js'; */
 
 import NavB from '../Components/NavBar/NavBar.jsx';
 import Swiper from '../Components/Swiper/Swiper.jsx'
@@ -25,7 +24,6 @@ export default function Home() {
 
   /* const {cardapio, setCardapio, selectedProduct, setSelectedProduct} = useContext(MenuCtx); */
   const {selectedProduct, setSelectedProduct} = useContext(MenuCtx);
-  /* const categRefs = useContext(CategRefCtx); */
 
   useEffect(() => {
     document.body.style.overflow = searchModal?'hidden':'';

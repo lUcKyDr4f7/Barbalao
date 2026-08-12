@@ -4,6 +4,7 @@ import { getAdicionais } from '../../assets/Data/AllAdicionais.js';
 import { AllCategories } from '../../assets/Data/AllCategories.js';
 
 export const CartCtx = createContext();
+export const OldCartCtx = createContext();
 
 export default function CartProvider({children}) {
 
@@ -54,8 +55,10 @@ export default function CartProvider({children}) {
     }, [isOldCart]);
 
     return (
-        <CartCtx.Provider value={[cart, setCart, isOldCart, setIsOldCart]}>
+        <OldCartCtx.Provider value={[isOldCart, setIsOldCart]}>
+            <CartCtx.Provider value={[cart, setCart]}>
             {children}
-        </CartCtx.Provider>
+            </CartCtx.Provider>
+        </OldCartCtx.Provider>
     )
 }

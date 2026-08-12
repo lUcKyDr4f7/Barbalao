@@ -4,7 +4,7 @@ import CartItem from '../CartItem/CartItem';
 import Backdrop from '../Backdrop/Backdrop';
 import { CircleX } from 'lucide-react';
 import { AllProducts } from '../../assets/Data/AllProducts.js';
-import { CartCtx } from '../../Contexts/CartProvider/CartProvider.jsx';
+import { CartCtx, OldCartCtx } from '../../Contexts/CartProvider/CartProvider.jsx';
 
 localStorage.setItem("theme", localStorage.getItem("theme")?localStorage.getItem("theme").replaceAll(' modalOpen', ''):localStorage.getItem("theme"));
 
@@ -32,7 +32,7 @@ export default function Cart(props) {
     if(!localStorage.getItem("oldCart")) {
         localStorage.setItem('oldCart', JSON.stringify({}));
     } */
-    const [cartItems, setCartItems, isOldCart, setIsOldCart] = useContext(CartCtx);
+    const [cartItems, setCartItems, isOldCart, setIsOldCart] = [...useContext(CartCtx), ...useContext(OldCartCtx)];
 
     function changeQtdItem(item, change, e) {
         e.stopPropagation();
