@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext, useRef } from 'react';
 
-import { MenuCtx } from '../Contexts/MenuProvider/MenuProvider.jsx';
+import { ModalProdOpenCtx } from '../Contexts/ModalOpenProvider/ModalOpenProvider.jsx';
 import { getCateg } from '../assets/Data/AllCategories.js';
 /* import { AllBanners } from '../assets/Data/AllBanners.js'; */
 
@@ -22,8 +22,8 @@ export default function Home() {
   const [searchText, setSearchText] = useState('');
   /* const [banners, setBanners] = useState(AllBanners); */
 
-  /* const {cardapio, setCardapio, selectedProduct, setSelectedProduct} = useContext(MenuCtx); */
-  const {selectedProduct, setSelectedProduct} = useContext(MenuCtx);
+  /* const {cardapio, setCardapio, selectedProduct, setSelectedProduct} = useContext(ModalProdOpenCtx); */
+  const {selectedProduct, setSelectedProduct} = useContext(ModalProdOpenCtx);
 
   useEffect(() => {
     document.body.style.overflow = searchModal?'hidden':'';

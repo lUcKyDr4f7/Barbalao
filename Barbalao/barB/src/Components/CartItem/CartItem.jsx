@@ -1,11 +1,11 @@
 import { useState, useEffect, useContext } from 'react';
 import { CirclePlus, CircleMinus, CircleX } from 'lucide-react';
-import { MenuCtx } from '../../Contexts/MenuProvider/MenuProvider';
+import { ModalProdOpenCtx } from '../../Contexts/ModalOpenProvider/ModalOpenProvider';
 import styles from './styles.CartItem.module.css';
 
 export default function CartItem({id, item, qtdBtn}) {
 
-    const { setSelectedProduct } = useContext(MenuCtx);
+    const { setSelectedProduct } = useContext(ModalProdOpenCtx);
 
     return(
         <div className={styles.cartItem} onClick={() => setSelectedProduct(item)}>

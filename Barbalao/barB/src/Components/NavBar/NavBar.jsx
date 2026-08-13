@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Cart from '../Cart/CartP'
 import { useAuth } from '../../Routes/AuthContext';
 import { CartCtx } from '../../Contexts/CartProvider/CartProvider';
+import { CartOpenCtx } from '../../Contexts/ModalOpenProvider/ModalOpenProvider.jsx';
 
 export default function NavB({setSearchModal, searchText, setSearchText}) {
 
@@ -32,20 +33,15 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
   document.body.classList = currentTheme;
 
   function changeTheme() {
-      currentTheme = currentTheme == "light" ? "dark" : "light";
-      localStorage.setItem("theme", currentTheme);
-      currentIcon = currentTheme == "dark" ? "ri-sun-fill sun-icon" : "ri-moon-fill moon-icon";
-      setThemeIcon(currentIcon);
-      document.body.classList = currentTheme;
+    currentTheme = currentTheme == "light" ? "dark" : "light";
+    localStorage.setItem("theme", currentTheme);
+    currentIcon = currentTheme == "dark" ? "ri-sun-fill sun-icon" : "ri-moon-fill moon-icon";
+    setThemeIcon(currentIcon);
+    document.body.classList = currentTheme;
   }
 
-  const [isCartOpen, setIsCartOpen] = useState(false);
+  const {isCartOpen, setIsCartOpen} = useContext(CartOpenCtx);
   const [cartList, setCartList] = useState([]);
-  function openCart() {
-      currentTheme = currentTheme + ' modalOpen';
-      localStorage.setItem("theme", currentTheme);
-      setIsCartOpen(!isCartOpen);
-  }
   
   useEffect(() => {
     const header = document.querySelector("header");
@@ -94,7 +90,7 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
                         <li><Link to="/about-us" onClick={() => Location.reload()}>Sobre Nós</Link></li>
                         {link}
                         <button className={styles.themeButton} onClick={() => changeTheme()}><i className={themeIcon}></i></button>
-                        <button className={styles.cartBtn} onClick={() => openCart()}>
+                        <button className={styles.cartBtn} onClick={() => setIsCartOpen(!isCartOpen)}>
                           {(Object.keys(cartItems || {}).length > 0)&&<div className={styles.hasItem}></div>}
                           <i className="ri-shopping-cart-2-fill"></i>
                         </button>

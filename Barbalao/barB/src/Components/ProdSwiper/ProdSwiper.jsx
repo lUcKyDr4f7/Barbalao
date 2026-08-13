@@ -5,7 +5,7 @@ import Swiper from '../Swiper/Swiper.jsx';
 /* import { AllAdicionais } from '../../assets/Data/AllAdicionais.js'; */
 import { useState, useEffect, useContext } from 'react';
 import { Navigation } from 'swiper/modules';
-import { MenuCtx } from '../../Contexts/MenuProvider/MenuProvider.jsx';
+import { ModalProdOpenCtx } from '../../Contexts/ModalOpenProvider/ModalOpenProvider.jsx';
 
 export default function ProdSwiper({ produto, subCateg }) {
   
@@ -22,7 +22,7 @@ export default function ProdSwiper({ produto, subCateg }) {
     return () => window.removeEventListener('resize', checkMobile);
   }, []); */
 
-  const {setSelectedProduct} = useContext(MenuCtx);
+  const {setSelectedProduct} = useContext(ModalProdOpenCtx);
 
   function openModalProd(produto) {
     let currentTheme = localStorage.getItem("theme") + ' modalOpen';

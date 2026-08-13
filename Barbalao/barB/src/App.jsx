@@ -1,6 +1,6 @@
 import './App.css';
 
-import MenuProvider from './Contexts/MenuProvider/MenuProvider.jsx';
+import ModalOpenProvider from './Contexts/ModalOpenProvider/ModalOpenProvider.jsx';
 import CartProvider from './Contexts/CartProvider/CartProvider.jsx';
 import { AuthProvider, useAuth } from './Routes/AuthContext.jsx';
 
@@ -14,11 +14,11 @@ function App() {
 
   return (
     <AuthProvider>
-      <MenuProvider>
+      <ModalOpenProvider>
         <CartProvider>
             <RouterProvider router={Router()} />
         </CartProvider>
-      </MenuProvider>
+      </ModalOpenProvider>
     </AuthProvider>
   );
 }

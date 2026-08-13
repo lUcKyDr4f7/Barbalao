@@ -21,9 +21,6 @@ export default function ModalProd({setProd, prod}) {
             setProd(null);
             setIsClosing(false);
         }, 400);
-        let theme = localStorage.getItem("theme").replaceAll(' modalOpen', '');
-        localStorage.setItem("theme", theme);
-        document.body.classList = theme;
     }
 
     const [adicionais, SetAdicionais] = useState(getAdicionais(prod.categoria));

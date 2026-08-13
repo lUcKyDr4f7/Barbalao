@@ -5,8 +5,7 @@ import Backdrop from '../Backdrop/Backdrop';
 import { CircleX } from 'lucide-react';
 import { AllProducts } from '../../assets/Data/AllProducts.js';
 import { CartCtx, OldCartCtx } from '../../Contexts/CartProvider/CartProvider.jsx';
-
-localStorage.setItem("theme", localStorage.getItem("theme")?localStorage.getItem("theme").replaceAll(' modalOpen', ''):localStorage.getItem("theme"));
+import { CartOpenCtx } from '../../Contexts/ModalOpenProvider/ModalOpenProvider.jsx';
 
 export default function Cart(props) {
 
@@ -19,9 +18,6 @@ export default function Cart(props) {
             props.setIsCartOpen(false);
             setIsClosing(false);
         }, 400);
-        let theme = localStorage.getItem("theme").replaceAll(' modalOpen', '');
-        localStorage.setItem("theme", theme);
-        document.body.classList = theme;
     }
 
     /* const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cart")));
