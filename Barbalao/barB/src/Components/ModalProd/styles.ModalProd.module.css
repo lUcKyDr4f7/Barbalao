@@ -39,8 +39,7 @@
 
 .mainImg {
   width: 20vw;
-  height: 100%;
-  max-height: 25vh;
+  height: 20vw;
   border-radius: 10px;
   margin-top: 34px;
   object-fit: cover;

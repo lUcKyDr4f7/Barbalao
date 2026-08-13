@@ -9,8 +9,6 @@ import Backdrop from '../Backdrop/Backdrop.jsx';
 import Swiper from '../Swiper/Swiper.jsx';
 //import ModalAdicionais from '../ModalAdicionais/ModalAdicionais.jsx';
 
-localStorage.setItem("theme", localStorage.getItem("theme")?localStorage.getItem("theme").replaceAll(' modalOpen', ''):localStorage.getItem("theme"));
-
 export default function ModalProd({setProd, prod}) {
 
     const [isClosing, setIsClosing] = useState(false);

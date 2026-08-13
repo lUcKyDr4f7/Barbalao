@@ -24,22 +24,21 @@ export default function ProdSwiper({ produto, subCateg }) {
 
   const {setSelectedProduct} = useContext(ModalProdOpenCtx);
 
-  function openModalProd(produto) {
-    let currentTheme = localStorage.getItem("theme") + ' modalOpen';
-    localStorage.setItem("theme", currentTheme);
+  /* function openModalProd(produto) {
     setSelectedProduct({...produto,
       'stdImg': subCateg.imagem,
-      /* 'adicionais': AllAdicionais.filter(a => {
+      * 'adicionais': AllAdicionais.filter(a => {
         
         let aCategs = Object.keys(a.categ_preco);
         return aCategs.includes(subCateg.id_categoria.toString()) || aCategs.includes(subCateg.sub_categoria_de.toString())
-      }) */
+      }) *
     })
-  }
+  } */
 
   return (
     <>
-      <div key={produto.id_prod} className={styles.productCard} onClick={() => openModalProd(produto)}>
+      <div key={produto.id_prod} className={styles.productCard}
+        onClick={() => setSelectedProduct({...produto, 'stdImg': subCateg.imagem,})}>
         <img className={styles.productImg} src={produto.imagens[0] || subCateg.imagem}
               alt={produto.nome || 'Produto sem nome'} />
         <div className={styles.productInfo}>

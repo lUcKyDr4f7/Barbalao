@@ -1,9 +1,10 @@
 import { useState, useEffect, useContext } from 'react';
-import styles from './styles.cart.module.css';
-import CartItem from '../CartItem/CartItem';
-import Backdrop from '../Backdrop/Backdrop';
+import styles from './styles.Cart.module.css';
+import CartItem from '../CartItem/CartItem.jsx';
+import Backdrop from '../Backdrop/Backdrop.jsx';
+import DeliveryWarning from '../DeliveryWarning/DeliveryWarning.jsx';
 import { CircleX } from 'lucide-react';
-import { AllProducts } from '../../assets/Data/AllProducts.js';
+/* import { AllProducts } from '../../assets/Data/AllProducts.js'; */
 import { CartCtx, OldCartCtx } from '../../Contexts/CartProvider/CartProvider.jsx';
 import { CartOpenCtx } from '../../Contexts/ModalOpenProvider/ModalOpenProvider.jsx';
 
@@ -46,7 +47,7 @@ export default function Cart(props) {
 
     //const [isOldCart, setIsOldCart] = useState(false);
     const [isDelivery, setIsDelivery] = useState(false);
-    const [deliveryWarning, setDeliveryWarning] = useState(false);
+    const [showDeliveryWarning, setShowDeliveryWarning] = useState(false);
 
     const [totalValue, setTotalValue] = useState(0);
     function calcTotal() {
@@ -116,8 +117,8 @@ export default function Cart(props) {
     if(props.isCartOpen){
         return(
             <>
-            <Backdrop customClass={deliveryWarning?styles.backdrop1550:styles.backdrop1500} show={isClosing}
-                close={ () => deliveryWarning? setDeliveryWarning(false):closeCart() }>
+            <Backdrop customClass={styles.backdrop} show={isClosing}
+                close={ () => closeCart() }>
                 <div className={`${styles.cart} ${isClosing?styles.closingCart:''}`} onClick={e => e.stopPropagation()}>
                     <h1 className={styles.cartTitle}>
                         {/* <button> */}
@@ -144,22 +145,15 @@ export default function Cart(props) {
                     <li className={styles.totalValue}>Total: R${totalValue.toFixed(2).replace('.', ',')}</li>
                     <label className={styles.delivery}>
                         <input type="checkbox" name="delivery" checked={isDelivery}
-                                onChange={() => isDelivery?setIsDelivery(false):setDeliveryWarning(true)}/> 
+                                onChange={() => isDelivery?setIsDelivery(false):setShowDeliveryWarning(true)}/> 
                         Delivery
                     </label>
                     <button disabled={Object.keys(cartItems).length == 0}
                             onClick={() => order() } className={styles.whatsappBtn}>Fazer Pedido</button>
                 </div>
-                {deliveryWarning && <div className={styles.deliveryWarning}>
-                    <h1 className={styles.dwTitle}>Delivery</h1>
-                    <p className={styles.dwInfo}>Entregamos somente para a cidade de Águas de Lindóia</p>
-                    <p className={styles.dwInfo}>O valor da entrega é fixo de R$2,00</p>
-                    <div className={styles.dwBtns}>
-                        <button className={styles.dwConfirm} onClick={() => {setIsDelivery(true); setDeliveryWarning(false)}}>Confirmar</button>
-                        <button className={styles.dwCancel} onClick={() => setDeliveryWarning(false)}>Cancelar</button>
-                    </div>
-                </div>}
             </Backdrop>
+            {showDeliveryWarning && <DeliveryWarning setIsDelivery={setIsDelivery}
+                setShowDeliveryWarning={setShowDeliveryWarning} />}
             </>
         ) 
     }
