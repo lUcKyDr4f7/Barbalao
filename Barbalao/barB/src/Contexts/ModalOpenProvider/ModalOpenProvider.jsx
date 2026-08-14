@@ -33,6 +33,11 @@ export default function ModalOpenProvider({children}) {
     useEffect(() => {
 
         let theme = localStorage.getItem("theme");
+        
+        if (!theme?.includes('dark') && !theme?.includes('light')) {
+            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
+            localStorage.setItem("theme", theme);
+        }
 
         if(selectedProduct || isCartOpen) {
             theme = theme + ' modalOpen';

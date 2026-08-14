@@ -22,10 +22,6 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
 
   /* inicializa tema */
   let currentTheme = localStorage.getItem("theme");
-  if (!currentTheme.includes('dark') && !currentTheme.includes('light')) {
-    currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
-    localStorage.setItem("theme", currentTheme);
-  }
   
   /* define o icone do tema */
   let currentIcon = currentTheme == "dark" ? "ri-sun-fill sun-icon" : "ri-moon-fill moon-icon";
