@@ -8,7 +8,7 @@ class CategAdicional {
 
 export function getRacFromCateg(idCateg, list=null) {
     if(list) {
-        return RelCategAdicional.filter(r => r.id_categ == idCateg && list.includes(String(r.id_categ)));
+        return RelCategAdicional.filter(r => r.id_categ == idCateg && list.includes(r.id_add));
     }
     return RelCategAdicional.filter(r => r.id_categ == idCateg);
 }

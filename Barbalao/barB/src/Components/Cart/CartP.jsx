@@ -35,6 +35,7 @@ export default function Cart(props) {
         e.stopPropagation();
         let tempCart= {...cartItems};
         if(change) {
+            tempCart[item] = {...tempCart[item]}
             tempCart[item].qtd += change;
             if(!tempCart[item].qtd) {
                 delete tempCart[item];
@@ -92,9 +93,9 @@ export default function Cart(props) {
     }, [cartItems]);
     
     useEffect(() => {
-        /* if(isOldCart) { */
+        if(isOldCart) {
             setIsOldCart(false);
-        /* } else {
+        } /* else {
             setCartItems(JSON.parse(localStorage.getItem("cart")));
         } */
     }, [props.isCartOpen]);

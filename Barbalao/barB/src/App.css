@@ -31,6 +31,7 @@ footer {
 }
 @media (orientation: portrait) {
   .main {
+    margin: calc(3vh + 40px) 0 0 0;
     overflow-x: hidden;
   }
 }

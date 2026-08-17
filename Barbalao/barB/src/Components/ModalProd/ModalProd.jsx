@@ -4,7 +4,8 @@ import { useState, useContext } from 'react';
 import { CirclePlus, CircleMinus, CircleX, ArrowLeft } from 'lucide-react';
 import { AllAdicionais, getAdicionais } from '../../assets/Data/AllAdicionais.js';
 import { RelCategAdicional } from '../../assets/Data/RelCategAdicional.js';
-import { CartCtx } from '../../Contexts/CartProvider/CartProvider.jsx';
+//import { CartCtx } from '../../Contexts/CartProvider/CartProvider.jsx';
+import { AddCartCtx } from '../../Contexts/CartProvider/CartProvider.jsx';
 import Backdrop from '../Backdrop/Backdrop.jsx';
 import Swiper from '../Swiper/Swiper.jsx';
 //import ModalAdicionais from '../ModalAdicionais/ModalAdicionais.jsx';
@@ -35,8 +36,8 @@ export default function ModalProd({setProd, prod}) {
 
     const [selectedImg, setSelectedImg] = useState(prod.imagens[0]);
 
-    const [cart, setCart] = useContext(CartCtx);
-    function addCart() {
+    //const [cart, setCart] = useContext(CartCtx);
+    //function addCart() {
         /* let cart = JSON.parse(localStorage.getItem("cart"));
         if(!cart) cart = {}; */
         /* if(cart[id]) {
@@ -46,7 +47,7 @@ export default function ModalProd({setProd, prod}) {
         }
         localStorage.setItem("cart", JSON.stringify(cart)); */
 
-        let id = `${prod.id_prod}`;
+        /* let id = `${prod.id_prod}`;
         Object.keys(selectedAdicionais).toSorted((a, b) => a - b).map(key => {
             id += '+' + selectedAdicionais[key].id_add;
         });
@@ -63,11 +64,13 @@ export default function ModalProd({setProd, prod}) {
             c[id] = product;
         }
 
-        setCart(c);
-        closeModal();
+        setCart(c); */
+        //closeModal();
         /* setProd(null);
         setSelectedAdicionais({}); */
-    }
+    //}
+
+    const {addCart} = useContext(AddCartCtx);
 
     function checkAdicional(adicional) {
         let s = {...selectedAdicionais};
@@ -142,7 +145,7 @@ export default function ModalProd({setProd, prod}) {
                             <ArrowLeft />
                             Voltar
                         </button>
-                        <button className={styles.addCart} onClick={() => addCart()}>
+                        <button className={styles.addCart} onClick={() => {addCart(prod, quantity, selectedAdicionais); closeModal();}}>
                             Adicionar ao carrinho 
                             <i className="ri-shopping-cart-2-fill"></i>
                         </button>

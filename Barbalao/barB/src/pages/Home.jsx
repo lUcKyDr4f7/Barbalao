@@ -45,7 +45,7 @@ export default function Home() {
       <NavB setSearchModal={setSearchModal} searchText={searchText} setSearchText={setSearchText}/>
 
       <section className="main">
-        <h2 className={styles.titleCateg}>Cardápio</h2>
+        {/* <h2 className={styles.titleCateg}>Cardápio</h2> */}
         <Swiper>
           {categorias.length !== 0 && categorias.map((categ) => 
             <CategSwiper key={`cs${categ.nome}`} categ={categ} scrollFn={scrollToSection}/>)}

@@ -24,7 +24,7 @@
 } */
 
 .cartItem .itemText {
-  width: 75%;
+  width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -38,25 +38,31 @@
   margin: 0 .2vw 0 .2vw;
   /* font-size: 3.5vh; */
   color: var(--navColor);
-  overflow-x: auto;
+  /* overflow-x: auto;
 
   &::-webkit-scrollbar {
     height: 2px;
-  }
+  } */
 }
 
 .itemAdicionais, .itemPrice {
-  height: 2.5vh;
+  height: 20px;
   margin: 0 .2vw 0 .2vw;
   font-size: .8rem;
-  justify-content: start;
+  /* justify-content: start; */
   color: white;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
 }
 
 .itemQuantity{
-   display: flex;
-   gap: 3px;
-   align-items: center;
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  /* width: 120px; */
 }
 .itemQuantity .itemBtn {
   color: var(--navColor);                

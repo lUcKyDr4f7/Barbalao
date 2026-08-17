@@ -2,21 +2,21 @@ import styles from './styles.NavBar.module.css';
 import logo from '../../assets/BarB.png';
 import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import Cart from '../Cart/CartP'
-import { useAuth } from '../../Routes/AuthContext';
-import { CartCtx } from '../../Contexts/CartProvider/CartProvider';
+import Cart from '../Cart/CartP.jsx'
+import { useAuth } from '../../Routes/AuthContext.jsx';
+import { CartCtx } from '../../Contexts/CartProvider/CartProvider.jsx';
 import { CartOpenCtx } from '../../Contexts/ModalOpenProvider/ModalOpenProvider.jsx';
 
 export default function NavB({setSearchModal, searchText, setSearchText}) {
 
   /* Exibe botão painel se autenticado */
   const {authenticated} = useAuth()
-  const [link, setLink] = useState(null)
+  const [admBtn, setadmBtn] = useState(null)
   useEffect(() => {
     if (authenticated) {
-      setLink(<li><a href="/adm">ADM</a></li>);
+      setadmBtn(<li><a href="/adm">ADM</a></li>);
     } else {
-      setLink(null);
+      setadmBtn(null);
     }
   }, []);
 
@@ -37,7 +37,7 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
   }
 
   const {isCartOpen, setIsCartOpen} = useContext(CartOpenCtx);
-  const [cartList, setCartList] = useState([]);
+  const [showTextBtns, setShowTextBtns] = useState(false);
   
   useEffect(() => {
     const header = document.querySelector("header");
@@ -57,45 +57,49 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
   let [ cartItems ] = useContext(CartCtx);
       
   return (
-        <>
-         {/*<!--========== Header ==========-->*/}
-            <header className={styles.header}>
-                <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} cartList={cartList} />
-                <div className={styles.inner}>
-                    <div className={styles.logo}>
-                        <Link to="/" onClick={() => Location.reload()}><img  src={logo}/></Link>
-                    </div>
-                    <div className={styles.searchBar}>
-                      <input type="text" value={searchText} 
-                      onChange={(e) => setSearchText(e.target.value)} 
-                      name="searchBar" 
-                      id="searchBar" 
-                      placeholder='Pesquise algum produto...'/>
-                      <button onClick={() => {
-                        if (searchText) {
-                          setSearchModal(true)
-                        } else {
-                          alert("Pesquise algo primeiro");
-                        }
-                        }}>
-                          <i className="ri-search-line"></i> 
-                      </button>
-                    </div>
-                    <div className={styles.headerBtns}>
-                        <li><Link to="/" onClick={() => Location.reload()}>Início</Link></li>
-                        <li><Link to="/about-us" onClick={() => Location.reload()}>Sobre Nós</Link></li>
-                        {link}
-                        <button className={styles.themeButton} onClick={() => changeTheme()}><i className={themeIcon}></i></button>
-                        <button className={styles.cartBtn} onClick={() => setIsCartOpen(!isCartOpen)}>
-                          {(Object.keys(cartItems || {}).length > 0)&&<div className={styles.hasItem}></div>}
-                          <i className="ri-shopping-cart-2-fill"></i>
-                        </button>
-                    </div>
-                </div>
-                {/* <div className="scroll-indicator-bar"></div> */}
-            </header>
-        </> 
-    )
+    <>
+    {/*<!--========== Header ==========-->*/}
+      <header className={styles.header}>
+        <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
+        <div className={styles.inner}>
+          <div className={styles.logo}>
+            <Link to="/" onClick={() => Location.reload()}><img  src={logo}/></Link>
+          </div>
+          {<div className={styles.searchBar}>
+            <input type="text" value={searchText} 
+            onChange={(e) => setSearchText(e.target.value)} 
+            name="searchBar" 
+            id="searchBar" 
+            placeholder='Pesquise algum produto...'/>
+            <button onClick={() => {
+              if (searchText) {
+                setSearchModal(true)
+              } else {
+                alert("Pesquise algo primeiro");
+              }
+              }}>
+                <i className="ri-search-line"></i> 
+            </button>
+          </div>}
+            {<div className={`${styles.textBtns} ${showTextBtns?styles.open:''}`}>
+              <Link to="/" onClick={() => Location.reload()}>Início</Link>
+              <Link to="/about-us" onClick={() => Location.reload()}>Sobre Nós</Link>
+              {admBtn}
+            </div>}
+          <div className={styles.headerBtns}>
+            {/* <button>< i class="ri-search-line"></i></button> */}
+            <button className={`${styles.menuBtn} ${showTextBtns?styles.open:''}`} onClick={() => setShowTextBtns(!showTextBtns)}>{showTextBtns?< i class="ri-close-line"></i>:< i class="ri-menu-line"></i>}</button>
+            <button className={styles.themeButton} onClick={() => changeTheme()}><i className={themeIcon}></i></button>
+            <button className={styles.cartBtn} onClick={() => setIsCartOpen(!isCartOpen)}>
+              {(Object.keys(cartItems || {}).length > 0)&&<div className={styles.hasItem}></div>}
+              <i className="ri-shopping-cart-2-fill"></i>
+            </button>
+          </div>
+        </div>
+        {/* <div className="scroll-indicator-bar"></div> */}
+      </header>
+    </> 
+  )
 }
 
 

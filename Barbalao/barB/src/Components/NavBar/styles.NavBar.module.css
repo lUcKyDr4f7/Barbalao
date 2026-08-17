@@ -33,42 +33,43 @@
 }
 
 .searchBar {
-  background-color: #020623;
+  /* background-color: #020623; */
+  background-color: white;
   border-radius: 25px;
   padding: 0ch 10px;
-  border: 2px solid #ffe600;
+  /* border: 2px solid #ffe600; */
   display: flex;
   align-items: center;
   /* gap: 10px; */
   color: #fff48d;
-  width: 40rem;
+  width: 50vw;
 }
 
 .searchBar button {
-  color: #fff48d;
+  /* color: #fff48d; */
   border: none;
   cursor: pointer;
   padding: 6px 8px;
   border-radius: 16px;
   background-color: inherit;
   font-size: 16px;
-  transition: background-color 0.15s;
+  /* transition: background-color 0.15s; */
 }
 
 .searchBar button:hover {
-  background-color: #1a1b20;
+  color: var(--navColor);
 }
 
 .searchBar input{
   flex: 1;
-  color: #fff48d;
+  /* color: #fff48d; */
   outline: none;
   padding: 10px 10px;
   border: none;
-  background-color: #020623;
+  /* background-color: #020623; */
+  background: none;
   border-radius: 10px;
   font-family: "Poppins", sans-serif;
-
 }
 
 /* .menuBtn {
@@ -78,25 +79,53 @@
 .headerBtns{
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 20px;
   font-family: "Poppins", sans-serif;
   list-style: none;
+  background-color: var(--navBgColor);
+  z-index: 1;
+  height: stretch;
 }
-.headerBtns a, .headerBtns button{
-  text-decoration: none;
+.headerBtns button{
+  font-size: 1.7rem;
   color: var(--navColor);
-}
-.headerBtns a:hover, .headerBtns button:hover{
-  color: white;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  /* align-items: center; */
+  &:hover{
+    color: white;
+  }
 }
 
-button {
-  background: none;
-  padding: 0;
-  font-size: 1.5rem;
-  outline: none;
-  transition: 0.5s;
+/* @keyframes menuBtnOpen {
+  from {width: 0;}
+  to {width: max-content;}
+} */
+
+.textBtns {
+  position: absolute;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;
+  transition: .5s;
+  overflow: hidden;
+  transform: translateX(130px);
+  right: 150px;
+  border-radius: 10px;
+  &.open {
+    transform: translateX(0);
+    background-color: #185899;
+    padding: 0px 10px;
+  }
+  a {
+    font-size: 1.25rem;
+    color: var(--navColor);
+  }
 }
+
 .headerBtns .themeButton:hover {
   transform: rotate(20deg);
   transition: 0.5s;
@@ -113,6 +142,17 @@ button {
 }
 button:hover .hasItem {
   background-color: white;
+}
+
+.menuBtn.open {
+  background-color: #185899;
+  border-radius: 0 10px 10px 0;
+  font-size: 1.7rem;
+  color: var(--navColor);
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
 }
 
 @media(orientation: portrait) {
@@ -163,17 +203,17 @@ button:hover .hasItem {
     to { margin-top: calc(25vw + 10px) }
   } */
   .headerBtns{
-    position: absolute;
+    /* position: absolute; */
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     height: 10vw;
     width: 100vw;
-    margin-top: calc(25vw + 10px);
-    margin-left: -10px;
+    /* margin-top: calc(25vw + 10px);
+    margin-left: -10px; */
     background-color: var(--navBgColor);
     align-items: center;
-    z-index: -100;
+    /* z-index: -100; */
     /* animation: menuOpening 1s;
     transition: 1s; */
   }

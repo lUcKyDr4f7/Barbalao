@@ -8,7 +8,7 @@ class Adicional {
 }
 
 export function getAdicionais(idCateg, list=null) {
-    let rac = getRacFromCateg(idCateg).reduce((acc, r) => {
+    let rac = getRacFromCateg(idCateg, list).reduce((acc, r) => {
         acc[r.id_add] = r.preco;
         return acc;
     }, {});
