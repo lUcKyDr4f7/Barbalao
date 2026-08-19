@@ -19,7 +19,7 @@
 
 .modalCard {
 	position: relative;
-	border: 3px solid var(--TitleColor);
+	/* border: 3px solid var(--TitleColor); */
 	max-height: 80vh;
 	width: 50%;
 	border-radius: 20px;
