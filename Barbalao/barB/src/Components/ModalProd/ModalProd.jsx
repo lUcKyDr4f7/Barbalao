@@ -8,6 +8,7 @@ import { RelCategAdicional } from '../../assets/Data/RelCategAdicional.js';
 import { AddCartCtx } from '../../Contexts/CartProvider/CartProvider.jsx';
 import Backdrop from '../Backdrop/Backdrop.jsx';
 import Swiper from '../Swiper/Swiper.jsx';
+import AddCartFillIcon from '../ui/AddCartFillIcon.jsx';
 //import ModalAdicionais from '../ModalAdicionais/ModalAdicionais.jsx';
 
 export default function ModalProd({setProd, prod}) {
@@ -121,9 +122,8 @@ export default function ModalProd({setProd, prod}) {
                             <button onClick={() => setQuantity(quantity + 1)}><CirclePlus /></button>
                         </div>
                         <button className={styles.addCart} onClick={() => setSelectionAdicionais(true)}>
-                            Adicionar ao carrinho 
-                            <i className="ri-shopping-cart-2-fill">
-                            </i>
+                            Adicionar ao carrinho
+                            <AddCartFillIcon className={styles.addCartIcon} />
                         </button>
                     </div>
                 </div>
@@ -146,8 +146,8 @@ export default function ModalProd({setProd, prod}) {
                             Voltar
                         </button>
                         <button className={styles.addCart} onClick={() => {addCart(prod, quantity, selectedAdicionais); closeModal();}}>
-                            Adicionar ao carrinho 
-                            <i className="ri-shopping-cart-2-fill"></i>
+                            Adicionar ao carrinho
+                            <AddCartFillIcon className={styles.addCartIcon} />
                         </button>
                     </div></>}
                 <CircleX className={styles.closeBtn} onClick={() => closeModal()} />

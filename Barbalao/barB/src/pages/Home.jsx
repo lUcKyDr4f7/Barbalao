@@ -61,7 +61,7 @@ export default function Home() {
       </section>
 
       {searchModal &&
-        <SearchModal setSearchModal={setSearchModal} searchText={searchText} produtos={produtos}/>}
+        <SearchModal setSearchModal={setSearchModal} setSelectedProduct={setSelectedProduct} searchText={searchText}/>}
       
       {selectedProduct && 
         <ModalProd setProd={setSelectedProduct} prod={selectedProduct} />}

@@ -1,4 +1,7 @@
-import styles from '../Css/styles.productCard.module.css';
+import styles from './styles.productCard.module.css';
+import { AddCartCtx } from '../../Contexts/CartProvider/CartProvider.jsx';
+import { useContext } from 'react';
+import AddCartFillIcon from '../ui/AddCartFillIcon.jsx';
 
 export default function ProductCard({ produto, setSearchModal, setSelectedProduct }) {
 
@@ -7,7 +10,9 @@ export default function ProductCard({ produto, setSearchModal, setSelectedProduc
     setSearchModal(false);
   }
   
-  function addCart(idProd) {
+  const {addCart} = useContext(AddCartCtx);
+
+  /* function addCart(idProd) {
       let cart = JSON.parse(localStorage.getItem("cart"))
       if(!cart) {
           cart = {};
@@ -19,21 +24,21 @@ export default function ProductCard({ produto, setSearchModal, setSelectedProduc
       }
       localStorage.setItem("cart", JSON.stringify(cart));
       setSearchModal(false);
-  }
+  } */
 
   return (
     <div className={styles.productCard}>
-      <img src={produto.imagem} alt={produto.nome}/>
+      <img src={produto.imagens[0]} alt={produto.nome}/>
       <div className={styles.productInfo}>
-        <h2>{produto.nome}</h2>
-        <h3>R$ {String(produto.preco.toFixed(2)).replace('.', ',')}</h3>
+        <h2 className={styles.nomeProd}>{produto.nome}</h2>
+        <h3 className={styles.precoProd}>R$ {String(produto.preco.toFixed(2)).replace('.', ',')}</h3>
         <div className={styles.productButtons}>
           <button onClick={handleViewDetails}>
             <i className="ri-information-line"></i>  
             Ver detalhes 
           </button>
-          <button onClick={() => addCart(produto.id_prod)}>
-            <i className="ri-shopping-cart-2-line"></i> 
+          <button onClick={() => {addCart(produto); setSearchModal(false);}}>
+            <AddCartFillIcon className={styles.addCartIcon} />
             Adicionar ao carrinho 
           </button>
         </div>

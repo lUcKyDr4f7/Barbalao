@@ -1,10 +1,22 @@
-import styles from '../Css/styles.searchModal.module.css'
-import CloseBtn from '../ui/CloseBtn'
-import ProductCard from './ProductCard'
+import styles from './styles.searchModal.module.css';
+import { useState } from 'react';
+import { CircleX } from 'lucide-react';
+import ProductCard from './ProductCard.jsx';
+import { searchProd } from '../../assets/Data/AllProducts.js';
+import Backdrop from '../Backdrop/Backdrop.jsx';
 
-export default function SearchModal({setSearchModal, produtos, setSelectedProduct, searchText}) {
+export default function SearchModal({setSearchModal, setSelectedProduct, searchText}) {
 
-  console.log ("Produtos: ", produtos);
+  const [isClosing, setIsClosing] = useState(false);
+  function closeModal() {
+    setIsClosing(true);
+    setTimeout(() => {
+      setSearchModal(false);
+      setIsClosing(false);
+    }, 400);
+  }
+
+  /* console.log("Produtos: ", produtos);
   console.log("Search text: ", searchText);
 
   function normalize(str) {
@@ -30,17 +42,20 @@ export default function SearchModal({setSearchModal, produtos, setSelectedProduc
     });
   }
 
-  const queryProducts = searchProducts(produtos, searchText);
+  const queryProducts = searchProducts(produtos, searchText); */
+
+  const queryProducts = searchProd(searchText);
 
   return (
-    <div className={styles.modalBackdrop} onClick={() => setSearchModal(false)}>
+    <Backdrop customClass={styles.backdrop} show={isClosing} close={() => closeModal()}>
       <div className={styles.modalCard} onClick={(e) => e.stopPropagation()}>
         <h1> Produtos encontrados </h1>
         <div className={styles.insideModal}>
           {queryProducts.map((produto) => <ProductCard produto={produto} setSearchModal={setSearchModal} setSelectedProduct={setSelectedProduct}/>)}
         </div>
-        <CloseBtn onClick={setSearchModal}/> 
+        {/* <CloseBtn onClick={setSearchModal}/>  */}
+        <CircleX className={styles.closeBtn} onClick={() => closeModal()} />
       </div>
-    </div>
+    </Backdrop>
   )
 }

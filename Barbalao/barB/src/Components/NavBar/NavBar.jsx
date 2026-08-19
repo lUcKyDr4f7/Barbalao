@@ -55,6 +55,13 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
   }, []);
   
   let [ cartItems ] = useContext(CartCtx);
+
+  const handleKeyDown = (e) => {
+    /* console.log(e.target) */
+    if (e.key === 'Enter' && searchText) {
+      setSearchModal(true)
+    }
+  };
       
   return (
     <>
@@ -70,14 +77,12 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
             onChange={(e) => setSearchText(e.target.value)} 
             name="searchBar" 
             id="searchBar" 
-            placeholder='Pesquise algum produto...'/>
+            placeholder='Pesquise algum produto...'
+            onKeyDown={handleKeyDown}/>
             <button onClick={() => {
               if (searchText) {
                 setSearchModal(true)
-              } else {
-                alert("Pesquise algo primeiro");
-              }
-              }}>
+              }}}>
                 <i className="ri-search-line"></i> 
             </button>
           </div>}
@@ -87,8 +92,8 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
               {admBtn}
             </div>}
           <div className={styles.headerBtns}>
-            {/* <button>< i class="ri-search-line"></i></button> */}
-            <button className={`${styles.menuBtn} ${showTextBtns?styles.open:''}`} onClick={() => setShowTextBtns(!showTextBtns)}>{showTextBtns?< i class="ri-close-line"></i>:< i class="ri-menu-line"></i>}</button>
+            {/* <button>< i className="ri-search-line"></i></button> */}
+            <button className={`${styles.menuBtn} ${showTextBtns?styles.open:''}`} onClick={() => setShowTextBtns(!showTextBtns)}>{showTextBtns?< i className="ri-close-line"></i>:< i className="ri-menu-line"></i>}</button>
             <button className={styles.themeButton} onClick={() => changeTheme()}><i className={themeIcon}></i></button>
             <button className={styles.cartBtn} onClick={() => setIsCartOpen(!isCartOpen)}>
               {(Object.keys(cartItems || {}).length > 0)&&<div className={styles.hasItem}></div>}

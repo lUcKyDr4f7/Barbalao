@@ -27,8 +27,20 @@ export function getProdFromCateg(id_categ) {
     return AllProducts.filter(p => p.categoria == id_categ);
 }
 
+function normalizeText(text) {
+    return text
+      .normalize("NFD")                
+      .replace(/[\u0300-\u036f]/g, "") 
+      .toLowerCase()
+      .replace(/\s/g, "")
+      .replace(/\-/g, "")
+      .replace(/,/g, "")
+      .replace(/\./g, "")
+}
+
 export function searchProd(query) {
-    return AllProducts.filter(p => p.nome.include(query) || p.nome.include(query));
+    query = normalizeText(query);
+    return AllProducts.filter(p => normalizeText(p.nome).includes(query) || normalizeText(p.descricao).includes(query));
 }
 
 export const AllProducts = [

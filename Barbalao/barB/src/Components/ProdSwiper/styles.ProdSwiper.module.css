@@ -61,8 +61,8 @@
    transition: 0.3s;
    display: flex;
    svg {
-      height: 23px;
-      width: 23px;
+      height: 100%;
+      width: 100%;
       fill: var(--navBgColor);
       transition: .5s;
    }

@@ -45,7 +45,6 @@ export default function CartProvider({children}) {
         Object.keys(adicionais).sort().map(key => {
             id += '+' + adicionais[key].id_add;
         });
-        console.log(adicionais)
 
         let c = {...cart};
 
