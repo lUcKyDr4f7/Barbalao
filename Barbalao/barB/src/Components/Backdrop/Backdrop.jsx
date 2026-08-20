@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from './styles.Backdrop.module.css';
 
-export default function Cart(props) {
+export default function Backdrop(props) {
 
     /* const [isClosing, setIsClosing] = useState(false);
     function closeCart() {
