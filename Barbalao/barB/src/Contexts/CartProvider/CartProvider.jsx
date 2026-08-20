@@ -1,8 +1,8 @@
 import { useState, useEffect, createContext, useContext } from 'react';
 import { getProdFromId } from '../../assets/Data/AllProducts.js';
 import { getAdicionais } from '../../assets/Data/AllAdicionais.js';
-import { AllCategories } from '../../assets/Data/AllCategories.js';
-import { CartOpenCtx } from '../ModalOpenProvider/ModalOpenProvider.jsx';
+/* import { AllCategories } from '../../assets/Data/AllCategories.js'; */
+//import { CartOpenCtx } from '../ModalOpenProvider/ModalOpenProvider.jsx';
 
 export const CartCtx = createContext();
 export const OldCartCtx = createContext();
@@ -37,7 +37,7 @@ export default function CartProvider({children}) {
         localStorage.setItem('oldCart', JSON.stringify({}));
     }
 
-    const {setIsCartOpen} = useContext(CartOpenCtx);
+    //const {setIsCartOpen} = useContext(CartOpenCtx);
 
     function addCart(prod, quantity=1, adicionais={}) {
 
@@ -59,7 +59,7 @@ export default function CartProvider({children}) {
         }
 
         setCart(c);
-        setIsCartOpen(true);
+        //setIsCartOpen(true);
     }
 
     const [isOldCart, setIsOldCart] = useState(false);

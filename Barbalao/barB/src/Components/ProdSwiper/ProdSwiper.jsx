@@ -6,8 +6,9 @@ import AddCartFillIcon from '../ui/AddCartFillIcon.jsx';
 /* import { AllAdicionais } from '../../assets/Data/AllAdicionais.js'; */
 import { useState, useEffect, useContext } from 'react';
 import { Navigation } from 'swiper/modules';
-import { ModalProdOpenCtx } from '../../Contexts/ModalOpenProvider/ModalOpenProvider.jsx';
+import { ModalProdOpenCtx, CartOpenCtx } from '../../Contexts/ModalOpenProvider/ModalOpenProvider.jsx';
 import { AddCartCtx } from '../../Contexts/CartProvider/CartProvider.jsx';
+import { formatPrice } from '../../assets/Data/AllProducts.js';
 
 export default function ProdSwiper({ produto, subCateg }) {
   
@@ -38,19 +39,21 @@ export default function ProdSwiper({ produto, subCateg }) {
   } */
  
   const {addCart} = useContext(AddCartCtx);
+  
+  const {setIsCartOpen} = useContext(CartOpenCtx);
 
   return (
     <>
       <div key={produto.id_prod} className={styles.productCard}
-        onClick={() => setSelectedProduct({...produto, 'stdImg': subCateg.imagem,})}>
-        <img className={styles.productImg} src={produto.imagens[0] || subCateg.imagem}
+        onClick={() => setSelectedProduct({...produto})}>
+        <img className={styles.productImg} src={produto.imagens[0]}
               alt={produto.nome || 'Produto sem nome'} />
         <div className={styles.productInfo}>
           <h4>{produto.nome}</h4>
-          <h4>R$ {produto.preco?parseFloat(produto.preco || 0).toFixed(2).replace('.', ','):'?,??'}</h4>
+          <h4>{formatPrice(produto.preco)}</h4>
           {/* <i className="ri-shopping-cart-2-fill"></i> */}
           {/* <i className="fa-solid fa-cart-plus fa-lg"></i> */}
-          <button onClick={(e => {e.stopPropagation(); addCart(produto);})} className={styles.cartBtn}>
+          <button onClick={(e => {e.stopPropagation(); addCart(produto); setIsCartOpen(true);})} className={styles.cartBtn}>
             <AddCartFillIcon />
           </button>
         </div>

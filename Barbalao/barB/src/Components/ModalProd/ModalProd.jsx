@@ -2,10 +2,12 @@ import styles from './styles.ModalProd.module.css';
 //import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useState, useContext } from 'react';
 import { CirclePlus, CircleMinus, CircleX, ArrowLeft } from 'lucide-react';
-import { AllAdicionais, getAdicionais } from '../../assets/Data/AllAdicionais.js';
-import { RelCategAdicional } from '../../assets/Data/RelCategAdicional.js';
+import { getAdicionais } from '../../assets/Data/AllAdicionais.js';
+import { formatPrice } from '../../assets/Data/AllProducts.js';
+//import { RelCategAdicional } from '../../assets/Data/RelCategAdicional.js';
 //import { CartCtx } from '../../Contexts/CartProvider/CartProvider.jsx';
 import { AddCartCtx } from '../../Contexts/CartProvider/CartProvider.jsx';
+import { CartOpenCtx } from '../../Contexts/ModalOpenProvider/ModalOpenProvider.jsx';
 import Backdrop from '../Backdrop/Backdrop.jsx';
 import Swiper from '../Swiper/Swiper.jsx';
 import AddCartFillIcon from '../ui/AddCartFillIcon.jsx';
@@ -31,7 +33,7 @@ export default function ModalProd({setProd, prod}) {
         return acc;
     }, {}) || {});
 
-    let price = typeof prod.preco == 'number' ? parseFloat(prod.preco).toFixed(2).replace('.', ',') : '?,??';
+    //let price = typeof prod.preco == 'number' ? parseFloat(prod.preco).toFixed(2).replace('.', ',') : '?,??';
     
     const [quantity, setQuantity] = useState(1);
 
@@ -72,6 +74,8 @@ export default function ModalProd({setProd, prod}) {
     //}
 
     const {addCart} = useContext(AddCartCtx);
+    
+    const {setIsCartOpen} = useContext(CartOpenCtx);
 
     function checkAdicional(adicional) {
         let s = {...selectedAdicionais};
@@ -112,7 +116,10 @@ export default function ModalProd({setProd, prod}) {
                         {prod.descricao}
                     </p>
                     {/* <div className={styles.midDiv}> */}
-                        <p className={styles.price}>R$ {price}</p>
+                        <p className={styles.price}>{
+                            formatPrice(prod.preco * quantity +
+                                Object.values(selectedAdicionais).reduce((acc, add) => acc+add.preco, 0))
+                        }</p>
                         {/* <button className={styles.adicionaisBtn} onClick={() => setSelectionAdicionais(true)}>Adicionais +</button>
                     </div> */}
                     <div className={styles.productBuy}>
@@ -145,7 +152,10 @@ export default function ModalProd({setProd, prod}) {
                             <ArrowLeft />
                             Voltar
                         </button>
-                        <button className={styles.addCart} onClick={() => {addCart(prod, quantity, selectedAdicionais); closeModal();}}>
+                        <button className={styles.addCart} onClick={() => {
+                            addCart(prod, quantity, selectedAdicionais);
+                            setIsCartOpen(true); closeModal();
+                        }}>
                             Adicionar ao carrinho
                             <AddCartFillIcon className={styles.addCartIcon} />
                         </button>

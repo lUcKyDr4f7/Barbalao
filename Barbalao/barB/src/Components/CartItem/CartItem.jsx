@@ -1,7 +1,8 @@
+import styles from './styles.CartItem.module.css';
 import { useState, useEffect, useContext } from 'react';
 import { CirclePlus, CircleMinus, CircleX } from 'lucide-react';
 import { ModalProdOpenCtx } from '../../Contexts/ModalOpenProvider/ModalOpenProvider';
-import styles from './styles.CartItem.module.css';
+import { formatPrice } from '../../assets/Data/AllProducts.js';
 
 export default function CartItem({id, item, qtdBtn}) {
 
@@ -15,7 +16,7 @@ export default function CartItem({id, item, qtdBtn}) {
             <div className={styles.itemText}>
                 <h2 className={styles.itemName}>{item.nome}</h2>
                 {item.adicionais?.length>0 && <p className={styles.itemAdicionais}>Adicionais: {item.adicionais.map(a => a.nome).join(', ')}</p>}
-                <p className={styles.itemPrice}>R${parseFloat(item.preco).toFixed(2).replace('.', ',')}</p>
+                <p className={styles.itemPrice}>{formatPrice(item.preco * item.qtd)}</p>
             </div>
             <div className={styles.itemQuantity}>
                 <button className={styles.itemBtn} onClick={e => qtdBtn(id, -1, e)}>

@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext} from 'react';
 import { AllProducts } from '../../assets/Data/AllProducts.js';
-import { AllCategories } from '../../assets/Data/AllCategories.js';
+/* import { AllCategories } from '../../assets/Data/AllCategories.js'; */
 
 export const ModalProdOpenCtx = createContext();
 export const CartOpenCtx = createContext();

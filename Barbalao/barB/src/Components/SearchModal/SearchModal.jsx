@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { CircleX } from 'lucide-react';
 import ProductCard from './ProductCard.jsx';
 import { searchProd } from '../../assets/Data/AllProducts.js';
+//import { CartOpenCtx } from '../../Contexts/ModalOpenProvider/ModalOpenProvider.jsx';
 import Backdrop from '../Backdrop/Backdrop.jsx';
 
 export default function SearchModal({setSearchModal, setSelectedProduct, searchText}) {
@@ -51,7 +52,9 @@ export default function SearchModal({setSearchModal, setSelectedProduct, searchT
       <div className={styles.modalCard} onClick={(e) => e.stopPropagation()}>
         <h1> Produtos encontrados </h1>
         <div className={styles.insideModal}>
-          {queryProducts.map((produto) => <ProductCard produto={produto} setSearchModal={setSearchModal} setSelectedProduct={setSelectedProduct}/>)}
+          {queryProducts?.length?queryProducts.map((produto) =>
+            <ProductCard produto={produto} closeModal={closeModal} setSelectedProduct={setSelectedProduct}/>)
+          :<p>Nenhum produto encontrado</p>}
         </div>
         {/* <CloseBtn onClick={setSearchModal}/>  */}
         <CircleX className={styles.closeBtn} onClick={() => closeModal()} />

@@ -1,16 +1,23 @@
 import styles from './styles.productCard.module.css';
+import { useContext, useState } from 'react';
 import { AddCartCtx } from '../../Contexts/CartProvider/CartProvider.jsx';
-import { useContext } from 'react';
+import { CartOpenCtx } from '../../Contexts/ModalOpenProvider/ModalOpenProvider.jsx';
+import { formatPrice } from '../../assets/Data/AllProducts.js';
+import { MoveRight, ArrowRight, CircleArrowRight, PanelLeftOpen } from 'lucide-react'; //decidir icone e posição
 import AddCartFillIcon from '../ui/AddCartFillIcon.jsx';
 
-export default function ProductCard({ produto, setSearchModal, setSelectedProduct }) {
+export default function ProductCard({ produto, closeModal, setSelectedProduct }) {
 
-  function handleViewDetails() {
+  /* function handleViewDetails() {
     setSelectedProduct(produto);
     setSearchModal(false);
-  }
+  } */
   
   const {addCart} = useContext(AddCartCtx);
+
+  const {setIsCartOpen} = useContext(CartOpenCtx);
+
+  const [verCarrinho, setVerCarrinho] = useState(false);
 
   /* function addCart(idProd) {
       let cart = JSON.parse(localStorage.getItem("cart"))
@@ -28,19 +35,24 @@ export default function ProductCard({ produto, setSearchModal, setSelectedProduc
 
   return (
     <div className={styles.productCard}>
-      <img src={produto.imagens[0]} alt={produto.nome}/>
+      <img className={styles.productImg} src={produto.imagens[0]}
+        alt={produto.nome || 'Produto sem nome'} />
       <div className={styles.productInfo}>
         <h2 className={styles.nomeProd}>{produto.nome}</h2>
-        <h3 className={styles.precoProd}>R$ {String(produto.preco.toFixed(2)).replace('.', ',')}</h3>
+        <h3 className={styles.precoProd}>{formatPrice(produto.preco)}</h3>
         <div className={styles.productButtons}>
-          <button onClick={handleViewDetails}>
+          <button onClick={() => {setSelectedProduct(produto); closeModal();}}>
             <i className="ri-information-line"></i>  
             Ver detalhes 
           </button>
-          <button onClick={() => {addCart(produto); setSearchModal(false);}}>
-            <AddCartFillIcon className={styles.addCartIcon} />
-            Adicionar ao carrinho 
-          </button>
+          {verCarrinho?
+            <button onClick={() => {setIsCartOpen(true); closeModal();}}>Ver Carrinho</button>
+          :
+            <button onClick={() => {addCart(produto); setVerCarrinho(true)}}>
+              <AddCartFillIcon className={styles.addCartIcon} />
+              Adicionar ao carrinho 
+            </button>
+          }
         </div>
       </div>
     </div>

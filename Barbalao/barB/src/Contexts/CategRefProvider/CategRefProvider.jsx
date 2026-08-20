@@ -1,4 +1,4 @@
-import { useRef, createContext} from 'react';
+/* import { useRef, createContext} from 'react';
 import { getCateg } from '../../assets/Data/AllCategories.js';
 
 export const CategRefCtx = createContext();
@@ -15,4 +15,4 @@ export default function CategRefProvider({children}) {
             {children}
         </CategRefCtx.Provider>
     )
-}
+} */

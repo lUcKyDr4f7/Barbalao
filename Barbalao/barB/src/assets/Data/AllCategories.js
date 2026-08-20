@@ -1,34 +1,42 @@
-import Lanche from '../categorias/burger.png';
+/* import Lanche from '../categorias/burger.png';
 import Pastel from '../categorias/pastel.png';
 import Salgado from '../categorias/coxinha.png';
 import Porção from '../categorias/porcao.png';
 import Bebida from '../categorias/drink.png';
-import Doces from '../categorias/chocolate.png';
+import Doces from '../categorias/chocolate.png'; */
 
 class Categoria {
     constructor(id_categoria, nome, sub_categoria_de, imagem=null) {
         this.id_categoria = id_categoria;
         this.nome = nome;
         this.sub_categoria_de = sub_categoria_de;
-        this.imagem = imagem;
+        this.imagem = imagem?"/src/assets/categorias/" + imagem:'';
     }
 }
 export function getCateg() {
     return AllCategories.filter((categ) => categ.sub_categoria_de == null);
 }
-export function getSubCateg(id=0) {
-    if(id) {
-        return AllCategories.filter((categ) => categ.sub_categoria_de == id);
+export function getSubCateg(categId=0) {
+    if(categId) {
+        return AllCategories.filter((categ) => categ.sub_categoria_de == categId && categ.sub_categoria_de != null);
     }
     return AllCategories.filter((categ) => categ.sub_categoria_de != null);
 }
+export function getStdImg(categId) {
+    if(categId) {
+        let categ = AllCategories.filter(c => c.id_categoria == categId)[0];
+        return categ.imagem?categ.imagem:getStdImg(categ.sub_categoria_de);
+    }
+    return "/src/assets/BarB.png";
+}
 
 export const AllCategories = [
-    new Categoria(1, 'Lanches', null, Lanche), new Categoria(2, 'Pastéis', null, Pastel), new Categoria(3, 'Bebidas', null, Bebida),
-    new Categoria(4, 'Porções', null, Porção), new Categoria(5, 'Salgados', null, Salgado), new Categoria(6, 'Doces', null, Doces),
+    new Categoria(1, 'Lanches', null, "burger.png"), new Categoria(2, 'Pastéis', null, "pastel.png"), new Categoria(3, 'Bebidas', null, "drink.png"),
+    new Categoria(4, 'Porções', null, "porcao.png"), new Categoria(5, 'Salgados', null, "coxinha.png"), new Categoria(6, 'Doces', null, "chocolate.png"),
 
-    new Categoria(7, 'Hambúrguer', 1), new Categoria(8, 'Especiais', 1), new Categoria(9, 'Frango', 1), new Categoria(10, 'Gourmet', 1),
-    new Categoria(11, 'Pernil', 1), new Categoria(12, 'Choripán', 1), new Categoria(13, 'Contrafilé', 1), new Categoria(14, 'Costela Bovina', 1),
+    new Categoria(7, 'Hambúrguer', 1), new Categoria(8, 'Especiais', 1), new Categoria(9, 'Frango', 1),
+    new Categoria(10, 'Gourmet', 1), new Categoria(11, 'Pernil', 1),
+    new Categoria(12, 'Choripán', 1), new Categoria(13, 'Contrafilé', 1), new Categoria(14, 'Costela Bovina', 1),
 
     new Categoria(15, 'Tradicionais', 2), new Categoria(16, 'Gourmet', 2), new Categoria(17, 'Doces', 2),
     
