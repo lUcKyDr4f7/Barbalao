@@ -5,18 +5,20 @@ import Backdrop from '../Backdrop/Backdrop.jsx';
 import DeliveryWarning from '../DeliveryWarning/DeliveryWarning.jsx';
 import { CircleX } from 'lucide-react';
 /* import { AllProducts } from '../../assets/Data/AllProducts.js'; */
-import { CartCtx, OldCartCtx } from '../../Contexts/CartProvider/CartProvider.jsx';
 import { CartOpenCtx } from '../../Contexts/ModalOpenProvider/ModalOpenProvider.jsx';
+import { CartCtx, OldCartCtx } from '../../Contexts/CartProvider/CartProvider.jsx';
 
-export default function Cart(props) {
+export default function Cart() {
 
     //const Products = JSON.parse(localStorage.getItem("products")) || {};
+
+    const {isCartOpen, setIsCartOpen} = useContext(CartOpenCtx);
 
     const [isClosing, setIsClosing] = useState(false);
     function closeCart() {
         setIsClosing(true);
         setTimeout(() => {
-            props.setIsCartOpen(false);
+            setIsCartOpen(false);
             setIsClosing(false);
         }, 400);
     }
@@ -93,12 +95,12 @@ export default function Cart(props) {
     }, [cartItems]);
     
     useEffect(() => {
-        if(isOldCart) {
+        if(isClosing) {
             setIsOldCart(false);
         } /* else {
             setCartItems(JSON.parse(localStorage.getItem("cart")));
         } */
-    }, [props.isCartOpen]);
+    }, [isClosing]);
     
     useEffect(() => {
         createLinkWhatsApp();
@@ -115,47 +117,46 @@ export default function Cart(props) {
         window.open(linkWhatsapp);
     }
 
-    if(props.isCartOpen){
-        return(
-            <>
-            <Backdrop customClass={styles.backdrop} show={isClosing}
-                close={ () => closeCart() }>
-                <div className={`${styles.cart} ${isClosing?styles.closingCart:''}`} onClick={e => e.stopPropagation()}>
-                    <h1 className={styles.cartTitle}>
-                        {/* <button> */}
-                            <CircleX className={styles.closeCartBtn} onClick={ () => closeCart() }/>
-                        {/* </button> */}
-                        Carrinho
-                    </h1>
-                    <div className={styles.cartContainer}>
-                        {localStorage.getItem('oldCart')?.length>2?
-                            <div className={styles.cartTabs}>
-                                <p className={isOldCart?styles.activeTab:styles.inactiveTab}
-                                    onClick={() => setIsOldCart(true)}>Anterior</p>
-                                <p className={isOldCart?styles.inactiveTab:styles.activeTab}
-                                    onClick={() => setIsOldCart(false)}>Atual</p>
-                            </div>
-                        :''}
-                        <div className={styles.cartList}>{
-                            Object.keys(cartItems).length?
-                            Object.keys(cartItems).map( i => 
-                                <CartItem key={i} id={i} item={cartItems[i]} qtdBtn={changeQtdItem} />
-                            ):<p>O carrinho está vazio</p>
-                        }</div>
-                    </div>
-                    <li className={styles.totalValue}>Total: R${totalValue.toFixed(2).replace('.', ',')}</li>
-                    <label className={styles.delivery}>
-                        <input type="checkbox" name="delivery" checked={isDelivery}
-                                onChange={() => isDelivery?setIsDelivery(false):setShowDeliveryWarning(true)}/> 
-                        Delivery
-                    </label>
-                    <button disabled={Object.keys(cartItems).length == 0}
-                            onClick={() => order() } className={styles.whatsappBtn}>Fazer Pedido</button>
+    
+    return (
+        <>
+        <Backdrop customClass={styles.backdrop} show={isClosing}
+            close={ () => closeCart() }>
+            <div className={`${styles.cart} ${isClosing?styles.closingCart:''}`} onClick={e => e.stopPropagation()}>
+                <h1 className={styles.cartTitle}>
+                    {/* <button> */}
+                        <CircleX className={styles.closeCartBtn} onClick={ () => closeCart() }/>
+                    {/* </button> */}
+                    Carrinho
+                </h1>
+                <div className={styles.cartContainer}>
+                    {localStorage.getItem('oldCart')?.length>2?
+                        <div className={styles.cartTabs}>
+                            <p className={isOldCart?styles.activeTab:styles.inactiveTab}
+                                onClick={() => setIsOldCart(true)}>Anterior</p>
+                            <p className={isOldCart?styles.inactiveTab:styles.activeTab}
+                                onClick={() => setIsOldCart(false)}>Atual</p>
+                        </div>
+                    :''}
+                    <div className={styles.cartList}>{
+                        Object.keys(cartItems).length?
+                        Object.keys(cartItems).map( i => 
+                            <CartItem key={i} id={i} item={cartItems[i]} qtdBtn={changeQtdItem} />
+                        ):<p>O carrinho está vazio</p>
+                    }</div>
                 </div>
-            </Backdrop>
-            {showDeliveryWarning && <DeliveryWarning setIsDelivery={setIsDelivery}
-                setShowDeliveryWarning={setShowDeliveryWarning} />}
-            </>
-        ) 
-    }
+                <li className={styles.totalValue}>Total: R${totalValue.toFixed(2).replace('.', ',')}</li>
+                <label className={styles.delivery}>
+                    <input type="checkbox" name="delivery" checked={isDelivery}
+                            onChange={() => isDelivery?setIsDelivery(false):setShowDeliveryWarning(true)}/> 
+                    Delivery
+                </label>
+                <button disabled={Object.keys(cartItems).length == 0}
+                        onClick={() => order() } className={styles.whatsappBtn}>Fazer Pedido</button>
+            </div>
+        </Backdrop>
+        {showDeliveryWarning && <DeliveryWarning setIsDelivery={setIsDelivery}
+            setShowDeliveryWarning={setShowDeliveryWarning} />}
+        </>
+    )
 }

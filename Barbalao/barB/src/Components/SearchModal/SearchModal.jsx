@@ -1,12 +1,16 @@
 import styles from './styles.searchModal.module.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { CircleX } from 'lucide-react';
 import ProductCard from './ProductCard.jsx';
 import { searchProd } from '../../assets/Data/AllProducts.js';
-//import { CartOpenCtx } from '../../Contexts/ModalOpenProvider/ModalOpenProvider.jsx';
+import { ModalProdOpenCtx, SearchModalOpenCtx } from '../../Contexts/ModalOpenProvider/ModalOpenProvider.jsx';
 import Backdrop from '../Backdrop/Backdrop.jsx';
 
-export default function SearchModal({setSearchModal, setSelectedProduct, searchText}) {
+export default function SearchModal({searchText}) {
+
+  const {setSearchModal} = useContext(SearchModalOpenCtx);
+
+  const {setSelectedProduct} = useContext(ModalProdOpenCtx);
 
   const [isClosing, setIsClosing] = useState(false);
   function closeModal() {

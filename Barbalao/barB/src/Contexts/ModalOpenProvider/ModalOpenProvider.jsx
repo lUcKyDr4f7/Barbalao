@@ -4,6 +4,7 @@ import { AllProducts } from '../../assets/Data/AllProducts.js';
 
 export const ModalProdOpenCtx = createContext();
 export const CartOpenCtx = createContext();
+export const SearchModalOpenCtx = createContext();
 
 export default function ModalOpenProvider({children}) {
 
@@ -30,6 +31,8 @@ export default function ModalOpenProvider({children}) {
 
     const [isCartOpen, setIsCartOpen] = useState(false);
 
+    const [searchModal, setSearchModal] = useState(false);
+
     useEffect(() => {
 
         let theme = localStorage.getItem("theme");
@@ -48,12 +51,14 @@ export default function ModalOpenProvider({children}) {
         }
         document.body.classList = theme;
 
-    }, [selectedProduct, isCartOpen]);
+    }, [selectedProduct, isCartOpen, searchModal]);
 
     return (
         <ModalProdOpenCtx.Provider value={{selectedProduct, setSelectedProduct}}>
             <CartOpenCtx.Provider value={{isCartOpen, setIsCartOpen}}>
+                <SearchModalOpenCtx.Provider value={{searchModal, setSearchModal}}>
                 {children}
+                </SearchModalOpenCtx.Provider>
             </CartOpenCtx.Provider>
         </ModalProdOpenCtx.Provider>
     )

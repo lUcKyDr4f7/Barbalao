@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext, useRef } from 'react';
 
-import { ModalProdOpenCtx } from '../Contexts/ModalOpenProvider/ModalOpenProvider.jsx';
+import { ModalProdOpenCtx, CartOpenCtx, SearchModalOpenCtx } from '../Contexts/ModalOpenProvider/ModalOpenProvider.jsx';
 import { getCateg } from '../assets/Data/AllCategories.js';
 /* import { AllBanners } from '../assets/Data/AllBanners.js'; */
 
@@ -11,6 +11,7 @@ import BannerCarousel from '../Components/Banners/BannerCarousel.jsx';
 import SectionCateg from '../Components/CategSubCateg/SectionCateg.jsx';
 import Form from '../Components/Form/FormLogin.jsx';
 import SearchModal from '../Components/SearchModal/SearchModal.jsx';
+import Cart from '../Components/Cart/CartP.jsx';
 import ModalProd from '../Components/ModalProd/ModalProd.jsx';
 import Footer from '../Components/Footer/Footer.jsx';
 
@@ -18,8 +19,10 @@ import styles from '../Components/Css/styles.Home.module.css';
 
 export default function Home() {
 
-  const [searchModal, setSearchModal] = useState(false);
+  //const [searchModal, setSearchModal] = useState(false);
   const [searchText, setSearchText] = useState('');
+  const {isCartOpen, setIsCartOpen} = useContext(CartOpenCtx);
+  const {searchModal} = useContext(SearchModalOpenCtx);
   /* const [banners, setBanners] = useState(AllBanners); */
 
   /* const {cardapio, setCardapio, selectedProduct, setSelectedProduct} = useContext(ModalProdOpenCtx); */
@@ -42,7 +45,7 @@ export default function Home() {
   return (
     <>
     
-      <NavB setSearchModal={setSearchModal} searchText={searchText} setSearchText={setSearchText}/>
+      <NavB searchText={searchText} setSearchText={setSearchText}/>
 
       <section className="main">
         {/* <h2 className={styles.titleCateg}>Cardápio</h2> */}
@@ -60,11 +63,11 @@ export default function Home() {
         {categorias.length != 0 && <Footer />}
       </section>
 
-      {searchModal &&
-        <SearchModal setSearchModal={setSearchModal} setSelectedProduct={setSelectedProduct} searchText={searchText}/>}
+      {searchModal && <SearchModal searchText={searchText}/>}
+
+      {isCartOpen && <Cart />}
       
-      {selectedProduct && 
-        <ModalProd setProd={setSelectedProduct} prod={selectedProduct} />}
+      {selectedProduct && <ModalProd setProd={setSelectedProduct} prod={selectedProduct} />}
     </>
   );
 }

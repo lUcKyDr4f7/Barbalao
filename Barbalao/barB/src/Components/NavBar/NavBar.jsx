@@ -1,13 +1,14 @@
 import styles from './styles.NavBar.module.css';
 import logo from '../../assets/BarB.png';
 import { useState, useEffect, useContext } from 'react';
+import { Delete, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Cart from '../Cart/CartP.jsx'
+/* import Cart from '../Cart/CartP.jsx' */
 import { useAuth } from '../../Routes/AuthContext.jsx';
 import { CartCtx } from '../../Contexts/CartProvider/CartProvider.jsx';
-import { CartOpenCtx } from '../../Contexts/ModalOpenProvider/ModalOpenProvider.jsx';
+import { SearchModalOpenCtx, CartOpenCtx } from '../../Contexts/ModalOpenProvider/ModalOpenProvider.jsx';
 
-export default function NavB({setSearchModal, searchText, setSearchText}) {
+export default function NavB({searchText, setSearchText}) {
 
   /* Exibe botão painel se autenticado */
   const {authenticated} = useAuth()
@@ -36,7 +37,7 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
     document.body.classList = currentTheme;
   }
 
-  const {isCartOpen, setIsCartOpen} = useContext(CartOpenCtx);
+  const {setIsCartOpen} = useContext(CartOpenCtx);
   const [showTextBtns, setShowTextBtns] = useState(false);
   
   useEffect(() => {
@@ -55,6 +56,8 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
   }, []);
   
   let [ cartItems ] = useContext(CartCtx);
+  
+  const {setSearchModal} = useContext(SearchModalOpenCtx);
 
   const handleKeyDown = (e) => {
     /* console.log(e.target) */
@@ -67,35 +70,31 @@ export default function NavB({setSearchModal, searchText, setSearchText}) {
     <>
     {/*<!--========== Header ==========-->*/}
       <header className={styles.header}>
-        <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
+        {/* <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} /> */}
         <div className={styles.inner}>
           <div className={styles.logo}>
             <Link to="/" onClick={() => Location.reload()}><img  src={logo}/></Link>
           </div>
           {<div className={styles.searchBar}>
-            <input type="text" value={searchText} 
-            onChange={(e) => setSearchText(e.target.value)} 
-            name="searchBar" 
-            id="searchBar" 
-            placeholder='Pesquise algum produto...'
-            onKeyDown={handleKeyDown}/>
-            <button onClick={() => {
-              if (searchText) {
-                setSearchModal(true)
-              }}}>
-                <i className="ri-search-line"></i> 
+            <input type="text" value={searchText} name="searchBar" placeholder='Pesquise algum produto...'
+            onChange={(e) => setSearchText(e.target.value)} onKeyDown={handleKeyDown}  /* id="searchBar" */ />
+            {searchText && <button className={styles.searchBarBtn} onClick={() => setSearchText('')} >
+                <Delete /> 
+            </button>}
+            <button className={styles.searchBarBtn} onClick={() => searchText && setSearchModal(true)} >
+                <Search /> 
             </button>
           </div>}
-            {<div className={`${styles.textBtns} ${showTextBtns?styles.open:''}`}>
-              <Link to="/" onClick={() => Location.reload()}>Início</Link>
-              <Link to="/about-us" onClick={() => Location.reload()}>Sobre Nós</Link>
-              {admBtn}
-            </div>}
+          {<div className={`${styles.textBtns} ${showTextBtns?styles.open:''}`}>
+            <Link to="/" onClick={() => Location.reload()}>Início</Link>
+            <Link to="/about-us" onClick={() => Location.reload()}>Sobre Nós</Link>
+            {admBtn}
+          </div>}
           <div className={styles.headerBtns}>
             {/* <button>< i className="ri-search-line"></i></button> */}
             <button className={`${styles.menuBtn} ${showTextBtns?styles.open:''}`} onClick={() => setShowTextBtns(!showTextBtns)}>{showTextBtns?< i className="ri-close-line"></i>:< i className="ri-menu-line"></i>}</button>
             <button className={styles.themeButton} onClick={() => changeTheme()}><i className={themeIcon}></i></button>
-            <button className={styles.cartBtn} onClick={() => setIsCartOpen(!isCartOpen)}>
+            <button className={styles.cartBtn} onClick={() => setIsCartOpen(true)}>
               {(Object.keys(cartItems || {}).length > 0)&&<div className={styles.hasItem}></div>}
               <i className="ri-shopping-cart-2-fill"></i>
             </button>
